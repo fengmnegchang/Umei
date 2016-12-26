@@ -23,7 +23,34 @@ public final class R {
 <tr><td><code>TRANSLATE</code></td><td>1</td><td></td></tr>
 </table>
          */
-        public static final int animationType=0x7f01001d;
+        public static final int animationType=0x7f01003f;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int centered=0x7f01000e;
+        /**  Left/right padding of not active view titles. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+<p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int clipPadding=0x7f010001;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -33,7 +60,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int cursorHeight=0x7f010022;
+        public static final int cursorHeight=0x7f010044;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -43,7 +70,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int cursorMarginBottom=0x7f010026;
+        public static final int cursorMarginBottom=0x7f010048;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -53,7 +80,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int cursorMarginLeft=0x7f010023;
+        public static final int cursorMarginLeft=0x7f010045;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -63,7 +90,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int cursorMarginRight=0x7f010025;
+        public static final int cursorMarginRight=0x7f010047;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -73,11 +100,11 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int cursorMarginTop=0x7f010024;
+        public static final int cursorMarginTop=0x7f010046;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int cursorRes=0x7f010012;
+        public static final int cursorRes=0x7f010034;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -87,7 +114,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int cursorWidth=0x7f010021;
+        public static final int cursorWidth=0x7f010043;
         /** <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -95,7 +122,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int delay=0x7f010020;
+        public static final int delay=0x7f010042;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -105,7 +132,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int dividerHeight=0x7f010019;
+        public static final int dividerHeight=0x7f01003b;
         /** <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -113,7 +140,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int durationLarge=0x7f01001e;
+        public static final int durationLarge=0x7f010040;
         /** <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -121,7 +148,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int durationScroll=0x7f01001a;
+        public static final int durationScroll=0x7f01003c;
         /** <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -129,7 +156,147 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int durationSmall=0x7f01001f;
+        public static final int durationSmall=0x7f010041;
+        /**  Length of the delay to fade the indicator. 
+         <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int fadeDelay=0x7f010021;
+        /**  Length of the indicator fade to transparent. 
+         <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int fadeLength=0x7f010022;
+        /**  Whether or not the selected indicator fades. 
+         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int fades=0x7f010020;
+        /**  Color of the filled circle that represents the current page. 
+         <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int fillColor=0x7f010012;
+        /**  Color of the footer line and indicator. 
+         <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+<p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int footerColor=0x7f010006;
+        /**  Height of the indicator above the footer line. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int footerIndicatorHeight=0x7f01001a;
+        /**  Style of the indicator. Default is triangle. 
+         <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>none</code></td><td>0</td><td></td></tr>
+<tr><td><code>triangle</code></td><td>1</td><td></td></tr>
+<tr><td><code>underline</code></td><td>2</td><td></td></tr>
+</table>
+         */
+        public static final int footerIndicatorStyle=0x7f010019;
+        /**  Left and right padding of the underline indicator. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int footerIndicatorUnderlinePadding=0x7f01001b;
+        /**  Height of the footer line. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+<p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int footerLineHeight=0x7f010005;
+        /**  Padding between the bottom of the title and the footer. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int footerPadding=0x7f01001c;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int footerTriangleHeight=0x7f010007;
+        /**  Width of the gap between each indicator line. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int gapWidth=0x7f010018;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -137,7 +304,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int isReflect=0x7f010001;
+        public static final int isReflect=0x7f010024;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -145,7 +312,30 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int isShape=0x7f010002;
+        public static final int isShape=0x7f010025;
+        /**  Position of the line. 
+         <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>bottom</code></td><td>0</td><td></td></tr>
+<tr><td><code>top</code></td><td>1</td><td></td></tr>
+</table>
+         */
+        public static final int linePosition=0x7f01001d;
+        /**  Width of each indicator line. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int lineWidth=0x7f010017;
         /**  设置背景颜色,默认"#FF4081"
          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
@@ -155,7 +345,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int lv_background_color=0x7f01000d;
+        public static final int lv_background_color=0x7f01002f;
         /**  设置是否填充三角区域,默认false 
          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
@@ -164,7 +354,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int lv_fill_triangle=0x7f010011;
+        public static final int lv_fill_triangle=0x7f010033;
         /**  设置LabelView方向 
          <p>Must be one of the following constant values.</p>
 <table>
@@ -178,7 +368,7 @@ containing a value of this type.
 <tr><td><code>BOTTOM_RIGHT</code></td><td>85</td><td></td></tr>
 </table>
          */
-        public static final int lv_gravity=0x7f010010;
+        public static final int lv_gravity=0x7f010032;
         /**  设置LabelView所在矩形最小宽高,默认mFillTriangle?35dp:50dp
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -189,7 +379,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int lv_min_size=0x7f01000e;
+        public static final int lv_min_size=0x7f010030;
         /**  设置文字上下padding,默认3.5dp,mFillTriangle为true时无效
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -200,7 +390,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int lv_padding=0x7f01000f;
+        public static final int lv_padding=0x7f010031;
         /**  设置文字内容 
          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
@@ -209,7 +399,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int lv_text=0x7f010008;
+        public static final int lv_text=0x7f01002a;
         /**  设置文字是否支持全部大写,默认true
          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
@@ -218,7 +408,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int lv_text_all_caps=0x7f01000c;
+        public static final int lv_text_all_caps=0x7f01002e;
         /**  设置文字是否支持加粗,默认true 
          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
@@ -227,7 +417,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int lv_text_bold=0x7f01000b;
+        public static final int lv_text_bold=0x7f01002d;
         /**  设置文字颜色,默认#ffffff 
          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
@@ -237,7 +427,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int lv_text_color=0x7f010009;
+        public static final int lv_text_color=0x7f01002b;
         /**  设置文字大小,默认11sp 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -248,7 +438,36 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int lv_text_size=0x7f01000a;
+        public static final int lv_text_size=0x7f01002c;
+        /**  Color of the filled circles that represents pages. 
+         <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int pageColor=0x7f010013;
+        /**  Radius of the circles. This is also the spacing between circles. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+<p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int radius=0x7f010014;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -258,7 +477,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int radius=0x7f010004;
+        public static final int refle_spacing=0x7f010027;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -268,17 +487,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int refle_spacing=0x7f010005;
-        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
-Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
-in (inches), mm (millimeters).
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-         */
-        public static final int reflect_height=0x7f010003;
+        public static final int reflect_height=0x7f010026;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -286,7 +495,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int scalable=0x7f01001b;
+        public static final int scalable=0x7f01003d;
         /** <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -294,11 +503,64 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int scale=0x7f01001c;
+        public static final int scale=0x7f01003e;
+        /**  Whether or not the selected item is displayed as bold. 
+         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int selectedBold=0x7f01001e;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int selectedColor=0x7f01000f;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int shadowImageRes=0x7f010007;
+        public static final int shadowImageRes=0x7f010029;
+        /**  Whether or not the selected indicator snaps to the circles. 
+         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int snap=0x7f010015;
+        /**  Color of the open circles. 
+         <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int strokeColor=0x7f010016;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int strokeWidth=0x7f010010;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static final int textColor=0x7f010002;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -307,7 +569,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int textColorDefault=0x7f010013;
+        public static final int textColorDefault=0x7f010035;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -316,7 +578,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int textColorSelected=0x7f010014;
+        public static final int textColorSelected=0x7f010036;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -326,7 +588,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int textSize=0x7f010018;
+        public static final int textSize=0x7f01003a;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -336,7 +598,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int titleHeight=0x7f010016;
+        public static final int textSizeNormal=0x7f010003;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -346,7 +608,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int titleSpace=0x7f010017;
+        public static final int textSizeSelected=0x7f010004;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -356,7 +618,57 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int titleWidth=0x7f010015;
+        public static final int titleHeight=0x7f010038;
+        /**  Padding between titles when bumping into each other. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+<p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int titlePadding=0x7f010000;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int titleSpace=0x7f010039;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int titleWidth=0x7f010037;
+        /**  Padding between titles and the top of the View. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int topPadding=0x7f01001f;
         /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -364,507 +676,651 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int ttf_name=0x7f010000;
+        public static final int ttf_name=0x7f010023;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int unselectedColor=0x7f010011;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int upImageRes=0x7f010006;
+        public static final int upImageRes=0x7f010028;
+        /**  Style of the circle indicator. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int vpiCirclePageIndicatorStyle=0x7f010008;
+        /**  Style of the icon indicator's views. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int vpiIconPageIndicatorStyle=0x7f010009;
+        /**  Style of the line indicator. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int vpiLinePageIndicatorStyle=0x7f01000a;
+        /**  Style of the tab indicator's tabs. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int vpiTabPageIndicatorStyle=0x7f01000c;
+        /**  Style of the title indicator. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int vpiTitlePageIndicatorStyle=0x7f01000b;
+        /**  Style of the underline indicator. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int vpiUnderlinePageIndicatorStyle=0x7f01000d;
+    }
+    public static final class bool {
+        public static final int default_circle_indicator_centered=0x7f070000;
+        public static final int default_circle_indicator_snap=0x7f070001;
+        public static final int default_line_indicator_centered=0x7f070002;
+        public static final int default_title_indicator_selected_bold=0x7f070003;
+        public static final int default_underline_indicator_fades=0x7f070004;
     }
     public static final class color {
         /** 蜜色 
          */
-        public static final int aliceblue=0x7f07002f;
+        public static final int aliceblue=0x7f060042;
         /** 亚麻色 
          */
-        public static final int antiquewhite=0x7f070025;
+        public static final int antiquewhite=0x7f060038;
         /** 中灰兰色 
          */
-        public static final int aqua=0x7f07007e;
+        public static final int aqua=0x7f060091;
         /** 粟色 
          */
-        public static final int aquamarine=0x7f070063;
+        public static final int aquamarine=0x7f060076;
         /** 沙褐色 
          */
-        public static final int azure=0x7f07002d;
+        public static final int azure=0x7f060040;
         /** 烟白色 
          */
-        public static final int beige=0x7f07002a;
+        public static final int beige=0x7f06003d;
         /** 浅玫瑰色 
          */
-        public static final int bisque=0x7f070011;
+        public static final int bisque=0x7f060024;
         /** 海军色 
          */
-        public static final int black=0x7f07008d;
+        public static final int black=0x7f0600a0;
         /** 番木色 
          */
-        public static final int blanchedalmond=0x7f07000f;
+        public static final int blanchedalmond=0x7f060022;
         /** 暗绿色 
          */
-        public static final int blue=0x7f070089;
+        public static final int blue=0x7f06009c;
         /** 暗红色 
          */
-        public static final int blueviolet=0x7f07005c;
+        public static final int blueviolet=0x7f06006f;
         /** 暗灰色 
          */
-        public static final int brown=0x7f070051;
+        public static final int brown=0x7f060064;
         /** 亮青色 
          */
-        public static final int burlywood=0x7f070037;
+        public static final int burlywood=0x7f06004a;
         /** 菊兰色 
          */
-        public static final int cadetblue=0x7f07006e;
+        public static final int cadetblue=0x7f060081;
         /** 碧绿色 
          */
-        public static final int chartreuse=0x7f070064;
+        public static final int chartreuse=0x7f060077;
         /** 茶色 
          */
-        public static final int chocolate=0x7f070041;
+        public static final int chocolate=0x7f060054;
         /** 暗桔黄色 
          */
-        public static final int coral=0x7f07001b;
+        public static final int coral=0x7f06002e;
         /** 中绿色 
          */
-        public static final int cornflowerblue=0x7f07006d;
+        public static final int cornflowerblue=0x7f060080;
         /** 柠檬绸色 
          */
-        public static final int cornsilk=0x7f07000b;
+        public static final int cornsilk=0x7f06001e;
         /** 淡灰色 
          */
-        public static final int crimson=0x7f07003a;
+        public static final int crimson=0x7f06004d;
         /** 浅绿色 
          */
-        public static final int cyan=0x7f07007f;
+        public static final int cyan=0x7f060092;
         /** 中兰色 
          */
-        public static final int darkblue=0x7f07008b;
+        public static final int darkblue=0x7f06009e;
         /** 深天蓝色 
          */
-        public static final int darkcyan=0x7f070085;
+        public static final int darkcyan=0x7f060098;
         /** 中粉紫色 
          */
-        public static final int darkgoldenrod=0x7f070049;
+        public static final int darkgoldenrod=0x7f06005c;
         /** 亮蓝色 
          */
-        public static final int darkgray=0x7f070050;
+        public static final int darkgray=0x7f060063;
         /** 绿色 
          */
-        public static final int darkgreen=0x7f070088;
+        public static final int darkgreen=0x7f06009b;
         /** 银色 
          */
-        public static final int darkkhaki=0x7f070046;
+        public static final int darkkhaki=0x7f060059;
         /** 重褐色 
          */
-        public static final int darkmagenta=0x7f07005a;
+        public static final int darkmagenta=0x7f06006d;
         /** 军兰色 
          */
-        public static final int darkolivegreen=0x7f07006f;
+        public static final int darkolivegreen=0x7f060082;
         /** 亮肉色 
          */
-        public static final int darkorange=0x7f07001a;
+        public static final int darkorange=0x7f06002d;
         /** 赭色 
          */
-        public static final int darkorchid=0x7f070053;
+        public static final int darkorchid=0x7f060066;
         /** 暗洋红 
          */
-        public static final int darkred=0x7f07005b;
+        public static final int darkred=0x7f06006e;
         /** 紫罗兰色 
          */
-        public static final int darksalmon=0x7f070034;
+        public static final int darksalmon=0x7f060047;
         /** 亮绿色 
          */
-        public static final int darkseagreen=0x7f070058;
+        public static final int darkseagreen=0x7f06006b;
         /** 中绿宝石 
          */
-        public static final int darkslateblue=0x7f070072;
+        public static final int darkslateblue=0x7f060085;
         /** 橙绿色 
          */
-        public static final int darkslategray=0x7f070078;
+        public static final int darkslategray=0x7f06008b;
         /** 中春绿色 
          */
-        public static final int darkturquoise=0x7f070083;
+        public static final int darkturquoise=0x7f060096;
         /** 苍绿色 
          */
-        public static final int darkviolet=0x7f070055;
+        public static final int darkviolet=0x7f060068;
         /** 红橙色 
          */
-        public static final int deeppink=0x7f07001f;
+        public static final int deeppink=0x7f060032;
         /** 暗宝石绿 
          */
-        public static final int deepskyblue=0x7f070084;
+        public static final int deepskyblue=0x7f060097;
+        public static final int default_circle_indicator_fill_color=0x7f06000a;
+        public static final int default_circle_indicator_page_color=0x7f06000b;
+        public static final int default_circle_indicator_stroke_color=0x7f06000c;
+        public static final int default_line_indicator_selected_color=0x7f06000d;
+        public static final int default_line_indicator_unselected_color=0x7f06000e;
         /** 灰色8f 
          */
-        public static final int default_menu_back=0x7f070091;
-        public static final int default_menu_press_back=0x7f070092;
-        public static final int default_menu_press_text=0x7f070093;
-        public static final int default_menu_text=0x7f070094;
+        public static final int default_menu_back=0x7f0600a4;
+        public static final int default_menu_press_back=0x7f0600a5;
+        public static final int default_menu_press_text=0x7f0600a6;
+        public static final int default_menu_text=0x7f0600a7;
+        public static final int default_title_indicator_footer_color=0x7f06000f;
+        public static final int default_title_indicator_selected_color=0x7f060010;
+        public static final int default_title_indicator_text_color=0x7f060011;
+        public static final int default_underline_indicator_selected_color=0x7f060012;
         /** 石蓝色 
          */
-        public static final int dimgray=0x7f07006b;
-        public static final int divider=0x7f070095;
+        public static final int dimgray=0x7f06007e;
+        public static final int divider=0x7f0600a8;
         /** 亮海蓝色 
          */
-        public static final int dodgerblue=0x7f07007c;
+        public static final int dodgerblue=0x7f06008f;
         /** 暗金黄色 
          */
-        public static final int firebrick=0x7f07004a;
+        public static final int firebrick=0x7f06005d;
         /** 雪白色 
          */
-        public static final int floralwhite=0x7f070009;
+        public static final int floralwhite=0x7f06001c;
         /** 海绿色 
          */
-        public static final int forestgreen=0x7f07007a;
+        public static final int forestgreen=0x7f06008d;
         /** 深粉红色 
          */
-        public static final int fuchsia=0x7f070020;
+        public static final int fuchsia=0x7f060033;
         /** 洋李色 
          */
-        public static final int gainsboro=0x7f070039;
+        public static final int gainsboro=0x7f06004c;
         /** 鲜肉色 
          */
-        public static final int ghostwhite=0x7f070027;
+        public static final int ghostwhite=0x7f06003a;
         /** 桃色 
          */
-        public static final int gold=0x7f070015;
+        public static final int gold=0x7f060028;
         /** 苍紫罗兰色 
          */
-        public static final int goldenrod=0x7f07003c;
+        public static final int goldenrod=0x7f06004f;
         /** 黑色 
          */
-        public static final int grassgreen=0x7f07008e;
+        public static final int grassgreen=0x7f0600a1;
         /** 天蓝色 
          */
-        public static final int gray=0x7f07005f;
+        public static final int gray=0x7f060072;
         /** 灰色cc 
          */
-        public static final int gray_8f=0x7f070090;
+        public static final int gray_8f=0x7f0600a3;
         /** 草绿色 
          */
-        public static final int gray_cc=0x7f07008f;
+        public static final int gray_cc=0x7f0600a2;
         /** 水鸭色 
          */
-        public static final int green=0x7f070087;
+        public static final int green=0x7f06009a;
         /** 苍宝石绿 
          */
-        public static final int greenyellow=0x7f07004e;
-        public static final int half_transparent=0x7f070000;
-        public static final int header=0x7f070001;
+        public static final int greenyellow=0x7f060061;
+        public static final int half_transparent=0x7f060013;
+        public static final int header=0x7f060014;
         /** 天蓝色 
          */
-        public static final int honeydew=0x7f07002e;
+        public static final int honeydew=0x7f060041;
         /** 珊瑚色 
          */
-        public static final int hotpink=0x7f07001c;
+        public static final int hotpink=0x7f06002f;
         /** 秘鲁色 
          */
-        public static final int indianred=0x7f070043;
+        public static final int indianred=0x7f060056;
         /** 暗橄榄绿 
          */
-        public static final int indigo=0x7f070070;
+        public static final int indigo=0x7f060083;
         /** 白色 
          */
-        public static final int ivory=0x7f070005;
+        public static final int ivory=0x7f060018;
         /** 艾利斯兰 
          */
-        public static final int khaki=0x7f070030;
+        public static final int khaki=0x7f060043;
         /** 暗肉色 
          */
-        public static final int lavender=0x7f070035;
+        public static final int lavender=0x7f060048;
         /** 海贝色 
          */
-        public static final int lavenderblush=0x7f07000d;
+        public static final int lavenderblush=0x7f060020;
         /** 黄绿色 
          */
-        public static final int lawngreen=0x7f070065;
+        public static final int lawngreen=0x7f060078;
         /** 花白色 
          */
-        public static final int lemonchiffon=0x7f07000a;
+        public static final int lemonchiffon=0x7f06001d;
         /** 黄绿色 
          */
-        public static final int lightblue=0x7f07004f;
+        public static final int lightblue=0x7f060062;
         /** 黄褐色 
          */
-        public static final int lightcoral=0x7f070031;
+        public static final int lightcoral=0x7f060044;
         /** 淡紫色 
          */
-        public static final int lightcyan=0x7f070036;
+        public static final int lightcyan=0x7f060049;
         /** 老花色 
          */
-        public static final int lightgoldenrodyellow=0x7f070023;
+        public static final int lightgoldenrodyellow=0x7f060036;
         /** 蓟色 
          */
-        public static final int lightgray=0x7f07003f;
+        public static final int lightgray=0x7f060052;
         /** 中紫色 
          */
-        public static final int lightgreen=0x7f070057;
+        public static final int lightgreen=0x7f06006a;
         /** 粉红色 
          */
-        public static final int lightpink=0x7f070017;
+        public static final int lightpink=0x7f06002a;
         /** 橙色 
          */
-        public static final int lightsalmon=0x7f070019;
+        public static final int lightsalmon=0x7f06002c;
         /** 森林绿 
          */
-        public static final int lightseagreen=0x7f07007b;
+        public static final int lightseagreen=0x7f06008e;
         /** 紫罗兰蓝色 
          */
-        public static final int lightskyblue=0x7f07005d;
+        public static final int lightskyblue=0x7f060070;
         /** 中暗蓝色 
          */
-        public static final int lightslategray=0x7f070067;
+        public static final int lightslategray=0x7f06007a;
         /** 粉蓝色 
          */
-        public static final int lightsteelblue=0x7f07004c;
+        public static final int lightsteelblue=0x7f06005f;
         /** 象牙色 
          */
-        public static final int lightyellow=0x7f070006;
+        public static final int lightyellow=0x7f060019;
         /** 春绿色 
          */
-        public static final int lime=0x7f070081;
+        public static final int lime=0x7f060094;
         /** 中海蓝 
          */
-        public static final int limegreen=0x7f070077;
+        public static final int limegreen=0x7f06008a;
         /** 亮金黄色 
          */
-        public static final int linen=0x7f070024;
+        public static final int linen=0x7f060037;
         /** 紫色 
          */
-        public static final int maroon=0x7f070062;
+        public static final int maroon=0x7f060075;
         /** 暗灰色 
          */
-        public static final int mediumaquamarine=0x7f07006c;
+        public static final int mediumaquamarine=0x7f06007f;
         /** 蓝色 
          */
-        public static final int mediumblue=0x7f07008a;
+        public static final int mediumblue=0x7f06009d;
         /** 褐玫瑰红 
          */
-        public static final int mediumorchid=0x7f070048;
+        public static final int mediumorchid=0x7f06005b;
         /** 暗紫罗兰色 
          */
-        public static final int mediumpurple=0x7f070056;
+        public static final int mediumpurple=0x7f060069;
         /** 青绿色 
          */
-        public static final int mediumseagreen=0x7f070076;
+        public static final int mediumseagreen=0x7f060089;
         /** 草绿色 
          */
-        public static final int mediumslateblue=0x7f070066;
+        public static final int mediumslateblue=0x7f060079;
         /** 酸橙色 
          */
-        public static final int mediumspringgreen=0x7f070082;
+        public static final int mediumspringgreen=0x7f060095;
         /** 靛青色 
          */
-        public static final int mediumturquoise=0x7f070071;
+        public static final int mediumturquoise=0x7f060084;
         /** 印第安红 
          */
-        public static final int mediumvioletred=0x7f070044;
+        public static final int mediumvioletred=0x7f060057;
         /** 闪兰色 
          */
-        public static final int midnightblue=0x7f07007d;
+        public static final int midnightblue=0x7f060090;
         /** 幽灵白 
          */
-        public static final int mintcream=0x7f070028;
+        public static final int mintcream=0x7f06003b;
         /** 白杏色 
          */
-        public static final int mistyrose=0x7f070010;
+        public static final int mistyrose=0x7f060023;
         /** 桔黄色 
          */
-        public static final int moccasin=0x7f070012;
+        public static final int moccasin=0x7f060025;
         /** 鹿皮色 
          */
-        public static final int navajowhite=0x7f070013;
+        public static final int navajowhite=0x7f060026;
         /** 暗蓝色 
          */
-        public static final int navy=0x7f07008c;
+        public static final int navy=0x7f06009f;
         /** 红色 
          */
-        public static final int oldlace=0x7f070022;
+        public static final int oldlace=0x7f060035;
         /** 灰色 
          */
-        public static final int olive=0x7f070060;
+        public static final int olive=0x7f060073;
         /** 灰石色 
          */
-        public static final int olivedrab=0x7f070069;
+        public static final int olivedrab=0x7f06007c;
         /** 亮粉红色 
          */
-        public static final int orange=0x7f070018;
+        public static final int orange=0x7f06002b;
         /** 西红柿色 
          */
-        public static final int orangered=0x7f07001e;
+        public static final int orangered=0x7f060031;
         /** 金麒麟色 
          */
-        public static final int orchid=0x7f07003d;
+        public static final int orchid=0x7f060050;
         /** 亮珊瑚色 
          */
-        public static final int palegoldenrod=0x7f070032;
+        public static final int palegoldenrod=0x7f060045;
         /** 暗紫色 
          */
-        public static final int palegreen=0x7f070054;
+        public static final int palegreen=0x7f060067;
         /** 亮钢兰色 
          */
-        public static final int paleturquoise=0x7f07004d;
+        public static final int paleturquoise=0x7f060060;
         /** 暗深红色 
          */
-        public static final int palevioletred=0x7f07003b;
+        public static final int palevioletred=0x7f06004e;
         /** 淡紫红 
          */
-        public static final int papayawhip=0x7f07000e;
+        public static final int papayawhip=0x7f060021;
         /** 纳瓦白 
          */
-        public static final int peachpuff=0x7f070014;
+        public static final int peachpuff=0x7f060027;
         /** 巧可力色 
          */
-        public static final int peru=0x7f070042;
+        public static final int peru=0x7f060055;
         /** 金色 
          */
-        public static final int pink=0x7f070016;
+        public static final int pink=0x7f060029;
         /** 实木色 
          */
-        public static final int plum=0x7f070038;
+        public static final int plum=0x7f06004b;
         /** 火砖色 
          */
-        public static final int powderblue=0x7f07004b;
+        public static final int powderblue=0x7f06005e;
         /** 橄榄色 
          */
-        public static final int purple=0x7f070061;
+        public static final int purple=0x7f060074;
         /** 紫红色 
          */
-        public static final int red=0x7f070021;
+        public static final int red=0x7f060034;
         /** 暗黄褐色 
          */
-        public static final int rosybrown=0x7f070047;
+        public static final int rosybrown=0x7f06005a;
         /** 钢兰色 
          */
-        public static final int royalblue=0x7f070074;
+        public static final int royalblue=0x7f060087;
         /** 暗海兰色 
          */
-        public static final int saddlebrown=0x7f070059;
+        public static final int saddlebrown=0x7f06006c;
         /** 古董白 
          */
-        public static final int salmon=0x7f070026;
+        public static final int salmon=0x7f060039;
         /** 浅黄色 
          */
-        public static final int sandybrown=0x7f07002c;
+        public static final int sandybrown=0x7f06003f;
         /** 暗瓦灰色 
          */
-        public static final int seagreen=0x7f070079;
+        public static final int seagreen=0x7f06008c;
         /** 米绸色 
          */
-        public static final int seashell=0x7f07000c;
+        public static final int seashell=0x7f06001f;
         /** 褐色 
          */
-        public static final int sienna=0x7f070052;
+        public static final int sienna=0x7f060065;
         /** 中紫罗兰色 
          */
-        public static final int silver=0x7f070045;
+        public static final int silver=0x7f060058;
         /** 亮天蓝色 
          */
-        public static final int skyblue=0x7f07005e;
+        public static final int skyblue=0x7f060071;
         /** 深绿褐色 
          */
-        public static final int slateblue=0x7f07006a;
+        public static final int slateblue=0x7f06007d;
         /** 亮蓝灰 
          */
-        public static final int slategray=0x7f070068;
+        public static final int slategray=0x7f06007b;
         /** 黄色 
          */
-        public static final int snow=0x7f070008;
+        public static final int snow=0x7f06001b;
         /** 青色 
          */
-        public static final int springgreen=0x7f070080;
+        public static final int springgreen=0x7f060093;
         /** 暗灰蓝色 
          */
-        public static final int steelblue=0x7f070073;
+        public static final int steelblue=0x7f060086;
+        public static final int tab_indicator_text=0x7f0600a9;
+        public static final int tab_indicator_text_selected=0x7f060000;
+        public static final int tab_indicator_text_unselected=0x7f060001;
         /** 亮灰色 
          */
-        public static final int tan=0x7f070040;
+        public static final int tan=0x7f060053;
         /** 暗青色 
          */
-        public static final int teal=0x7f070086;
+        public static final int teal=0x7f060099;
         /** 淡紫色 
          */
-        public static final int thistle=0x7f07003e;
+        public static final int thistle=0x7f060051;
         /** 热粉红色 
          */
-        public static final int tomato=0x7f07001d;
-        public static final int transparent=0x7f070003;
+        public static final int tomato=0x7f060030;
+        public static final int transparent=0x7f060016;
         /** 皇家蓝 
          */
-        public static final int turquoise=0x7f070075;
+        public static final int turquoise=0x7f060088;
         /** 苍麒麟色 
          */
-        public static final int violet=0x7f070033;
+        public static final int violet=0x7f060046;
+        public static final int vpi__background_holo_dark=0x7f060002;
+        public static final int vpi__background_holo_light=0x7f060003;
+        public static final int vpi__bright_foreground_disabled_holo_dark=0x7f060006;
+        public static final int vpi__bright_foreground_disabled_holo_light=0x7f060007;
+        public static final int vpi__bright_foreground_holo_dark=0x7f060004;
+        public static final int vpi__bright_foreground_holo_light=0x7f060005;
+        public static final int vpi__bright_foreground_inverse_holo_dark=0x7f060008;
+        public static final int vpi__bright_foreground_inverse_holo_light=0x7f060009;
+        public static final int vpi__dark_theme=0x7f0600aa;
+        public static final int vpi__light_theme=0x7f0600ab;
         /** 米色 
          */
-        public static final int wheat=0x7f07002b;
+        public static final int wheat=0x7f06003e;
         /** 透明色 
          */
-        public static final int white=0x7f070004;
-        public static final int white_50=0x7f070002;
+        public static final int white=0x7f060017;
+        public static final int white_50=0x7f060015;
         /** 薄荷色 
          */
-        public static final int whitesmoke=0x7f070029;
+        public static final int whitesmoke=0x7f06003c;
         /** 亮黄色 
          */
-        public static final int yellow=0x7f070007;
+        public static final int yellow=0x7f06001a;
     }
     public static final class dimen {
+        /**  Default screen margins, per the Android Design guidelines. 
+         */
+        public static final int activity_horizontal_margin=0x7f05001b;
+        public static final int activity_vertical_margin=0x7f05001c;
+        /**  For buttons 
+         */
+        public static final int common_text_size_large=0x7f05001d;
+        /**  For list texts (top line) 
+         */
+        public static final int common_text_size_middle=0x7f05001e;
+        public static final int common_text_size_middle_2=0x7f05001f;
+        /**  For list texts (bottom line), summary texts, icon texts, descriptions, tag texts 
+         */
+        public static final int common_text_size_small=0x7f050020;
+        public static final int common_text_size_small_2=0x7f050021;
+        public static final int common_text_size_small_3=0x7f050022;
+        public static final int default_circle_indicator_radius=0x7f050003;
+        public static final int default_circle_indicator_stroke_width=0x7f050004;
+        public static final int default_line_indicator_gap_width=0x7f050006;
+        public static final int default_line_indicator_line_width=0x7f050005;
+        public static final int default_line_indicator_stroke_width=0x7f050007;
+        public static final int default_title_indicator_clip_padding=0x7f050008;
+        public static final int default_title_indicator_footer_indicator_height=0x7f05000a;
+        public static final int default_title_indicator_footer_indicator_underline_padding=0x7f05000b;
+        public static final int default_title_indicator_footer_line_height=0x7f050009;
+        public static final int default_title_indicator_footer_padding=0x7f05000c;
+        public static final int default_title_indicator_text_size=0x7f05000d;
+        public static final int default_title_indicator_title_padding=0x7f05000e;
+        public static final int default_title_indicator_top_padding=0x7f05000f;
         /**  滚动窗口 
          */
-        public static final int fab_margin=0x7f080007;
+        public static final int fab_margin=0x7f050017;
         /**  滚动窗口 
          */
-        public static final int fading_edge=0x7f080000;
-        public static final int litpic_width=0x7f080008;
-        public static final int nav_bar_margin_top=0x7f080006;
-        public static final int nav_tab_text_size=0x7f080003;
-        public static final int new_image_height=0x7f08000a;
-        public static final int new_image_width=0x7f080009;
+        public static final int fading_edge=0x7f050010;
+        public static final int header_footer_left_right_padding=0x7f050024;
+        public static final int header_footer_top_bottom_padding=0x7f050025;
+        public static final int home_image_height=0x7f050028;
+        public static final int indicator_corner_radius=0x7f050001;
+        public static final int indicator_internal_padding=0x7f050002;
+        public static final int indicator_right_padding=0x7f050000;
+        public static final int litpic_height=0x7f050026;
+        public static final int litpic_width=0x7f050018;
+        public static final int nav_bar_margin_top=0x7f050016;
+        public static final int nav_tab_text_size=0x7f050013;
+        public static final int new_image_height=0x7f05001a;
+        public static final int new_image_width=0x7f050019;
+        public static final int new_meinv_image_height=0x7f050027;
+        public static final int page_margin_width=0x7f050023;
         /**  标题栏 
          */
-        public static final int tab_highlight_height=0x7f080001;
-        public static final int tab_left_offset=0x7f080005;
-        public static final int tab_recommend_margin_left=0x7f080002;
-        public static final int text_size_50=0x7f080004;
+        public static final int tab_highlight_height=0x7f050011;
+        public static final int tab_left_offset=0x7f050015;
+        public static final int tab_recommend_margin_left=0x7f050012;
+        public static final int text_size_50=0x7f050014;
     }
     public static final class drawable {
-        public static final int ic_bg_menu=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
-        public static final int ic_sp_block_focus=0x7f020002;
-        public static final int item_shadow=0x7f020003;
-        public static final int key_bg_rectangle=0x7f020004;
-        public static final int radio_btn_check_false=0x7f020005;
-        public static final int radio_btn_check_true=0x7f020006;
-        public static final int shape_rectangle_red=0x7f020007;
-        public static final int tab_title_background=0x7f020008;
-        public static final int test_rectangle=0x7f020009;
-        public static final int time_axis_oval=0x7f02000a;
+        public static final int common_v4=0x7f020000;
+        public static final int custom_tab_indicator=0x7f020001;
+        public static final int custom_tab_indicator_divider=0x7f020002;
+        public static final int custom_tab_indicator_focused=0x7f020003;
+        public static final int custom_tab_indicator_selected=0x7f020004;
+        public static final int custom_tab_indicator_selected_focused=0x7f020005;
+        public static final int custom_tab_indicator_selected_pressed=0x7f020006;
+        public static final int custom_tab_indicator_unselected=0x7f020007;
+        public static final int custom_tab_indicator_unselected_focused=0x7f020008;
+        public static final int custom_tab_indicator_unselected_pressed=0x7f020009;
+        public static final int dx_main_screen_bkg=0x7f02000a;
+        public static final int dx_new_bkg=0x7f02000b;
+        public static final int dx_new_tips_small=0x7f02000c;
+        public static final int edittext_shape=0x7f02000d;
+        public static final int ic_launcher=0x7f02000e;
+        public static final int indicator_bg_bottom=0x7f02000f;
+        public static final int indicator_bg_top=0x7f020010;
+        public static final int radio_btn_check_false=0x7f020011;
+        public static final int radio_btn_check_true=0x7f020012;
+        public static final int tab_title_background=0x7f020013;
+        public static final int vpi__tab_indicator=0x7f020014;
+        public static final int vpi__tab_selected_focused_holo=0x7f020015;
+        public static final int vpi__tab_selected_holo=0x7f020016;
+        public static final int vpi__tab_selected_pressed_holo=0x7f020017;
+        public static final int vpi__tab_unselected_focused_holo=0x7f020018;
+        public static final int vpi__tab_unselected_holo=0x7f020019;
+        public static final int vpi__tab_unselected_pressed_holo=0x7f02001a;
     }
     public static final class id {
-        public static final int BOTTOM_LEFT=0x7f090001;
-        public static final int BOTTOM_RIGHT=0x7f090002;
-        public static final int DEFAULT=0x7f090005;
-        public static final int TOP_LEFT=0x7f090003;
-        public static final int TOP_RIGHT=0x7f090004;
-        public static final int TRANSLATE=0x7f090006;
-        public static final int openTabHost=0x7f090007;
+        public static final int BOTTOM_LEFT=0x7f0b0006;
+        public static final int BOTTOM_RIGHT=0x7f0b0007;
+        public static final int DEFAULT=0x7f0b000a;
+        public static final int TOP_LEFT=0x7f0b0008;
+        public static final int TOP_RIGHT=0x7f0b0009;
+        public static final int TRANSLATE=0x7f0b000b;
+        public static final int bottom=0x7f0b0004;
+        public static final int imageview=0x7f0b000f;
+        public static final int indicator=0x7f0b000c;
+        public static final int none=0x7f0b0001;
+        public static final int openTabHost=0x7f0b000e;
+        public static final int tab_title=0x7f0b0011;
+        public static final int tab_title_sum=0x7f0b0012;
+        public static final int tab_title_tips=0x7f0b0013;
         /**  标题栏id 
          */
-        public static final int title_bar=0x7f090000;
-        public static final int tv_tab_indicator=0x7f090009;
-        public static final int viewpager=0x7f090008;
+        public static final int title_bar=0x7f0b0000;
+        public static final int top=0x7f0b0005;
+        public static final int triangle=0x7f0b0002;
+        public static final int tv_tab_indicator=0x7f0b0010;
+        public static final int underline=0x7f0b0003;
+        public static final int viewpager=0x7f0b000d;
+    }
+    public static final class integer {
+        public static final int default_circle_indicator_orientation=0x7f080000;
+        public static final int default_title_indicator_footer_indicator_style=0x7f080001;
+        public static final int default_title_indicator_line_position=0x7f080002;
+        public static final int default_underline_indicator_fade_delay=0x7f080003;
+        public static final int default_underline_indicator_fade_length=0x7f080004;
     }
     public static final class layout {
-        public static final int fragment_common_tab_horizontal_viewpager=0x7f030000;
-        public static final int tab_view_indicator_item=0x7f030001;
-        public static final int tabhost_title_head=0x7f030002;
+        public static final int activity_umei_main_indicator_viewpager=0x7f030000;
+        public static final int activity_umei_main_tabhost_viewpager=0x7f030001;
+        public static final int fragment_common_tab_horizontal_viewpager=0x7f030002;
+        public static final int fragment_common_v4=0x7f030003;
+        public static final int tab_view_indicator_item=0x7f030004;
+        public static final int tabhost_title_head=0x7f030005;
+        public static final int title_flow_indicator=0x7f030006;
+        public static final int title_flow_indicator_v2=0x7f030007;
     }
     public static final class string {
-        public static final int app_name=0x7f050000;
-        public static final int fzlt_cu_hei=0x7f050002;
+        public static final int app_name=0x7f090000;
+        public static final int fzlt_cu_hei=0x7f090002;
         /**  viewpager 标题栏字体 
          */
-        public static final int fzlt_zhun_hei=0x7f050001;
-        public static final int nav_tab_focus_ttf=0x7f050004;
-        public static final int nav_tab_normal_ttf=0x7f050003;
+        public static final int fzlt_zhun_hei=0x7f090001;
+        public static final int nav_tab_focus_ttf=0x7f090004;
+        public static final int nav_tab_normal_ttf=0x7f090003;
     }
     public static final class style {
         /** 
@@ -877,24 +1333,6 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             backward-compatibility can go here.
         
 
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-    
-
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        
-
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-    
-
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        
-
         Base application theme for API 11+. This theme completely replaces
         AppBaseTheme from res/values/styles.xml on API 11+ devices.
     
@@ -905,6 +1343,15 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         res/values-v11/styles.xml on API 14+ devices.
     
  API 14 theme customizations can go here. 
+
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    
+
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        
 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
@@ -946,7 +1393,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f060000;
+        public static final int AppBaseTheme=0x7f0a0000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
  Application theme. 
@@ -955,12 +1402,200 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
  All customizations that are NOT specific to a particular API-level can go here. 
  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
- Application theme. 
- All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f060001;
+        public static final int AppTheme=0x7f0a0001;
+        public static final int CustomCirclePageIndicator=0x7f0a0007;
+        public static final int CustomLinePageIndicator=0x7f0a0006;
+        public static final int CustomTabPageIndicator=0x7f0a0008;
+        public static final int CustomTabPageIndicator_Text=0x7f0a0009;
+        public static final int CustomTitlePageIndicator=0x7f0a0005;
+        public static final int CustomUnderlinePageIndicator=0x7f0a000a;
+        public static final int MyWidget=0x7f0a0002;
+        public static final int MyWidget_TabText=0x7f0a0003;
+        public static final int StyledIndicators=0x7f0a0004;
+        public static final int TextAppearance_TabPageIndicator=0x7f0a000e;
+        public static final int Theme_PageIndicatorDefaults=0x7f0a000b;
+        public static final int Widget=0x7f0a000c;
+        public static final int Widget_IconPageIndicator=0x7f0a000f;
+        public static final int Widget_TabPageIndicator=0x7f0a000d;
     }
     public static final class styleable {
+        /** Attributes that can be used with a CirclePageIndicator.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #CirclePageIndicator_android_background android:background}</code></td><td> View background </td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_android_orientation android:orientation}</code></td><td> Orientation of the indicator.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_centered com.open.umei:centered}</code></td><td> Whether or not the indicators should be centered.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_fillColor com.open.umei:fillColor}</code></td><td> Color of the filled circle that represents the current page.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_pageColor com.open.umei:pageColor}</code></td><td> Color of the filled circles that represents pages.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_radius com.open.umei:radius}</code></td><td> Radius of the circles.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_snap com.open.umei:snap}</code></td><td> Whether or not the selected indicator snaps to the circles.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_strokeColor com.open.umei:strokeColor}</code></td><td> Color of the open circles.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_strokeWidth com.open.umei:strokeWidth}</code></td><td> Width of the stroke used to draw the circles.</td></tr>
+           </table>
+           @see #CirclePageIndicator_android_background
+           @see #CirclePageIndicator_android_orientation
+           @see #CirclePageIndicator_centered
+           @see #CirclePageIndicator_fillColor
+           @see #CirclePageIndicator_pageColor
+           @see #CirclePageIndicator_radius
+           @see #CirclePageIndicator_snap
+           @see #CirclePageIndicator_strokeColor
+           @see #CirclePageIndicator_strokeWidth
+         */
+        public static final int[] CirclePageIndicator = {
+            0x010100c4, 0x010100d4, 0x7f01000e, 0x7f010010,
+            0x7f010012, 0x7f010013, 0x7f010014, 0x7f010015,
+            0x7f010016
+        };
+        /**
+          <p>
+          @attr description
+           View background 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#background}.
+          @attr name android:background
+        */
+        public static final int CirclePageIndicator_android_background = 1;
+        /**
+          <p>
+          @attr description
+           Orientation of the indicator. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#orientation}.
+          @attr name android:orientation
+        */
+        public static final int CirclePageIndicator_android_orientation = 0;
+        /**
+          <p>
+          @attr description
+           Whether or not the indicators should be centered. 
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:centered
+        */
+        public static final int CirclePageIndicator_centered = 2;
+        /**
+          <p>
+          @attr description
+           Color of the filled circle that represents the current page. 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:fillColor
+        */
+        public static final int CirclePageIndicator_fillColor = 4;
+        /**
+          <p>
+          @attr description
+           Color of the filled circles that represents pages. 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:pageColor
+        */
+        public static final int CirclePageIndicator_pageColor = 5;
+        /**
+          <p>
+          @attr description
+           Radius of the circles. This is also the spacing between circles. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+<p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:radius
+        */
+        public static final int CirclePageIndicator_radius = 6;
+        /**
+          <p>
+          @attr description
+           Whether or not the selected indicator snaps to the circles. 
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:snap
+        */
+        public static final int CirclePageIndicator_snap = 7;
+        /**
+          <p>
+          @attr description
+           Color of the open circles. 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:strokeColor
+        */
+        public static final int CirclePageIndicator_strokeColor = 8;
+        /**
+          <p>
+          @attr description
+           Width of the stroke used to draw the circles. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:strokeWidth
+        */
+        public static final int CirclePageIndicator_strokeWidth = 3;
         /**  标签控件 
            <p>Includes the following attributes:</p>
            <table>
@@ -990,9 +1625,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            @see #LabelView_lv_text_size
          */
         public static final int[] LabelView = {
-            0x7f010008, 0x7f010009, 0x7f01000a, 0x7f01000b,
-            0x7f01000c, 0x7f01000d, 0x7f01000e, 0x7f01000f,
-            0x7f010010, 0x7f010011
+            0x7f01002a, 0x7f01002b, 0x7f01002c, 0x7f01002d,
+            0x7f01002e, 0x7f01002f, 0x7f010030, 0x7f010031,
+            0x7f010032, 0x7f010033
         };
         /**
           <p>
@@ -1167,6 +1802,145 @@ containing a value of this type.
           @attr name com.open.umei:lv_text_size
         */
         public static final int LabelView_lv_text_size = 2;
+        /** Attributes that can be used with a LinePageIndicator.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #LinePageIndicator_android_background android:background}</code></td><td> View background </td></tr>
+           <tr><td><code>{@link #LinePageIndicator_centered com.open.umei:centered}</code></td><td> Whether or not the indicators should be centered.</td></tr>
+           <tr><td><code>{@link #LinePageIndicator_gapWidth com.open.umei:gapWidth}</code></td><td> Width of the gap between each indicator line.</td></tr>
+           <tr><td><code>{@link #LinePageIndicator_lineWidth com.open.umei:lineWidth}</code></td><td> Width of each indicator line.</td></tr>
+           <tr><td><code>{@link #LinePageIndicator_selectedColor com.open.umei:selectedColor}</code></td><td> Color of the selected line that represents the current page.</td></tr>
+           <tr><td><code>{@link #LinePageIndicator_strokeWidth com.open.umei:strokeWidth}</code></td><td> Width of each indicator line's stroke.</td></tr>
+           <tr><td><code>{@link #LinePageIndicator_unselectedColor com.open.umei:unselectedColor}</code></td><td> Color of the unselected lines that represent the pages.</td></tr>
+           </table>
+           @see #LinePageIndicator_android_background
+           @see #LinePageIndicator_centered
+           @see #LinePageIndicator_gapWidth
+           @see #LinePageIndicator_lineWidth
+           @see #LinePageIndicator_selectedColor
+           @see #LinePageIndicator_strokeWidth
+           @see #LinePageIndicator_unselectedColor
+         */
+        public static final int[] LinePageIndicator = {
+            0x010100d4, 0x7f01000e, 0x7f01000f, 0x7f010010,
+            0x7f010011, 0x7f010017, 0x7f010018
+        };
+        /**
+          <p>
+          @attr description
+           View background 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#background}.
+          @attr name android:background
+        */
+        public static final int LinePageIndicator_android_background = 0;
+        /**
+          <p>
+          @attr description
+           Whether or not the indicators should be centered. 
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:centered
+        */
+        public static final int LinePageIndicator_centered = 1;
+        /**
+          <p>
+          @attr description
+           Width of the gap between each indicator line. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:gapWidth
+        */
+        public static final int LinePageIndicator_gapWidth = 6;
+        /**
+          <p>
+          @attr description
+           Width of each indicator line. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:lineWidth
+        */
+        public static final int LinePageIndicator_lineWidth = 5;
+        /**
+          <p>
+          @attr description
+           Color of the selected line that represents the current page. 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:selectedColor
+        */
+        public static final int LinePageIndicator_selectedColor = 2;
+        /**
+          <p>
+          @attr description
+           Width of each indicator line's stroke. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:strokeWidth
+        */
+        public static final int LinePageIndicator_strokeWidth = 3;
+        /**
+          <p>
+          @attr description
+           Color of the unselected lines that represent the pages. 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:unselectedColor
+        */
+        public static final int LinePageIndicator_unselectedColor = 4;
         /**  顶层控件属性 
            <p>Includes the following attributes:</p>
            <table>
@@ -1180,7 +1954,7 @@ containing a value of this type.
            @see #MainUpView_upImageRes
          */
         public static final int[] MainUpView = {
-            0x7f010006, 0x7f010007
+            0x7f010028, 0x7f010029
         };
         /**
           <p>This symbol is the offset where the {@link com.open.umei.R.attr#shadowImageRes}
@@ -1213,7 +1987,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            @see #TextViewWithTTF_ttf_name
          */
         public static final int[] TextViewWithTTF = {
-            0x7f010000
+            0x7f010023
         };
         /**
           <p>This symbol is the offset where the {@link com.open.umei.R.attr#ttf_name}
@@ -1229,6 +2003,513 @@ containing a value of this type.
           @attr name com.open.umei:ttf_name
         */
         public static final int TextViewWithTTF_ttf_name = 0;
+        /** Attributes that can be used with a TitleIndicator.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #TitleIndicator_clipPadding com.open.umei:clipPadding}</code></td><td> Left/right padding of not active view titles.</td></tr>
+           <tr><td><code>{@link #TitleIndicator_footerColor com.open.umei:footerColor}</code></td><td> Color of the footer line and indicator.</td></tr>
+           <tr><td><code>{@link #TitleIndicator_footerLineHeight com.open.umei:footerLineHeight}</code></td><td> Height of the footer line.</td></tr>
+           <tr><td><code>{@link #TitleIndicator_footerTriangleHeight com.open.umei:footerTriangleHeight}</code></td><td></td></tr>
+           <tr><td><code>{@link #TitleIndicator_textColor com.open.umei:textColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #TitleIndicator_textSizeNormal com.open.umei:textSizeNormal}</code></td><td></td></tr>
+           <tr><td><code>{@link #TitleIndicator_textSizeSelected com.open.umei:textSizeSelected}</code></td><td></td></tr>
+           <tr><td><code>{@link #TitleIndicator_titlePadding com.open.umei:titlePadding}</code></td><td> Padding between titles when bumping into each other.</td></tr>
+           </table>
+           @see #TitleIndicator_clipPadding
+           @see #TitleIndicator_footerColor
+           @see #TitleIndicator_footerLineHeight
+           @see #TitleIndicator_footerTriangleHeight
+           @see #TitleIndicator_textColor
+           @see #TitleIndicator_textSizeNormal
+           @see #TitleIndicator_textSizeSelected
+           @see #TitleIndicator_titlePadding
+         */
+        public static final int[] TitleIndicator = {
+            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003,
+            0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007
+        };
+        /**
+          <p>
+          @attr description
+           Left/right padding of not active view titles. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+<p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:clipPadding
+        */
+        public static final int TitleIndicator_clipPadding = 1;
+        /**
+          <p>
+          @attr description
+           Color of the footer line and indicator. 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+<p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:footerColor
+        */
+        public static final int TitleIndicator_footerColor = 6;
+        /**
+          <p>
+          @attr description
+           Height of the footer line. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+<p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:footerLineHeight
+        */
+        public static final int TitleIndicator_footerLineHeight = 5;
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#footerTriangleHeight}
+          attribute's value can be found in the {@link #TitleIndicator} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.open.umei:footerTriangleHeight
+        */
+        public static final int TitleIndicator_footerTriangleHeight = 7;
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#textColor}
+          attribute's value can be found in the {@link #TitleIndicator} array.
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+          @attr name com.open.umei:textColor
+        */
+        public static final int TitleIndicator_textColor = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#textSizeNormal}
+          attribute's value can be found in the {@link #TitleIndicator} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.open.umei:textSizeNormal
+        */
+        public static final int TitleIndicator_textSizeNormal = 3;
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#textSizeSelected}
+          attribute's value can be found in the {@link #TitleIndicator} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.open.umei:textSizeSelected
+        */
+        public static final int TitleIndicator_textSizeSelected = 4;
+        /**
+          <p>
+          @attr description
+           Padding between titles when bumping into each other. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+<p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:titlePadding
+        */
+        public static final int TitleIndicator_titlePadding = 0;
+        /** Attributes that can be used with a TitlePageIndicator.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #TitlePageIndicator_android_background android:background}</code></td><td> View background </td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_android_textColor android:textColor}</code></td><td> Color of regular titles.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_android_textSize android:textSize}</code></td><td> Size of title text.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_clipPadding com.open.umei:clipPadding}</code></td><td> Screen edge padding.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerColor com.open.umei:footerColor}</code></td><td> Color of the footer line and indicator.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerIndicatorHeight com.open.umei:footerIndicatorHeight}</code></td><td> Height of the indicator above the footer line.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerIndicatorStyle com.open.umei:footerIndicatorStyle}</code></td><td> Style of the indicator.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerIndicatorUnderlinePadding com.open.umei:footerIndicatorUnderlinePadding}</code></td><td> Left and right padding of the underline indicator.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerLineHeight com.open.umei:footerLineHeight}</code></td><td> Height of the footer line.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerPadding com.open.umei:footerPadding}</code></td><td> Padding between the bottom of the title and the footer.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_linePosition com.open.umei:linePosition}</code></td><td> Position of the line.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_selectedBold com.open.umei:selectedBold}</code></td><td> Whether or not the selected item is displayed as bold.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_selectedColor com.open.umei:selectedColor}</code></td><td> Color of the selected title.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_titlePadding com.open.umei:titlePadding}</code></td><td> Padding between titles when bumping into each other.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_topPadding com.open.umei:topPadding}</code></td><td> Padding between titles and the top of the View.</td></tr>
+           </table>
+           @see #TitlePageIndicator_android_background
+           @see #TitlePageIndicator_android_textColor
+           @see #TitlePageIndicator_android_textSize
+           @see #TitlePageIndicator_clipPadding
+           @see #TitlePageIndicator_footerColor
+           @see #TitlePageIndicator_footerIndicatorHeight
+           @see #TitlePageIndicator_footerIndicatorStyle
+           @see #TitlePageIndicator_footerIndicatorUnderlinePadding
+           @see #TitlePageIndicator_footerLineHeight
+           @see #TitlePageIndicator_footerPadding
+           @see #TitlePageIndicator_linePosition
+           @see #TitlePageIndicator_selectedBold
+           @see #TitlePageIndicator_selectedColor
+           @see #TitlePageIndicator_titlePadding
+           @see #TitlePageIndicator_topPadding
+         */
+        public static final int[] TitlePageIndicator = {
+            0x01010095, 0x01010098, 0x010100d4, 0x7f010000,
+            0x7f010001, 0x7f010005, 0x7f010006, 0x7f01000f,
+            0x7f010019, 0x7f01001a, 0x7f01001b, 0x7f01001c,
+            0x7f01001d, 0x7f01001e, 0x7f01001f
+        };
+        /**
+          <p>
+          @attr description
+           View background 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#background}.
+          @attr name android:background
+        */
+        public static final int TitlePageIndicator_android_background = 2;
+        /**
+          <p>
+          @attr description
+           Color of regular titles. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#textColor}.
+          @attr name android:textColor
+        */
+        public static final int TitlePageIndicator_android_textColor = 1;
+        /**
+          <p>
+          @attr description
+           Size of title text. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#textSize}.
+          @attr name android:textSize
+        */
+        public static final int TitlePageIndicator_android_textSize = 0;
+        /**
+          <p>
+          @attr description
+           Screen edge padding. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+<p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:clipPadding
+        */
+        public static final int TitlePageIndicator_clipPadding = 4;
+        /**
+          <p>
+          @attr description
+           Color of the footer line and indicator. 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+<p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:footerColor
+        */
+        public static final int TitlePageIndicator_footerColor = 6;
+        /**
+          <p>
+          @attr description
+           Height of the indicator above the footer line. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:footerIndicatorHeight
+        */
+        public static final int TitlePageIndicator_footerIndicatorHeight = 9;
+        /**
+          <p>
+          @attr description
+           Style of the indicator. Default is triangle. 
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>none</code></td><td>0</td><td></td></tr>
+<tr><td><code>triangle</code></td><td>1</td><td></td></tr>
+<tr><td><code>underline</code></td><td>2</td><td></td></tr>
+</table>
+          <p>This is a private symbol.
+          @attr name com.open.umei:footerIndicatorStyle
+        */
+        public static final int TitlePageIndicator_footerIndicatorStyle = 8;
+        /**
+          <p>
+          @attr description
+           Left and right padding of the underline indicator. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:footerIndicatorUnderlinePadding
+        */
+        public static final int TitlePageIndicator_footerIndicatorUnderlinePadding = 10;
+        /**
+          <p>
+          @attr description
+           Height of the footer line. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+<p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:footerLineHeight
+        */
+        public static final int TitlePageIndicator_footerLineHeight = 5;
+        /**
+          <p>
+          @attr description
+           Padding between the bottom of the title and the footer. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:footerPadding
+        */
+        public static final int TitlePageIndicator_footerPadding = 11;
+        /**
+          <p>
+          @attr description
+           Position of the line. 
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>bottom</code></td><td>0</td><td></td></tr>
+<tr><td><code>top</code></td><td>1</td><td></td></tr>
+</table>
+          <p>This is a private symbol.
+          @attr name com.open.umei:linePosition
+        */
+        public static final int TitlePageIndicator_linePosition = 12;
+        /**
+          <p>
+          @attr description
+           Whether or not the selected item is displayed as bold. 
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:selectedBold
+        */
+        public static final int TitlePageIndicator_selectedBold = 13;
+        /**
+          <p>
+          @attr description
+           Color of the selected title. 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:selectedColor
+        */
+        public static final int TitlePageIndicator_selectedColor = 7;
+        /**
+          <p>
+          @attr description
+           Padding between titles when bumping into each other. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+<p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:titlePadding
+        */
+        public static final int TitlePageIndicator_titlePadding = 3;
+        /**
+          <p>
+          @attr description
+           Padding between titles and the top of the View. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:topPadding
+        */
+        public static final int TitlePageIndicator_topPadding = 14;
         /** Attributes that can be used with a TvTabHost.
            <p>Includes the following attributes:</p>
            <table>
@@ -1280,12 +2561,12 @@ containing a value of this type.
            @see #TvTabHost_titleWidth
          */
         public static final int[] TvTabHost = {
-            0x7f010012, 0x7f010013, 0x7f010014, 0x7f010015,
-            0x7f010016, 0x7f010017, 0x7f010018, 0x7f010019,
-            0x7f01001a, 0x7f01001b, 0x7f01001c, 0x7f01001d,
-            0x7f01001e, 0x7f01001f, 0x7f010020, 0x7f010021,
-            0x7f010022, 0x7f010023, 0x7f010024, 0x7f010025,
-            0x7f010026
+            0x7f010034, 0x7f010035, 0x7f010036, 0x7f010037,
+            0x7f010038, 0x7f010039, 0x7f01003a, 0x7f01003b,
+            0x7f01003c, 0x7f01003d, 0x7f01003e, 0x7f01003f,
+            0x7f010040, 0x7f010041, 0x7f010042, 0x7f010043,
+            0x7f010044, 0x7f010045, 0x7f010046, 0x7f010047,
+            0x7f010048
         };
         /**
           <p>This symbol is the offset where the {@link com.open.umei.R.attr#animationType}
@@ -1604,6 +2885,198 @@ containing a value of this type.
           @attr name com.open.umei:titleWidth
         */
         public static final int TvTabHost_titleWidth = 3;
+        /** Attributes that can be used with a UnderlinePageIndicator.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #UnderlinePageIndicator_android_background android:background}</code></td><td> View background </td></tr>
+           <tr><td><code>{@link #UnderlinePageIndicator_fadeDelay com.open.umei:fadeDelay}</code></td><td> Length of the delay to fade the indicator.</td></tr>
+           <tr><td><code>{@link #UnderlinePageIndicator_fadeLength com.open.umei:fadeLength}</code></td><td> Length of the indicator fade to transparent.</td></tr>
+           <tr><td><code>{@link #UnderlinePageIndicator_fades com.open.umei:fades}</code></td><td> Whether or not the selected indicator fades.</td></tr>
+           <tr><td><code>{@link #UnderlinePageIndicator_selectedColor com.open.umei:selectedColor}</code></td><td> Color of the selected line that represents the current page.</td></tr>
+           </table>
+           @see #UnderlinePageIndicator_android_background
+           @see #UnderlinePageIndicator_fadeDelay
+           @see #UnderlinePageIndicator_fadeLength
+           @see #UnderlinePageIndicator_fades
+           @see #UnderlinePageIndicator_selectedColor
+         */
+        public static final int[] UnderlinePageIndicator = {
+            0x010100d4, 0x7f01000f, 0x7f010020, 0x7f010021,
+            0x7f010022
+        };
+        /**
+          <p>
+          @attr description
+           View background 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#background}.
+          @attr name android:background
+        */
+        public static final int UnderlinePageIndicator_android_background = 0;
+        /**
+          <p>
+          @attr description
+           Length of the delay to fade the indicator. 
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:fadeDelay
+        */
+        public static final int UnderlinePageIndicator_fadeDelay = 3;
+        /**
+          <p>
+          @attr description
+           Length of the indicator fade to transparent. 
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:fadeLength
+        */
+        public static final int UnderlinePageIndicator_fadeLength = 4;
+        /**
+          <p>
+          @attr description
+           Whether or not the selected indicator fades. 
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:fades
+        */
+        public static final int UnderlinePageIndicator_fades = 2;
+        /**
+          <p>
+          @attr description
+           Color of the selected line that represents the current page. 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:selectedColor
+        */
+        public static final int UnderlinePageIndicator_selectedColor = 1;
+        /** Attributes that can be used with a ViewPagerIndicator.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiCirclePageIndicatorStyle com.open.umei:vpiCirclePageIndicatorStyle}</code></td><td> Style of the circle indicator.</td></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiIconPageIndicatorStyle com.open.umei:vpiIconPageIndicatorStyle}</code></td><td> Style of the icon indicator's views.</td></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiLinePageIndicatorStyle com.open.umei:vpiLinePageIndicatorStyle}</code></td><td> Style of the line indicator.</td></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiTabPageIndicatorStyle com.open.umei:vpiTabPageIndicatorStyle}</code></td><td> Style of the tab indicator's tabs.</td></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiTitlePageIndicatorStyle com.open.umei:vpiTitlePageIndicatorStyle}</code></td><td> Style of the title indicator.</td></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiUnderlinePageIndicatorStyle com.open.umei:vpiUnderlinePageIndicatorStyle}</code></td><td> Style of the underline indicator.</td></tr>
+           </table>
+           @see #ViewPagerIndicator_vpiCirclePageIndicatorStyle
+           @see #ViewPagerIndicator_vpiIconPageIndicatorStyle
+           @see #ViewPagerIndicator_vpiLinePageIndicatorStyle
+           @see #ViewPagerIndicator_vpiTabPageIndicatorStyle
+           @see #ViewPagerIndicator_vpiTitlePageIndicatorStyle
+           @see #ViewPagerIndicator_vpiUnderlinePageIndicatorStyle
+         */
+        public static final int[] ViewPagerIndicator = {
+            0x7f010008, 0x7f010009, 0x7f01000a, 0x7f01000b,
+            0x7f01000c, 0x7f01000d
+        };
+        /**
+          <p>
+          @attr description
+           Style of the circle indicator. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.open.umei:vpiCirclePageIndicatorStyle
+        */
+        public static final int ViewPagerIndicator_vpiCirclePageIndicatorStyle = 0;
+        /**
+          <p>
+          @attr description
+           Style of the icon indicator's views. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.open.umei:vpiIconPageIndicatorStyle
+        */
+        public static final int ViewPagerIndicator_vpiIconPageIndicatorStyle = 1;
+        /**
+          <p>
+          @attr description
+           Style of the line indicator. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.open.umei:vpiLinePageIndicatorStyle
+        */
+        public static final int ViewPagerIndicator_vpiLinePageIndicatorStyle = 2;
+        /**
+          <p>
+          @attr description
+           Style of the tab indicator's tabs. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.open.umei:vpiTabPageIndicatorStyle
+        */
+        public static final int ViewPagerIndicator_vpiTabPageIndicatorStyle = 4;
+        /**
+          <p>
+          @attr description
+           Style of the title indicator. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.open.umei:vpiTitlePageIndicatorStyle
+        */
+        public static final int ViewPagerIndicator_vpiTitlePageIndicatorStyle = 3;
+        /**
+          <p>
+          @attr description
+           Style of the underline indicator. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.open.umei:vpiUnderlinePageIndicatorStyle
+        */
+        public static final int ViewPagerIndicator_vpiUnderlinePageIndicatorStyle = 5;
         /**  倒影控件属性 
            <p>Includes the following attributes:</p>
            <table>
@@ -1612,7 +3085,7 @@ containing a value of this type.
            <tr><th>Attribute</th><th>Description</th></tr>
            <tr><td><code>{@link #reflectItemView_isReflect com.open.umei:isReflect}</code></td><td></td></tr>
            <tr><td><code>{@link #reflectItemView_isShape com.open.umei:isShape}</code></td><td></td></tr>
-           <tr><td><code>{@link #reflectItemView_radius com.open.umei:radius}</code></td><td></td></tr>
+           <tr><td><code>{@link #reflectItemView_radius com.open.umei:radius}</code></td><td> Radius of the circles.</td></tr>
            <tr><td><code>{@link #reflectItemView_refle_spacing com.open.umei:refle_spacing}</code></td><td></td></tr>
            <tr><td><code>{@link #reflectItemView_reflect_height com.open.umei:reflect_height}</code></td><td></td></tr>
            </table>
@@ -1623,8 +3096,8 @@ containing a value of this type.
            @see #reflectItemView_reflect_height
          */
         public static final int[] reflectItemView = {
-            0x7f010001, 0x7f010002, 0x7f010003, 0x7f010004,
-            0x7f010005
+            0x7f010014, 0x7f010024, 0x7f010025, 0x7f010026,
+            0x7f010027
         };
         /**
           <p>This symbol is the offset where the {@link com.open.umei.R.attr#isReflect}
@@ -1639,7 +3112,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.open.umei:isReflect
         */
-        public static final int reflectItemView_isReflect = 0;
+        public static final int reflectItemView_isReflect = 1;
         /**
           <p>This symbol is the offset where the {@link com.open.umei.R.attr#isShape}
           attribute's value can be found in the {@link #reflectItemView} array.
@@ -1653,10 +3126,11 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.open.umei:isShape
         */
-        public static final int reflectItemView_isShape = 1;
+        public static final int reflectItemView_isShape = 2;
         /**
-          <p>This symbol is the offset where the {@link com.open.umei.R.attr#radius}
-          attribute's value can be found in the {@link #reflectItemView} array.
+          <p>
+          @attr description
+           Radius of the circles. This is also the spacing between circles. 
 
 
           <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -1667,9 +3141,18 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
+<p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
           @attr name com.open.umei:radius
         */
-        public static final int reflectItemView_radius = 3;
+        public static final int reflectItemView_radius = 0;
         /**
           <p>This symbol is the offset where the {@link com.open.umei.R.attr#refle_spacing}
           attribute's value can be found in the {@link #reflectItemView} array.
@@ -1701,6 +3184,6 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.open.umei:reflect_height
         */
-        public static final int reflectItemView_reflect_height = 2;
+        public static final int reflectItemView_reflect_height = 3;
     };
 }
