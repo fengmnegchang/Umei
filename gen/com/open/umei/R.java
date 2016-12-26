@@ -8,16 +8,924 @@
 package com.open.umei;
 
 public final class R {
+    public static final class anim {
+        public static final int fade_in=0x7f040000;
+        public static final int fade_out=0x7f040001;
+    }
     public static final class attr {
+        /** <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>DEFAULT</code></td><td>0</td><td></td></tr>
+<tr><td><code>TRANSLATE</code></td><td>1</td><td></td></tr>
+</table>
+         */
+        public static final int animationType=0x7f01001d;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int cursorHeight=0x7f010022;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int cursorMarginBottom=0x7f010026;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int cursorMarginLeft=0x7f010023;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int cursorMarginRight=0x7f010025;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int cursorMarginTop=0x7f010024;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int cursorRes=0x7f010012;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int cursorWidth=0x7f010021;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int delay=0x7f010020;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int dividerHeight=0x7f010019;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int durationLarge=0x7f01001e;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int durationScroll=0x7f01001a;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int durationSmall=0x7f01001f;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int isReflect=0x7f010001;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int isShape=0x7f010002;
+        /**  设置背景颜色,默认"#FF4081"
+         <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int lv_background_color=0x7f01000d;
+        /**  设置是否填充三角区域,默认false 
+         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int lv_fill_triangle=0x7f010011;
+        /**  设置LabelView方向 
+         <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>TOP_LEFT</code></td><td>51</td><td></td></tr>
+<tr><td><code>TOP_RIGHT</code></td><td>53</td><td></td></tr>
+<tr><td><code>BOTTOM_LEFT</code></td><td>83</td><td></td></tr>
+<tr><td><code>BOTTOM_RIGHT</code></td><td>85</td><td></td></tr>
+</table>
+         */
+        public static final int lv_gravity=0x7f010010;
+        /**  设置LabelView所在矩形最小宽高,默认mFillTriangle?35dp:50dp
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int lv_min_size=0x7f01000e;
+        /**  设置文字上下padding,默认3.5dp,mFillTriangle为true时无效
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int lv_padding=0x7f01000f;
+        /**  设置文字内容 
+         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int lv_text=0x7f010008;
+        /**  设置文字是否支持全部大写,默认true
+         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int lv_text_all_caps=0x7f01000c;
+        /**  设置文字是否支持加粗,默认true 
+         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int lv_text_bold=0x7f01000b;
+        /**  设置文字颜色,默认#ffffff 
+         <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int lv_text_color=0x7f010009;
+        /**  设置文字大小,默认11sp 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int lv_text_size=0x7f01000a;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int radius=0x7f010004;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int refle_spacing=0x7f010005;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int reflect_height=0x7f010003;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int scalable=0x7f01001b;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int scale=0x7f01001c;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int shadowImageRes=0x7f010007;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int textColorDefault=0x7f010013;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int textColorSelected=0x7f010014;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int textSize=0x7f010018;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int titleHeight=0x7f010016;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int titleSpace=0x7f010017;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int titleWidth=0x7f010015;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int ttf_name=0x7f010000;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int upImageRes=0x7f010006;
+    }
+    public static final class color {
+        /** 蜜色 
+         */
+        public static final int aliceblue=0x7f07002f;
+        /** 亚麻色 
+         */
+        public static final int antiquewhite=0x7f070025;
+        /** 中灰兰色 
+         */
+        public static final int aqua=0x7f07007e;
+        /** 粟色 
+         */
+        public static final int aquamarine=0x7f070063;
+        /** 沙褐色 
+         */
+        public static final int azure=0x7f07002d;
+        /** 烟白色 
+         */
+        public static final int beige=0x7f07002a;
+        /** 浅玫瑰色 
+         */
+        public static final int bisque=0x7f070011;
+        /** 海军色 
+         */
+        public static final int black=0x7f07008d;
+        /** 番木色 
+         */
+        public static final int blanchedalmond=0x7f07000f;
+        /** 暗绿色 
+         */
+        public static final int blue=0x7f070089;
+        /** 暗红色 
+         */
+        public static final int blueviolet=0x7f07005c;
+        /** 暗灰色 
+         */
+        public static final int brown=0x7f070051;
+        /** 亮青色 
+         */
+        public static final int burlywood=0x7f070037;
+        /** 菊兰色 
+         */
+        public static final int cadetblue=0x7f07006e;
+        /** 碧绿色 
+         */
+        public static final int chartreuse=0x7f070064;
+        /** 茶色 
+         */
+        public static final int chocolate=0x7f070041;
+        /** 暗桔黄色 
+         */
+        public static final int coral=0x7f07001b;
+        /** 中绿色 
+         */
+        public static final int cornflowerblue=0x7f07006d;
+        /** 柠檬绸色 
+         */
+        public static final int cornsilk=0x7f07000b;
+        /** 淡灰色 
+         */
+        public static final int crimson=0x7f07003a;
+        /** 浅绿色 
+         */
+        public static final int cyan=0x7f07007f;
+        /** 中兰色 
+         */
+        public static final int darkblue=0x7f07008b;
+        /** 深天蓝色 
+         */
+        public static final int darkcyan=0x7f070085;
+        /** 中粉紫色 
+         */
+        public static final int darkgoldenrod=0x7f070049;
+        /** 亮蓝色 
+         */
+        public static final int darkgray=0x7f070050;
+        /** 绿色 
+         */
+        public static final int darkgreen=0x7f070088;
+        /** 银色 
+         */
+        public static final int darkkhaki=0x7f070046;
+        /** 重褐色 
+         */
+        public static final int darkmagenta=0x7f07005a;
+        /** 军兰色 
+         */
+        public static final int darkolivegreen=0x7f07006f;
+        /** 亮肉色 
+         */
+        public static final int darkorange=0x7f07001a;
+        /** 赭色 
+         */
+        public static final int darkorchid=0x7f070053;
+        /** 暗洋红 
+         */
+        public static final int darkred=0x7f07005b;
+        /** 紫罗兰色 
+         */
+        public static final int darksalmon=0x7f070034;
+        /** 亮绿色 
+         */
+        public static final int darkseagreen=0x7f070058;
+        /** 中绿宝石 
+         */
+        public static final int darkslateblue=0x7f070072;
+        /** 橙绿色 
+         */
+        public static final int darkslategray=0x7f070078;
+        /** 中春绿色 
+         */
+        public static final int darkturquoise=0x7f070083;
+        /** 苍绿色 
+         */
+        public static final int darkviolet=0x7f070055;
+        /** 红橙色 
+         */
+        public static final int deeppink=0x7f07001f;
+        /** 暗宝石绿 
+         */
+        public static final int deepskyblue=0x7f070084;
+        /** 灰色8f 
+         */
+        public static final int default_menu_back=0x7f070091;
+        public static final int default_menu_press_back=0x7f070092;
+        public static final int default_menu_press_text=0x7f070093;
+        public static final int default_menu_text=0x7f070094;
+        /** 石蓝色 
+         */
+        public static final int dimgray=0x7f07006b;
+        public static final int divider=0x7f070095;
+        /** 亮海蓝色 
+         */
+        public static final int dodgerblue=0x7f07007c;
+        /** 暗金黄色 
+         */
+        public static final int firebrick=0x7f07004a;
+        /** 雪白色 
+         */
+        public static final int floralwhite=0x7f070009;
+        /** 海绿色 
+         */
+        public static final int forestgreen=0x7f07007a;
+        /** 深粉红色 
+         */
+        public static final int fuchsia=0x7f070020;
+        /** 洋李色 
+         */
+        public static final int gainsboro=0x7f070039;
+        /** 鲜肉色 
+         */
+        public static final int ghostwhite=0x7f070027;
+        /** 桃色 
+         */
+        public static final int gold=0x7f070015;
+        /** 苍紫罗兰色 
+         */
+        public static final int goldenrod=0x7f07003c;
+        /** 黑色 
+         */
+        public static final int grassgreen=0x7f07008e;
+        /** 天蓝色 
+         */
+        public static final int gray=0x7f07005f;
+        /** 灰色cc 
+         */
+        public static final int gray_8f=0x7f070090;
+        /** 草绿色 
+         */
+        public static final int gray_cc=0x7f07008f;
+        /** 水鸭色 
+         */
+        public static final int green=0x7f070087;
+        /** 苍宝石绿 
+         */
+        public static final int greenyellow=0x7f07004e;
+        public static final int half_transparent=0x7f070000;
+        public static final int header=0x7f070001;
+        /** 天蓝色 
+         */
+        public static final int honeydew=0x7f07002e;
+        /** 珊瑚色 
+         */
+        public static final int hotpink=0x7f07001c;
+        /** 秘鲁色 
+         */
+        public static final int indianred=0x7f070043;
+        /** 暗橄榄绿 
+         */
+        public static final int indigo=0x7f070070;
+        /** 白色 
+         */
+        public static final int ivory=0x7f070005;
+        /** 艾利斯兰 
+         */
+        public static final int khaki=0x7f070030;
+        /** 暗肉色 
+         */
+        public static final int lavender=0x7f070035;
+        /** 海贝色 
+         */
+        public static final int lavenderblush=0x7f07000d;
+        /** 黄绿色 
+         */
+        public static final int lawngreen=0x7f070065;
+        /** 花白色 
+         */
+        public static final int lemonchiffon=0x7f07000a;
+        /** 黄绿色 
+         */
+        public static final int lightblue=0x7f07004f;
+        /** 黄褐色 
+         */
+        public static final int lightcoral=0x7f070031;
+        /** 淡紫色 
+         */
+        public static final int lightcyan=0x7f070036;
+        /** 老花色 
+         */
+        public static final int lightgoldenrodyellow=0x7f070023;
+        /** 蓟色 
+         */
+        public static final int lightgray=0x7f07003f;
+        /** 中紫色 
+         */
+        public static final int lightgreen=0x7f070057;
+        /** 粉红色 
+         */
+        public static final int lightpink=0x7f070017;
+        /** 橙色 
+         */
+        public static final int lightsalmon=0x7f070019;
+        /** 森林绿 
+         */
+        public static final int lightseagreen=0x7f07007b;
+        /** 紫罗兰蓝色 
+         */
+        public static final int lightskyblue=0x7f07005d;
+        /** 中暗蓝色 
+         */
+        public static final int lightslategray=0x7f070067;
+        /** 粉蓝色 
+         */
+        public static final int lightsteelblue=0x7f07004c;
+        /** 象牙色 
+         */
+        public static final int lightyellow=0x7f070006;
+        /** 春绿色 
+         */
+        public static final int lime=0x7f070081;
+        /** 中海蓝 
+         */
+        public static final int limegreen=0x7f070077;
+        /** 亮金黄色 
+         */
+        public static final int linen=0x7f070024;
+        /** 紫色 
+         */
+        public static final int maroon=0x7f070062;
+        /** 暗灰色 
+         */
+        public static final int mediumaquamarine=0x7f07006c;
+        /** 蓝色 
+         */
+        public static final int mediumblue=0x7f07008a;
+        /** 褐玫瑰红 
+         */
+        public static final int mediumorchid=0x7f070048;
+        /** 暗紫罗兰色 
+         */
+        public static final int mediumpurple=0x7f070056;
+        /** 青绿色 
+         */
+        public static final int mediumseagreen=0x7f070076;
+        /** 草绿色 
+         */
+        public static final int mediumslateblue=0x7f070066;
+        /** 酸橙色 
+         */
+        public static final int mediumspringgreen=0x7f070082;
+        /** 靛青色 
+         */
+        public static final int mediumturquoise=0x7f070071;
+        /** 印第安红 
+         */
+        public static final int mediumvioletred=0x7f070044;
+        /** 闪兰色 
+         */
+        public static final int midnightblue=0x7f07007d;
+        /** 幽灵白 
+         */
+        public static final int mintcream=0x7f070028;
+        /** 白杏色 
+         */
+        public static final int mistyrose=0x7f070010;
+        /** 桔黄色 
+         */
+        public static final int moccasin=0x7f070012;
+        /** 鹿皮色 
+         */
+        public static final int navajowhite=0x7f070013;
+        /** 暗蓝色 
+         */
+        public static final int navy=0x7f07008c;
+        /** 红色 
+         */
+        public static final int oldlace=0x7f070022;
+        /** 灰色 
+         */
+        public static final int olive=0x7f070060;
+        /** 灰石色 
+         */
+        public static final int olivedrab=0x7f070069;
+        /** 亮粉红色 
+         */
+        public static final int orange=0x7f070018;
+        /** 西红柿色 
+         */
+        public static final int orangered=0x7f07001e;
+        /** 金麒麟色 
+         */
+        public static final int orchid=0x7f07003d;
+        /** 亮珊瑚色 
+         */
+        public static final int palegoldenrod=0x7f070032;
+        /** 暗紫色 
+         */
+        public static final int palegreen=0x7f070054;
+        /** 亮钢兰色 
+         */
+        public static final int paleturquoise=0x7f07004d;
+        /** 暗深红色 
+         */
+        public static final int palevioletred=0x7f07003b;
+        /** 淡紫红 
+         */
+        public static final int papayawhip=0x7f07000e;
+        /** 纳瓦白 
+         */
+        public static final int peachpuff=0x7f070014;
+        /** 巧可力色 
+         */
+        public static final int peru=0x7f070042;
+        /** 金色 
+         */
+        public static final int pink=0x7f070016;
+        /** 实木色 
+         */
+        public static final int plum=0x7f070038;
+        /** 火砖色 
+         */
+        public static final int powderblue=0x7f07004b;
+        /** 橄榄色 
+         */
+        public static final int purple=0x7f070061;
+        /** 紫红色 
+         */
+        public static final int red=0x7f070021;
+        /** 暗黄褐色 
+         */
+        public static final int rosybrown=0x7f070047;
+        /** 钢兰色 
+         */
+        public static final int royalblue=0x7f070074;
+        /** 暗海兰色 
+         */
+        public static final int saddlebrown=0x7f070059;
+        /** 古董白 
+         */
+        public static final int salmon=0x7f070026;
+        /** 浅黄色 
+         */
+        public static final int sandybrown=0x7f07002c;
+        /** 暗瓦灰色 
+         */
+        public static final int seagreen=0x7f070079;
+        /** 米绸色 
+         */
+        public static final int seashell=0x7f07000c;
+        /** 褐色 
+         */
+        public static final int sienna=0x7f070052;
+        /** 中紫罗兰色 
+         */
+        public static final int silver=0x7f070045;
+        /** 亮天蓝色 
+         */
+        public static final int skyblue=0x7f07005e;
+        /** 深绿褐色 
+         */
+        public static final int slateblue=0x7f07006a;
+        /** 亮蓝灰 
+         */
+        public static final int slategray=0x7f070068;
+        /** 黄色 
+         */
+        public static final int snow=0x7f070008;
+        /** 青色 
+         */
+        public static final int springgreen=0x7f070080;
+        /** 暗灰蓝色 
+         */
+        public static final int steelblue=0x7f070073;
+        /** 亮灰色 
+         */
+        public static final int tan=0x7f070040;
+        /** 暗青色 
+         */
+        public static final int teal=0x7f070086;
+        /** 淡紫色 
+         */
+        public static final int thistle=0x7f07003e;
+        /** 热粉红色 
+         */
+        public static final int tomato=0x7f07001d;
+        public static final int transparent=0x7f070003;
+        /** 皇家蓝 
+         */
+        public static final int turquoise=0x7f070075;
+        /** 苍麒麟色 
+         */
+        public static final int violet=0x7f070033;
+        /** 米色 
+         */
+        public static final int wheat=0x7f07002b;
+        /** 透明色 
+         */
+        public static final int white=0x7f070004;
+        public static final int white_50=0x7f070002;
+        /** 薄荷色 
+         */
+        public static final int whitesmoke=0x7f070029;
+        /** 亮黄色 
+         */
+        public static final int yellow=0x7f070007;
+    }
+    public static final class dimen {
+        /**  滚动窗口 
+         */
+        public static final int fab_margin=0x7f080007;
+        /**  滚动窗口 
+         */
+        public static final int fading_edge=0x7f080000;
+        public static final int litpic_width=0x7f080008;
+        public static final int nav_bar_margin_top=0x7f080006;
+        public static final int nav_tab_text_size=0x7f080003;
+        public static final int new_image_height=0x7f08000a;
+        public static final int new_image_width=0x7f080009;
+        /**  标题栏 
+         */
+        public static final int tab_highlight_height=0x7f080001;
+        public static final int tab_left_offset=0x7f080005;
+        public static final int tab_recommend_margin_left=0x7f080002;
+        public static final int text_size_50=0x7f080004;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int ic_bg_menu=0x7f020000;
+        public static final int ic_launcher=0x7f020001;
+        public static final int ic_sp_block_focus=0x7f020002;
+        public static final int item_shadow=0x7f020003;
+        public static final int key_bg_rectangle=0x7f020004;
+        public static final int radio_btn_check_false=0x7f020005;
+        public static final int radio_btn_check_true=0x7f020006;
+        public static final int shape_rectangle_red=0x7f020007;
+        public static final int tab_title_background=0x7f020008;
+        public static final int test_rectangle=0x7f020009;
+        public static final int time_axis_oval=0x7f02000a;
+    }
+    public static final class id {
+        public static final int BOTTOM_LEFT=0x7f090001;
+        public static final int BOTTOM_RIGHT=0x7f090002;
+        public static final int DEFAULT=0x7f090005;
+        public static final int TOP_LEFT=0x7f090003;
+        public static final int TOP_RIGHT=0x7f090004;
+        public static final int TRANSLATE=0x7f090006;
+        public static final int openTabHost=0x7f090007;
+        /**  标题栏id 
+         */
+        public static final int title_bar=0x7f090000;
+        public static final int tv_tab_indicator=0x7f090009;
+        public static final int viewpager=0x7f090008;
+    }
+    public static final class layout {
+        public static final int fragment_common_tab_horizontal_viewpager=0x7f030000;
+        public static final int tab_view_indicator_item=0x7f030001;
+        public static final int tabhost_title_head=0x7f030002;
     }
     public static final class string {
-        public static final int app_name=0x7f030000;
+        public static final int app_name=0x7f050000;
+        public static final int fzlt_cu_hei=0x7f050002;
+        /**  viewpager 标题栏字体 
+         */
+        public static final int fzlt_zhun_hei=0x7f050001;
+        public static final int nav_tab_focus_ttf=0x7f050004;
+        public static final int nav_tab_normal_ttf=0x7f050003;
     }
     public static final class style {
         /** 
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    
+
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        
+
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    
+
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        
+
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    
+
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        
+
+        Base application theme for API 11+. This theme completely replaces
+        AppBaseTheme from res/values/styles.xml on API 11+ devices.
+    
+ API 11 theme customizations can go here. 
+
+        Base application theme for API 14+. This theme completely replaces
+        AppBaseTheme from BOTH res/values/styles.xml and
+        res/values-v11/styles.xml on API 14+ devices.
+    
+ API 14 theme customizations can go here. 
+
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    
+
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        
+
+        Base application theme for API 11+. This theme completely replaces
+        AppBaseTheme from res/values/styles.xml on API 11+ devices.
+    
+ API 11 theme customizations can go here. 
+
+        Base application theme for API 14+. This theme completely replaces
+        AppBaseTheme from BOTH res/values/styles.xml and
+        res/values-v11/styles.xml on API 14+ devices.
+    
+ API 14 theme customizations can go here. 
+
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     
@@ -38,10 +946,761 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f040000;
+        public static final int AppBaseTheme=0x7f060000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
+ Application theme. 
+ All customizations that are NOT specific to a particular API-level can go here. 
+ Application theme. 
+ All customizations that are NOT specific to a particular API-level can go here. 
+ Application theme. 
+ All customizations that are NOT specific to a particular API-level can go here. 
+ Application theme. 
+ All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f040001;
+        public static final int AppTheme=0x7f060001;
     }
+    public static final class styleable {
+        /**  标签控件 
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #LabelView_lv_background_color com.open.umei:lv_background_color}</code></td><td> 设置背景颜色,默认"#FF4081"</td></tr>
+           <tr><td><code>{@link #LabelView_lv_fill_triangle com.open.umei:lv_fill_triangle}</code></td><td> 设置是否填充三角区域,默认false </td></tr>
+           <tr><td><code>{@link #LabelView_lv_gravity com.open.umei:lv_gravity}</code></td><td> 设置LabelView方向 </td></tr>
+           <tr><td><code>{@link #LabelView_lv_min_size com.open.umei:lv_min_size}</code></td><td> 设置LabelView所在矩形最小宽高,默认mFillTriangle?35dp:50dp</td></tr>
+           <tr><td><code>{@link #LabelView_lv_padding com.open.umei:lv_padding}</code></td><td> 设置文字上下padding,默认3.</td></tr>
+           <tr><td><code>{@link #LabelView_lv_text com.open.umei:lv_text}</code></td><td> 设置文字内容 </td></tr>
+           <tr><td><code>{@link #LabelView_lv_text_all_caps com.open.umei:lv_text_all_caps}</code></td><td> 设置文字是否支持全部大写,默认true</td></tr>
+           <tr><td><code>{@link #LabelView_lv_text_bold com.open.umei:lv_text_bold}</code></td><td> 设置文字是否支持加粗,默认true </td></tr>
+           <tr><td><code>{@link #LabelView_lv_text_color com.open.umei:lv_text_color}</code></td><td> 设置文字颜色,默认#ffffff </td></tr>
+           <tr><td><code>{@link #LabelView_lv_text_size com.open.umei:lv_text_size}</code></td><td> 设置文字大小,默认11sp </td></tr>
+           </table>
+           @see #LabelView_lv_background_color
+           @see #LabelView_lv_fill_triangle
+           @see #LabelView_lv_gravity
+           @see #LabelView_lv_min_size
+           @see #LabelView_lv_padding
+           @see #LabelView_lv_text
+           @see #LabelView_lv_text_all_caps
+           @see #LabelView_lv_text_bold
+           @see #LabelView_lv_text_color
+           @see #LabelView_lv_text_size
+         */
+        public static final int[] LabelView = {
+            0x7f010008, 0x7f010009, 0x7f01000a, 0x7f01000b,
+            0x7f01000c, 0x7f01000d, 0x7f01000e, 0x7f01000f,
+            0x7f010010, 0x7f010011
+        };
+        /**
+          <p>
+          @attr description
+           设置背景颜色,默认"#FF4081"
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:lv_background_color
+        */
+        public static final int LabelView_lv_background_color = 5;
+        /**
+          <p>
+          @attr description
+           设置是否填充三角区域,默认false 
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:lv_fill_triangle
+        */
+        public static final int LabelView_lv_fill_triangle = 9;
+        /**
+          <p>
+          @attr description
+           设置LabelView方向 
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>TOP_LEFT</code></td><td>51</td><td></td></tr>
+<tr><td><code>TOP_RIGHT</code></td><td>53</td><td></td></tr>
+<tr><td><code>BOTTOM_LEFT</code></td><td>83</td><td></td></tr>
+<tr><td><code>BOTTOM_RIGHT</code></td><td>85</td><td></td></tr>
+</table>
+          <p>This is a private symbol.
+          @attr name com.open.umei:lv_gravity
+        */
+        public static final int LabelView_lv_gravity = 8;
+        /**
+          <p>
+          @attr description
+           设置LabelView所在矩形最小宽高,默认mFillTriangle?35dp:50dp
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:lv_min_size
+        */
+        public static final int LabelView_lv_min_size = 6;
+        /**
+          <p>
+          @attr description
+           设置文字上下padding,默认3.5dp,mFillTriangle为true时无效
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:lv_padding
+        */
+        public static final int LabelView_lv_padding = 7;
+        /**
+          <p>
+          @attr description
+           设置文字内容 
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:lv_text
+        */
+        public static final int LabelView_lv_text = 0;
+        /**
+          <p>
+          @attr description
+           设置文字是否支持全部大写,默认true
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:lv_text_all_caps
+        */
+        public static final int LabelView_lv_text_all_caps = 4;
+        /**
+          <p>
+          @attr description
+           设置文字是否支持加粗,默认true 
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:lv_text_bold
+        */
+        public static final int LabelView_lv_text_bold = 3;
+        /**
+          <p>
+          @attr description
+           设置文字颜色,默认#ffffff 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:lv_text_color
+        */
+        public static final int LabelView_lv_text_color = 1;
+        /**
+          <p>
+          @attr description
+           设置文字大小,默认11sp 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.open.umei:lv_text_size
+        */
+        public static final int LabelView_lv_text_size = 2;
+        /**  顶层控件属性 
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #MainUpView_shadowImageRes com.open.umei:shadowImageRes}</code></td><td></td></tr>
+           <tr><td><code>{@link #MainUpView_upImageRes com.open.umei:upImageRes}</code></td><td></td></tr>
+           </table>
+           @see #MainUpView_shadowImageRes
+           @see #MainUpView_upImageRes
+         */
+        public static final int[] MainUpView = {
+            0x7f010006, 0x7f010007
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#shadowImageRes}
+          attribute's value can be found in the {@link #MainUpView} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.open.umei:shadowImageRes
+        */
+        public static final int MainUpView_shadowImageRes = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#upImageRes}
+          attribute's value can be found in the {@link #MainUpView} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.open.umei:upImageRes
+        */
+        public static final int MainUpView_upImageRes = 0;
+        /** Attributes that can be used with a TextViewWithTTF.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #TextViewWithTTF_ttf_name com.open.umei:ttf_name}</code></td><td></td></tr>
+           </table>
+           @see #TextViewWithTTF_ttf_name
+         */
+        public static final int[] TextViewWithTTF = {
+            0x7f010000
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#ttf_name}
+          attribute's value can be found in the {@link #TextViewWithTTF} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.open.umei:ttf_name
+        */
+        public static final int TextViewWithTTF_ttf_name = 0;
+        /** Attributes that can be used with a TvTabHost.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #TvTabHost_animationType com.open.umei:animationType}</code></td><td></td></tr>
+           <tr><td><code>{@link #TvTabHost_cursorHeight com.open.umei:cursorHeight}</code></td><td></td></tr>
+           <tr><td><code>{@link #TvTabHost_cursorMarginBottom com.open.umei:cursorMarginBottom}</code></td><td></td></tr>
+           <tr><td><code>{@link #TvTabHost_cursorMarginLeft com.open.umei:cursorMarginLeft}</code></td><td></td></tr>
+           <tr><td><code>{@link #TvTabHost_cursorMarginRight com.open.umei:cursorMarginRight}</code></td><td></td></tr>
+           <tr><td><code>{@link #TvTabHost_cursorMarginTop com.open.umei:cursorMarginTop}</code></td><td></td></tr>
+           <tr><td><code>{@link #TvTabHost_cursorRes com.open.umei:cursorRes}</code></td><td></td></tr>
+           <tr><td><code>{@link #TvTabHost_cursorWidth com.open.umei:cursorWidth}</code></td><td></td></tr>
+           <tr><td><code>{@link #TvTabHost_delay com.open.umei:delay}</code></td><td></td></tr>
+           <tr><td><code>{@link #TvTabHost_dividerHeight com.open.umei:dividerHeight}</code></td><td></td></tr>
+           <tr><td><code>{@link #TvTabHost_durationLarge com.open.umei:durationLarge}</code></td><td></td></tr>
+           <tr><td><code>{@link #TvTabHost_durationScroll com.open.umei:durationScroll}</code></td><td></td></tr>
+           <tr><td><code>{@link #TvTabHost_durationSmall com.open.umei:durationSmall}</code></td><td></td></tr>
+           <tr><td><code>{@link #TvTabHost_scalable com.open.umei:scalable}</code></td><td></td></tr>
+           <tr><td><code>{@link #TvTabHost_scale com.open.umei:scale}</code></td><td></td></tr>
+           <tr><td><code>{@link #TvTabHost_textColorDefault com.open.umei:textColorDefault}</code></td><td></td></tr>
+           <tr><td><code>{@link #TvTabHost_textColorSelected com.open.umei:textColorSelected}</code></td><td></td></tr>
+           <tr><td><code>{@link #TvTabHost_textSize com.open.umei:textSize}</code></td><td></td></tr>
+           <tr><td><code>{@link #TvTabHost_titleHeight com.open.umei:titleHeight}</code></td><td></td></tr>
+           <tr><td><code>{@link #TvTabHost_titleSpace com.open.umei:titleSpace}</code></td><td></td></tr>
+           <tr><td><code>{@link #TvTabHost_titleWidth com.open.umei:titleWidth}</code></td><td></td></tr>
+           </table>
+           @see #TvTabHost_animationType
+           @see #TvTabHost_cursorHeight
+           @see #TvTabHost_cursorMarginBottom
+           @see #TvTabHost_cursorMarginLeft
+           @see #TvTabHost_cursorMarginRight
+           @see #TvTabHost_cursorMarginTop
+           @see #TvTabHost_cursorRes
+           @see #TvTabHost_cursorWidth
+           @see #TvTabHost_delay
+           @see #TvTabHost_dividerHeight
+           @see #TvTabHost_durationLarge
+           @see #TvTabHost_durationScroll
+           @see #TvTabHost_durationSmall
+           @see #TvTabHost_scalable
+           @see #TvTabHost_scale
+           @see #TvTabHost_textColorDefault
+           @see #TvTabHost_textColorSelected
+           @see #TvTabHost_textSize
+           @see #TvTabHost_titleHeight
+           @see #TvTabHost_titleSpace
+           @see #TvTabHost_titleWidth
+         */
+        public static final int[] TvTabHost = {
+            0x7f010012, 0x7f010013, 0x7f010014, 0x7f010015,
+            0x7f010016, 0x7f010017, 0x7f010018, 0x7f010019,
+            0x7f01001a, 0x7f01001b, 0x7f01001c, 0x7f01001d,
+            0x7f01001e, 0x7f01001f, 0x7f010020, 0x7f010021,
+            0x7f010022, 0x7f010023, 0x7f010024, 0x7f010025,
+            0x7f010026
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#animationType}
+          attribute's value can be found in the {@link #TvTabHost} array.
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>DEFAULT</code></td><td>0</td><td></td></tr>
+<tr><td><code>TRANSLATE</code></td><td>1</td><td></td></tr>
+</table>
+          @attr name com.open.umei:animationType
+        */
+        public static final int TvTabHost_animationType = 11;
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#cursorHeight}
+          attribute's value can be found in the {@link #TvTabHost} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.open.umei:cursorHeight
+        */
+        public static final int TvTabHost_cursorHeight = 16;
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#cursorMarginBottom}
+          attribute's value can be found in the {@link #TvTabHost} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.open.umei:cursorMarginBottom
+        */
+        public static final int TvTabHost_cursorMarginBottom = 20;
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#cursorMarginLeft}
+          attribute's value can be found in the {@link #TvTabHost} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.open.umei:cursorMarginLeft
+        */
+        public static final int TvTabHost_cursorMarginLeft = 17;
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#cursorMarginRight}
+          attribute's value can be found in the {@link #TvTabHost} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.open.umei:cursorMarginRight
+        */
+        public static final int TvTabHost_cursorMarginRight = 19;
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#cursorMarginTop}
+          attribute's value can be found in the {@link #TvTabHost} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.open.umei:cursorMarginTop
+        */
+        public static final int TvTabHost_cursorMarginTop = 18;
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#cursorRes}
+          attribute's value can be found in the {@link #TvTabHost} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.open.umei:cursorRes
+        */
+        public static final int TvTabHost_cursorRes = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#cursorWidth}
+          attribute's value can be found in the {@link #TvTabHost} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.open.umei:cursorWidth
+        */
+        public static final int TvTabHost_cursorWidth = 15;
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#delay}
+          attribute's value can be found in the {@link #TvTabHost} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.open.umei:delay
+        */
+        public static final int TvTabHost_delay = 14;
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#dividerHeight}
+          attribute's value can be found in the {@link #TvTabHost} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.open.umei:dividerHeight
+        */
+        public static final int TvTabHost_dividerHeight = 7;
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#durationLarge}
+          attribute's value can be found in the {@link #TvTabHost} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.open.umei:durationLarge
+        */
+        public static final int TvTabHost_durationLarge = 12;
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#durationScroll}
+          attribute's value can be found in the {@link #TvTabHost} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.open.umei:durationScroll
+        */
+        public static final int TvTabHost_durationScroll = 8;
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#durationSmall}
+          attribute's value can be found in the {@link #TvTabHost} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.open.umei:durationSmall
+        */
+        public static final int TvTabHost_durationSmall = 13;
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#scalable}
+          attribute's value can be found in the {@link #TvTabHost} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.open.umei:scalable
+        */
+        public static final int TvTabHost_scalable = 9;
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#scale}
+          attribute's value can be found in the {@link #TvTabHost} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.open.umei:scale
+        */
+        public static final int TvTabHost_scale = 10;
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#textColorDefault}
+          attribute's value can be found in the {@link #TvTabHost} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.open.umei:textColorDefault
+        */
+        public static final int TvTabHost_textColorDefault = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#textColorSelected}
+          attribute's value can be found in the {@link #TvTabHost} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.open.umei:textColorSelected
+        */
+        public static final int TvTabHost_textColorSelected = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#textSize}
+          attribute's value can be found in the {@link #TvTabHost} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.open.umei:textSize
+        */
+        public static final int TvTabHost_textSize = 6;
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#titleHeight}
+          attribute's value can be found in the {@link #TvTabHost} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.open.umei:titleHeight
+        */
+        public static final int TvTabHost_titleHeight = 4;
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#titleSpace}
+          attribute's value can be found in the {@link #TvTabHost} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.open.umei:titleSpace
+        */
+        public static final int TvTabHost_titleSpace = 5;
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#titleWidth}
+          attribute's value can be found in the {@link #TvTabHost} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.open.umei:titleWidth
+        */
+        public static final int TvTabHost_titleWidth = 3;
+        /**  倒影控件属性 
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #reflectItemView_isReflect com.open.umei:isReflect}</code></td><td></td></tr>
+           <tr><td><code>{@link #reflectItemView_isShape com.open.umei:isShape}</code></td><td></td></tr>
+           <tr><td><code>{@link #reflectItemView_radius com.open.umei:radius}</code></td><td></td></tr>
+           <tr><td><code>{@link #reflectItemView_refle_spacing com.open.umei:refle_spacing}</code></td><td></td></tr>
+           <tr><td><code>{@link #reflectItemView_reflect_height com.open.umei:reflect_height}</code></td><td></td></tr>
+           </table>
+           @see #reflectItemView_isReflect
+           @see #reflectItemView_isShape
+           @see #reflectItemView_radius
+           @see #reflectItemView_refle_spacing
+           @see #reflectItemView_reflect_height
+         */
+        public static final int[] reflectItemView = {
+            0x7f010001, 0x7f010002, 0x7f010003, 0x7f010004,
+            0x7f010005
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#isReflect}
+          attribute's value can be found in the {@link #reflectItemView} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.open.umei:isReflect
+        */
+        public static final int reflectItemView_isReflect = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#isShape}
+          attribute's value can be found in the {@link #reflectItemView} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.open.umei:isShape
+        */
+        public static final int reflectItemView_isShape = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#radius}
+          attribute's value can be found in the {@link #reflectItemView} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.open.umei:radius
+        */
+        public static final int reflectItemView_radius = 3;
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#refle_spacing}
+          attribute's value can be found in the {@link #reflectItemView} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.open.umei:refle_spacing
+        */
+        public static final int reflectItemView_refle_spacing = 4;
+        /**
+          <p>This symbol is the offset where the {@link com.open.umei.R.attr#reflect_height}
+          attribute's value can be found in the {@link #reflectItemView} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.open.umei:reflect_height
+        */
+        public static final int reflectItemView_reflect_height = 2;
+    };
 }
