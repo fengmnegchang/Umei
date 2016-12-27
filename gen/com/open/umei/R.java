@@ -1280,21 +1280,23 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int TOP_RIGHT=0x7f0b0009;
         public static final int TRANSLATE=0x7f0b000b;
         public static final int bottom=0x7f0b0004;
-        public static final int imageview=0x7f0b0011;
+        public static final int imageview=0x7f0b0013;
         public static final int indicator=0x7f0b000d;
+        public static final int layout_umei_nav=0x7f0b0010;
         public static final int listview=0x7f0b000c;
         public static final int none=0x7f0b0001;
         public static final int openTabHost=0x7f0b000f;
-        public static final int tab_title=0x7f0b0013;
-        public static final int tab_title_sum=0x7f0b0014;
-        public static final int tab_title_tips=0x7f0b0015;
-        public static final int text_name=0x7f0b0010;
+        public static final int tab_title=0x7f0b0015;
+        public static final int tab_title_sum=0x7f0b0016;
+        public static final int tab_title_tips=0x7f0b0017;
+        public static final int text_name=0x7f0b0011;
+        public static final int text_type_name=0x7f0b0012;
         /**  标题栏id 
          */
         public static final int title_bar=0x7f0b0000;
         public static final int top=0x7f0b0005;
         public static final int triangle=0x7f0b0002;
-        public static final int tv_tab_indicator=0x7f0b0012;
+        public static final int tv_tab_indicator=0x7f0b0014;
         public static final int underline=0x7f0b0003;
         public static final int viewpager=0x7f0b000e;
     }
@@ -1309,14 +1311,16 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int activity_umei_all=0x7f030000;
         public static final int activity_umei_main_indicator_viewpager=0x7f030001;
         public static final int activity_umei_main_tabhost_viewpager=0x7f030002;
-        public static final int adapter_all_class=0x7f030003;
-        public static final int fragment_common_indicator_horizontal_viewpager=0x7f030004;
-        public static final int fragment_common_tab_horizontal_viewpager=0x7f030005;
-        public static final int fragment_common_v4=0x7f030006;
-        public static final int tab_view_indicator_item=0x7f030007;
-        public static final int tabhost_title_head=0x7f030008;
-        public static final int title_flow_indicator=0x7f030009;
-        public static final int title_flow_indicator_v2=0x7f03000a;
+        public static final int activity_umei_nav=0x7f030003;
+        public static final int adapter_all_class=0x7f030004;
+        public static final int adapter_umei_nav=0x7f030005;
+        public static final int fragment_common_indicator_horizontal_viewpager=0x7f030006;
+        public static final int fragment_common_tab_horizontal_viewpager=0x7f030007;
+        public static final int fragment_common_v4=0x7f030008;
+        public static final int tab_view_indicator_item=0x7f030009;
+        public static final int tabhost_title_head=0x7f03000a;
+        public static final int title_flow_indicator=0x7f03000b;
+        public static final int title_flow_indicator_v2=0x7f03000c;
     }
     public static final class string {
         public static final int app_name=0x7f090000;

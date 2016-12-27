@@ -63,6 +63,18 @@ Response.Listener<JSONObject>, Response.ErrorListener {
 	public SharedPreferences mSharedPreferences;
 	private ImageLoadingListener animateFirstListener = new AnimateFirstDisplayListener();
 	public WeakActivityReferenceHandler weakReferenceHandler;
+	
+	/** 刷新 */
+	public static final int MESSAGE_HANDLER = 5000;
+	/** 请求数据成功 */
+	public static final int MESSAGE_HANDLER_COMPLETE = 5001;
+	
+	/** drop菜单选择 重新刷新数据 */
+	public static final int MESSAGE_DROP_HANDLER = 5002;
+	
+	/** 默认位置 */
+	public static final int MESSAGE_DEFAULT_POSITION = 6000;
+	
 	/*
 	 * (non-Javadoc)
 	 * 

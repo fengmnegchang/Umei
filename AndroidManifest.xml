@@ -28,15 +28,23 @@
             android:name="com.open.umei.activity.UmeiMainIndicatorViewPagerActivity"
             android:configChanges="keyboard|keyboardHidden|navigation"
             android:theme="@style/Theme.PageIndicatorDefaults" >
-            <intent-filter>
+           
+        </activity>
+        <activity
+            android:name="com.open.umei.activity.UmeiMainTabHostViewPagerActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation" 
+            >
+        </activity>
+        <activity
+            android:name="com.open.umei.activity.UmeiNavActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+			android:theme="@style/Theme.PageIndicatorDefaults"             
+			>
+             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name="com.open.umei.activity.UmeiMainTabHostViewPagerActivity"
-            android:configChanges="keyboard|keyboardHidden|navigation" >
         </activity>
         
         <!-- 所有类列表 -->
