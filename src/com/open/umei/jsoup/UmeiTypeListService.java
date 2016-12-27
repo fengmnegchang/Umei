@@ -38,13 +38,16 @@ import com.open.umei.utils.UrlUtils;
  */
 public class UmeiTypeListService extends CommonService {
 	public static final String TAG = UmeiTypeListService.class.getSimpleName();
+	private static String ChannelTitle;
+	private static String ListDesc;
+	private static String TypePic;
 
-	public static ArrayList<UmeiTypeBean> parseTypeList(String href,int pageNo) {
+	public static ArrayList<UmeiTypeBean> parseTypeList(String href, int pageNo) {
 		ArrayList<UmeiTypeBean> list = new ArrayList<UmeiTypeBean>();
 		try {
-			//http://www.umei.cc/bizhitupian/shoujibizhi/1.htm
-			//http://www.umei.cc/bizhitupian/shoujibizhi/
-			href = href+pageNo+".htm";
+			// http://www.umei.cc/bizhitupian/shoujibizhi/1.htm
+			// http://www.umei.cc/bizhitupian/shoujibizhi/
+			href = href + pageNo + ".htm";
 			href = makeURL(href, new HashMap<String, Object>() {
 				{
 				}
@@ -52,6 +55,34 @@ public class UmeiTypeListService extends CommonService {
 			Log.i(TAG, "url = " + href);
 
 			Document doc = Jsoup.connect(href).userAgent(UrlUtils.userAgent).timeout(10000).get();
+			try {
+				Element TypePicElement = doc.select("div.TypePic").first();
+				if(TypePicElement!=null){
+					TypePic = TypePicElement.select("img").first().attr("src");
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			try {
+				Element ChannelTitleElement = doc.select("div.ChannelTitle").first();
+				if(ChannelTitleElement!=null){
+					ChannelTitle = ChannelTitleElement.text();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			try {
+				Element ListDescElement = doc.select("p.ListDesc").first();
+				if(ListDescElement!=null){
+					ListDesc = ListDescElement.text();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			
 			Element masthead = doc.select("div.TypeList").first();
 			Elements liElements = masthead.select("li");
 			/**
@@ -139,9 +170,12 @@ public class UmeiTypeListService extends CommonService {
 			Element masthead = doc.select("div.TypeList_2").first();
 			Elements liElements = masthead.select("li");
 			/**
-			 *<li><a href="http://www.umei.cc/bizhitupian/diannaobizhi/7614.htm" title="男歌手张艺兴桌面壁纸图片">
-			 *<div class="Pix-box"><img src="http://i1.umei.cc/uploads/tu/201608/434/slt2.jpg" width="180" title="男歌手张艺兴桌面壁纸图片">
-			 *</div><span>男歌手张艺兴桌面壁纸图片</span></a></li>
+			 * <li><a
+			 * href="http://www.umei.cc/bizhitupian/diannaobizhi/7614.htm"
+			 * title="男歌手张艺兴桌面壁纸图片"> <div class="Pix-box"><img
+			 * src="http://i1.umei.cc/uploads/tu/201608/434/slt2.jpg"
+			 * width="180" title="男歌手张艺兴桌面壁纸图片">
+			 * </div><span>男歌手张艺兴桌面壁纸图片</span></a></li>
 			 */
 			// 解析文件
 			if (liElements != null && liElements.size() > 1) {
@@ -152,11 +186,11 @@ public class UmeiTypeListService extends CommonService {
 						String hrefurl = aElement.attr("href");
 						Log.i(TAG, "i===" + i + "hrefurl==" + hrefurl);
 						bean.setHref(hrefurl);
-						
+
 						String typename = aElement.attr("title");
 						Log.i(TAG, "i===" + i + "typename=" + typename);
 						bean.setTypename(typename);
-						
+
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
@@ -178,6 +212,30 @@ public class UmeiTypeListService extends CommonService {
 		}
 
 		return list;
+	}
+
+	public static String getChannelTitle() {
+		return ChannelTitle;
+	}
+
+	public static void setChannelTitle(String channelTitle) {
+		ChannelTitle = channelTitle;
+	}
+
+	public static String getListDesc() {
+		return ListDesc;
+	}
+
+	public static void setListDesc(String listDesc) {
+		ListDesc = listDesc;
+	}
+
+	public static String getTypePic() {
+		return TypePic;
+	}
+
+	public static void setTypePic(String typePic) {
+		TypePic = typePic;
 	}
 
 }

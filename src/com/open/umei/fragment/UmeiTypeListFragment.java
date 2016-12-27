@@ -12,12 +12,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.open.umei.R;
 import com.open.umei.adapter.UmeiTypeAdapter;
 import com.open.umei.adapter.UmeiTypePagerAdapter;
@@ -50,6 +54,8 @@ public class UmeiTypeListFragment extends BaseV4Fragment<UmeiTypeJson, UmeiTypeL
 	private UmeiTypePagerAdapter mUmeiTypePagerAdapter;
 	private List<UmeiTypeBean> list2 = new ArrayList<UmeiTypeBean>();
 	private int pageNo = 1;
+	private TextView txt_ChannelTitle, txt_ListDesc;
+	private ImageView image_TypePic;
 
 	public static UmeiTypeListFragment newInstance(String url, boolean isVisibleToUser) {
 		UmeiTypeListFragment fragment = new UmeiTypeListFragment();
@@ -65,6 +71,9 @@ public class UmeiTypeListFragment extends BaseV4Fragment<UmeiTypeJson, UmeiTypeL
 		View view = inflater.inflate(R.layout.fragment_common_listview, container, false);
 		mPullRefreshListView = (PullToRefreshListView) view.findViewById(R.id.pull_refresh_list);
 		viewpager = (ViewPager) view.findViewById(R.id.viewpager);
+		txt_ChannelTitle = (TextView) view.findViewById(R.id.txt_ChannelTitle);
+		txt_ListDesc = (TextView) view.findViewById(R.id.txt_ListDesc);
+		image_TypePic = (ImageView) view.findViewById(R.id.image_TypePic);
 		return view;
 	}
 
@@ -86,8 +95,10 @@ public class UmeiTypeListFragment extends BaseV4Fragment<UmeiTypeJson, UmeiTypeL
 		initValues();
 		bindEvent();
 	}
-	
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.open.umei.fragment.BaseV4Fragment#initValues()
 	 */
 	@Override
@@ -99,7 +110,7 @@ public class UmeiTypeListFragment extends BaseV4Fragment<UmeiTypeJson, UmeiTypeL
 
 		mUmeiTypeAdapter = new UmeiTypeAdapter(getActivity(), list);
 		mPullRefreshListView.setAdapter(mUmeiTypeAdapter);
-		
+
 		mPullRefreshListView.setMode(Mode.BOTH);
 	}
 
@@ -136,11 +147,14 @@ public class UmeiTypeListFragment extends BaseV4Fragment<UmeiTypeJson, UmeiTypeL
 		ArrayList<UmeiTypeBean> list = new ArrayList<UmeiTypeBean>();
 		ArrayList<UmeiTypeBean> list2 = new ArrayList<UmeiTypeBean>();
 		try {
-			list = UmeiTypeListService.parseTypeList(url,pageNo);
+			list = UmeiTypeListService.parseTypeList(url, pageNo);
 			list2 = UmeiTypeListService.parseTypeList2(url);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		mCommonT.setChannelTitle(UmeiTypeListService.getChannelTitle());
+		mCommonT.setListDesc(UmeiTypeListService.getListDesc());
+		mCommonT.setTypePic(UmeiTypeListService.getTypePic());
 		mCommonT.setTypeList(list);
 		mCommonT.setTypeList2(list2);
 		return mCommonT;
@@ -154,22 +168,29 @@ public class UmeiTypeListFragment extends BaseV4Fragment<UmeiTypeJson, UmeiTypeL
 			list.clear();
 			list.addAll(result.getTypeList());
 			pageNo = 1;
-		}else{
-			if(result.getTypeList()!=null && result.getTypeList().size()>0){
+		} else {
+			if (result.getTypeList() != null && result.getTypeList().size() > 0) {
 				list.addAll(result.getTypeList());
 			}
 		}
-		
+
 		mUmeiTypeAdapter.notifyDataSetChanged();
 		// Call onRefreshComplete when the list has been refreshed.
 		mPullRefreshListView.onRefreshComplete();
-				
-		if(result.getTypeList2()!=null && result.getTypeList2().size()>0){
+
+		if (result.getTypeList2() != null && result.getTypeList2().size() > 0) {
 			list2.clear();
 			list2.addAll(result.getTypeList2());
 		}
 		mUmeiTypePagerAdapter.notifyDataSetChanged();
-		
+
+		txt_ChannelTitle.setText(result.getChannelTitle());
+		txt_ListDesc.setText(result.getListDesc());
+		if (result.getTypePic() != null && result.getTypePic().length() > 0) {
+			DisplayImageOptions options = new DisplayImageOptions.Builder().showStubImage(R.drawable.common_v4).showImageForEmptyUri(R.drawable.common_v4).showImageOnFail(R.drawable.common_v4)
+					.cacheInMemory().cacheOnDisc().build();
+			ImageLoader.getInstance().displayImage(result.getTypePic(), image_TypePic, options, getImageLoadingListener());
+		}
 	}
 
 	/*
