@@ -9,5 +9,10 @@
     <string name="fzlt_cu_hei">FZLTHC_GBK.ttf</string>
     <string name="nav_tab_normal_ttf">@string/fzlt_zhun_hei</string>
     <string name="nav_tab_focus_ttf">@string/fzlt_cu_hei</string>
+    <string name="umei_all_desp">"所有类列表 "</string>
+    <string name="umei_main_indicator_desp">indicator指示器+viewpager+fragment</string>
+    <string name="umei_main_tabhost_desp">TabHost+viewpager+fragment</string>
+    <string name="umei_nav_desp">listview+fragment</string>
+    <string name="umei_listfragment_desp">ListFragment+fragment</string>
 
 </resources>

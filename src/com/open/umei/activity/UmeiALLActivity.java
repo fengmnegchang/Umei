@@ -88,7 +88,7 @@ public class UmeiALLActivity extends CommonFragmentActivity implements OnItemCli
 			AllBean allBean;
 			for (ActivityInfo info : activities) {
 				if (!UmeiALLActivity.class.getName().equals(info.name)) {
-					allBean = new AllBean(info.name, info.name.replace(getPackageName(), ""));
+					allBean = new AllBean(info.name, getResources().getString(info.descriptionRes));
 					list.add(allBean);
 				}
 			}
