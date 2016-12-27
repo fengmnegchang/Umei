@@ -4,7 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipChildren="false"
-    android:clipToPadding="false" >
+    android:clipToPadding="false"
+    android:fitsSystemWindows="true"
+    android:background="#1f92d1"
+     >
 
     <com.open.indicator.TabPageIndicator
         android:id="@+id/indicator"

@@ -1280,21 +1280,23 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int TOP_RIGHT=0x7f0b0009;
         public static final int TRANSLATE=0x7f0b000b;
         public static final int bottom=0x7f0b0004;
-        public static final int imageview=0x7f0b000f;
-        public static final int indicator=0x7f0b000c;
+        public static final int imageview=0x7f0b0011;
+        public static final int indicator=0x7f0b000d;
+        public static final int listview=0x7f0b000c;
         public static final int none=0x7f0b0001;
-        public static final int openTabHost=0x7f0b000e;
-        public static final int tab_title=0x7f0b0011;
-        public static final int tab_title_sum=0x7f0b0012;
-        public static final int tab_title_tips=0x7f0b0013;
+        public static final int openTabHost=0x7f0b000f;
+        public static final int tab_title=0x7f0b0013;
+        public static final int tab_title_sum=0x7f0b0014;
+        public static final int tab_title_tips=0x7f0b0015;
+        public static final int text_name=0x7f0b0010;
         /**  标题栏id 
          */
         public static final int title_bar=0x7f0b0000;
         public static final int top=0x7f0b0005;
         public static final int triangle=0x7f0b0002;
-        public static final int tv_tab_indicator=0x7f0b0010;
+        public static final int tv_tab_indicator=0x7f0b0012;
         public static final int underline=0x7f0b0003;
-        public static final int viewpager=0x7f0b000d;
+        public static final int viewpager=0x7f0b000e;
     }
     public static final class integer {
         public static final int default_circle_indicator_orientation=0x7f080000;
@@ -1304,14 +1306,17 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int default_underline_indicator_fade_length=0x7f080004;
     }
     public static final class layout {
-        public static final int activity_umei_main_indicator_viewpager=0x7f030000;
-        public static final int activity_umei_main_tabhost_viewpager=0x7f030001;
-        public static final int fragment_common_tab_horizontal_viewpager=0x7f030002;
-        public static final int fragment_common_v4=0x7f030003;
-        public static final int tab_view_indicator_item=0x7f030004;
-        public static final int tabhost_title_head=0x7f030005;
-        public static final int title_flow_indicator=0x7f030006;
-        public static final int title_flow_indicator_v2=0x7f030007;
+        public static final int activity_umei_all=0x7f030000;
+        public static final int activity_umei_main_indicator_viewpager=0x7f030001;
+        public static final int activity_umei_main_tabhost_viewpager=0x7f030002;
+        public static final int adapter_all_class=0x7f030003;
+        public static final int fragment_common_indicator_horizontal_viewpager=0x7f030004;
+        public static final int fragment_common_tab_horizontal_viewpager=0x7f030005;
+        public static final int fragment_common_v4=0x7f030006;
+        public static final int tab_view_indicator_item=0x7f030007;
+        public static final int tabhost_title_head=0x7f030008;
+        public static final int title_flow_indicator=0x7f030009;
+        public static final int title_flow_indicator_v2=0x7f03000a;
     }
     public static final class string {
         public static final int app_name=0x7f090000;
@@ -1381,17 +1386,6 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         
-
-        Base application theme for API 11+. This theme completely replaces
-        AppBaseTheme from res/values/styles.xml on API 11+ devices.
-    
- API 11 theme customizations can go here. 
-
-        Base application theme for API 14+. This theme completely replaces
-        AppBaseTheme from BOTH res/values/styles.xml and
-        res/values-v11/styles.xml on API 14+ devices.
-    
- API 14 theme customizations can go here. 
          */
         public static final int AppBaseTheme=0x7f0a0000;
         /**  Application theme. 
@@ -1401,7 +1395,6 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
  Application theme. 
- All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f0a0001;
         public static final int CustomCirclePageIndicator=0x7f0a0007;

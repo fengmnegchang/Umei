@@ -17,17 +17,17 @@ import android.util.Log;
 import com.open.indicator.TabPageIndicator;
 import com.open.umei.R;
 import com.open.umei.adapter.CommonFragmentPagerAdapter;
-import com.open.umei.bean.CommonBean;
-import com.open.umei.fragment.CommonV4Fragment;
-import com.open.umei.json.CommonJson;
+import com.open.umei.bean.UmeiNavBean;
+import com.open.umei.fragment.UmeiNavIndicatorHorizontalViewPagerFragment;
+import com.open.umei.json.UmeiNavJson;
 import com.open.umei.utils.UrlUtils;
 
 /**
  * ViewPager demo： 注意标题栏和viewpager的焦点控制.(在XML布局中控制了, ids) 移动边框的问题也需要注意.
  * 
  */
-public class UmeiMainIndicatorViewPagerActivity extends CommonFragmentActivity<CommonJson> {
-	ArrayList<CommonBean> list = new ArrayList<CommonBean>();
+public class UmeiMainIndicatorViewPagerActivity extends CommonFragmentActivity<UmeiNavJson> {
+	ArrayList<UmeiNavBean> list = new ArrayList<UmeiNavBean>();
 	ViewPager viewpager;
 	TabPageIndicator indicator;
 	List<String> titleList = new ArrayList<String>();
@@ -54,9 +54,9 @@ public class UmeiMainIndicatorViewPagerActivity extends CommonFragmentActivity<C
 	}
 
 	@Override
-	public CommonJson call() throws Exception {
-		CommonJson mCommonT = new CommonJson();
-		ArrayList<CommonBean> list = new ArrayList<CommonBean>();// 导航大图
+	public UmeiNavJson call() throws Exception {
+		UmeiNavJson mCommonT = new UmeiNavJson();
+		ArrayList<UmeiNavBean> list = new ArrayList<UmeiNavBean>();// 导航大图
 		try {
 			// 解析网络标签
 			list = parseUmeiNav(UrlUtils.UMEI);
@@ -68,23 +68,23 @@ public class UmeiMainIndicatorViewPagerActivity extends CommonFragmentActivity<C
 	}
 
 	@Override
-	public void onCallback(CommonJson result) {
+	public void onCallback(UmeiNavJson result) {
 		super.onCallback(result);
 		// 初始化viewpager.
 		list.clear();
 		list.addAll(result.getList());
 		titleList.clear();
-		for (CommonBean sliderNavBean : result.getList()) {
+		for (UmeiNavBean sliderNavBean : result.getList()) {
 			titleList.add(sliderNavBean.getTitle());
-			Fragment fragment = CommonV4Fragment.newInstance();
+			Fragment fragment = UmeiNavIndicatorHorizontalViewPagerFragment.newInstance(sliderNavBean.getTitle(), UrlUtils.UMEI);
 			listRankFragment.add(fragment);
 		}
 		mRankPagerAdapter.notifyDataSetChanged();
 		indicator.notifyDataSetChanged();
 	}
 
-	public ArrayList<CommonBean> parseUmeiNav(String href) {
-		ArrayList<CommonBean> list = new ArrayList<CommonBean>();
+	public ArrayList<UmeiNavBean> parseUmeiNav(String href) {
+		ArrayList<UmeiNavBean> list = new ArrayList<UmeiNavBean>();
 		try {
 			href = makeURL(href, new HashMap<String, Object>() {
 				{
@@ -122,7 +122,7 @@ public class UmeiMainIndicatorViewPagerActivity extends CommonFragmentActivity<C
 			// 解析文件
 			if (liElements != null && liElements.size() > 1) {
 				for (int i = 1; i < liElements.size(); i++) {
-					CommonBean sliderNavBean = new CommonBean();
+					UmeiNavBean sliderNavBean = new UmeiNavBean();
 					try {
 						Element aElement = liElements.get(i).select("a").first();
 						String hrefurl = aElement.attr("href");

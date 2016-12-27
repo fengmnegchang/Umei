@@ -22,8 +22,9 @@ import com.open.umei.R;
 import com.open.umei.adapter.CommonFragmentPagerAdapter;
 import com.open.umei.adapter.OpenTabPagerAdapter;
 import com.open.umei.bean.CommonBean;
-import com.open.umei.fragment.CommonV4Fragment;
-import com.open.umei.json.CommonJson;
+import com.open.umei.bean.UmeiNavBean;
+import com.open.umei.fragment.UmeiNavTabHorizontalViewPagerFragment;
+import com.open.umei.json.UmeiNavJson;
 import com.open.umei.utils.UrlUtils;
 import com.open.umei.view.OpenTabHost;
 import com.open.umei.view.OpenTabHost.OnTabSelectListener;
@@ -33,15 +34,13 @@ import com.open.umei.view.TextViewWithTTF;
  * ViewPager demo： 注意标题栏和viewpager的焦点控制.(在XML布局中控制了, ids) 移动边框的问题也需要注意.
  * 
  */
-public class UmeiMainTabHostViewPagerActivity extends CommonFragmentActivity<CommonJson> implements OnTabSelectListener {
-	ArrayList<CommonBean> list = new ArrayList<CommonBean>();
-	// private List<View> viewList = new ArrayList<View>();// 将要分页显示的View装入数组中
+public class UmeiMainTabHostViewPagerActivity extends CommonFragmentActivity<UmeiNavJson> implements OnTabSelectListener {
+	ArrayList<UmeiNavBean> list = new ArrayList<UmeiNavBean>();
 	ViewPager viewpager;
 	OpenTabHost mOpenTabHost;
 	OpenTabPagerAdapter mOpenTabPagerAdapter;
 	List<String> titleList = new ArrayList<String>();
 	// 移动边框.
-	// ImageLoader mImageLoader;
 	private List<Fragment> listRankFragment = new ArrayList<Fragment>();// view数组
 	private List<Integer> ids = new ArrayList<Integer>();
 	CommonFragmentPagerAdapter mRankPagerAdapter;
@@ -66,17 +65,13 @@ public class UmeiMainTabHostViewPagerActivity extends CommonFragmentActivity<Com
 	@Override
 	protected void initValue() {
 		super.initValue();
-		// mImageLoader = new ImageLoader(this);
-		// mImageLoader.setRequiredSize(5 * (int)
-		// getResources().getDimension(R.dimen.litpic_width));
-		// 初始化移动边框.
 
 	}
 
 	@Override
-	public CommonJson call() throws Exception {
-		CommonJson mCommonT = new CommonJson();
-		ArrayList<CommonBean> list = new ArrayList<CommonBean>();// 导航大图
+	public UmeiNavJson call() throws Exception {
+		UmeiNavJson mCommonT = new UmeiNavJson();
+		ArrayList<UmeiNavBean> list = new ArrayList<UmeiNavBean>();// 导航大图
 		try {
 			// 解析网络标签
 			list = parseSliderNav(UrlUtils.UMEI);
@@ -88,27 +83,15 @@ public class UmeiMainTabHostViewPagerActivity extends CommonFragmentActivity<Com
 	}
 
 	@Override
-	public void onCallback(CommonJson result) {
+	public void onCallback(UmeiNavJson result) {
 		super.onCallback(result);
 		// 初始化viewpager.
-		// LayoutInflater inflater = getLayoutInflater();
 		list.clear();
 		list.addAll(result.getList());
 		titleList.clear();
-		for (CommonBean sliderNavBean : result.getList()) {
-			// View view = inflater.inflate(R.layout.item_medium_pager, null);
-			// ImageView imageView = (ImageView)
-			// view.findViewById(R.id.imageview);
-			// TextView textView = (TextView) view.findViewById(R.id.textview);
-			// textView.setText(sliderNavBean.getTitle());
-			// if(sliderNavBean.getImageUrl()!=null &&
-			// sliderNavBean.getImageUrl().length()>0){
-			// mImageLoader.DisplayImage(sliderNavBean.getImageUrl(),
-			// imageView);
-			// }
-			// viewList.add(view);
+		for (UmeiNavBean sliderNavBean : result.getList()) {
 			titleList.add(sliderNavBean.getTitle());
-			Fragment fragment = CommonV4Fragment.newInstance();
+			Fragment fragment = UmeiNavTabHorizontalViewPagerFragment.newInstance(sliderNavBean.getTitle(), UrlUtils.UMEI);
 			listRankFragment.add(fragment);
 			ids.add(R.id.title_bar);
 		}
@@ -121,8 +104,8 @@ public class UmeiMainTabHostViewPagerActivity extends CommonFragmentActivity<Com
 		// viewpager.setAdapter(new MediumPagerAdapter(this,list));
 	}
 
-	public ArrayList<CommonBean> parseSliderNav(String href) {
-		ArrayList<CommonBean> list = new ArrayList<CommonBean>();
+	public ArrayList<UmeiNavBean> parseSliderNav(String href) {
+		ArrayList<UmeiNavBean> list = new ArrayList<UmeiNavBean>();
 		try {
 			href = makeURL(href, new HashMap<String, Object>() {
 				{
@@ -134,26 +117,41 @@ public class UmeiMainTabHostViewPagerActivity extends CommonFragmentActivity<Com
 			Element masthead = doc.select("ul.Nav").first();
 			Elements liElements = masthead.select("li.NavLi");
 			/**
-			 * <li class="NavLi on" id="Home"><a href="http://www.umei.cc/" class="MainNav">首页</a></li>
- <li class="NavLi">
-		<a href="http://www.umei.cc/bizhitupian/" title="壁纸图片" class="MainNav">壁纸图片</a>
-          <div class="ShowNav">
-            <a href="http://www.umei.cc/bizhitupian/diannaobizhi/" title="电脑壁纸">电脑壁纸</a><a href="http://www.umei.cc/bizhitupian/shoujibizhi/" title="手机壁纸">手机壁纸</a><a href="http://www.umei.cc/bizhitupian/dongtaibizhi/" title="动态壁纸">动态壁纸</a><a href="http://www.umei.cc/bizhitupian/huyanbizhi/" title="护眼壁纸">护眼壁纸</a><a href="http://www.umei.cc/bizhitupian/meinvbizhi/" title="美女壁纸">美女壁纸</a><a href="http://www.umei.cc/bizhitupian/xiaoqingxinbizhi/" title="小清新壁纸">小清新壁纸</a><a href="http://www.umei.cc/bizhitupian/weimeibizhi/" title="唯美壁纸">唯美壁纸</a><a href="http://www.umei.cc/bizhitupian/fengjingbizhi/" title="风景壁纸">风景壁纸</a><a href="http://www.umei.cc/bizhitupian/keaibizhi/" title="可爱壁纸">可爱壁纸</a>
-          </div>
-        </li>
+			 * <li class="NavLi on" id="Home"><a href="http://www.umei.cc/"
+			 * class="MainNav">首页</a></li> <li class="NavLi">
+			 * <a href="http://www.umei.cc/bizhitupian/" title="壁纸图片"
+			 * class="MainNav">壁纸图片</a> <div class="ShowNav"> <a
+			 * href="http://www.umei.cc/bizhitupian/diannaobizhi/"
+			 * title="电脑壁纸">电脑壁纸</a><a
+			 * href="http://www.umei.cc/bizhitupian/shoujibizhi/"
+			 * title="手机壁纸">手机壁纸</a><a
+			 * href="http://www.umei.cc/bizhitupian/dongtaibizhi/"
+			 * title="动态壁纸">动态壁纸</a><a
+			 * href="http://www.umei.cc/bizhitupian/huyanbizhi/"
+			 * title="护眼壁纸">护眼壁纸</a><a
+			 * href="http://www.umei.cc/bizhitupian/meinvbizhi/"
+			 * title="美女壁纸">美女壁纸</a><a
+			 * href="http://www.umei.cc/bizhitupian/xiaoqingxinbizhi/"
+			 * title="小清新壁纸">小清新壁纸</a><a
+			 * href="http://www.umei.cc/bizhitupian/weimeibizhi/"
+			 * title="唯美壁纸">唯美壁纸</a><a
+			 * href="http://www.umei.cc/bizhitupian/fengjingbizhi/"
+			 * title="风景壁纸">风景壁纸</a><a
+			 * href="http://www.umei.cc/bizhitupian/keaibizhi/"
+			 * title="可爱壁纸">可爱壁纸</a> </div></li>
 			 */
 			// 解析文件
 			if (liElements != null && liElements.size() > 1) {
 				for (int i = 1; i < liElements.size(); i++) {
-					CommonBean sliderNavBean = new CommonBean();
+					UmeiNavBean sliderNavBean = new UmeiNavBean();
 					try {
 						Element aElement = liElements.get(i).select("a").first();
 						String hrefurl = aElement.attr("href");
 						String title = aElement.text();
-						Log.i(TAG, "i===" + i + "hrefurl==" + hrefurl + ";title===" + title );
+						Log.i(TAG, "i===" + i + "hrefurl==" + hrefurl + ";title===" + title);
 						sliderNavBean.setTitle(title);
 						sliderNavBean.setHref(hrefurl);
-//						sliderNavBean.setImageUrl(imageurl);
+						// sliderNavBean.setImageUrl(imageurl);
 						list.add(sliderNavBean);
 					} catch (Exception e) {
 						e.printStackTrace();

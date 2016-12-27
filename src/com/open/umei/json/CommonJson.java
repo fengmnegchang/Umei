@@ -11,9 +11,7 @@
  */
 package com.open.umei.json;
 
-import java.util.ArrayList;
-
-import com.open.umei.bean.CommonBean;
+import java.io.Serializable;
 
 /**
  ***************************************************************************************************************************************************************************** 
@@ -26,15 +24,6 @@ import com.open.umei.bean.CommonBean;
  * @description:
  ***************************************************************************************************************************************************************************** 
  */
-public class CommonJson {
-	private ArrayList<CommonBean> list = new ArrayList<CommonBean>();// 导航大图
-
-	public ArrayList<CommonBean> getList() {
-		return list;
-	}
-
-	public void setList(ArrayList<CommonBean> list) {
-		this.list = list;
-	}
+public class CommonJson implements Serializable {
 
 }

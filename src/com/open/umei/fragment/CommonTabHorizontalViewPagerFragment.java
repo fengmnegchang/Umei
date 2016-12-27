@@ -20,14 +20,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.open.umei.R;
 import com.open.umei.adapter.CommonFragmentPagerAdapter;
-import com.open.umei.adapter.CommonPagerAdapter;
 import com.open.umei.adapter.OpenTabTitleAdapter;
-import com.open.umei.bean.CommonBean;
-import com.open.umei.json.CommonJson;
+import com.open.umei.bean.UmeiNavBean;
+import com.open.umei.bean.UmeiSubNavBean;
+import com.open.umei.json.UmeiNavJson;
+import com.open.umei.utils.UrlUtils;
 import com.open.umei.view.OpenTabHost;
 import com.open.umei.view.TextViewWithTTF;
 
@@ -46,14 +46,11 @@ import com.open.umei.view.TextViewWithTTF;
  *               ***************************************************************
  *               *********************************************
  */
-public class CommonTabHorizontalViewPagerFragment extends BaseV4Fragment<CommonJson, CommonTabHorizontalViewPagerFragment> implements OpenTabHost.OnTabSelectListener {
+public class CommonTabHorizontalViewPagerFragment extends BaseV4Fragment<UmeiNavJson, CommonTabHorizontalViewPagerFragment> implements OpenTabHost.OnTabSelectListener {
 	public static final String TAG = CommonTabHorizontalViewPagerFragment.class.getSimpleName();
 	public ViewPager viewpager;
-	// 移动边框.
-	public View mNewFocus;
 	public CommonFragmentPagerAdapter mCommonPagerAdapter;
-	// RankViewPagerAdapter mRankViewPagerAdapter;
-	public List<CommonBean> titlerankList = new ArrayList<CommonBean>();
+	public List<UmeiNavBean> titlerankList = new ArrayList<UmeiNavBean>();
 	public OpenTabHost mOpenTabHost;
 	public OpenTabTitleAdapter mOpenTabTitleAdapter;
 	public List<String> titleList = new ArrayList<String>();
@@ -61,17 +58,13 @@ public class CommonTabHorizontalViewPagerFragment extends BaseV4Fragment<CommonJ
 	public int position;
 	public View view;
 	public String url;
-	public String selectElement;
-	public String liElement;
-	public String astrElement;
+	public String title;
 
-	public static CommonTabHorizontalViewPagerFragment newInstance(String url, String selectElement, String liElement, String astrElement) {
+	public static CommonTabHorizontalViewPagerFragment newInstance(String title, String url) {
 		CommonTabHorizontalViewPagerFragment fragment = new CommonTabHorizontalViewPagerFragment();
 		fragment.setFragment(fragment);
+		fragment.title = title;
 		fragment.url = url;
-		fragment.selectElement = selectElement;
-		fragment.liElement = liElement;
-		fragment.astrElement = astrElement;
 		return fragment;
 	}
 
@@ -111,15 +104,6 @@ public class CommonTabHorizontalViewPagerFragment extends BaseV4Fragment<CommonJ
 		super.onCreate(savedInstanceState);
 	}
 
-	// Handler mFocusHandler = new Handler() {
-	// @Override
-	// public void handleMessage(Message msg) {
-	// // // 初始化.
-	// switchTab(mOpenTabHost, position);
-	// viewpager.setCurrentItem(position);
-	// }
-	// };
-
 	/**
 	 * demo (翻页的时候改变状态) 将标题栏的文字颜色改变. <br>
 	 * 你可以写自己的东西，我这里只是DEMO.
@@ -153,21 +137,21 @@ public class CommonTabHorizontalViewPagerFragment extends BaseV4Fragment<CommonJ
 	}
 
 	@Override
-	public CommonJson call() throws Exception {
-		CommonJson mCommonT = new CommonJson();
-		ArrayList<CommonBean> list = new ArrayList<CommonBean>();
+	public UmeiNavJson call() throws Exception {
+		UmeiNavJson mCommonT = new UmeiNavJson();
+		ArrayList<UmeiNavBean> list = new ArrayList<UmeiNavBean>();
 		try {
-			list = parseTitleRank(url);
+			list = parseNav(url);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		// mCommonT.setList(list);
+		mCommonT.setList(list);
 		return mCommonT;
 	}
 
 	@Override
-	public void onCallback(CommonJson result) {
+	public void onCallback(UmeiNavJson result) {
 		super.onCallback(result);
 	}
 
@@ -179,8 +163,8 @@ public class CommonTabHorizontalViewPagerFragment extends BaseV4Fragment<CommonJ
 		mOpenTabHost.setOnTabSelectListener(this);
 	}
 
-	public ArrayList<CommonBean> parseTitleRank(String href) {
-		ArrayList<CommonBean> list = new ArrayList<CommonBean>();
+	public ArrayList<UmeiNavBean> parseNav(String href) {
+		ArrayList<UmeiNavBean> list = new ArrayList<UmeiNavBean>();
 		try {
 			href = makeURL(href, new HashMap<String, Object>() {
 				{
@@ -188,30 +172,88 @@ public class CommonTabHorizontalViewPagerFragment extends BaseV4Fragment<CommonJ
 			});
 			Log.i(TAG, "url = " + href);
 
-			Document doc = Jsoup.connect(href)
-			// .userAgent(UrlUtils.userAgent)
-					.timeout(10000).get();
+			Document doc = Jsoup.connect(href).userAgent(UrlUtils.userAgent).timeout(10000).get();
 
-			Element masthead = doc.select(selectElement).first();
-			Elements liElements = masthead.select(liElement);
+			Element masthead = doc.select("ul.Nav").first();
+			Elements liElements = masthead.select("li.NavLi");
 			// 解析文件
 			if (liElements != null && liElements.size() > 1) {
 				for (int i = 0; i < liElements.size(); i++) {
-					CommonBean bean = new CommonBean();
+					UmeiNavBean bean = new UmeiNavBean();
 					try {
-						Element aElement = liElements.get(i).select(astrElement).first();
-						String title = aElement.text().replace("/", "").replace("|", "");
-						// bean.setRankName(title);
+						String title;
+						Element h2Element = liElements.get(i).select("h2").first();
+						if (h2Element != null) {
+							title = h2Element.select("a").first().text();
+						} else {
+							Element aElement = liElements.get(i).select("a").first();
+							title = aElement.text().replace("/", "").replace("|", "");
+						}
+						bean.setTitle(title);
 						Log.i(TAG, "i===" + i + "title===" + title);
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
 
 					try {
-						Element aElement = liElements.get(i).select(astrElement).first();
-						String hrefurl = aElement.attr("href");
-						// bean.setRankurl(hrefurl);
+						String hrefurl;
+						Element h2Element = liElements.get(i).select("h2").first();
+						if (h2Element != null) {
+							hrefurl = h2Element.select("a").first().attr("href");
+						} else {
+							Element aElement = liElements.get(i).select("a").first();
+							hrefurl = aElement.attr("href");
+						}
+						bean.setHref(hrefurl);
 						Log.i(TAG, "i===" + i + "hrefurl==" + hrefurl);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+
+					/**
+					 * <div class="ShowNav"> <h3><a
+					 * href="http://www.umei.cc/bizhitupian/diannaobizhi/"
+					 * title="电脑壁纸">电脑壁纸</a></h3> <h3><a
+					 * href="http://www.umei.cc/bizhitupian/shoujibizhi/"
+					 * title="手机壁纸">手机壁纸</a></h3> <h3><a
+					 * href="http://www.umei.cc/bizhitupian/dongtaibizhi/"
+					 * title="动态壁纸">动态壁纸</a></h3> <h3><a
+					 * href="http://www.umei.cc/bizhitupian/huyanbizhi/"
+					 * title="护眼壁纸">护眼壁纸</a></h3> <h3><a
+					 * href="http://www.umei.cc/bizhitupian/meinvbizhi/"
+					 * title="美女壁纸">美女壁纸</a></h3> <h3><a
+					 * href="http://www.umei.cc/bizhitupian/xiaoqingxinbizhi/"
+					 * title="小清新壁纸">小清新壁纸</a></h3> <h3><a
+					 * href="http://www.umei.cc/bizhitupian/weimeibizhi/"
+					 * title="唯美壁纸">唯美壁纸</a></h3> <h3><a
+					 * href="http://www.umei.cc/bizhitupian/fengjingbizhi/"
+					 * title="风景壁纸">风景壁纸</a></h3> <h3><a
+					 * href="http://www.umei.cc/bizhitupian/keaibizhi/"
+					 * title="可爱壁纸">可爱壁纸</a></h3> </div>
+					 */
+					try {
+						Element divElement = liElements.get(i).select("div.ShowNav").first();
+						if (divElement != null) {
+							Elements h3Elements = divElement.select("h3");
+							List<UmeiSubNavBean> subNavList = new ArrayList<UmeiSubNavBean>();
+							UmeiSubNavBean subNavBean;
+							for (int y = 0; y < h3Elements.size(); y++) {
+								subNavBean = new UmeiSubNavBean();
+								try {
+									Element aElement = h3Elements.get(y).select("a").first();
+									String atitle = aElement.attr("title");
+									String ahref = aElement.attr("href");
+									subNavBean.setTitle(atitle);
+									subNavBean.setHref(ahref);
+									subNavList.add(subNavBean);
+
+									Log.i(TAG, "i===" + i + ";y==" + y + "title===" + title + ";href===" + href);
+								} catch (Exception e) {
+									e.printStackTrace();
+								}
+							}
+							bean.setSubNavList(subNavList);
+						}
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
@@ -224,14 +266,6 @@ public class CommonTabHorizontalViewPagerFragment extends BaseV4Fragment<CommonJ
 		}
 
 		return list;
-	}
-
-	public void setSelectElement(String selectElement) {
-		this.selectElement = selectElement;
-	}
-
-	public void setLiElement(String liElement) {
-		this.liElement = liElement;
 	}
 
 	/*
