@@ -39,9 +39,12 @@ import com.open.umei.utils.UrlUtils;
 public class UmeiTypeListService extends CommonService {
 	public static final String TAG = UmeiTypeListService.class.getSimpleName();
 
-	public static ArrayList<UmeiTypeBean> parseTypeList(String href) {
+	public static ArrayList<UmeiTypeBean> parseTypeList(String href,int pageNo) {
 		ArrayList<UmeiTypeBean> list = new ArrayList<UmeiTypeBean>();
 		try {
+			//http://www.umei.cc/bizhitupian/shoujibizhi/1.htm
+			//http://www.umei.cc/bizhitupian/shoujibizhi/
+			href = href+pageNo+".htm";
 			href = makeURL(href, new HashMap<String, Object>() {
 				{
 				}

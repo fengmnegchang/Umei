@@ -314,5 +314,9 @@ public class BaseV4Fragment<T,F extends BaseV4Fragment> extends Fragment impleme
 	public void bindEvent() {
 
 	}
+	
+	public void initValues() {
+
+	}
 
 }
