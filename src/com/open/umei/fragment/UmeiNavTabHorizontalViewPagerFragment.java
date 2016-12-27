@@ -54,7 +54,7 @@ public class UmeiNavTabHorizontalViewPagerFragment extends CommonTabHorizontalVi
 			if(title.equals(bean.getTitle())){
 				for(UmeiSubNavBean subBean :bean.getSubNavList()){
 					titleList.add(subBean.getTitle());
-					fragment = CommonV4Fragment.newInstance();
+					fragment = UmeiTypeListFragment.newInstance(subBean.getHref(),false);
 					listRankFragment.add(fragment);
 				}
 			}
