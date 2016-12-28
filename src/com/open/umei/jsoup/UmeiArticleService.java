@@ -233,4 +233,126 @@ public class UmeiArticleService extends CommonService {
 	}
 	
 	
+	public static ArrayList<UmeiArticleBean> parseArticlePagerSize(String href) {
+		ArrayList<UmeiArticleBean> list = new ArrayList<UmeiArticleBean>();
+		try {
+			// http://www.umei.cc/bizhitupian/diannaobizhi/7628_2.htm
+			// http://www.umei.cc/bizhitupian/diannaobizhi/7628.htm
+			href = makeURL(href, new HashMap<String, Object>() {
+				{
+				}
+			});
+			Log.i(TAG, "url = " + href);
+			Document doc = Jsoup.connect(href).userAgent(UrlUtils.userAgent).timeout(10000).get();
+			/**
+			 * <div class="NewPages">
+				<ul>
+					<li><a>共6页: </a></li>
+					<li><a href='#'>上一页</a></li>
+					<li class="thisclass"><a>1</a></li>
+					<li><a href='/bizhitupian/diannaobizhi/7628_2.htm'>2</a></li>
+					<li><a href='/bizhitupian/diannaobizhi/7628_3.htm'>3</a></li>
+					<li><a href='/bizhitupian/diannaobizhi/7628_4.htm'>4</a></li>
+					<li><a href='/bizhitupian/diannaobizhi/7628_5.htm'>5</a></li>
+					<li><a href='/bizhitupian/diannaobizhi/7628_2.htm'>下一页</a></li>
+				</ul>
+			</div>
+			 */
+			int  size = 1;
+			Element NewPagesElement = doc.select("div.NewPages").first();
+			if(NewPagesElement!=null){
+				Elements liElements = NewPagesElement.select("li");
+				if(liElements!=null && liElements.size()>0){
+					for(int i=0;i<liElements.size();i++){
+						Element aElement = liElements.get(i).select("a").first();
+						String pagersize = aElement.text();
+						if(pagersize.contains("共") && pagersize.contains("页:")){
+							try {
+								size = Integer.parseInt(pagersize.replace("共", "").replace("页:", "").replace(" ", ""));
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+						}
+					}
+				}
+			}
+			
+			Element ImageBodyElement = doc.select("div.ImageBody").first();
+			/**
+			 * <div class="ImageBody" id="ArticleId60">
+			 * <p align="center">
+			 * <img alt="清纯非主流美女图片电脑壁纸"
+			 * src="http://i1.umei.cc/uploads/tu/201608/2/o1vy4ps11yr.jpg" />
+			 * </p>
+			 * 
+			 * </div>
+			 */
+			// 解析文件
+			if (ImageBodyElement != null) {
+				try {
+					UmeiArticleBean bean = new UmeiArticleBean();
+					Element imgElement = ImageBodyElement.select("img").first();
+					String alt = imgElement.attr("alt");
+					String src = imgElement.attr("src");
+					Log.i(TAG, "alt==" + alt + ";src==" + src);
+					bean.setAlt(alt);
+					bean.setSrc(src);
+					list.add(bean);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			for(int i=2;i<=size;i++){
+				String url = href.replace(".htm?", "").replace(".htm", "")+"_"+i+".htm";
+				System.out.println("url=="+url);
+				list.add(parseAllArticle(url));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return list;
+	}
+	
+	public static UmeiArticleBean parseAllArticle(String href) {
+		UmeiArticleBean bean = new UmeiArticleBean();
+		try {
+			// http://www.umei.cc/bizhitupian/diannaobizhi/7628_2.htm
+			// http://www.umei.cc/bizhitupian/diannaobizhi/7628.htm
+			href = makeURL(href, new HashMap<String, Object>() {
+				{
+				}
+			});
+			Log.i(TAG, "url = " + href);
+			Document doc = Jsoup.connect(href).userAgent(UrlUtils.userAgent).timeout(10000).get();
+			Element ImageBodyElement = doc.select("div.ImageBody").first();
+			/**
+			 * <div class="ImageBody" id="ArticleId60">
+			 * <p align="center">
+			 * <img alt="清纯非主流美女图片电脑壁纸"
+			 * src="http://i1.umei.cc/uploads/tu/201608/2/o1vy4ps11yr.jpg" />
+			 * </p>
+			 * 
+			 * </div>
+			 */
+			// 解析文件
+			if (ImageBodyElement != null) {
+				try {
+					Element imgElement = ImageBodyElement.select("img").first();
+					String alt = imgElement.attr("alt");
+					String src = imgElement.attr("src");
+					Log.i(TAG, "alt==" + alt + ";src==" + src);
+					bean.setAlt(alt);
+					bean.setSrc(src);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return bean;
+	}
+	
 }

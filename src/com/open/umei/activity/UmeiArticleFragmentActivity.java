@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.open.umei.R;
 import com.open.umei.bean.UmeiArticleInfoBean;
 import com.open.umei.fragment.UmeiArticleFragment;
+import com.open.umei.fragment.UmeiArticlePagerFragment;
 import com.open.umei.fragment.UmeiArticleTypeFragment;
 import com.open.umei.fragment.UmeiTypePagerFragment;
 import com.open.umei.json.UmeiArticleJson;
@@ -77,7 +78,8 @@ public class UmeiArticleFragmentActivity extends CommonFragmentActivity<UmeiArti
 		weakReferenceHandler = new WeakActivityReferenceHandler(this);
 		weakReferenceHandler.sendEmptyMessage(MESSAGE_HANDLER);
 
-		Fragment pfragment = UmeiArticleFragment.newInstance(url, true);
+//		Fragment pfragment = UmeiArticleFragment.newInstance(url, true);
+		Fragment pfragment= UmeiArticlePagerFragment.newInstance(url, true);
 		Fragment vfragment = UmeiTypePagerFragment.newInstance(url, true);
 		Fragment lfragment = UmeiArticleTypeFragment.newInstance(url, true);
 //
