@@ -96,7 +96,13 @@
             android:description="@string/umei_article_fragment_list_desp"  
 			>
         </activity>
-        
+         <!-- umei 搜索-->
+        <activity
+            android:name="com.open.umei.activity.SearchResultActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/umei_search_desp"  
+			>
+        </activity>
         <!-- 所有类列表 -->
         <activity
             android:name="com.open.umei.activity.UmeiALLActivity"
