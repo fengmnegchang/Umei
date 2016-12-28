@@ -21,6 +21,8 @@ import android.os.Message;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -52,7 +54,7 @@ public class SearchResultActivity extends CommonFragmentActivity<SearchResultJso
 	private PullToRefreshListView mPullRefreshListView;
 	private SearchResultAdapter mSearchResultAdapter;
 	private List<SearchResultBean> list = new ArrayList<SearchResultBean>();
-	private int pageNo=0;
+	private int pageNo = 0;
 	private EditText edit_search;
 	private Button btn_search;
 	private String search;
@@ -72,7 +74,7 @@ public class SearchResultActivity extends CommonFragmentActivity<SearchResultJso
 		mPullRefreshListView = (PullToRefreshListView) findViewById(R.id.pull_refresh_list);
 		edit_search = (EditText) findViewById(R.id.edit_search);
 		btn_search = (Button) findViewById(R.id.btn_search);
-		
+
 		mSearchResultAdapter = new SearchResultAdapter(this, list);
 		mPullRefreshListView.setAdapter(mSearchResultAdapter);
 
@@ -105,16 +107,25 @@ public class SearchResultActivity extends CommonFragmentActivity<SearchResultJso
 				}
 			}
 		});
-		// mPullRefreshListView.setOnItemClickListener(new OnItemClickListener()
-		// {
-		//
-		// @Override
-		// public void onItemClick(AdapterView<?> parent, View view, int
-		// position, long id) {
-		// UmeiArticleActivity.startUmeiArticleActivity(SearchResultActivity.this,
-		// list.get((int) id).getHref());
-		// }
-		// });
+		mPullRefreshListView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				switch ((int)(Math.random()*(3))) {
+				case 0:
+					UmeiArticleFragmentActivity.startUmeiArticleActivity(SearchResultActivity.this, list.get((int) id).getHref());
+					break;
+				case 1:
+					UmeiTypeListActivity.startUmeiTypeListActivity(SearchResultActivity.this, list.get((int) id).getHref());
+					break;
+				case 2:
+					UmeiWebViewActivity.startUmeiWebViewActivity(SearchResultActivity.this, list.get((int) id).getHref());
+					break;
+				default:
+					break;
+				}
+			}
+		});
 	}
 
 	/*
@@ -132,7 +143,7 @@ public class SearchResultActivity extends CommonFragmentActivity<SearchResultJso
 			search = edit_search.getText().toString();
 			if (search.length() > 0) {
 				try {
-					//http://zhannei.baidu.com/cse/search?q=%E6%A1%83%E5%AD%90&click=1&entry=1&s=6545247087170373156&nsid=
+					// http://zhannei.baidu.com/cse/search?q=%E6%A1%83%E5%AD%90&click=1&entry=1&s=6545247087170373156&nsid=
 					url = UrlUtils.UMEI_SEARCH + "&q=" + URLEncoder.encode(search, "UTF-8");
 				} catch (UnsupportedEncodingException e) {
 					e.printStackTrace();
@@ -172,7 +183,7 @@ public class SearchResultActivity extends CommonFragmentActivity<SearchResultJso
 				list.addAll(result.getList());
 			}
 		}
-		
+
 		mSearchResultAdapter.notifyDataSetChanged();
 		// Call onRefreshComplete when the list has been refreshed.
 		mPullRefreshListView.onRefreshComplete();

@@ -19,4 +19,5 @@
  	<string name="umei_article_list_desp">图片详细</string>
  	<string name="umei_article_fragment_list_desp">图片详细Fragment实现</string>
  	<string name="umei_search_desp">搜索</string>
+ 	<string name="umei_webview_desp">webview</string>
 </resources>

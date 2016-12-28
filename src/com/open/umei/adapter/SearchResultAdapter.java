@@ -49,12 +49,12 @@ public class SearchResultAdapter extends CommonAdapter<SearchResultBean> {
 		TextView text_content = (TextView) view.findViewById(R.id.text_content);
 		text_target.setText(bean.getTarget());
 		text_content.setText(bean.getContent());
-		view.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				UmeiArticleFragmentActivity.startUmeiArticleActivity(mContext, bean.getHref());				
-			}
-		});
+//		view.setOnClickListener(new OnClickListener() {
+//			@Override
+//			public void onClick(View v) {
+//				UmeiArticleFragmentActivity.startUmeiArticleActivity(mContext, bean.getHref());				
+//			}
+//		});
 		return view;
 	}
 
