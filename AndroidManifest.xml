@@ -110,7 +110,13 @@
             android:description="@string/umei_webview_desp"  
 			>
         </activity>
-        
+         <!-- umei 优美主页面viewpager-->
+        <activity
+            android:name="com.open.umei.activity.UmeiMainViewPagerActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/umei_main_viewpager_desp"  
+			>
+        </activity>
          <!-- umei 优美主页面-->
         <activity
             android:name="com.open.umei.activity.UmeiMainActivity"

@@ -21,4 +21,5 @@
  	<string name="umei_search_desp">搜索</string>
  	<string name="umei_webview_desp">webview</string>
  	<string name="umei_main_desp">优美主页面</string>
+ 	<string name="umei_main_viewpager_desp">优美主页面viewpager</string>
 </resources>
