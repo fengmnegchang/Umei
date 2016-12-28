@@ -16,12 +16,15 @@ import java.util.List;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.open.umei.R;
+import com.open.umei.activity.SearchResultActivity;
+import com.open.umei.activity.UmeiWebViewActivity;
 import com.open.umei.bean.UmeiArticleBean;
 
 /**
@@ -43,7 +46,7 @@ public class UmeiArticleAdapter extends CommonAdapter<UmeiArticleBean> {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		UmeiArticleBean bean = (UmeiArticleBean) getItem(position);
+		final UmeiArticleBean bean = (UmeiArticleBean) getItem(position);
 		ViewHolder mViewHolder;
 		if (convertView == null) {
 			mViewHolder = new ViewHolder();
@@ -61,6 +64,13 @@ public class UmeiArticleAdapter extends CommonAdapter<UmeiArticleBean> {
 						.cacheInMemory().cacheOnDisc().build();
 				ImageLoader.getInstance().displayImage(bean.getSrc(), mViewHolder.imageview, options, getImageLoadingListener());
 			}
+			
+			mViewHolder.imageview.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					UmeiWebViewActivity.startUmeiWebViewActivity(mContext, bean.getSrc());
+				}
+			});
 		}
 		return convertView;
 	}

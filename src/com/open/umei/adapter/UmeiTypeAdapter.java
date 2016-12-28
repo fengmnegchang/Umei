@@ -17,12 +17,14 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.open.umei.R;
+import com.open.umei.activity.UmeiWebViewActivity;
 import com.open.umei.bean.UmeiTypeBean;
 
 /**
@@ -44,7 +46,7 @@ public class UmeiTypeAdapter extends CommonAdapter<UmeiTypeBean> {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		UmeiTypeBean bean = (UmeiTypeBean) getItem(position);
+		final UmeiTypeBean bean = (UmeiTypeBean) getItem(position);
 		ViewHolder mViewHolder;
 		if (convertView == null) {
 			mViewHolder = new ViewHolder();
@@ -68,6 +70,12 @@ public class UmeiTypeAdapter extends CommonAdapter<UmeiTypeBean> {
 			mViewHolder.txt_typename.setText(bean.getTypename());
 			mViewHolder.txt_IcoList.setText("查看：" + bean.getIcoList() + "次");
 			mViewHolder.txt_IcoTime.setText(bean.getIcoTime());
+			mViewHolder.imageview.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					UmeiWebViewActivity.startUmeiWebViewActivity(mContext, bean.getSrc());
+				}
+			});
 		}
 		return convertView;
 	}
