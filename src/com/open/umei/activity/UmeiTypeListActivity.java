@@ -45,7 +45,7 @@ public class UmeiTypeListActivity extends CommonFragmentActivity<UmeiTypeJson> {
 	public static void startUmeiTypeListActivity(Context mContext, String url) {
 		Intent intent = new Intent();
 		intent.putExtra("URL", url);
-		intent.setClass(mContext, UmeiArticleActivity.class);
+		intent.setClass(mContext, UmeiTypeListActivity.class);
 		mContext.startActivity(intent);
 	}
 

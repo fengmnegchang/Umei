@@ -46,7 +46,15 @@ public class UmeiArticleService extends CommonService {
 		try {
 			// http://www.umei.cc/bizhitupian/diannaobizhi/7628_2.htm
 			// http://www.umei.cc/bizhitupian/diannaobizhi/7628.htm
-			href = href.replace(".htm", "") + "_" + pageNo + ".htm";
+			if(href.contains(".htm")){
+				href = href.replace(".htm", "") + "_" + pageNo + ".htm";
+			}else{
+				//http://www.umei.cc/bizhitupian/diannaobizhi/_1.htm?
+				if(pageNo>1){
+					href = href + pageNo + ".htm";
+				}
+			}
+			
 			href = makeURL(href, new HashMap<String, Object>() {
 				{
 				}
