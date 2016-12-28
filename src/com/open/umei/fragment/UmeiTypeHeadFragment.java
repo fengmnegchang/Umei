@@ -35,10 +35,10 @@ import com.open.umei.jsoup.UmeiTypeListService;
  *               *********************************************
  */
 public class UmeiTypeHeadFragment extends BaseV4Fragment<UmeiTypeJson, UmeiTypeHeadFragment> {
-	private ViewPager viewpager;
-	private UmeiTypePagerAdapter mUmeiTypePagerAdapter;
-	private List<UmeiTypeBean> list = new ArrayList<UmeiTypeBean>();
-	private String url;
+	public ViewPager viewpager;
+	public UmeiTypePagerAdapter mUmeiTypePagerAdapter;
+	public List<UmeiTypeBean> list = new ArrayList<UmeiTypeBean>();
+	public String url;
 
 	public static UmeiTypeHeadFragment newInstance(String url,boolean isVisibleToUser) {
 		UmeiTypeHeadFragment fragment = new UmeiTypeHeadFragment();

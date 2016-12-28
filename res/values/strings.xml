@@ -17,4 +17,5 @@
  	<string name="umei_viewpager_desp">viewpager</string>
  	<string name="umei_type_list_desp">header fragment </string>
  	<string name="umei_article_list_desp">图片详细</string>
+ 	<string name="umei_article_fragment_list_desp">图片详细Fragment实现</string>
 </resources>

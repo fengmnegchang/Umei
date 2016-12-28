@@ -38,7 +38,7 @@ import com.open.umei.utils.UrlUtils;
  * @description:
  ***************************************************************************************************************************************************************************** 
  */
-public class UmeiNavService extends CommonService{
+public class UmeiNavService extends CommonService {
 	public static final String TAG = UmeiNavService.class.getSimpleName();
 
 	/**
@@ -96,6 +96,7 @@ public class UmeiNavService extends CommonService{
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
+
 				}
 			}
 		} catch (Exception e) {
@@ -123,7 +124,7 @@ public class UmeiNavService extends CommonService{
 			Elements liElements = masthead.select("li.NavLi");
 			// 解析文件
 			if (liElements != null && liElements.size() > 1) {
-				for (int i = 0; i < liElements.size(); i++) {
+				for (int i = 1; i < liElements.size(); i++) {
 					UmeiNavBean bean = new UmeiNavBean();
 					try {
 						String title;
@@ -179,22 +180,41 @@ public class UmeiNavService extends CommonService{
 					try {
 						Element divElement = liElements.get(i).select("div.ShowNav").first();
 						if (divElement != null) {
-							Elements h3Elements = divElement.select("h3");
 							List<UmeiSubNavBean> subNavList = new ArrayList<UmeiSubNavBean>();
+							Elements h3Elements = divElement.select("h3");
 							UmeiSubNavBean subNavBean;
-							for (int y = 0; y < h3Elements.size(); y++) {
-								subNavBean = new UmeiSubNavBean();
-								try {
-									Element aElement = h3Elements.get(y).select("a").first();
-									String atitle = aElement.attr("title");
-									String ahref = aElement.attr("href");
-									subNavBean.setTitle(atitle);
-									subNavBean.setHref(ahref);
-									subNavList.add(subNavBean);
+							if (h3Elements.size() >0) {
+								for (int y = 0; y < h3Elements.size(); y++) {
+									subNavBean = new UmeiSubNavBean();
+									try {
+										Element aElement = h3Elements.get(y).select("a").first();
+										String atitle = aElement.attr("title");
+										String ahref = aElement.attr("href");
+										subNavBean.setTitle(atitle);
+										subNavBean.setHref(ahref);
+										subNavList.add(subNavBean);
 
-									Log.i(TAG, "i===" + i + ";y==" + y + "atitle===" + atitle + ";ahref===" + ahref);
-								} catch (Exception e) {
-									e.printStackTrace();
+										Log.i(TAG, "i===" + i + ";y==" + y + "atitle===" + atitle + ";ahref===" + ahref);
+									} catch (Exception e) {
+										e.printStackTrace();
+									}
+								}
+							} else {
+								Elements aElements = divElement.select("a");
+								for (int y = 0; y < aElements.size(); y++) {
+									subNavBean = new UmeiSubNavBean();
+									try {
+										Element aElement = aElements.get(y).select("a").first();
+										String atitle = aElement.attr("title");
+										String ahref = aElement.attr("href");
+										subNavBean.setTitle(atitle);
+										subNavBean.setHref(ahref);
+										subNavList.add(subNavBean);
+
+										Log.i(TAG, "i===" + i + ";y==" + y + "atitle===" + atitle + ";ahref===" + ahref);
+									} catch (Exception e) {
+										e.printStackTrace();
+									}
 								}
 							}
 							bean.setSubNavList(subNavList);
@@ -213,5 +233,4 @@ public class UmeiNavService extends CommonService{
 		return list;
 	}
 
-	
 }
