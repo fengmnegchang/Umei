@@ -213,6 +213,72 @@ public class UmeiTypeListService extends CommonService {
 
 		return list;
 	}
+	
+	public static ArrayList<UmeiTypeBean> relaxarc(String href) {
+		ArrayList<UmeiTypeBean> list = new ArrayList<UmeiTypeBean>();
+		try {
+			// http://www.umei.cc/bizhitupian/shoujibizhi/1.htm
+			// http://www.umei.cc/bizhitupian/shoujibizhi/
+			href = makeURL(href, new HashMap<String, Object>() {
+				{
+				}
+			});
+			Log.i(TAG, "url = " + href);
+
+			Document doc = Jsoup.connect(href).userAgent(UrlUtils.userAgent).timeout(10000).get();
+			Element masthead = doc.select("div.relax-arc").first();
+			Elements liElements = masthead.select("li");
+			/**
+			 <li><a href="http://www.umei.cc/bizhitupian/diannaobizhi/7614.htm" title="男歌手张艺兴桌面壁纸图片">
+			 <div class="Pix-box">
+			 <img src="http://i1.umei.cc/uploads/tu/201608/434/slt2.jpg" width="180" title="男歌手张艺兴桌面壁纸图片" /></div>
+			 <span>男歌手张艺兴桌面壁纸图片</span></a></li>
+
+			 */
+			// 解析文件
+			if (liElements != null && liElements.size() > 1) {
+				for (int i = 0; i < liElements.size(); i++) {
+					UmeiTypeBean bean = new UmeiTypeBean();
+					try {
+						Element aElement = liElements.get(i).select("a").first();
+						String hrefurl = aElement.attr("href");
+						Log.i(TAG, "i===" + i + "hrefurl==" + hrefurl);
+						bean.setHref(hrefurl);
+						
+						String typename = aElement.attr("title");
+						Log.i(TAG, "i===" + i + "typename=" + typename);
+						bean.setTypename(typename);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+
+					try {
+						Element imgElement = liElements.get(i).select("img").first();
+						String src = imgElement.attr("src");
+						Log.i(TAG, "i===" + i + "src==" + src);
+						bean.setSrc(src);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+
+					try {
+						Element spanElement = liElements.get(i).select("a").first().select("span").first();
+						String typename = spanElement.text();
+						Log.i(TAG, "i===" + i + "typename=" + typename);
+						bean.setTypename(typename);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+
+					list.add(bean);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return list;
+	}
 
 	public static String getChannelTitle() {
 		return ChannelTitle;

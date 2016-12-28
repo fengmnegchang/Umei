@@ -3,6 +3,7 @@ package com.open.umei.fragment;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.annotation.Nullable;
@@ -12,6 +13,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -23,6 +26,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.open.umei.R;
+import com.open.umei.activity.UmeiArticleActivity;
 import com.open.umei.adapter.UmeiTypeAdapter;
 import com.open.umei.adapter.UmeiTypePagerAdapter;
 import com.open.umei.bean.UmeiTypeBean;
@@ -137,6 +141,13 @@ public class UmeiTypeListFragment extends BaseV4Fragment<UmeiTypeJson, UmeiTypeL
 					pageNo++;
 					weakReferenceHandler.sendEmptyMessage(MESSAGE_HANDLER);
 				}
+			}
+		});
+		mPullRefreshListView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				UmeiArticleActivity.startUmeiArticleActivity(getActivity(), list.get((int)id).getHref());
 			}
 		});
 	}

@@ -16,16 +16,13 @@ import java.util.List;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.open.umei.R;
-import com.open.umei.activity.UmeiArticleActivity;
-import com.open.umei.bean.UmeiTypeBean;
+import com.open.umei.bean.UmeiArticleBean;
 
 /**
  ***************************************************************************************************************************************************************************** 
@@ -38,19 +35,25 @@ import com.open.umei.bean.UmeiTypeBean;
  * @description:
  ***************************************************************************************************************************************************************************** 
  */
-public class UmeiTypePagerAdapter extends CommonPagerAdapter<UmeiTypeBean> {
+public class UmeiArticleAdapter extends CommonAdapter<UmeiArticleBean> {
 
-	public UmeiTypePagerAdapter(Context mContext, List<UmeiTypeBean> list) {
+	public UmeiArticleAdapter(Context mContext, List<UmeiArticleBean> list) {
 		super(mContext, list);
 	}
 
 	@Override
-	public Object instantiateItem(ViewGroup container, int position) {
-		final UmeiTypeBean bean = (UmeiTypeBean) getItem(position);
-		ViewHolder mViewHolder = new ViewHolder();
-		View convertView = LayoutInflater.from(mContext).inflate(R.layout.adapter_umei_type_head, null);
-		mViewHolder.imageview = (ImageView) convertView.findViewById(R.id.imageview);
-		mViewHolder.txt_typename = (TextView) convertView.findViewById(R.id.txt_typename);
+	public View getView(int position, View convertView, ViewGroup parent) {
+		UmeiArticleBean bean = (UmeiArticleBean) getItem(position);
+		ViewHolder mViewHolder;
+		if (convertView == null) {
+			mViewHolder = new ViewHolder();
+			convertView = LayoutInflater.from(mContext).inflate(R.layout.adapter_umei_article, null);
+			mViewHolder.imageview = (ImageView) convertView.findViewById(R.id.imageview);
+
+			convertView.setTag(mViewHolder);
+		} else {
+			mViewHolder = (ViewHolder) convertView.getTag();
+		}
 
 		if (bean != null) {
 			if (bean.getSrc() != null && bean.getSrc().length() > 0) {
@@ -58,22 +61,12 @@ public class UmeiTypePagerAdapter extends CommonPagerAdapter<UmeiTypeBean> {
 						.cacheInMemory().cacheOnDisc().build();
 				ImageLoader.getInstance().displayImage(bean.getSrc(), mViewHolder.imageview, options, getImageLoadingListener());
 			}
-			mViewHolder.txt_typename.setText(bean.getTypename());
 		}
-		
-		mViewHolder.imageview.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				UmeiArticleActivity.startUmeiArticleActivity(mContext, bean.getHref());
-			}
-		});
-		container.addView(convertView);
 		return convertView;
 	}
 
 	private class ViewHolder {
 		ImageView imageview;
-		TextView txt_typename;
 	}
 
 }

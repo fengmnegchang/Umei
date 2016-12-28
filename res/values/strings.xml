@@ -16,4 +16,5 @@
     <string name="umei_listfragment_desp">ListFragment+fragment</string>
  	<string name="umei_viewpager_desp">viewpager</string>
  	<string name="umei_type_list_desp">header fragment </string>
+ 	<string name="umei_article_list_desp">图片详细</string>
 </resources>
