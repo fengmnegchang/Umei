@@ -125,6 +125,14 @@
 			>
         </activity>
         
+        <!-- umei 优美cc主页面-->
+        <activity
+            android:name="com.open.umei.activity.m.UmeiMMainActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/umei_m_main_desp"  
+			>
+        </activity>
+        
         <!-- 所有类列表 -->
         <activity
             android:name="com.open.umei.activity.UmeiALLActivity"

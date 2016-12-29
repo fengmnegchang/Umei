@@ -25,6 +25,7 @@ import android.util.Log;
 import com.open.umei.bean.m.UmeiMDdBean;
 import com.open.umei.bean.m.UmeiMDtBean;
 import com.open.umei.jsoup.CommonService;
+import com.open.umei.utils.UrlUtils;
 
 /**
  ***************************************************************************************************************************************************************************** 
@@ -52,7 +53,7 @@ public class UmeiMNavService extends CommonService {
 			});
 			Log.i(TAG, "url = " + href);
 
-			Document doc = Jsoup.connect(href).timeout(10000).get();
+			Document doc = Jsoup.connect(href).userAgent(UrlUtils.umeiAgent).timeout(10000).get();
 			Element masthead = doc.select("div.nav").first();
 			Elements dlElements = masthead.select("dl");
 			/**
