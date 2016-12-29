@@ -7,7 +7,7 @@
     android:focusable="false"
     android:focusableInTouchMode="false" >
 
-       <com.handmark.pulltorefresh.library.PullToRefreshListView
+    <com.open.umei.view.ExpendListView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/pull_refresh_list"
@@ -17,9 +17,7 @@
         android:divider="#19000000"
         android:dividerHeight="4dp"
         android:fadingEdge="none"
-        android:fastScrollEnabled="false"
-        android:footerDividersEnabled="false"
-        android:headerDividersEnabled="false"
-        android:smoothScrollbar="true" />
+        />
+    
    
 </RelativeLayout>

@@ -46,12 +46,12 @@ import com.open.umei.utils.UrlUtils;
  ***************************************************************************************************************************************************************************** 
  */
 public class UmeiMPannelHdExpandableListFragment extends BaseV4Fragment<UmeMPannelHdJson, UmeiMPannelHdExpandableListFragment> {
-	private String url = UrlUtils.UMEI_M;
-	private ExpandableListView expendablelistview;
-	private UmeiMPannelHdExpandableListAdapter mUmeiMPannelHdExpandableListAdapter;
+	public String url = UrlUtils.UMEI_M;
+	public ExpandableListView expendablelistview;
+	public UmeiMPannelHdExpandableListAdapter mUmeiMPannelHdExpandableListAdapter;
 	private List<UmeMPannelHdBean> list = new ArrayList<UmeMPannelHdBean>();
 	private View headerview;
-	private boolean isVisibleHeadView;
+	public boolean isVisibleHeadView;
 
 	public static UmeiMPannelHdExpandableListFragment newInstance(String url, boolean isVisibleToUser, boolean isVisibleHeadView) {
 		UmeiMPannelHdExpandableListFragment fragment = new UmeiMPannelHdExpandableListFragment();
@@ -64,7 +64,7 @@ public class UmeiMPannelHdExpandableListFragment extends BaseV4Fragment<UmeMPann
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.fragment_common_expandable_listview, container, false);
+		View view = inflater.inflate(R.layout.fragment_umei_m_pannel_hd_expandable_listview, container, false);
 		expendablelistview = (ExpandableListView) view.findViewById(R.id.expendablelistview);
 		if (isVisibleHeadView) {
 			headerview = LayoutInflater.from(getActivity()).inflate(R.layout.layout_umei_m_pannel_hd_header, null);
@@ -144,9 +144,9 @@ public class UmeiMPannelHdExpandableListFragment extends BaseV4Fragment<UmeMPann
 	public UmeMPannelHdJson call() throws Exception {
 		// TODO Auto-generated method stub
 		UmeMPannelHdJson mUmeMPannelHdJson = new UmeMPannelHdJson();
-		if(isVisibleHeadView){
+		if (isVisibleHeadView) {
 			mUmeMPannelHdJson.setList(UmeiMPannelHdService.parseUmeiMPannelHd(url));
-		}else{
+		} else {
 			mUmeMPannelHdJson.setList(UmeiMPannelHdService.parseArcBodyPannelHd(url));
 		}
 		return mUmeMPannelHdJson;
