@@ -355,4 +355,55 @@ public class UmeiArticleService extends CommonService {
 		return bean;
 	}
 	
+	public static ArrayList<UmeiArticleBean> parseArcBody(String href, int pageNo) {
+		ArrayList<UmeiArticleBean> list = new ArrayList<UmeiArticleBean>();
+		try {
+			// http://www.umei.cc/bizhitupian/diannaobizhi/7628_2.htm
+			// http://www.umei.cc/bizhitupian/diannaobizhi/7628.htm
+			if(href.contains(".htm")){
+				href = href.replace(".htm", "") + "_" + pageNo + ".htm";
+			}else{
+				//http://www.umei.cc/bizhitupian/diannaobizhi/_1.htm?
+				if(pageNo>1){
+					href = href + pageNo + ".htm";
+				}
+			}
+			
+			href = makeURL(href, new HashMap<String, Object>() {
+				{
+				}
+			});
+			Log.i(TAG, "url = " + href);
+
+			Document doc = Jsoup.connect(href).userAgent(UrlUtils.userAgent).timeout(10000).get();
+			Element ImageBodyElement = doc.select("div.arc-bodys").first();
+			/**
+			<div class="arc-bodys" id="ArticleBox">
+		  <p align="center">
+			<img alt="美女尤物张梓柔私房性感写真身姿诱人" src="http://i1.umei.cc/uploads/tu/201611/819/lc21tgqr4e3.jpg" /></p>
+		</div>
+			 */
+			// 解析文件
+			if (ImageBodyElement != null) {
+				try {
+					UmeiArticleBean bean = new UmeiArticleBean();
+					Element imgElement = ImageBodyElement.select("img").first();
+					String alt = imgElement.attr("alt");
+					String src = imgElement.attr("src");
+					Log.i(TAG, "alt==" + alt + ";src==" + src);
+					bean.setAlt(alt);
+					bean.setSrc(src);
+					list.add(bean);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return list;
+	}
+	
 }

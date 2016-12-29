@@ -133,6 +133,14 @@
 			>
         </activity>
         
+         <!-- umei 优美cc看图-->
+        <activity
+            android:name="com.open.umei.activity.m.UmeiMArcBodyActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/umei_m_arc_body_desp"  
+			>
+        </activity>
+        
         <!-- 所有类列表 -->
         <activity
             android:name="com.open.umei.activity.UmeiALLActivity"

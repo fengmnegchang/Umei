@@ -51,12 +51,14 @@ public class UmeiMPannelHdExpandableListFragment extends BaseV4Fragment<UmeMPann
 	private UmeiMPannelHdExpandableListAdapter mUmeiMPannelHdExpandableListAdapter;
 	private List<UmeMPannelHdBean> list = new ArrayList<UmeMPannelHdBean>();
 	private View headerview;
+	private boolean isVisibleHeadView;
 
-	public static UmeiMPannelHdExpandableListFragment newInstance(String url) {
+	public static UmeiMPannelHdExpandableListFragment newInstance(String url, boolean isVisibleToUser, boolean isVisibleHeadView) {
 		UmeiMPannelHdExpandableListFragment fragment = new UmeiMPannelHdExpandableListFragment();
 		fragment.setFragment(fragment);
-		fragment.setUserVisibleHint(true);
+		fragment.setUserVisibleHint(isVisibleToUser);
 		fragment.url = url;
+		fragment.isVisibleHeadView = isVisibleHeadView;
 		return fragment;
 	}
 
@@ -64,24 +66,31 @@ public class UmeiMPannelHdExpandableListFragment extends BaseV4Fragment<UmeMPann
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_common_expandable_listview, container, false);
 		expendablelistview = (ExpandableListView) view.findViewById(R.id.expendablelistview);
-		headerview = LayoutInflater.from(getActivity()).inflate(R.layout.layout_umei_m_pannel_hd_header, null);
+		if (isVisibleHeadView) {
+			headerview = LayoutInflater.from(getActivity()).inflate(R.layout.layout_umei_m_pannel_hd_header, null);
+		}
 		return view;
 	}
 
-	
-	/* (non-Javadoc)
-	 * @see android.support.v4.app.Fragment#onViewCreated(android.view.View, android.os.Bundle)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see android.support.v4.app.Fragment#onViewCreated(android.view.View,
+	 * android.os.Bundle)
 	 */
 	@Override
 	public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onViewCreated(view, savedInstanceState);
-		if (expendablelistview.getHeaderViewsCount() == 0) {
-			expendablelistview.addHeaderView(headerview);
-			Fragment fragment = UmeiMPannelHeadPagerFragment.newInstance(url, true);
-			getChildFragmentManager().beginTransaction().replace(R.id.layout_pannel_hd_header, fragment).commit();
+		if (isVisibleHeadView) {
+			if (expendablelistview.getHeaderViewsCount() == 0) {
+				expendablelistview.addHeaderView(headerview);
+				Fragment fragment = UmeiMPannelHeadPagerFragment.newInstance(url, true);
+				getChildFragmentManager().beginTransaction().replace(R.id.layout_pannel_hd_header, fragment).commit();
+			}
 		}
 	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -92,7 +101,6 @@ public class UmeiMPannelHdExpandableListFragment extends BaseV4Fragment<UmeMPann
 		// TODO Auto-generated method stub
 		super.initValues();
 
-		
 		expendablelistview.setGroupIndicator(null);
 		mUmeiMPannelHdExpandableListAdapter = new UmeiMPannelHdExpandableListAdapter(getActivity(), list);
 		expendablelistview.setAdapter(mUmeiMPannelHdExpandableListAdapter);
@@ -136,7 +144,11 @@ public class UmeiMPannelHdExpandableListFragment extends BaseV4Fragment<UmeMPann
 	public UmeMPannelHdJson call() throws Exception {
 		// TODO Auto-generated method stub
 		UmeMPannelHdJson mUmeMPannelHdJson = new UmeMPannelHdJson();
-		mUmeMPannelHdJson.setList(UmeiMPannelHdService.parseUmeiMPannelHd(url));
+		if(isVisibleHeadView){
+			mUmeMPannelHdJson.setList(UmeiMPannelHdService.parseUmeiMPannelHd(url));
+		}else{
+			mUmeMPannelHdJson.setList(UmeiMPannelHdService.parseArcBodyPannelHd(url));
+		}
 		return mUmeMPannelHdJson;
 	}
 

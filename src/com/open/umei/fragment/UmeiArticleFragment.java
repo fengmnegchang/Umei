@@ -48,11 +48,11 @@ import com.open.umei.jsoup.UmeiArticleService;
  ***************************************************************************************************************************************************************************** 
  */
 public class UmeiArticleFragment extends BaseV4Fragment<UmeiArticleJson, UmeiArticleFragment> {
-	private String url;
-	private PullToRefreshListView mPullRefreshListView;
+	public String url;
+	public PullToRefreshListView mPullRefreshListView;
 	private UmeiArticleAdapter mUmeiArticleAdapter;
 	private List<UmeiArticleBean> list = new ArrayList<UmeiArticleBean>();
-	private int pageNo = 1;
+	public int pageNo = 1;
 
 	public static UmeiArticleFragment newInstance(String url, boolean isVisibleToUser) {
 		UmeiArticleFragment fragment = new UmeiArticleFragment();

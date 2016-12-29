@@ -47,7 +47,7 @@ public class UmeiMMainActivity extends SlidingFragmentActivity {
 
 		// url = "http://www.umei.cc/bizhitupian/diannaobizhi/7628.htm";
 		// Fragment fragment = UmeiArticlePagerFragment.newInstance(url, true);
-		Fragment fragment = UmeiMPannelHdExpandableListFragment.newInstance(url);
+		Fragment fragment = UmeiMPannelHdExpandableListFragment.newInstance(url,true,true);
 		getSupportFragmentManager().beginTransaction().replace(R.id.layout_viewpager, fragment).commit();
 	}
 

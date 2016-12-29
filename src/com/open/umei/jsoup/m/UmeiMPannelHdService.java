@@ -192,12 +192,12 @@ public class UmeiMPannelHdService extends CommonService {
 										} catch (Exception e) {
 											e.printStackTrace();
 										}
-										
+
 										try {
 											Element aElement = liarcElements.get(y).select("span").first();
 											String atime = aElement.text();
 											arcbean.setArctime(atime);
-											Log.i(TAG, "i===" + i + ";y==" + y + ";atime==" + atime );
+											Log.i(TAG, "i===" + i + ";y==" + y + ";atime==" + atime);
 										} catch (Exception e) {
 											e.printStackTrace();
 										}
@@ -241,7 +241,7 @@ public class UmeiMPannelHdService extends CommonService {
 			}
 		}
 	}
-	
+
 	private static void parseStrongElements(Elements h2Elements, ArrayList<UmeMPannelHdBean> list) {
 		// 解析文件
 		if (h2Elements != null && h2Elements.size() > 0) {
@@ -263,17 +263,26 @@ public class UmeiMPannelHdService extends CommonService {
 					if (hElement != null) {
 						Element divElement = hElement.nextElementSibling();
 						/**
-						 * <strong class="pannel-hd pannel-hd-line pannel-hd-noline">友情链接</strong> 
-12-29 12:32:52.738: I/System.out(28488):   <div class="pic-list pic-list-2 pic-list-shadow index-flink"> 
-12-29 12:32:52.738: I/System.out(28488):    <a href="http://m.mmonly.cc/" target="_blank">唯一图库</a> 
-12-29 12:32:52.738: I/System.out(28488):    <a href="http://m.27270.com/" target="_blank">美女图片</a> 
-12-29 12:32:52.738: I/System.out(28488):    <a href="http://m.ituba.cc" target="_blank">爱图吧</a> 
-12-29 12:32:52.738: I/System.out(28488):    <a href="http://m.uumnt.com/" target="_blank">美女图片</a> 
-12-29 12:32:52.738: I/System.out(28488):    <a href="http://m.uumeitu.com" target="_blank">优优美图</a> 
-12-29 12:32:52.738: I/System.out(28488):    <a href="http://m.tesetu.com" target="_blank">特色图</a> 
-12-29 12:32:52.738: I/System.out(28488):    <a href="http://m.aitaotu.com" target="_blank">爱套图</a> 
-12-29 12:32:52.738: I/System.out(28488):   </div> 
-
+						 * <strong
+						 * class="pannel-hd pannel-hd-line pannel-hd-noline"
+						 * >友情链接</strong> 12-29 12:32:52.738:
+						 * I/System.out(28488): <div class=
+						 * "pic-list pic-list-2 pic-list-shadow index-flink">
+						 * 12-29 12:32:52.738: I/System.out(28488): <a
+						 * href="http://m.mmonly.cc/" target="_blank">唯一图库</a>
+						 * 12-29 12:32:52.738: I/System.out(28488): <a
+						 * href="http://m.27270.com/" target="_blank">美女图片</a>
+						 * 12-29 12:32:52.738: I/System.out(28488): <a
+						 * href="http://m.ituba.cc" target="_blank">爱图吧</a>
+						 * 12-29 12:32:52.738: I/System.out(28488): <a
+						 * href="http://m.uumnt.com/" target="_blank">美女图片</a>
+						 * 12-29 12:32:52.738: I/System.out(28488): <a
+						 * href="http://m.uumeitu.com" target="_blank">优优美图</a>
+						 * 12-29 12:32:52.738: I/System.out(28488): <a
+						 * href="http://m.tesetu.com" target="_blank">特色图</a>
+						 * 12-29 12:32:52.738: I/System.out(28488): <a
+						 * href="http://m.aitaotu.com" target="_blank">爱套图</a>
+						 * 12-29 12:32:52.738: I/System.out(28488): </div>
 						 */
 						if (divElement.attr("class").contains("pic-list-shadow")) {
 							Elements aElements = divElement.select("a");
@@ -308,7 +317,7 @@ public class UmeiMPannelHdService extends CommonService {
 			}
 		}
 	}
-	
+
 	public static ArrayList<UmeiTypeBean> pannelHead(String href) {
 		ArrayList<UmeiTypeBean> list = new ArrayList<UmeiTypeBean>();
 		try {
@@ -324,17 +333,39 @@ public class UmeiMPannelHdService extends CommonService {
 			Element masthead = doc.select("div.slide").first();
 			Elements liElements = masthead.select("li");
 			/**
-			 <div id="slideBox" class="slide loading"> 
-12-29 12:32:52.697: I/System.out(28488):    <div class="db"> 
-12-29 12:32:52.697: I/System.out(28488):     <ul> 
-12-29 12:32:52.697: I/System.out(28488):      <li><a href="http://m.umei.cc/meinvtupian/xingganmeinv/24472.htm">
-<img origin="http://i1.umei.cc/uploads/tu/201612/956/c18.jpg" alt="美女尤物张梓柔私房性感写真身姿诱人"></a></li> 
-12-29 12:32:52.697: I/System.out(28488):      <li><a href="http://m.umei.cc/weimeitupian/feizhuliutupian/25568.htm"><img origin="http://i1.umei.cc/uploads/tu/201612/703/slt010101.png" alt="森女系唯美意境图片高清壁纸"></a></li> 
-12-29 12:32:52.697: I/System.out(28488):      <li><a href="http://m.umei.cc/meinvtupian/nayimeinv/24787.htm"><img origin="http://i1.umei.cc/uploads/tu/201612/230/c17.jpg" alt="美女模特夏小秋秋秋内衣诱惑秀爆乳"></a></li> 
-12-29 12:32:52.697: I/System.out(28488):      <li><a href="http://m.umei.cc/meinvtupian/xingganmeinv/15543.htm"><img origin="http://i1.umei.cc/uploads/tu/201612/68/c12.jpg" alt="[IMISS爱蜜社]性感女神sugar小甜心CC内衣写真白皙迷"></a></li> 
-12-29 12:32:52.697: I/System.out(28488):      <li><a href="http://m.umei.cc/meinvtupian/xingganmeinv/21406.htm"><img origin="http://i1.umei.cc/uploads/tu/201611/640/c16.jpg" alt="美女少妇真希私房内衣写真秀极致身材"></a></li> 
-12-29 12:32:52.697: I/System.out(28488):     </ul> 
-12-29 12:32:52.697: I/System.out(28488):    </div> 
+			 * <div id="slideBox" class="slide loading"> 12-29 12:32:52.697:
+			 * I/System.out(28488): <div class="db"> 12-29 12:32:52.697:
+			 * I/System.out(28488):
+			 * <ul>
+			 * 12-29 12:32:52.697: I/System.out(28488):
+			 * <li><a
+			 * href="http://m.umei.cc/meinvtupian/xingganmeinv/24472.htm"> <img
+			 * origin="http://i1.umei.cc/uploads/tu/201612/956/c18.jpg"
+			 * alt="美女尤物张梓柔私房性感写真身姿诱人"></a></li>
+			 * 12-29 12:32:52.697: I/System.out(28488):
+			 * <li><a
+			 * href="http://m.umei.cc/weimeitupian/feizhuliutupian/25568.htm"
+			 * ><img
+			 * origin="http://i1.umei.cc/uploads/tu/201612/703/slt010101.png"
+			 * alt="森女系唯美意境图片高清壁纸"></a></li>
+			 * 12-29 12:32:52.697: I/System.out(28488):
+			 * <li><a
+			 * href="http://m.umei.cc/meinvtupian/nayimeinv/24787.htm"><img
+			 * origin="http://i1.umei.cc/uploads/tu/201612/230/c17.jpg"
+			 * alt="美女模特夏小秋秋秋内衣诱惑秀爆乳"></a></li>
+			 * 12-29 12:32:52.697: I/System.out(28488):
+			 * <li><a
+			 * href="http://m.umei.cc/meinvtupian/xingganmeinv/15543.htm"><img
+			 * origin="http://i1.umei.cc/uploads/tu/201612/68/c12.jpg"
+			 * alt="[IMISS爱蜜社]性感女神sugar小甜心CC内衣写真白皙迷"></a></li>
+			 * 12-29 12:32:52.697: I/System.out(28488):
+			 * <li><a
+			 * href="http://m.umei.cc/meinvtupian/xingganmeinv/21406.htm"><img
+			 * origin="http://i1.umei.cc/uploads/tu/201611/640/c16.jpg"
+			 * alt="美女少妇真希私房内衣写真秀极致身材"></a></li>
+			 * 12-29 12:32:52.697: I/System.out(28488):
+			 * </ul>
+			 * 12-29 12:32:52.697: I/System.out(28488): </div>
 			 */
 			// 解析文件
 			if (liElements != null && liElements.size() > 1) {
@@ -345,7 +376,7 @@ public class UmeiMPannelHdService extends CommonService {
 						String hrefurl = aElement.attr("href");
 						Log.i(TAG, "i===" + i + "hrefurl==" + hrefurl);
 						bean.setHref(hrefurl);
-						
+
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
@@ -355,7 +386,7 @@ public class UmeiMPannelHdService extends CommonService {
 						String src = imgElement.attr("origin");
 						Log.i(TAG, "i===" + i + "src==" + src);
 						bean.setSrc(src);
-						
+
 						String typename = imgElement.attr("alt");
 						Log.i(TAG, "i===" + i + "typename=" + typename);
 						bean.setTypename(typename);
@@ -373,5 +404,173 @@ public class UmeiMPannelHdService extends CommonService {
 		return list;
 	}
 
+	/**
+	 * 解析umei m
+	 */
+	public static ArrayList<UmeMPannelHdBean> parseArcBodyPannelHd(String href) {
+		ArrayList<UmeMPannelHdBean> list = new ArrayList<UmeMPannelHdBean>();
+		try {
+			href = makeURL(href, new HashMap<String, Object>() {
+				{
+				}
+			});
+			Log.i(TAG, "url = " + href);
+
+			Document doc = Jsoup.connect(href).userAgent(UrlUtils.umeiAgent).timeout(10000).get();
+			// System.out.println(doc.toString());
+			Elements h2Elements = doc.select("h2.pannel-hd-line");
+			Elements divElements = doc.select("div.pannel-hd-line");
+			// <h2 class="New-PL_blank"><a
+			// href="http://m.umei.cc/katongdongman/">动画图片</a></h2>
+			// h2 class="pannel-hd pannel-hd-line pannel-hd-noline">美女图片推荐</h2>
+			/**
+			 * <h2 class="pannel-hd pannel-hd-line pannel-hd-noline">相关性感美女推荐</h2>
+			 * <div class="pic-list pic-list-tag PL-time-TR">
+			 * 
+			 * <div
+			 * class="pannel-hd pannel-hd-line pannel-hd-noline">热门美女图片推荐</div>
+			 * <div class="pic-list pic-list-tag pic-list-shadow">
+			 */
+			parseH2ArcElements(h2Elements, list);
+			parseDivElements(divElements, list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return list;
+	}
+
+	private static void parseDivElements(Elements h2Elements, ArrayList<UmeMPannelHdBean> list) {
+		// 解析文件
+		if (h2Elements != null && h2Elements.size() > 0) {
+			for (int i = 0; i < h2Elements.size(); i++) {
+				UmeMPannelHdBean pannelhdbean = new UmeMPannelHdBean();
+				try {
+					Element hElement = h2Elements.get(i).select("div.pannel-hd").first();
+					if (hElement != null) {
+						String pannelhdname = hElement.text();
+						Log.i(TAG, "i===" + i + "pannelhdname==" + pannelhdname);
+						pannelhdbean.setPannelhdname(pannelhdname);
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+				try {
+					Element hElement = h2Elements.get(i).select("div.pannel-hd").first();
+					if (hElement != null) {
+						Element divElement = hElement.nextElementSibling();
+						/**<li><a href="http://m.umei.cc/meinvtupian/nayimeinv/20764.htm">
+						 * <img class="lazy" alt="美女模特蕾丝内衣写真肌肤白皙迷人"
+						 *  src="http://i1.umei.cc/uploads/tu/201611/16/c6.jpg" />
+						 * <div class="PL-tit">美女模特蕾丝内衣写真肌肤白皙迷人</div></a></li>
+						 */
+						if (divElement.attr("class").contains("pic-list-tag")) {
+							Elements liElements = divElement.select("li");
+							if (liElements != null && liElements.size() > 0) {
+								List<UmeiMPicBean> piclist = new ArrayList<UmeiMPicBean>();
+								UmeiMPicBean picbean;
+								for (int y = 0; y < liElements.size(); y++) {
+									picbean = new UmeiMPicBean();
+									try {
+										Element aElement = liElements.get(y).select("a").first();
+										String ahref = aElement.attr("href");
+										picbean.setHref(ahref);
+										Log.i(TAG, "i===" + i + ";y==" + y + "ahref==" + ahref);
+									} catch (Exception e) {
+										e.printStackTrace();
+									}
+
+									try {
+										Element imgElement = liElements.get(y).select("img").first();
+										String alt = imgElement.attr("alt");
+										picbean.setAlt(alt);
+
+										String dataoriginal = imgElement.attr("src");
+										picbean.setDataoriginal(dataoriginal);
+										Log.i(TAG, "i===" + i + ";y==" + y + "alt==" + alt + ";dataoriginal==" + dataoriginal);
+									} catch (Exception e) {
+										e.printStackTrace();
+									}
+									piclist.add(picbean);
+								}
+								pannelhdbean.setPiclist(piclist);
+							}
+						}
+					}
+
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+				list.add(pannelhdbean);
+			}
+		}
+	}
+	
+	private static void parseH2ArcElements(Elements h2Elements, ArrayList<UmeMPannelHdBean> list) {
+		// 解析文件
+		if (h2Elements != null && h2Elements.size() > 0) {
+			for (int i = 0; i < h2Elements.size(); i++) {
+				UmeMPannelHdBean pannelhdbean = new UmeMPannelHdBean();
+				try {
+					Element hElement = h2Elements.get(i).select("h2").first();
+					if (hElement != null) {
+						String pannelhdname = hElement.text();
+						Log.i(TAG, "i===" + i + "pannelhdname==" + pannelhdname);
+						pannelhdbean.setPannelhdname(pannelhdname);
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+				try {
+					Element hElement = h2Elements.get(i).select("h2").first();
+					if (hElement != null) {
+						Element divElement = hElement.nextElementSibling();
+						/**
+						 */
+						if (divElement.attr("class").contains("pic-list-tag")) {
+							Elements liElements = divElement.select("li");
+							if (liElements != null && liElements.size() > 0) {
+								List<UmeiMPicBean> piclist = new ArrayList<UmeiMPicBean>();
+								UmeiMPicBean picbean;
+								for (int y = 0; y < liElements.size(); y++) {
+									picbean = new UmeiMPicBean();
+									try {
+										Element aElement = liElements.get(y).select("a").first();
+										String ahref = aElement.attr("href");
+										picbean.setHref(ahref);
+										Log.i(TAG, "i===" + i + ";y==" + y + "ahref==" + ahref);
+									} catch (Exception e) {
+										e.printStackTrace();
+									}
+
+									try {
+										Element imgElement = liElements.get(y).select("img").first();
+										String alt = imgElement.attr("alt");
+										picbean.setAlt(alt);
+
+										String dataoriginal = imgElement.attr("data-original");
+										picbean.setDataoriginal(dataoriginal);
+										Log.i(TAG, "i===" + i + ";y==" + y + "alt==" + alt + ";dataoriginal==" + dataoriginal);
+									} catch (Exception e) {
+										e.printStackTrace();
+									}
+									piclist.add(picbean);
+								}
+								pannelhdbean.setPiclist(piclist);
+							}
+						}
+					}
+
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+				list.add(pannelhdbean);
+			}
+		}
+	}
 
 }
