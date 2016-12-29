@@ -23,6 +23,7 @@ import com.open.umei.activity.CommonFragmentActivity;
 import com.open.umei.bean.m.UmeiMArcBodyBean;
 import com.open.umei.fragment.m.UmeiMArcBodyExpendExpandableListFragment;
 import com.open.umei.fragment.m.UmeiMArcBodyExpendListFragment;
+import com.open.umei.fragment.m.UmeiMArcBodyPagerFragment;
 import com.open.umei.fragment.m.UmeiMArcTagGridFragment;
 import com.open.umei.fragment.m.UmeiMPannelHdExpandableListFragment;
 import com.open.umei.json.m.UmeiMArcBodyJson;
@@ -83,7 +84,8 @@ public class UmeiMArcBodyActivity extends CommonFragmentActivity<UmeiMArcBodyJso
 		weakReferenceHandler = new WeakActivityReferenceHandler(this);
 		weakReferenceHandler.sendEmptyMessage(MESSAGE_HANDLER);
 		
-		Fragment pullfragment = UmeiMArcBodyExpendListFragment.newInstance(url,true);
+//		Fragment pullfragment = UmeiMArcBodyExpendListFragment.newInstance(url,true);
+		Fragment pullfragment = UmeiMArcBodyPagerFragment.newInstance(url, true);
 		getSupportFragmentManager().beginTransaction().replace(R.id.layout_pull_refresh_list, pullfragment).commit();
 		
 		Fragment fragment = UmeiMArcTagGridFragment.newInstance(url,true);

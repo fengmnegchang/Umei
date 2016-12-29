@@ -24,7 +24,7 @@ import android.widget.TextView;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.open.umei.R;
-import com.open.umei.activity.UmeiArticleActivity;
+import com.open.umei.activity.m.UmeiMArcBodyActivity;
 import com.open.umei.adapter.CommonPagerAdapter;
 import com.open.umei.bean.UmeiTypeBean;
 
@@ -62,12 +62,12 @@ public class UmeiMPannelHeadPagerAdapter extends CommonPagerAdapter<UmeiTypeBean
 			mViewHolder.txt_typename.setText(bean.getTypename());
 		}
 		
-//		mViewHolder.imageview.setOnClickListener(new OnClickListener() {
-//			@Override
-//			public void onClick(View v) {
-//				UmeiArticleActivity.startUmeiArticleActivity(mContext, bean.getHref());
-//			}
-//		});
+		mViewHolder.imageview.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				UmeiMArcBodyActivity.startUmeiMArcBodyActivity(mContext, bean.getHref());
+			}
+		});
 		container.addView(convertView);
 		return convertView;
 	}

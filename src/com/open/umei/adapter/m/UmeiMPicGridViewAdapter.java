@@ -23,6 +23,7 @@ import android.widget.TextView;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.open.umei.R;
+import com.open.umei.activity.m.UmeiMArcBodyActivity;
 import com.open.umei.adapter.CommonAdapter;
 import com.open.umei.bean.m.UmeiMPicBean;
 
@@ -67,7 +68,7 @@ public class UmeiMPicGridViewAdapter extends CommonAdapter<UmeiMPicBean> {
 		convertView.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-
+				UmeiMArcBodyActivity.startUmeiMArcBodyActivity(mContext, bean.getHref());
 			}
 		});
 		return convertView;

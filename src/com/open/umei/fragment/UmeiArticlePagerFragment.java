@@ -40,7 +40,7 @@ import com.open.umei.jsoup.UmeiArticleService;
  ***************************************************************************************************************************************************************************** 
  */
 public class UmeiArticlePagerFragment extends BaseV4Fragment<UmeiArticleJson, UmeiArticlePagerFragment> {
-	private String url;
+	public String url;
 	public ViewPager viewpager;
 	public UmeiArticlePagerAdapter mUmeiArticlePagerAdapter;
 	private List<UmeiArticleBean> list = new ArrayList<UmeiArticleBean>();
