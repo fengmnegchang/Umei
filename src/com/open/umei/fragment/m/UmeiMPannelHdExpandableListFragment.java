@@ -16,6 +16,8 @@ import java.util.List;
 
 import android.os.Bundle;
 import android.os.Message;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,6 +50,7 @@ public class UmeiMPannelHdExpandableListFragment extends BaseV4Fragment<UmeMPann
 	private ExpandableListView expendablelistview;
 	private UmeiMPannelHdExpandableListAdapter mUmeiMPannelHdExpandableListAdapter;
 	private List<UmeMPannelHdBean> list = new ArrayList<UmeMPannelHdBean>();
+	private View headerview;
 
 	public static UmeiMPannelHdExpandableListFragment newInstance(String url) {
 		UmeiMPannelHdExpandableListFragment fragment = new UmeiMPannelHdExpandableListFragment();
@@ -61,9 +64,24 @@ public class UmeiMPannelHdExpandableListFragment extends BaseV4Fragment<UmeMPann
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_common_expandable_listview, container, false);
 		expendablelistview = (ExpandableListView) view.findViewById(R.id.expendablelistview);
+		headerview = LayoutInflater.from(getActivity()).inflate(R.layout.layout_umei_m_pannel_hd_header, null);
 		return view;
 	}
 
+	
+	/* (non-Javadoc)
+	 * @see android.support.v4.app.Fragment#onViewCreated(android.view.View, android.os.Bundle)
+	 */
+	@Override
+	public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onViewCreated(view, savedInstanceState);
+		if (expendablelistview.getHeaderViewsCount() == 0) {
+			expendablelistview.addHeaderView(headerview);
+			Fragment fragment = UmeiMPannelHeadPagerFragment.newInstance(url, true);
+			getChildFragmentManager().beginTransaction().replace(R.id.layout_pannel_hd_header, fragment).commit();
+		}
+	}
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -73,6 +91,8 @@ public class UmeiMPannelHdExpandableListFragment extends BaseV4Fragment<UmeMPann
 	public void initValues() {
 		// TODO Auto-generated method stub
 		super.initValues();
+
+		
 		expendablelistview.setGroupIndicator(null);
 		mUmeiMPannelHdExpandableListAdapter = new UmeiMPannelHdExpandableListAdapter(getActivity(), list);
 		expendablelistview.setAdapter(mUmeiMPannelHdExpandableListAdapter);

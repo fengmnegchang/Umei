@@ -22,6 +22,7 @@ import org.jsoup.select.Elements;
 
 import android.util.Log;
 
+import com.open.umei.bean.UmeiTypeBean;
 import com.open.umei.bean.m.UmeMPannelHdBean;
 import com.open.umei.bean.m.UmeiMArcBean;
 import com.open.umei.bean.m.UmeiMPicBean;
@@ -306,6 +307,70 @@ public class UmeiMPannelHdService extends CommonService {
 				list.add(pannelhdbean);
 			}
 		}
+	}
+	
+	public static ArrayList<UmeiTypeBean> pannelHead(String href) {
+		ArrayList<UmeiTypeBean> list = new ArrayList<UmeiTypeBean>();
+		try {
+			// http://www.umei.cc/bizhitupian/shoujibizhi/1.htm
+			// http://www.umei.cc/bizhitupian/shoujibizhi/
+			href = makeURL(href, new HashMap<String, Object>() {
+				{
+				}
+			});
+			Log.i(TAG, "url = " + href);
+
+			Document doc = Jsoup.connect(href).userAgent(UrlUtils.userAgent).timeout(10000).get();
+			Element masthead = doc.select("div.slide").first();
+			Elements liElements = masthead.select("li");
+			/**
+			 <div id="slideBox" class="slide loading"> 
+12-29 12:32:52.697: I/System.out(28488):    <div class="db"> 
+12-29 12:32:52.697: I/System.out(28488):     <ul> 
+12-29 12:32:52.697: I/System.out(28488):      <li><a href="http://m.umei.cc/meinvtupian/xingganmeinv/24472.htm">
+<img origin="http://i1.umei.cc/uploads/tu/201612/956/c18.jpg" alt="美女尤物张梓柔私房性感写真身姿诱人"></a></li> 
+12-29 12:32:52.697: I/System.out(28488):      <li><a href="http://m.umei.cc/weimeitupian/feizhuliutupian/25568.htm"><img origin="http://i1.umei.cc/uploads/tu/201612/703/slt010101.png" alt="森女系唯美意境图片高清壁纸"></a></li> 
+12-29 12:32:52.697: I/System.out(28488):      <li><a href="http://m.umei.cc/meinvtupian/nayimeinv/24787.htm"><img origin="http://i1.umei.cc/uploads/tu/201612/230/c17.jpg" alt="美女模特夏小秋秋秋内衣诱惑秀爆乳"></a></li> 
+12-29 12:32:52.697: I/System.out(28488):      <li><a href="http://m.umei.cc/meinvtupian/xingganmeinv/15543.htm"><img origin="http://i1.umei.cc/uploads/tu/201612/68/c12.jpg" alt="[IMISS爱蜜社]性感女神sugar小甜心CC内衣写真白皙迷"></a></li> 
+12-29 12:32:52.697: I/System.out(28488):      <li><a href="http://m.umei.cc/meinvtupian/xingganmeinv/21406.htm"><img origin="http://i1.umei.cc/uploads/tu/201611/640/c16.jpg" alt="美女少妇真希私房内衣写真秀极致身材"></a></li> 
+12-29 12:32:52.697: I/System.out(28488):     </ul> 
+12-29 12:32:52.697: I/System.out(28488):    </div> 
+			 */
+			// 解析文件
+			if (liElements != null && liElements.size() > 1) {
+				for (int i = 0; i < liElements.size(); i++) {
+					UmeiTypeBean bean = new UmeiTypeBean();
+					try {
+						Element aElement = liElements.get(i).select("a").first();
+						String hrefurl = aElement.attr("href");
+						Log.i(TAG, "i===" + i + "hrefurl==" + hrefurl);
+						bean.setHref(hrefurl);
+						
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+
+					try {
+						Element imgElement = liElements.get(i).select("img").first();
+						String src = imgElement.attr("origin");
+						Log.i(TAG, "i===" + i + "src==" + src);
+						bean.setSrc(src);
+						
+						String typename = imgElement.attr("alt");
+						Log.i(TAG, "i===" + i + "typename=" + typename);
+						bean.setTypename(typename);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+
+					list.add(bean);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return list;
 	}
 
 
