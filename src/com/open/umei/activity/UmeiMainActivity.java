@@ -21,6 +21,8 @@ import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 import com.open.umei.R;
 import com.open.umei.fragment.MenuLeftFragment;
 import com.open.umei.fragment.UmeiArticlePagerFragment;
+import com.open.umei.fragment.m.UmeiMLeftMenuExpandableListFragment;
+import com.open.umei.utils.UrlUtils;
 
 /**
  ***************************************************************************************************************************************************************************** 
@@ -50,9 +52,8 @@ public class UmeiMainActivity extends SlidingFragmentActivity {
 	 
 	private void initRightMenu() {
 
-		Fragment leftMenuFragment = new MenuLeftFragment();
 		setBehindContentView(R.layout.left_menu_frame);
-		getSupportFragmentManager().beginTransaction().replace(R.id.id_left_menu_frame, leftMenuFragment).commit();
+		getSupportFragmentManager().beginTransaction().replace(R.id.id_left_menu_frame, UmeiMLeftMenuExpandableListFragment.newInstance(UrlUtils.UMEI_M)).commit();
 		SlidingMenu menu = getSlidingMenu();
 		menu.setMode(SlidingMenu.LEFT);
 		// 设置触摸屏幕的模式

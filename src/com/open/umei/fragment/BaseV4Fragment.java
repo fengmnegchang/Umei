@@ -11,6 +11,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Message;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.ImageView;
@@ -54,6 +55,19 @@ public class BaseV4Fragment<T,F extends BaseV4Fragment> extends Fragment impleme
 		if ((savedInstanceState != null) && savedInstanceState.containsKey(KEY_CONTENT)) {
 			mContent = savedInstanceState.getString(KEY_CONTENT);
 		}
+	}
+	
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see android.support.v4.app.Fragment#onActivityCreated(android.os.Bundle)
+	 */
+	@Override
+	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onActivityCreated(savedInstanceState);
+		initValues();
+		bindEvent();
 	}
 	 
 
