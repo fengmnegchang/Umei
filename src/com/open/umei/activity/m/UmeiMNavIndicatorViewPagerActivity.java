@@ -14,8 +14,8 @@ import com.open.umei.R;
 import com.open.umei.activity.CommonFragmentActivity;
 import com.open.umei.adapter.CommonFragmentPagerAdapter;
 import com.open.umei.bean.UmeiNavBean;
-import com.open.umei.fragment.UmeiNavIndicatorHorizontalViewPagerFragment;
-import com.open.umei.fragment.m.UmeiMNavIndicatorHorizontalViewPagerFragment;
+import com.open.umei.fragment.m.UmeiMNavGridHeadFootFragment;
+import com.open.umei.fragment.m.UmeiMNavGridHeadFootStaticFragment;
 import com.open.umei.json.UmeiNavJson;
 import com.open.umei.jsoup.UmeiNavService;
 import com.open.umei.utils.UrlUtils;
@@ -87,7 +87,7 @@ public class UmeiMNavIndicatorViewPagerActivity extends CommonFragmentActivity<U
 		titleList.clear();
 		for (UmeiNavBean sliderNavBean : result.getList()) {
 			titleList.add(sliderNavBean.getTitle());
-			Fragment fragment = UmeiMNavIndicatorHorizontalViewPagerFragment.newInstance(sliderNavBean.getTitle(), sliderNavBean.getHref());
+			Fragment fragment = UmeiMNavGridHeadFootFragment.newInstance(sliderNavBean.getHref(),false);
 			listRankFragment.add(fragment);
 		}
 		mRankPagerAdapter.notifyDataSetChanged();
