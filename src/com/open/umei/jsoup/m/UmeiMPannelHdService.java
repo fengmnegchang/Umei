@@ -25,7 +25,10 @@ import android.util.Log;
 import com.open.umei.bean.UmeiTypeBean;
 import com.open.umei.bean.m.UmeMPannelHdBean;
 import com.open.umei.bean.m.UmeiMArcBean;
+import com.open.umei.bean.m.UmeiMArcBodyBean;
 import com.open.umei.bean.m.UmeiMPicBean;
+import com.open.umei.json.m.UmeiMArcBodyJson;
+import com.open.umei.json.m.UmeiMPicJson;
 import com.open.umei.jsoup.CommonService;
 import com.open.umei.utils.UrlUtils;
 
@@ -460,10 +463,12 @@ public class UmeiMPannelHdService extends CommonService {
 					Element hElement = h2Elements.get(i).select("div.pannel-hd").first();
 					if (hElement != null) {
 						Element divElement = hElement.nextElementSibling();
-						/**<li><a href="http://m.umei.cc/meinvtupian/nayimeinv/20764.htm">
+						/**
+						 * <li><a href=
+						 * "http://m.umei.cc/meinvtupian/nayimeinv/20764.htm">
 						 * <img class="lazy" alt="美女模特蕾丝内衣写真肌肤白皙迷人"
-						 *  src="http://i1.umei.cc/uploads/tu/201611/16/c6.jpg" />
-						 * <div class="PL-tit">美女模特蕾丝内衣写真肌肤白皙迷人</div></a></li>
+						 * src="http://i1.umei.cc/uploads/tu/201611/16/c6.jpg"
+						 * /> <div class="PL-tit">美女模特蕾丝内衣写真肌肤白皙迷人</div></a></li>
 						 */
 						if (divElement.attr("class").contains("pic-list-tag")) {
 							Elements liElements = divElement.select("li");
@@ -507,7 +512,7 @@ public class UmeiMPannelHdService extends CommonService {
 			}
 		}
 	}
-	
+
 	private static void parseH2ArcElements(Elements h2Elements, ArrayList<UmeMPannelHdBean> list) {
 		// 解析文件
 		if (h2Elements != null && h2Elements.size() > 0) {
@@ -571,6 +576,152 @@ public class UmeiMPannelHdService extends CommonService {
 				list.add(pannelhdbean);
 			}
 		}
+	}
+
+	/**
+	 * 解析umei m
+	 */
+	public static UmeiMPicJson parseMPic(String href,int pageNo) {
+		UmeiMPicJson mUmeiMPicJson = new UmeiMPicJson();
+		ArrayList<UmeiMPicBean> list = new ArrayList<UmeiMPicBean>();
+		try {
+			if(href.contains(".htm")){
+				href = href.replace(".htm", "") + "_" + pageNo + ".htm";
+			}else{
+				//http://www.umei.cc/bizhitupian/diannaobizhi/_1.htm?
+				if(pageNo>1){
+					href = href + pageNo + ".htm";
+				}
+			}
+			
+			href = makeURL(href, new HashMap<String, Object>() {
+				{
+				}
+			});
+			Log.i(TAG, "url = " + href);
+
+			Document doc = Jsoup.connect(href).userAgent(UrlUtils.umeiAgent).timeout(10000).get();
+			// System.out.println(doc.toString());
+			Elements divElements = doc.select("h1.pannel-hd");
+			Elements pagesElements = doc.select("div.pages-list");
+			// <h2 class="New-PL_blank"><a
+			// href="http://m.umei.cc/katongdongman/">动画图片</a></h2>
+			// h2 class="pannel-hd pannel-hd-line pannel-hd-noline">美女图片推荐</h2>
+			/**
+			 * <h2 class="pannel-hd pannel-hd-line pannel-hd-noline">相关性感美女推荐</h2>
+			 * <div class="pic-list pic-list-tag PL-time-TR">
+			 * 
+			 * <div
+			 * class="pannel-hd pannel-hd-line pannel-hd-noline">热门美女图片推荐</div>
+			 * <div class="pic-list pic-list-tag pic-list-shadow"> <div
+			 * class="pages-list" id="pages-list">
+			 */
+			parseDivPagesElements(pagesElements, list);
+
+			mUmeiMPicJson.setmUmeiMArcBodyJson(parseMArcBody(divElements));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		mUmeiMPicJson.setList(list);
+
+		return mUmeiMPicJson;
+	}
+
+	private static void parseDivPagesElements(Elements h2Elements, ArrayList<UmeiMPicBean> list) {
+		// 解析文件
+		if (h2Elements != null && h2Elements.size() > 0) {
+			for (int i = 0; i < h2Elements.size(); i++) {
+				try {
+					Element hElement = h2Elements.get(i).select("div.pages-list").first();
+					if (hElement != null) {
+						Element divElement = hElement.previousElementSibling().previousElementSibling();
+						/*
+						 * <li><a href=
+						 * "http://m.umei.cc/meinvtupian/xingganmeinv/24515.htm"
+						 * class="New-PL_blank"> <img class="lazy"
+						 * alt="性感尤物李宓儿酒店大尺度写真巨乳诱人" data-original=
+						 * "http://i1.umei.cc/uploads/tu/201612/236/c2.jpg">
+						 * <div
+						 * class="New-PL-tit">性感尤物李宓儿酒店大尺度写真巨乳诱人</div></a></li>
+						 */
+						if (divElement.attr("class").contains("pic-list-shadow")) {
+							Elements liElements = divElement.select("li");
+							if (liElements != null && liElements.size() > 0) {
+								UmeiMPicBean picbean;
+								for (int y = 0; y < liElements.size(); y++) {
+									picbean = new UmeiMPicBean();
+									try {
+										Element aElement = liElements.get(y).select("a").first();
+										String ahref = aElement.attr("href");
+										picbean.setHref(ahref);
+										Log.i(TAG, "i===" + i + ";y==" + y + "ahref==" + ahref);
+									} catch (Exception e) {
+										e.printStackTrace();
+									}
+
+									try {
+										Element imgElement = liElements.get(y).select("img").first();
+										String alt = imgElement.attr("alt");
+										picbean.setAlt(alt);
+
+										String dataoriginal = imgElement.attr("data-original");
+										picbean.setDataoriginal(dataoriginal);
+										Log.i(TAG, "i===" + i + ";y==" + y + "alt==" + alt + ";dataoriginal==" + dataoriginal);
+									} catch (Exception e) {
+										e.printStackTrace();
+									}
+									list.add(picbean);
+								}
+							}
+						}
+					}
+
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+			}
+		}
+	}
+
+	private static UmeiMArcBodyJson parseMArcBody(Elements h2Elements) {
+		UmeiMArcBodyJson mUmeiMArcBodyJson = new UmeiMArcBodyJson();
+		// 解析文件
+		if (h2Elements != null && h2Elements.size() > 0) {
+			for (int i = 0; i < h2Elements.size(); i++) {
+				try {
+					UmeiMArcBodyBean arcbody = new UmeiMArcBodyBean();
+					Element hElement = h2Elements.get(i).select("h1.pannel-hd").first();
+					if (hElement != null) {
+						String pannelhdname = hElement.text();
+						Log.i(TAG, "i===" + i + "pannelhdname==" + pannelhdname);
+						arcbody.setArctitle(pannelhdname);
+
+						try {
+							/**
+							 * <div class="spec-box-top arc-txt" m="arcDESC">
+							 * <p>
+							 * 性感的美女通常是美丽中散发出一些性感，或穿着一些性感服饰，包括低胸上衣，比基尼泳装，内衣外穿，热裤
+							 * ，深V上衣，迷你裙等。这些充满性感的美女，总会使男人销魂落魄。
+							 * 优美图库性感美女栏目提供海量高清性感美女图片、美女性感图片、性感美女写真、性感美女图片大全等。
+							 * </p>
+							 * </div>
+							 */
+							Element specElement = hElement.nextElementSibling();
+							String txt_arcDESC = specElement.text();
+							Log.i(TAG, "i===" + i + "txt_arcDESC==" + txt_arcDESC);
+							arcbody.setArcDESC(txt_arcDESC);
+						} catch (Exception e) {
+
+						}
+					}
+					mUmeiMArcBodyJson.setArcbody(arcbody);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return mUmeiMArcBodyJson;
 	}
 
 }

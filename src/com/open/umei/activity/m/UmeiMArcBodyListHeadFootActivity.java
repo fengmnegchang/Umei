@@ -127,7 +127,7 @@ public class UmeiMArcBodyListHeadFootActivity extends CommonFragmentActivity<Ume
 //
 //	}
 
-	public static void startUmeiMArcBodyActivity(Context context, String url) {
+	public static void startUmeiMArcBodyListHeadFootActivity(Context context, String url) {
 		Intent intent = new Intent();
 		intent.putExtra("URL", url);
 		intent.setClass(context, UmeiMArcBodyListHeadFootActivity.class);

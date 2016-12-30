@@ -25,6 +25,7 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.open.umei.R;
 import com.open.umei.activity.m.UmeiMArcBodyActivity;
+import com.open.umei.activity.m.UmeiMArcBodyListHeadFootActivity;
 import com.open.umei.adapter.CommonPagerAdapter;
 import com.open.umei.bean.UmeiTypeBean;
 
@@ -65,7 +66,7 @@ public class UmeiMPannelHeadPagerAdapter extends CommonPagerAdapter<UmeiTypeBean
 		mViewHolder.imageview.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				UmeiMArcBodyActivity.startUmeiMArcBodyActivity(mContext, bean.getHref());
+				UmeiMArcBodyListHeadFootActivity.startUmeiMArcBodyListHeadFootActivity(mContext, bean.getHref());
 			}
 		});
 		container.addView(convertView);

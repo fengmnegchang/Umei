@@ -26,4 +26,5 @@
  	<string name="umei_m_arc_body_desp">优美cc看图</string>
  	<string name="umei_article_list_head_foot_desp">图片详细listview 加head ，加footFragment实现</string>
  	<string name="umei_m_arc_body_head_foot_desp">优美cc看图listview 加head ，加footFragment实现</string>
+ 	<string name="umei_m_nav_head_foot_desp">优美cc导航栏</string>
 </resources>

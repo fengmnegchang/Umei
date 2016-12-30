@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1f92d1"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:fitsSystemWindows="true" >
+
+    <TextView
+        android:id="@+id/txt_arctitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="美女尤物张梓柔私房性感写真身姿诱人" />
+
+    <TextView
+        android:id="@+id/txt_arcDESC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_arctitle"
+        android:layout_marginTop="5dp"
+        android:text="张梓柔，内地油画画师、兼职模特、头条女神麻豆。美女模特带来一组私房性感写真，上半身赤裸，穿着蕾丝内裤的模特，身材非常火辣诱人，美乳和翘臀，让人看了陶醉其中，不能自拔。"
+        android:textSize="12dp" />
+
+</RelativeLayout>

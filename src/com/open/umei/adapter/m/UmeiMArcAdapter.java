@@ -16,10 +16,12 @@ import java.util.List;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.open.umei.R;
+import com.open.umei.activity.m.UmeiMArcBodyListHeadFootActivity;
 import com.open.umei.adapter.CommonAdapter;
 import com.open.umei.bean.m.UmeiMArcBean;
 
@@ -51,20 +53,18 @@ public class UmeiMArcAdapter extends CommonAdapter<UmeiMArcBean> {
 		text_title2.setText(bean.getTitle2());
 		text_time.setText(bean.getArctime());
 
-		// text_title.setOnClickListener(new OnClickListener() {
-		// @Override
-		// public void onClick(View v) {
-		// UmeiTypeListActivity.startUmeiTypeListActivity(mContext,
-		// bean.getHref());
-		// }
-		// });
-		// text_title2.setOnClickListener(new OnClickListener() {
-		// @Override
-		// public void onClick(View v) {
-		// UmeiArticleActivity.startUmeiArticleActivity(mContext,
-		// bean.getHref2());
-		// }
-		// });
+		text_title.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+//				UmeiTypeListActivity.startUmeiTypeListActivity(mContext, bean.getHref());
+			}
+		});
+		text_title2.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				UmeiMArcBodyListHeadFootActivity.startUmeiMArcBodyListHeadFootActivity(mContext, bean.getHref2());
+			}
+		});
 		return view;
 	}
 }
