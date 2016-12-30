@@ -232,5 +232,74 @@ public class UmeiNavService extends CommonService {
 
 		return list;
 	}
+	
+	/**
+	 * 解析umei 第一级标签
+	 */
+	public static ArrayList<UmeiNavBean> parseMNav(String href) {
+		ArrayList<UmeiNavBean> list = new ArrayList<UmeiNavBean>();
+		try {
+			href = makeURL(href, new HashMap<String, Object>() {
+				{
+				}
+			});
+			Log.i(TAG, "url = " + href);
+
+			Document doc = Jsoup.connect(href).userAgent(UrlUtils.userAgent).timeout(10000).get();
+			Element masthead = doc.select("div.tabs").first();
+			Elements liElements = masthead.select("li");
+			/**
+			 * <div class="pannel">
+  <div class="tabs" m="mouse" mouse="li" id="channel_tabs">
+    <ul>
+	
+      <li><a href="http://m.umei.cc/meinvtupian/xingganmeinv/" title="性感美女">性感美女</a></li>
+	
+      <li><a href="http://m.umei.cc/meinvtupian/siwameinv/" title="丝袜美女">丝袜美女</a></li>
+	
+      <li><a href="http://m.umei.cc/meinvtupian/meinvxiezhen/" title="美女写真">美女写真</a></li>
+	
+      <li><a href="http://m.umei.cc/meinvtupian/waiguomeinv/" title="外国美女">外国美女</a></li>
+	
+      <li><a href="http://m.umei.cc/meinvtupian/nayimeinv/" title="内衣美女">内衣美女</a></li>
+	
+      <li><a href="http://m.umei.cc/meinvtupian/jiepaimeinv/" title="街拍美女">街拍美女</a></li>
+	
+      <li><a href="http://m.umei.cc/meinvtupian/meinvzipai/" title="美女自拍">美女自拍</a></li>
+	
+      <li><a href="http://m.umei.cc/meinvtupian/rentiyishu/" title="人体艺术">人体艺术</a></li>
+	
+      <li><a href="http://m.umei.cc/meinvtupian/meinvmote/" title="美女模特">美女模特</a></li>
+	
+    </ul>
+  </div>
+</div>
+
+			 */
+			// 解析文件
+			if (liElements != null && liElements.size() > 1) {
+				for (int i = 1; i < liElements.size(); i++) {
+					UmeiNavBean sliderNavBean = new UmeiNavBean();
+					try {
+						Element aElement = liElements.get(i).select("a").first();
+						String hrefurl = aElement.attr("href");
+						String title = aElement.text();
+						Log.i(TAG, "i===" + i + "hrefurl==" + hrefurl + ";title===" + title);
+						sliderNavBean.setTitle(title);
+						sliderNavBean.setHref(hrefurl);
+						// sliderNavBean.setImageUrl(imageurl);
+						list.add(sliderNavBean);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return list;
+	}
 
 }

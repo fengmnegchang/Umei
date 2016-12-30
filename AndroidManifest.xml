@@ -165,6 +165,16 @@
 			>
         </activity>
         
+         <!-- umei 优美cc Nav指示器  -->
+        <activity
+            android:name="com.open.umei.activity.m.UmeiMNavIndicatorViewPagerActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:theme="@style/Theme.PageIndicatorDefaults"
+            android:description="@string/umei_m_nav_indicator_desp"
+             >
+           
+        </activity>
+        
         <!-- 所有类列表 -->
         <activity
             android:name="com.open.umei.activity.UmeiALLActivity"
