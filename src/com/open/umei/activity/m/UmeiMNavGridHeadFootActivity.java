@@ -15,9 +15,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 
 import com.open.umei.R;
 import com.open.umei.activity.CommonFragmentActivity;
+import com.open.umei.fragment.m.UmeiMArcBodyExpendExpandableListFragment;
 import com.open.umei.fragment.m.UmeiMNavGridHeadFootFragment;
 import com.open.umei.fragment.m.UmeiMNavGridHeadFragment;
 import com.open.umei.json.m.UmeiMArcBodyJson;
@@ -74,6 +76,7 @@ public class UmeiMNavGridHeadFootActivity extends CommonFragmentActivity<UmeiMAr
 
 		Fragment pullfragment = UmeiMNavGridHeadFootFragment.newInstance(url, true);
 		getSupportFragmentManager().beginTransaction().replace(R.id.layout_pull_refresh_grid, pullfragment).commit();
+		 
 	}
 
 	public static void startUmeiMNavGridHeadFootActivity(Context context, String url) {

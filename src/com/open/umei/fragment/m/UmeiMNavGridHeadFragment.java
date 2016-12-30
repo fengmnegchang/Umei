@@ -13,6 +13,7 @@ package com.open.umei.fragment.m;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ import com.handmark.pulltorefresh.library.HeaderGridView;
 import com.handmark.pulltorefresh.library.PullToRefreshHeadGridView;
 import com.open.umei.R;
 import com.open.umei.bean.m.UmeiMArcBodyBean;
+import com.open.umei.fragment.CommonV4Fragment;
 import com.open.umei.json.m.UmeiMPicJson;
 import com.open.umei.jsoup.m.UmeiMArcBodyService;
 import com.open.umei.jsoup.m.UmeiMPannelHdService;
@@ -97,6 +99,7 @@ public class UmeiMNavGridHeadFragment extends UmeiMGirdArticleFragment {
 		// UmeiMArcBodyExpendExpandableListFragment.newInstance(url,true);
 		// getChildFragmentManager().beginTransaction().replace(R.id.layout_expandablelistview,
 		// expandfragment).commit();
+		
 	}
 
 	/*

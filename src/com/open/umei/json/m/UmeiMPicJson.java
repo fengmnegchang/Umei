@@ -14,6 +14,7 @@ package com.open.umei.json.m;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.open.umei.bean.m.UmeMPannelHdBean;
 import com.open.umei.bean.m.UmeiMPicBean;
 import com.open.umei.json.CommonJson;
 
@@ -31,7 +32,8 @@ import com.open.umei.json.CommonJson;
 public class UmeiMPicJson extends CommonJson {
 	private List<UmeiMPicBean> list = new ArrayList<UmeiMPicBean>();
 	private UmeiMArcBodyJson mUmeiMArcBodyJson;
-
+	private List<UmeMPannelHdBean> exlist;
+	
 	public List<UmeiMPicBean> getList() {
 		return list;
 	}
@@ -46,6 +48,14 @@ public class UmeiMPicJson extends CommonJson {
 
 	public void setmUmeiMArcBodyJson(UmeiMArcBodyJson mUmeiMArcBodyJson) {
 		this.mUmeiMArcBodyJson = mUmeiMArcBodyJson;
+	}
+
+	public List<UmeMPannelHdBean> getExlist() {
+		return exlist;
+	}
+
+	public void setExlist(List<UmeMPannelHdBean> exlist) {
+		this.exlist = exlist;
 	}
 
 }

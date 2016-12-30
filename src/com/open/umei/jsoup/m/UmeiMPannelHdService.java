@@ -442,6 +442,40 @@ public class UmeiMPannelHdService extends CommonService {
 
 		return list;
 	}
+	
+	/**
+	 * 解析umei m
+	 */
+	public static ArrayList<UmeMPannelHdBean> parseNavGrid(String href) {
+		ArrayList<UmeMPannelHdBean> list = new ArrayList<UmeMPannelHdBean>();
+		try {
+			href = makeURL(href, new HashMap<String, Object>() {
+				{
+				}
+			});
+			Log.i(TAG, "url = " + href);
+
+			Document doc = Jsoup.connect(href).userAgent(UrlUtils.umeiAgent).timeout(10000).get();
+			// System.out.println(doc.toString());
+			Elements h2Elements = doc.select("h2.pannel-hd-line");
+			// <h2 class="New-PL_blank"><a
+			// href="http://m.umei.cc/katongdongman/">动画图片</a></h2>
+			// h2 class="pannel-hd pannel-hd-line pannel-hd-noline">美女图片推荐</h2>
+			/**
+			 * <h2 class="pannel-hd pannel-hd-line pannel-hd-noline">相关性感美女推荐</h2>
+			 * <div class="pic-list pic-list-tag PL-time-TR">
+			 * 
+			 * <div
+			 * class="pannel-hd pannel-hd-line pannel-hd-noline">热门美女图片推荐</div>
+			 * <div class="pic-list pic-list-tag pic-list-shadow">
+			 */
+			parseH2NavElements(h2Elements, list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return list;
+	}
 
 	private static void parseDivElements(Elements h2Elements, ArrayList<UmeMPannelHdBean> list) {
 		// 解析文件
@@ -536,6 +570,71 @@ public class UmeiMPannelHdService extends CommonService {
 						/**
 						 */
 						if (divElement.attr("class").contains("pic-list-tag")) {
+							Elements liElements = divElement.select("li");
+							if (liElements != null && liElements.size() > 0) {
+								List<UmeiMPicBean> piclist = new ArrayList<UmeiMPicBean>();
+								UmeiMPicBean picbean;
+								for (int y = 0; y < liElements.size(); y++) {
+									picbean = new UmeiMPicBean();
+									try {
+										Element aElement = liElements.get(y).select("a").first();
+										String ahref = aElement.attr("href");
+										picbean.setHref(ahref);
+										Log.i(TAG, "i===" + i + ";y==" + y + "ahref==" + ahref);
+									} catch (Exception e) {
+										e.printStackTrace();
+									}
+
+									try {
+										Element imgElement = liElements.get(y).select("img").first();
+										String alt = imgElement.attr("alt");
+										picbean.setAlt(alt);
+
+										String dataoriginal = imgElement.attr("data-original");
+										picbean.setDataoriginal(dataoriginal);
+										Log.i(TAG, "i===" + i + ";y==" + y + "alt==" + alt + ";dataoriginal==" + dataoriginal);
+									} catch (Exception e) {
+										e.printStackTrace();
+									}
+									piclist.add(picbean);
+								}
+								pannelhdbean.setPiclist(piclist);
+							}
+						}
+					}
+
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+				list.add(pannelhdbean);
+			}
+		}
+	}
+	
+	private static void parseH2NavElements(Elements h2Elements, ArrayList<UmeMPannelHdBean> list) {
+		// 解析文件
+		if (h2Elements != null && h2Elements.size() > 0) {
+			for (int i = 0; i < h2Elements.size(); i++) {
+				UmeMPannelHdBean pannelhdbean = new UmeMPannelHdBean();
+				try {
+					Element hElement = h2Elements.get(i).select("h2").first();
+					if (hElement != null) {
+						String pannelhdname = hElement.text();
+						Log.i(TAG, "i===" + i + "pannelhdname==" + pannelhdname);
+						pannelhdbean.setPannelhdname(pannelhdname);
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+				try {
+					Element hElement = h2Elements.get(i).select("h2").first();
+					if (hElement != null) {
+						Element divElement = hElement.nextElementSibling();
+						/**
+						 */
+						if (divElement.attr("class").contains("pic-list-shadow")) {
 							Elements liElements = divElement.select("li");
 							if (liElements != null && liElements.size() > 0) {
 								List<UmeiMPicBean> piclist = new ArrayList<UmeiMPicBean>();
