@@ -17,6 +17,7 @@ import com.open.umei.bean.UmeiArticleBean;
 import com.open.umei.bean.UmeiArticleInfoBean;
 import com.open.umei.bean.UmeiArticleTypeBean;
 import com.open.umei.bean.UmeiTypeBean;
+import com.open.umei.json.m.UmeiMArcBodyJson;
 
 /**
  ***************************************************************************************************************************************************************************** 
@@ -38,6 +39,8 @@ public class UmeiArticleJson extends CommonJson {
 	private UmeiArticleInfoBean ArticleInfos;
 
 	private List<UmeiArticleTypeBean> articleTypeList;
+	
+	private UmeiMArcBodyJson mUmeiMArcBodyJson;
 
 	public List<UmeiTypeBean> getRelaxarc() {
 		return relaxarc;
@@ -69,6 +72,14 @@ public class UmeiArticleJson extends CommonJson {
 
 	public void setArticleTypeList(List<UmeiArticleTypeBean> articleTypeList) {
 		this.articleTypeList = articleTypeList;
+	}
+
+	public UmeiMArcBodyJson getmUmeiMArcBodyJson() {
+		return mUmeiMArcBodyJson;
+	}
+
+	public void setmUmeiMArcBodyJson(UmeiMArcBodyJson mUmeiMArcBodyJson) {
+		this.mUmeiMArcBodyJson = mUmeiMArcBodyJson;
 	}
 
 }
