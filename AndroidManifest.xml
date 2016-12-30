@@ -141,6 +141,14 @@
 			>
         </activity>
         
+        <!-- umei 图片详细listview 加head ，加footFragment实现-->
+        <activity
+            android:name="com.open.umei.activity.UmeiArticleListHeadFootFragmentActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/umei_article_list_head_foot_desp"  
+			>
+        </activity>
+        
         <!-- 所有类列表 -->
         <activity
             android:name="com.open.umei.activity.UmeiALLActivity"

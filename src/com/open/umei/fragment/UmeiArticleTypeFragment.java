@@ -20,13 +20,13 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 import com.open.umei.R;
 import com.open.umei.adapter.UmeiArticleTypeAdapter;
 import com.open.umei.bean.UmeiArticleTypeBean;
 import com.open.umei.json.UmeiArticleJson;
 import com.open.umei.jsoup.UmeiArticleService;
+import com.open.umei.view.ExpendListView;
 
 /**
  ***************************************************************************************************************************************************************************** 
@@ -41,7 +41,7 @@ import com.open.umei.jsoup.UmeiArticleService;
  */
 public class UmeiArticleTypeFragment extends BaseV4Fragment<UmeiArticleJson, UmeiArticleTypeFragment> {
 	private String url;
-	private ListView listview;
+	private ExpendListView listview;
 	private UmeiArticleTypeAdapter mUmeiArticleTypeAdapter;
 	private List<UmeiArticleTypeBean> articleTypeList = new ArrayList<UmeiArticleTypeBean>();
 
@@ -57,7 +57,7 @@ public class UmeiArticleTypeFragment extends BaseV4Fragment<UmeiArticleJson, Ume
 	@Override
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_umei_article_type_listview, container, false);
-		listview = (ListView) view.findViewById(R.id.listview);
+		listview = (ExpendListView) view.findViewById(R.id.listview);
 		return view;
 	}
 
