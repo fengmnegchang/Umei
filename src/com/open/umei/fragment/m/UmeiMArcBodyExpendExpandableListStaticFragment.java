@@ -32,7 +32,7 @@ import com.open.umei.view.ExpendExpandableListView;
  ***************************************************************************************************************************************************************************** 
  */
 public class UmeiMArcBodyExpendExpandableListStaticFragment extends UmeiMPannelHdExpandableListStaticFragment {
-	public String url = UrlUtils.UMEI_M_NAV;
+	public String url = UrlUtils.UMEI_M_GRID;
 	public static UmeiMArcBodyExpendExpandableListStaticFragment newInstance(String url, boolean isVisibleToUser) {
 		UmeiMArcBodyExpendExpandableListStaticFragment fragment = new UmeiMArcBodyExpendExpandableListStaticFragment();
 		fragment.setFragment(fragment);

@@ -45,7 +45,7 @@ import com.open.umei.utils.UrlUtils;
  ***************************************************************************************************************************************************************************** 
  */
 public class UmeiMPannelHdExpandableListStaticFragment extends BaseAppFragment<UmeMPannelHdJson, UmeiMPannelHdExpandableListStaticFragment> {
-	public String url = UrlUtils.UMEI_M;
+	public String url = UrlUtils.UMEI_M_GRID;
 	public ExpandableListView expendablelistview;
 	public UmeiMPannelHdExpandableListAdapter mUmeiMPannelHdExpandableListAdapter;
 	private List<UmeMPannelHdBean> list = new ArrayList<UmeMPannelHdBean>();
