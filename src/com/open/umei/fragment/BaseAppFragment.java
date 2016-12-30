@@ -1,14 +1,3 @@
-/**
- *****************************************************************************************************************************************************************************
- * 
- * @author :fengguangjing
- * @createTime:2016-12-8上午10:42:37
- * @version:4.2.4
- * @modifyTime:
- * @modifyAuthor:
- * @description:
- *****************************************************************************************************************************************************************************
- */
 package com.open.umei.fragment;
 
 import java.util.Collections;
@@ -18,12 +7,12 @@ import java.util.Map;
 
 import org.json.JSONObject;
 
-import android.annotation.SuppressLint;
-import android.app.Fragment;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Message;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -38,25 +27,27 @@ import com.open.andenginetask.Callable;
 import com.open.andenginetask.Callback;
 import com.open.andenginetask.IProgressListener;
 import com.open.andenginetask.ProgressCallable;
-import com.open.umei.weak.WeakReferenceHandler;
+import com.open.umei.weak.WeakAppReferenceHandler;
 
 /**
+ * 
  ***************************************************************************************************************************************************************************** 
  * 
  * @author :fengguangjing
- * @createTime:2016-12-8上午10:42:37
+ * @createTime:2016-10-28上午10:36:57
  * @version:4.2.4
  * @modifyTime:
  * @modifyAuthor:
  * @description:
  ***************************************************************************************************************************************************************************** 
  */
-public class BaseAppFragment<T> extends Fragment implements CallEarliest<T>, Callback<T>, Callable<T>, ProgressCallable<T>, Response.Listener<JSONObject>, Response.ErrorListener {
+public class BaseAppFragment<T,F extends BaseAppFragment> extends Fragment implements CallEarliest<T>, Callback<T>, Callable<T>, ProgressCallable<T>, Response.Listener<JSONObject>, Response.ErrorListener {
 	public static final String TAG = BaseAppFragment.class.getSimpleName();
 	public static final String KEY_CONTENT = BaseAppFragment.class.getSimpleName() + ":Content";
 	public String mContent = "";
-	public WeakReferenceHandler weakReferenceHandler;
+	public WeakAppReferenceHandler weakReferenceHandler;
 	private ImageLoadingListener animateFirstListener = new AnimateFirstDisplayListener();
+	public View view;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -64,8 +55,26 @@ public class BaseAppFragment<T> extends Fragment implements CallEarliest<T>, Cal
 		if ((savedInstanceState != null) && savedInstanceState.containsKey(KEY_CONTENT)) {
 			mContent = savedInstanceState.getString(KEY_CONTENT);
 		}
-		// weakReferenceHandler = new WeakReferenceHandler(this,this);
 	}
+	
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see android.support.v4.app.Fragment#onActivityCreated(android.os.Bundle)
+	 */
+	@Override
+	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onActivityCreated(savedInstanceState);
+		initValues();
+		bindEvent();
+	}
+	 
+
+	public void setFragment(F f) {
+		 weakReferenceHandler = new WeakAppReferenceHandler(f);
+	}
+
 
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
@@ -78,15 +87,34 @@ public class BaseAppFragment<T> extends Fragment implements CallEarliest<T>, Cal
 	 * 
 	 * @see android.support.v4.app.Fragment#setUserVisibleHint(boolean)
 	 */
-	@SuppressLint("NewApi")
 	@Override
 	public void setUserVisibleHint(boolean isVisibleToUser) {
 		// TODO Auto-generated method stub
 		super.setUserVisibleHint(isVisibleToUser);
 		initUI(isVisibleToUser);
 	}
+ 
+	private boolean isFirst = true;
 
 	protected void initUI(final boolean isVisibleToUser) {
+		if (weakReferenceHandler != null) {
+			weakReferenceHandler.postDelayed(new Runnable() {
+				@Override
+				public void run() {
+					if (getActivity() == null || !isVisibleToUser) {
+						initUI(isVisibleToUser);
+					} else {
+						if(isFirst){
+							weakReferenceHandler.sendEmptyMessageDelayed(MESSAGE_HANDLER, 50);
+							isFirst = false;
+						}else{
+							weakReferenceHandler.sendEmptyMessageDelayed(MESSAGE_DEFAULT_POSITION, 50);
+						}
+						
+					}
+				}
+			}, 200);
+		}
 	}
 
 	/**
@@ -210,6 +238,16 @@ public class BaseAppFragment<T> extends Fragment implements CallEarliest<T>, Cal
 
 	}
 
+	/**
+	 * 请求网络数据
+	 * 
+	 * @param href
+	 *            :地址
+	 */
+	public void volleyJson(String href) {
+
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -238,6 +276,17 @@ public class BaseAppFragment<T> extends Fragment implements CallEarliest<T>, Cal
 		}
 		return url.toString().replace("?&", "?");
 	}
+
+	/** 刷新 */
+	public static final int MESSAGE_HANDLER = 1000;
+	/** 请求数据成功 */
+	public static final int MESSAGE_HANDLER_COMPLETE = 1001;
+	
+	/** drop菜单选择 重新刷新数据 */
+	public static final int MESSAGE_DROP_HANDLER = 1002;
+	
+	/** 默认位置 */
+	public static final int MESSAGE_DEFAULT_POSITION = 2000;
 
 	/*
 	 * (non-Javadoc)
@@ -268,4 +317,20 @@ public class BaseAppFragment<T> extends Fragment implements CallEarliest<T>, Cal
 			}
 		}
 	}
+
+	public boolean onBackPressed() {
+		return false;
+	}
+
+	/**
+	 * 绑定事件，在onviewcreate调用
+	 */
+	public void bindEvent() {
+
+	}
+	
+	public void initValues() {
+
+	}
+
 }

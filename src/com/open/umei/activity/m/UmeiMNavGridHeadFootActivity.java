@@ -15,13 +15,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 
 import com.open.umei.R;
 import com.open.umei.activity.CommonFragmentActivity;
-import com.open.umei.fragment.m.UmeiMArcBodyExpendExpandableListFragment;
-import com.open.umei.fragment.m.UmeiMNavGridHeadFootFragment;
-import com.open.umei.fragment.m.UmeiMNavGridHeadFragment;
+import com.open.umei.fragment.m.UmeiMNavGridHeadFootStaticFragment;
 import com.open.umei.json.m.UmeiMArcBodyJson;
 import com.open.umei.utils.UrlUtils;
 import com.open.umei.weak.WeakActivityReferenceHandler;
@@ -74,7 +71,7 @@ public class UmeiMNavGridHeadFootActivity extends CommonFragmentActivity<UmeiMAr
 		weakReferenceHandler = new WeakActivityReferenceHandler(this);
 		weakReferenceHandler.sendEmptyMessage(MESSAGE_HANDLER);
 
-		Fragment pullfragment = UmeiMNavGridHeadFootFragment.newInstance(url, true);
+		Fragment pullfragment = UmeiMNavGridHeadFootStaticFragment.newInstance(url, true);
 		getSupportFragmentManager().beginTransaction().replace(R.id.layout_pull_refresh_grid, pullfragment).commit();
 		 
 	}
