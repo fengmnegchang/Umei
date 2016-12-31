@@ -128,7 +128,7 @@ public class UmeiMTagGridHeadFootFragment extends UmeiMHeadFootGirdArticleFragme
 		expendablelistview.setOnGroupClickListener(new OnGroupClickListener() {
 			@Override
 			public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-				return true;
+				return false;
 			}
 		});
 	}
@@ -159,9 +159,9 @@ public class UmeiMTagGridHeadFootFragment extends UmeiMHeadFootGirdArticleFragme
 		exlist.clear();
 		exlist.addAll(result.getExlist());
 		mUmeiMPannelHdExpandableListAdapter.notifyDataSetChanged();
-		for (int i = 0; i < mUmeiMPannelHdExpandableListAdapter.getGroupCount(); i++) {
-			expendablelistview.expandGroup(i);
-		}
+//		for (int i = 0; i < mUmeiMPannelHdExpandableListAdapter.getGroupCount(); i++) {
+//			expendablelistview.expandGroup(i);
+//		}
 		try {
 			UmeiMArcBodyBean arcbody = result.getmUmeiMArcBodyJson().getArcbody();
 			txt_arctitle.setText(arcbody.getArctitle());
