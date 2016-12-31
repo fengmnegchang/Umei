@@ -28,4 +28,5 @@
  	<string name="umei_m_arc_body_head_foot_desp">优美cc看图listview 加head ，加footFragment实现</string>
  	<string name="umei_m_nav_head_foot_desp">优美cc导航栏</string>
  	<string name="umei_m_nav_indicator_desp">优美cc Nav指示器</string>
+ 	<string name="umei_m_tag_head_foot_desp">优美cc国内标签云</string>
 </resources>

@@ -21,7 +21,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.open.umei.R;
+import com.open.umei.activity.UmeiWebViewActivity;
 import com.open.umei.activity.m.UmeiMArcBodyListHeadFootActivity;
+import com.open.umei.activity.m.UmeiMNavGridHeadFootActivity;
+import com.open.umei.activity.m.UmeiMNavIndicatorViewPagerActivity;
+import com.open.umei.activity.m.UmeiMTagGridHeadFootActivity;
 import com.open.umei.adapter.CommonAdapter;
 import com.open.umei.bean.m.UmeiMArcBean;
 
@@ -56,7 +60,20 @@ public class UmeiMArcAdapter extends CommonAdapter<UmeiMArcBean> {
 		text_title.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-//				UmeiTypeListActivity.startUmeiTypeListActivity(mContext, bean.getHref());
+				//友情链接
+				if(bean.getHref().endsWith("http://m.mmonly.cc/")||bean.getHref().endsWith("http://m.27270.com/")
+						||bean.getHref().endsWith("http://m.ituba.cc")||bean.getHref().endsWith("http://m.uumnt.com/")	
+					||bean.getHref().endsWith("http://m.uumeitu.com")||bean.getHref().endsWith("http://m.tesetu.com")
+					||bean.getHref().endsWith("http://m.aitaotu.com")
+						){
+					UmeiWebViewActivity.startUmeiWebViewActivity(mContext, bean.getHref());
+				}else if(bean.getHref().contains("http://m.umei.cc/p/gaoqing/cn/")
+						|| bean.getHref().contains("http://m.umei.cc/tags/")){
+					//标签云 国内
+					UmeiMTagGridHeadFootActivity.startUmeiMTagGridHeadFootActivity(mContext, bean.getHref());
+				}else{
+					UmeiMNavIndicatorViewPagerActivity.startUmeiMNavIndicatorViewPagerActivity(mContext, bean.getHref());
+				}
 			}
 		});
 		text_title2.setOnClickListener(new OnClickListener() {

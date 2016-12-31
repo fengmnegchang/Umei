@@ -174,7 +174,13 @@
              >
            
         </activity>
-        
+        <!-- umei 优美cc国内标签云-->
+        <activity
+            android:name="com.open.umei.activity.m.UmeiMTagGridHeadFootActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/umei_m_tag_head_foot_desp"  
+			>
+        </activity>
         <!-- 所有类列表 -->
         <activity
             android:name="com.open.umei.activity.UmeiALLActivity"

@@ -20,6 +20,7 @@ import com.open.umei.R;
 import com.open.umei.activity.CommonFragmentActivity;
 import com.open.umei.fragment.m.UmeiMNavGridHeadFootFragment;
 import com.open.umei.fragment.m.UmeiMNavGridHeadFootStaticFragment;
+import com.open.umei.fragment.m.UmeiMTagGridHeadFootFragment;
 import com.open.umei.json.m.UmeiMArcBodyJson;
 import com.open.umei.utils.UrlUtils;
 import com.open.umei.weak.WeakActivityReferenceHandler;
@@ -35,8 +36,8 @@ import com.open.umei.weak.WeakActivityReferenceHandler;
  * @description:
  ***************************************************************************************************************************************************************************** 
  */
-public class UmeiMNavGridHeadFootActivity extends CommonFragmentActivity<UmeiMArcBodyJson> {
-	private String url = UrlUtils.UMEI_M_NAV;
+public class UmeiMTagGridHeadFootActivity extends CommonFragmentActivity<UmeiMArcBodyJson> {
+	private String url = UrlUtils.UMEI_M_TAG;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -72,15 +73,15 @@ public class UmeiMNavGridHeadFootActivity extends CommonFragmentActivity<UmeiMAr
 		weakReferenceHandler = new WeakActivityReferenceHandler(this);
 		weakReferenceHandler.sendEmptyMessage(MESSAGE_HANDLER);
 
-		Fragment pullfragment = UmeiMNavGridHeadFootFragment.newInstance(url, true);
+		Fragment pullfragment = UmeiMTagGridHeadFootFragment.newInstance(url, true);
 		getSupportFragmentManager().beginTransaction().replace(R.id.layout_pull_refresh_grid, pullfragment).commit();
 		 
 	}
 
-	public static void startUmeiMNavGridHeadFootActivity(Context context, String url) {
+	public static void startUmeiMTagGridHeadFootActivity(Context context, String url) {
 		Intent intent = new Intent();
 		intent.putExtra("URL", url);
-		intent.setClass(context, UmeiMNavGridHeadFootActivity.class);
+		intent.setClass(context, UmeiMTagGridHeadFootActivity.class);
 		context.startActivity(intent);
 	}
 
