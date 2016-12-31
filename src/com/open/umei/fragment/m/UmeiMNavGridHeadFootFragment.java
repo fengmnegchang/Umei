@@ -95,6 +95,9 @@ public class UmeiMNavGridHeadFootFragment extends UmeiMHeadFootGirdArticleFragme
 		expendablelistview.setGroupIndicator(null);
 		mUmeiMPannelHdExpandableListAdapter = new UmeiMPannelHdExpandableListAdapter(getActivity(), exlist);
 		expendablelistview.setAdapter(mUmeiMPannelHdExpandableListAdapter);
+		if(url.contains("http://m.umei.cc/tushuotianxia/")){
+			mPullRefreshGirdView.getRefreshableView().setNumColumns(1);
+		}
 	}
 
 	/*

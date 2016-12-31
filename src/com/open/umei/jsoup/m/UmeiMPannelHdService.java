@@ -669,7 +669,8 @@ public class UmeiMPannelHdService extends CommonService {
 						/**
 						 */
 						if (divElement.attr("class").contains("pic-list-shadow")
-								|| divElement.attr("class").endsWith("pic-list pic-list-2")) {
+								|| divElement.attr("class").endsWith("pic-list pic-list-2")
+								|| divElement.attr("class").endsWith("pic-list pic-list-2 pic-list-shadow")) {
 							Elements liElements = divElement.select("li");
 							if (liElements != null && liElements.size() > 0) {
 								List<UmeiMPicBean> piclist = new ArrayList<UmeiMPicBean>();

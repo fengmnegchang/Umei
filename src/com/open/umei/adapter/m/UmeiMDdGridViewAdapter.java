@@ -60,13 +60,14 @@ public class UmeiMDdGridViewAdapter extends CommonAdapter<UmeiMDdBean> {
 		convertView.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if(bean.getHref().contains("http://m.umei.cc/tushuotianxia")){
-					//图说天下
-				}
+//				if(bean.getHref().contains("http://m.umei.cc/tushuotianxia")){
+//					//图说天下
+//				}
 //				else if(bean.getHref().contains("http://m.umei.cc/gaoxiaotupian")){
 //					//搞笑图片
 //				}
-				else if(bean.getHref().contains("http://m.umei.cc/p/gaoqing/")){
+//				else 
+					if(bean.getHref().contains("http://m.umei.cc/p/gaoqing/")){
 					//精品套图
 					UmeiMTagGridHeadFootActivity.startUmeiMTagGridHeadFootActivity(mContext, bean.getHref());
 				}else{
