@@ -20,6 +20,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.open.umei.R;
+import com.open.umei.activity.m.UmeiMNavIndicatorViewPagerActivity;
+import com.open.umei.activity.m.UmeiMTagGridHeadFootActivity;
 import com.open.umei.adapter.CommonAdapter;
 import com.open.umei.bean.m.UmeiMDdBean;
 
@@ -58,7 +60,18 @@ public class UmeiMDdGridViewAdapter extends CommonAdapter<UmeiMDdBean> {
 		convertView.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-
+				if(bean.getHref().contains("http://m.umei.cc/tushuotianxia")){
+					//图说天下
+				}
+//				else if(bean.getHref().contains("http://m.umei.cc/gaoxiaotupian")){
+//					//搞笑图片
+//				}
+				else if(bean.getHref().contains("http://m.umei.cc/p/gaoqing/")){
+					//精品套图
+					UmeiMTagGridHeadFootActivity.startUmeiMTagGridHeadFootActivity(mContext, bean.getHref());
+				}else{
+				    UmeiMNavIndicatorViewPagerActivity.startUmeiMNavIndicatorViewPagerActivity(mContext, bean.getHref());
+				}
 			}
 		});
 		return convertView;

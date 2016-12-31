@@ -668,7 +668,8 @@ public class UmeiMPannelHdService extends CommonService {
 						Element divElement = hElement.nextElementSibling();
 						/**
 						 */
-						if (divElement.attr("class").contains("pic-list-shadow")) {
+						if (divElement.attr("class").contains("pic-list-shadow")
+								|| divElement.attr("class").endsWith("pic-list pic-list-2")) {
 							Elements liElements = divElement.select("li");
 							if (liElements != null && liElements.size() > 0) {
 								List<UmeiMPicBean> piclist = new ArrayList<UmeiMPicBean>();
@@ -690,6 +691,9 @@ public class UmeiMPannelHdService extends CommonService {
 										picbean.setAlt(alt);
 
 										String dataoriginal = imgElement.attr("data-original");
+										if(dataoriginal==null || dataoriginal.length()==0){
+											dataoriginal = imgElement.attr("lazysrc");
+										}
 										picbean.setDataoriginal(dataoriginal);
 										Log.i(TAG, "i===" + i + ";y==" + y + "alt==" + alt + ";dataoriginal==" + dataoriginal);
 									} catch (Exception e) {
@@ -756,6 +760,9 @@ public class UmeiMPannelHdService extends CommonService {
 										picbean.setAlt(alt);
 
 										String dataoriginal = imgElement.attr("lazysrc");
+										if(dataoriginal==null || dataoriginal.length()==0){
+											dataoriginal = imgElement.attr("data-original");
+										}
 										picbean.setDataoriginal(dataoriginal);
 										Log.i(TAG, "i===" + i + ";y==" + y + "alt==" + alt + ";dataoriginal==" + dataoriginal);
 									} catch (Exception e) {
@@ -851,6 +858,7 @@ public class UmeiMPannelHdService extends CommonService {
 			Document doc = Jsoup.connect(href).userAgent(UrlUtils.umeiAgent).timeout(10000).get();
 			// System.out.println(doc.toString());
 			Elements divElements = doc.select("div.pic-list-tag");
+			Elements div2Elements = doc.select("div.pic-list-2");
 			Elements h1Elements = doc.select("h1.pannel-hd");
 			// <h2 class="New-PL_blank"><a
 			// href="http://m.umei.cc/katongdongman/">动画图片</a></h2>
@@ -865,6 +873,7 @@ public class UmeiMPannelHdService extends CommonService {
 			 * class="pages-list" id="pages-list">
 			 */
 			parseDivTagPagesElements(divElements, list);
+			parseDiv2TagPagesElements(div2Elements, list);
 
 			mUmeiMPicJson.setmUmeiMArcBodyJson(parseMArcBody(h1Elements));
 		} catch (Exception e) {
@@ -926,6 +935,61 @@ public class UmeiMPannelHdService extends CommonService {
 			}
 		}
 	}
+	private static void parseDiv2TagPagesElements(Elements h2Elements, ArrayList<UmeiMPicBean> list) {
+		// 解析文件
+		if (h2Elements != null && h2Elements.size() > 0) {
+			for (int i = 0; i < h2Elements.size(); i++) {
+				try {
+					Element hElement = h2Elements.get(i).select("div.pic-list-2").first();
+					if (hElement != null) {
+						if (hElement.attr("class").contains("pic-list-2")) {
+							/**
+							 * <li><a href="http://m.umei.cc/p/gaoqing/cn/20160520195233.htm" class="New-PL_blank">
+							 * <img alt="美少女制服高清图集 [96P]" lazysrc="http://i1.umei.cc/small/files/s7263.jpg">
+							 * <div class="New-PL-tit">美少女制服高清图集 [96P]</div></a></li>
+							 */
+							Elements liElements = hElement.select("li");
+							if (liElements != null && liElements.size() > 0) {
+								UmeiMPicBean picbean;
+								for (int y = 0; y < liElements.size(); y++) {
+									picbean = new UmeiMPicBean();
+									try {
+										Element aElement = liElements.get(y).select("a").first();
+										String ahref = aElement.attr("href");
+										picbean.setHref(ahref);
+										Log.i(TAG, "i===" + i + ";y==" + y + "ahref==" + ahref);
+									} catch (Exception e) {
+										e.printStackTrace();
+									}
+
+									try {
+										Element imgElement = liElements.get(y).select("img").first();
+										String alt = imgElement.attr("alt");
+										picbean.setAlt(alt);
+
+										String dataoriginal = imgElement.attr("lazysrc");
+										if(dataoriginal==null || dataoriginal.length()==0){
+											dataoriginal = imgElement.attr("data-original");
+										}
+										
+										picbean.setDataoriginal(dataoriginal);
+										Log.i(TAG, "i===" + i + ";y==" + y + "alt==" + alt + ";dataoriginal==" + dataoriginal);
+									} catch (Exception e) {
+										e.printStackTrace();
+									}
+									list.add(picbean);
+								}
+							}
+						}
+					}
+
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+			}
+		}
+	}
 
 	private static void parseDivPagesElements(Elements h2Elements, ArrayList<UmeiMPicBean> list) {
 		// 解析文件
@@ -944,7 +1008,8 @@ public class UmeiMPannelHdService extends CommonService {
 						 * <div
 						 * class="New-PL-tit">性感尤物李宓儿酒店大尺度写真巨乳诱人</div></a></li>
 						 */
-						if (divElement.attr("class").contains("pic-list-shadow")) {
+						if (divElement.attr("class").contains("pic-list-shadow")
+								|| divElement.attr("class").endsWith("pannel")) {
 							Elements liElements = divElement.select("li");
 							if (liElements != null && liElements.size() > 0) {
 								UmeiMPicBean picbean;
@@ -965,6 +1030,9 @@ public class UmeiMPannelHdService extends CommonService {
 										picbean.setAlt(alt);
 
 										String dataoriginal = imgElement.attr("data-original");
+										if(dataoriginal==null || dataoriginal.length()==0){
+											 dataoriginal = imgElement.attr("lazysrc");
+										}
 										picbean.setDataoriginal(dataoriginal);
 										Log.i(TAG, "i===" + i + ";y==" + y + "alt==" + alt + ";dataoriginal==" + dataoriginal);
 									} catch (Exception e) {

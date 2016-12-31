@@ -278,7 +278,7 @@ public class UmeiNavService extends CommonService {
 			 */
 			// 解析文件
 			if (liElements != null && liElements.size() > 1) {
-				for (int i = 1; i < liElements.size(); i++) {
+				for (int i = 0; i < liElements.size(); i++) {
 					UmeiNavBean sliderNavBean = new UmeiNavBean();
 					try {
 						Element aElement = liElements.get(i).select("a").first();
