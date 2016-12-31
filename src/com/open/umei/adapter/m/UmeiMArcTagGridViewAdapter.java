@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.open.umei.R;
+import com.open.umei.activity.m.UmeiMTagGridHeadFootActivity;
 import com.open.umei.adapter.CommonAdapter;
 import com.open.umei.bean.m.UmeiMArcTagBean;
 
@@ -58,7 +59,7 @@ public class UmeiMArcTagGridViewAdapter extends CommonAdapter<UmeiMArcTagBean> {
 		convertView.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-
+				UmeiMTagGridHeadFootActivity.startUmeiMTagGridHeadFootActivity(mContext, bean.getHref());
 			}
 		});
 		return convertView;

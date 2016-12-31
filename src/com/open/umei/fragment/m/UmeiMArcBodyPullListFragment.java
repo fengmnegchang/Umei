@@ -16,12 +16,14 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.open.umei.R;
+import com.open.umei.activity.m.UmeiMArcBodyListHeadFootActivity;
 import com.open.umei.bean.m.UmeiMArcBodyBean;
 import com.open.umei.fragment.UmeiArticleFragment;
 import com.open.umei.json.UmeiArticleJson;
@@ -40,7 +42,7 @@ import com.open.umei.jsoup.m.UmeiMArcBodyService;
  * @description:
  ***************************************************************************************************************************************************************************** 
  */
-public class UmeiMArcBodyPullListFragment extends UmeiArticleFragment {
+public class UmeiMArcBodyPullListFragment extends UmeiArticleFragment implements OnClickListener{
 	private View headerview;
 	private View footview;
 	private TextView txt_arctitle;
@@ -48,6 +50,7 @@ public class UmeiMArcBodyPullListFragment extends UmeiArticleFragment {
 	private TextView txt_articlenext;
 	private TextView txt_arcDESC;
 	private TextView txt_artsee;
+	private UmeiMArcBodyBean arcbody;
 	
 	public static UmeiMArcBodyPullListFragment newInstance(String url, boolean isVisibleToUser) {
 		UmeiMArcBodyPullListFragment fragment = new UmeiMArcBodyPullListFragment();
@@ -118,7 +121,7 @@ public class UmeiMArcBodyPullListFragment extends UmeiArticleFragment {
 		super.onCallback(result);
 
 		try {
-			UmeiMArcBodyBean arcbody = result.getmUmeiMArcBodyJson().getArcbody();
+			arcbody = result.getmUmeiMArcBodyJson().getArcbody();
 			txt_arctitle.setText(arcbody.getArctitle());
 			txt_articlepre.setText(arcbody.getArticlepre());
 			txt_articlenext.setText(arcbody.getArticlenext());
@@ -128,6 +131,29 @@ public class UmeiMArcBodyPullListFragment extends UmeiArticleFragment {
 			e.printStackTrace();
 		}
 
+	}
+	
+	@Override
+	public void bindEvent() {
+		// TODO Auto-generated method stub
+		super.bindEvent();
+		txt_articlepre.setOnClickListener(this);
+		txt_articlenext.setOnClickListener(this);
+	}
+
+	@Override
+	public void onClick(View view) {
+		switch (view.getId()) {
+		case R.id.txt_articlepre:
+			UmeiMArcBodyListHeadFootActivity.startUmeiMArcBodyListHeadFootActivity(getActivity(), arcbody.getArticleprea());
+			break;
+		case R.id.txt_articlenext:
+			UmeiMArcBodyListHeadFootActivity.startUmeiMArcBodyListHeadFootActivity(getActivity(), arcbody.getArticlenexta());
+			break;
+		default:
+			break;
+		}
+		
 	}
 
 }
