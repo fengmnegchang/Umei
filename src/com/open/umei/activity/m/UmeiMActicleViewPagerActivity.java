@@ -11,7 +11,7 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 
 import com.open.umei.R;
 import com.open.umei.activity.CommonFragmentActivity;
-import com.open.umei.adapter.UmeiArticlePagerAdapter;
+import com.open.umei.adapter.m.UmeiMArticlePagerAdapter;
 import com.open.umei.bean.UmeiArticleBean;
 import com.open.umei.json.UmeiArticleJson;
 import com.open.umei.jsoup.UmeiArticleService;
@@ -23,7 +23,7 @@ import com.open.umei.jsoup.UmeiArticleService;
 public class UmeiMActicleViewPagerActivity extends
 		CommonFragmentActivity<UmeiArticleJson> {
 	ViewPager viewpager;
-	public UmeiArticlePagerAdapter mUmeiArticlePagerAdapter;
+	public UmeiMArticlePagerAdapter mUmeiArticlePagerAdapter;
 	private List<UmeiArticleBean> list = new ArrayList<UmeiArticleBean>();
 	private String url = "http://www.umei.cc/bizhitupian/diannaobizhi/7628.htm";
 	int pagerno = 1;
@@ -40,7 +40,7 @@ public class UmeiMActicleViewPagerActivity extends
 		super.findView();
 		// 初始化viewpager.
 		viewpager = (ViewPager) findViewById(R.id.viewpager);
-		mUmeiArticlePagerAdapter = new UmeiArticlePagerAdapter(this, list);
+		mUmeiArticlePagerAdapter = new UmeiMArticlePagerAdapter(this, list);
 		viewpager.setAdapter(mUmeiArticlePagerAdapter);
 		
 	}

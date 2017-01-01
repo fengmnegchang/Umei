@@ -25,7 +25,7 @@ import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListene
  * @description: ****************************************************************************************************************************************************************************
  */
 public class CommonPagerAdapter<T> extends PagerAdapter {
-	private List<T> list;
+	public List<T> list;
 	public Context mContext;
 	private ImageLoadingListener animateFirstListener = new AnimateFirstDisplayListener();
 
