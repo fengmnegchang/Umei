@@ -128,12 +128,12 @@ public class UmeiMNavGridHeadFootFragment extends UmeiMHeadFootGirdArticleFragme
 	public void bindEvent() {
 		// TODO Auto-generated method stub
 		super.bindEvent();
-		expendablelistview.setOnGroupClickListener(new OnGroupClickListener() {
-			@Override
-			public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-				return true;
-			}
-		});
+//		expendablelistview.setOnGroupClickListener(new OnGroupClickListener() {
+//			@Override
+//			public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+//				return false;
+//			}
+//		});
 	}
 
 	/*

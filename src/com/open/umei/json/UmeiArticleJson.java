@@ -41,6 +41,8 @@ public class UmeiArticleJson extends CommonJson {
 	private List<UmeiArticleTypeBean> articleTypeList;
 	
 	private UmeiMArcBodyJson mUmeiMArcBodyJson;
+	
+	private int pagersize;
 
 	public List<UmeiTypeBean> getRelaxarc() {
 		return relaxarc;
@@ -80,6 +82,14 @@ public class UmeiArticleJson extends CommonJson {
 
 	public void setmUmeiMArcBodyJson(UmeiMArcBodyJson mUmeiMArcBodyJson) {
 		this.mUmeiMArcBodyJson = mUmeiMArcBodyJson;
+	}
+
+	public int getPagersize() {
+		return pagersize;
+	}
+
+	public void setPagersize(int pagersize) {
+		this.pagersize = pagersize;
 	}
 
 }

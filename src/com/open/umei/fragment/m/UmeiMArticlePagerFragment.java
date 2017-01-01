@@ -9,7 +9,7 @@
  * @description:
  *****************************************************************************************************************************************************************************
  */
-package com.open.umei.fragment;
+package com.open.umei.fragment.m;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,22 +17,15 @@ import java.util.List;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.annotation.Nullable;
-import android.text.format.DateUtils;
-import android.util.Log;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ListView;
 
-import com.handmark.pulltorefresh.library.PullToRefreshBase;
-import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
-import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
-import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.open.umei.R;
-import com.open.umei.adapter.UmeiArticleAdapter;
+import com.open.umei.adapter.UmeiArticlePagerAdapter;
 import com.open.umei.bean.UmeiArticleBean;
+import com.open.umei.fragment.BaseV4Fragment;
 import com.open.umei.json.UmeiArticleJson;
 import com.open.umei.jsoup.UmeiArticleService;
 
@@ -47,15 +40,15 @@ import com.open.umei.jsoup.UmeiArticleService;
  * @description:
  ***************************************************************************************************************************************************************************** 
  */
-public class UmeiArticleFragment extends BaseV4Fragment<UmeiArticleJson, UmeiArticleFragment> {
+public class UmeiMArticlePagerFragment extends BaseV4Fragment<UmeiArticleJson, UmeiMArticlePagerFragment> {
 	public String url;
-	public PullToRefreshListView mPullRefreshListView;
-	private UmeiArticleAdapter mUmeiArticleAdapter;
+	public ViewPager viewpager;
+	public UmeiArticlePagerAdapter mUmeiArticlePagerAdapter;
 	private List<UmeiArticleBean> list = new ArrayList<UmeiArticleBean>();
-	public int pageNo = 1;
+	private int pageNo = 1;
 
-	public static UmeiArticleFragment newInstance(String url, boolean isVisibleToUser) {
-		UmeiArticleFragment fragment = new UmeiArticleFragment();
+	public static UmeiMArticlePagerFragment newInstance(String url, boolean isVisibleToUser) {
+		UmeiMArticlePagerFragment fragment = new UmeiMArticlePagerFragment();
 		fragment.setFragment(fragment);
 		fragment.setUserVisibleHint(isVisibleToUser);
 		fragment.url = url;
@@ -65,8 +58,8 @@ public class UmeiArticleFragment extends BaseV4Fragment<UmeiArticleJson, UmeiArt
 	@Nullable
 	@Override
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.fragment_umei_article_pulllistview, container, false);
-		mPullRefreshListView = (PullToRefreshListView) view.findViewById(R.id.pull_refresh_list);
+		View view = inflater.inflate(R.layout.fragment_common_viewpager, container, false);
+		viewpager = (ViewPager) view.findViewById(R.id.viewpager);
 		return view;
 	}
 
@@ -92,9 +85,8 @@ public class UmeiArticleFragment extends BaseV4Fragment<UmeiArticleJson, UmeiArt
 	public void initValues() {
 		// TODO Auto-generated method stub
 		super.initValues();
-		mUmeiArticleAdapter = new UmeiArticleAdapter(getActivity(), list,url);
-		mPullRefreshListView.setAdapter(mUmeiArticleAdapter);
-		mPullRefreshListView.setMode(Mode.BOTH);
+		mUmeiArticlePagerAdapter = new UmeiArticlePagerAdapter(getActivity(), list);
+		viewpager.setAdapter(mUmeiArticlePagerAdapter);
 	}
 
 	/*
@@ -106,28 +98,6 @@ public class UmeiArticleFragment extends BaseV4Fragment<UmeiArticleJson, UmeiArt
 	public void bindEvent() {
 		// TODO Auto-generated method stub
 		super.bindEvent();
-		// Set a listener to be invoked when the list should be refreshed.
-		mPullRefreshListView.setOnRefreshListener(new OnRefreshListener<ListView>() {
-			@Override
-			public void onRefresh(PullToRefreshBase<ListView> refreshView) {
-				String label = DateUtils.formatDateTime(getActivity(), System.currentTimeMillis(), DateUtils.FORMAT_SHOW_TIME | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_ABBREV_ALL);
-				// Update the LastUpdatedLabel
-				refreshView.getLoadingLayoutProxy().setLastUpdatedLabel(label);
-				// Do work to refresh the list here.
-				if (mPullRefreshListView.getCurrentMode() == Mode.PULL_FROM_START) {
-					weakReferenceHandler.sendEmptyMessage(MESSAGE_HANDLER);
-				} else if (mPullRefreshListView.getCurrentMode() == Mode.PULL_FROM_END) {
-					pageNo++;
-					weakReferenceHandler.sendEmptyMessage(MESSAGE_HANDLER);
-				}
-			}
-		});
-		mPullRefreshListView.setOnItemClickListener(new OnItemClickListener() {
-
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-			}
-		});
 	}
 
 	/*
@@ -139,7 +109,7 @@ public class UmeiArticleFragment extends BaseV4Fragment<UmeiArticleJson, UmeiArt
 	public UmeiArticleJson call() throws Exception {
 		// TODO Auto-generated method stub
 		UmeiArticleJson mUmeiArticleJson = new UmeiArticleJson();
-		mUmeiArticleJson.setList(UmeiArticleService.parseArticle(url, pageNo));
+		mUmeiArticleJson.setList(UmeiArticleService.parseArticlePagerSize(url));
 		return mUmeiArticleJson;
 	}
 
@@ -154,19 +124,10 @@ public class UmeiArticleFragment extends BaseV4Fragment<UmeiArticleJson, UmeiArt
 		// TODO Auto-generated method stub
 		super.onCallback(result);
 
-		Log.i(TAG, "getMode ===" + mPullRefreshListView.getCurrentMode());
-		if (mPullRefreshListView.getCurrentMode() == Mode.PULL_FROM_START) {
-			list.clear();
+		if (result.getList() != null && result.getList().size() > 0) {
 			list.addAll(result.getList());
-			pageNo = 1;
-		} else {
-			if (result.getList() != null && result.getList().size() > 0) {
-				list.addAll(result.getList());
-			}
 		}
-		mUmeiArticleAdapter.notifyDataSetChanged();
-		// Call onRefreshComplete when the list has been refreshed.
-		mPullRefreshListView.onRefreshComplete();
+		mUmeiArticlePagerAdapter.notifyDataSetChanged();
 	}
 
 	/*

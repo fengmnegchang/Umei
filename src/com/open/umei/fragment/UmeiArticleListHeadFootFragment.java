@@ -134,7 +134,7 @@ public class UmeiArticleListHeadFootFragment extends BaseV4Fragment<UmeiArticleJ
 	public void initValues() {
 		// TODO Auto-generated method stub
 		super.initValues();
-		mUmeiArticleAdapter = new UmeiArticleAdapter(getActivity(), list);
+		mUmeiArticleAdapter = new UmeiArticleAdapter(getActivity(), list,url);
 		mPullRefreshListView.setAdapter(mUmeiArticleAdapter);
 		mPullRefreshListView.setMode(Mode.BOTH);
 	}

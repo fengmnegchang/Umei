@@ -181,6 +181,13 @@
             android:description="@string/umei_m_tag_head_foot_desp"  
 			>
         </activity>
+        <!-- umei 优美cc图片viewpager-->
+        <activity
+            android:name="com.open.umei.activity.m.UmeiMActicleViewPagerActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/umei_m_article_viewpager_desp"  
+			>
+        </activity>
         <!-- 所有类列表 -->
         <activity
             android:name="com.open.umei.activity.UmeiALLActivity"

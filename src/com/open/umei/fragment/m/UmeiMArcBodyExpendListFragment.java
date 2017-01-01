@@ -77,7 +77,7 @@ public class UmeiMArcBodyExpendListFragment extends BaseV4Fragment<UmeiArticleJs
 	public void initValues() {
 		// TODO Auto-generated method stub
 		super.initValues();
-		mUmeiArticleAdapter = new UmeiArticleAdapter(getActivity(), list);
+		mUmeiArticleAdapter = new UmeiArticleAdapter(getActivity(), list,url);
 		mPullRefreshListView.setAdapter(mUmeiArticleAdapter);
 	}
 

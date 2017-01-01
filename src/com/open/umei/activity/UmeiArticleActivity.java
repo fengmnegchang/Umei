@@ -116,7 +116,7 @@ public class UmeiArticleActivity extends CommonFragmentActivity<UmeiArticleJson>
 		mUmeiArticleTypeAdapter = new UmeiArticleTypeAdapter(this, articleTypeList);
 		listview.setAdapter(mUmeiArticleTypeAdapter);
 
-		mUmeiArticleAdapter = new UmeiArticleAdapter(this, list);
+		mUmeiArticleAdapter = new UmeiArticleAdapter(this, list,url);
 		mPullRefreshListView.setAdapter(mUmeiArticleAdapter);
 		mPullRefreshListView.setMode(Mode.BOTH);
 		

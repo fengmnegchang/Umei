@@ -23,9 +23,9 @@ import android.widget.ImageView;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.open.umei.R;
-import com.open.umei.activity.SearchResultActivity;
-import com.open.umei.activity.UmeiWebViewActivity;
+import com.open.umei.activity.m.UmeiMActicleViewPagerActivity;
 import com.open.umei.bean.UmeiArticleBean;
+import com.open.umei.json.UmeiArticleJson;
 
 /**
  ***************************************************************************************************************************************************************************** 
@@ -39,11 +39,14 @@ import com.open.umei.bean.UmeiArticleBean;
  ***************************************************************************************************************************************************************************** 
  */
 public class UmeiArticleAdapter extends CommonAdapter<UmeiArticleBean> {
-
-	public UmeiArticleAdapter(Context mContext, List<UmeiArticleBean> list) {
+	public String url;
+	public UmeiArticleAdapter(Context mContext, List<UmeiArticleBean> list,String url) {
 		super(mContext, list);
+		this.url = url;
 	}
-
+//	public UmeiArticleAdapter(Context mContext, List<UmeiArticleBean> list ) {
+//		super(mContext, list);
+//	}
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		final UmeiArticleBean bean = (UmeiArticleBean) getItem(position);
@@ -68,7 +71,10 @@ public class UmeiArticleAdapter extends CommonAdapter<UmeiArticleBean> {
 			mViewHolder.imageview.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					UmeiWebViewActivity.startUmeiWebViewActivity(mContext, bean.getSrc());
+//					UmeiWebViewActivity.startUmeiWebViewActivity(mContext, bean.getSrc());
+					UmeiArticleJson mUmeiArticleJson = new UmeiArticleJson();
+					mUmeiArticleJson.setList(list);
+					UmeiMActicleViewPagerActivity.startUmeiMActicleViewPagerActivity(mContext, mUmeiArticleJson,url);
 				}
 			});
 		}

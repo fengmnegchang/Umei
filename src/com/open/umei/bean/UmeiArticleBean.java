@@ -26,6 +26,7 @@ package com.open.umei.bean;
 public class UmeiArticleBean extends CommonBean {
 	private String alt;
 	private String src;
+	private int seq;
 
 	public String getAlt() {
 		return alt;
@@ -41,6 +42,14 @@ public class UmeiArticleBean extends CommonBean {
 
 	public void setSrc(String src) {
 		this.src = src;
+	}
+
+	public int getSeq() {
+		return seq;
+	}
+
+	public void setSeq(int seq) {
+		this.seq = seq;
 	}
 
 }

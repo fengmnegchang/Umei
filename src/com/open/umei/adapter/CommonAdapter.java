@@ -32,7 +32,7 @@ import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListene
  *               *********************************************
  */
 public class CommonAdapter<T> extends BaseAdapter {
-	private List<T> list;
+	public List<T> list;
 	public Context mContext;
 	private ImageLoadingListener animateFirstListener = new AnimateFirstDisplayListener();
 	public LayoutInflater mInflater;
