@@ -10,7 +10,7 @@
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:minHeight="400dp"
-        android:scaleType="fitCenter"
+        android:scaleType="fitXY"
         android:src="@drawable/common_v4" />
 
     <TextView

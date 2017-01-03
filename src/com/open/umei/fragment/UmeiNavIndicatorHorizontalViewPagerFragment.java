@@ -38,6 +38,15 @@ public class UmeiNavIndicatorHorizontalViewPagerFragment extends CommonIndicator
 		fragment.setFragment(fragment);
 		return fragment;
 	}
+	
+	public static UmeiNavIndicatorHorizontalViewPagerFragment newInstance(String title, String url,boolean isVisibleToUser) {
+		UmeiNavIndicatorHorizontalViewPagerFragment fragment = new UmeiNavIndicatorHorizontalViewPagerFragment();
+		fragment.title = title;
+		fragment.url = url;
+		fragment.setFragment(fragment);
+		fragment.setUserVisibleHint(isVisibleToUser);
+		return fragment;
+	}
 
 	@Override
 	public void onCallback(UmeiNavJson result) {
