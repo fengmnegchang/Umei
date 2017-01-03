@@ -60,6 +60,7 @@ public class UmeiTypeListFragment extends BaseV4Fragment<UmeiTypeJson, UmeiTypeL
 	private int pageNo = 1;
 	private TextView txt_ChannelTitle, txt_ListDesc;
 	private ImageView image_TypePic;
+	private View headview,footview;
 
 	public static UmeiTypeListFragment newInstance(String url, boolean isVisibleToUser) {
 		UmeiTypeListFragment fragment = new UmeiTypeListFragment();
@@ -72,12 +73,15 @@ public class UmeiTypeListFragment extends BaseV4Fragment<UmeiTypeJson, UmeiTypeL
 	@Nullable
 	@Override
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.fragment_common_listview, container, false);
+		View view = inflater.inflate(R.layout.fragment_umei_type_head_foot_listview, container, false);
 		mPullRefreshListView = (PullToRefreshListView) view.findViewById(R.id.pull_refresh_list);
-		viewpager = (ViewPager) view.findViewById(R.id.viewpager);
-		txt_ChannelTitle = (TextView) view.findViewById(R.id.txt_ChannelTitle);
-		txt_ListDesc = (TextView) view.findViewById(R.id.txt_ListDesc);
-		image_TypePic = (ImageView) view.findViewById(R.id.image_TypePic);
+		headview = LayoutInflater.from(getActivity()).inflate(R.layout.layout_umei_type_head, null);
+		footview = LayoutInflater.from(getActivity()).inflate(R.layout.layout_umei_type_foot, null);
+		
+		viewpager = (ViewPager) footview.findViewById(R.id.viewpager);
+		txt_ChannelTitle = (TextView) headview.findViewById(R.id.txt_ChannelTitle);
+		txt_ListDesc = (TextView) headview.findViewById(R.id.txt_ListDesc);
+		image_TypePic = (ImageView) headview.findViewById(R.id.image_TypePic);
 		return view;
 	}
 
@@ -109,6 +113,11 @@ public class UmeiTypeListFragment extends BaseV4Fragment<UmeiTypeJson, UmeiTypeL
 	public void initValues() {
 		// TODO Auto-generated method stub
 		super.initValues();
+		
+		ListView listview = mPullRefreshListView.getRefreshableView();
+		listview.addHeaderView(headview);
+		listview.addFooterView(footview);
+		
 		mUmeiTypePagerAdapter = new UmeiTypePagerAdapter(getActivity(), list2);
 		viewpager.setAdapter(mUmeiTypePagerAdapter);
 
