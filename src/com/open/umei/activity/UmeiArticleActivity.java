@@ -21,6 +21,7 @@ import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.text.format.DateUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -42,6 +43,7 @@ import com.open.umei.bean.UmeiTypeBean;
 import com.open.umei.json.UmeiArticleJson;
 import com.open.umei.jsoup.UmeiArticleService;
 import com.open.umei.jsoup.UmeiTypeListService;
+import com.open.umei.view.ExpendListView;
 import com.open.umei.weak.WeakActivityReferenceHandler;
 
 /**
@@ -67,7 +69,7 @@ public class UmeiArticleActivity extends CommonFragmentActivity<UmeiArticleJson>
 	private UmeiTypePagerAdapter mUmeiTypePagerAdapter;
 	private List<UmeiTypeBean> relaxarclist = new ArrayList<UmeiTypeBean>();
 
-	private ListView listview;
+	private ExpendListView listview;
 	private UmeiArticleTypeAdapter mUmeiArticleTypeAdapter;
 	private List<UmeiArticleTypeBean> articleTypeList = new ArrayList<UmeiArticleTypeBean>();
 
@@ -77,6 +79,8 @@ public class UmeiArticleActivity extends CommonFragmentActivity<UmeiArticleJson>
 
 	private String url = "http://www.umei.cc/bizhitupian/diannaobizhi/7628.htm";
 	private int pageNo = 1;
+	
+	private View headview,footview;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -88,15 +92,18 @@ public class UmeiArticleActivity extends CommonFragmentActivity<UmeiArticleJson>
 	@Override
 	protected void findView() {
 		super.findView();
-		txt_ArticleTitle = (TextView) findViewById(R.id.txt_ArticleTitle);
-		txt_time = (TextView) findViewById(R.id.txt_time);
-		txt_see = (TextView) findViewById(R.id.txt_see);
-		txt_column = (TextView) findViewById(R.id.txt_column);
-		txt_tips = (TextView) findViewById(R.id.txt_tips);
-		txt_ArticleDesc = (TextView) findViewById(R.id.txt_ArticleDesc);
+		headview = LayoutInflater.from(this).inflate(R.layout.layout_umei_article_head, null);
+		footview = LayoutInflater.from(this).inflate(R.layout.layout_umei_article_foot, null);
+		
+		txt_ArticleTitle = (TextView) headview.findViewById(R.id.txt_ArticleTitle);
+		txt_time = (TextView) headview.findViewById(R.id.txt_time);
+		txt_see = (TextView) headview.findViewById(R.id.txt_see);
+		txt_column = (TextView) headview.findViewById(R.id.txt_column);
+		txt_tips = (TextView) headview.findViewById(R.id.txt_tips);
+		txt_ArticleDesc = (TextView) headview.findViewById(R.id.txt_ArticleDesc);
 
-		viewpager = (ViewPager) findViewById(R.id.viewpager);
-		listview = (ListView) findViewById(R.id.listview);
+		viewpager = (ViewPager) headview.findViewById(R.id.viewpager);
+		listview = (ExpendListView) footview.findViewById(R.id.listview);
 		mPullRefreshListView = (PullToRefreshListView) findViewById(R.id.pull_refresh_list);
 
 		if (getIntent().getStringExtra("URL") != null) {
@@ -116,6 +123,9 @@ public class UmeiArticleActivity extends CommonFragmentActivity<UmeiArticleJson>
 		mUmeiArticleTypeAdapter = new UmeiArticleTypeAdapter(this, articleTypeList);
 		listview.setAdapter(mUmeiArticleTypeAdapter);
 
+		ListView pListView = mPullRefreshListView.getRefreshableView();
+		pListView.addHeaderView(headview);
+		pListView.addFooterView(footview);
 		mUmeiArticleAdapter = new UmeiArticleAdapter(this, list,url);
 		mPullRefreshListView.setAdapter(mUmeiArticleAdapter);
 		mPullRefreshListView.setMode(Mode.BOTH);
