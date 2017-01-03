@@ -28,6 +28,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.open.umei.R;
 import com.open.umei.activity.UmeiArticleActivity;
 import com.open.umei.adapter.UmeiTypeAdapter;
+import com.open.umei.adapter.UmeiTypeHeightPagerAdapter;
 import com.open.umei.adapter.UmeiTypePagerAdapter;
 import com.open.umei.bean.UmeiTypeBean;
 import com.open.umei.json.UmeiTypeJson;
@@ -55,7 +56,7 @@ public class UmeiTypeListFragment extends BaseV4Fragment<UmeiTypeJson, UmeiTypeL
 	private String url;
 
 	private ViewPager viewpager;
-	private UmeiTypePagerAdapter mUmeiTypePagerAdapter;
+	private UmeiTypeHeightPagerAdapter mUmeiTypePagerAdapter;
 	private List<UmeiTypeBean> list2 = new ArrayList<UmeiTypeBean>();
 	private int pageNo = 1;
 	private TextView txt_ChannelTitle, txt_ListDesc;
@@ -116,10 +117,10 @@ public class UmeiTypeListFragment extends BaseV4Fragment<UmeiTypeJson, UmeiTypeL
 		
 		ListView listview = mPullRefreshListView.getRefreshableView();
 		listview.addHeaderView(headview);
-		listview.addFooterView(footview);
 		
-		mUmeiTypePagerAdapter = new UmeiTypePagerAdapter(getActivity(), list2);
+		mUmeiTypePagerAdapter = new UmeiTypeHeightPagerAdapter(getActivity(), list2);
 		viewpager.setAdapter(mUmeiTypePagerAdapter);
+		listview.addFooterView(footview);
 
 		mUmeiTypeAdapter = new UmeiTypeAdapter(getActivity(), list);
 		mPullRefreshListView.setAdapter(mUmeiTypeAdapter);
@@ -188,6 +189,13 @@ public class UmeiTypeListFragment extends BaseV4Fragment<UmeiTypeJson, UmeiTypeL
 			list.clear();
 			list.addAll(result.getTypeList());
 			pageNo = 1;
+			
+			if (result.getTypeList2() != null && result.getTypeList2().size() > 0) {
+				list2.clear();
+				list2.addAll(result.getTypeList2());
+			}
+			mUmeiTypePagerAdapter.notifyDataSetChanged();
+			
 		} else {
 			if (result.getTypeList() != null && result.getTypeList().size() > 0) {
 				list.addAll(result.getTypeList());
@@ -198,11 +206,7 @@ public class UmeiTypeListFragment extends BaseV4Fragment<UmeiTypeJson, UmeiTypeL
 		// Call onRefreshComplete when the list has been refreshed.
 		mPullRefreshListView.onRefreshComplete();
 
-		if (result.getTypeList2() != null && result.getTypeList2().size() > 0) {
-			list2.clear();
-			list2.addAll(result.getTypeList2());
-		}
-		mUmeiTypePagerAdapter.notifyDataSetChanged();
+		
 
 		txt_ChannelTitle.setText(result.getChannelTitle());
 		txt_ListDesc.setText(result.getListDesc());
