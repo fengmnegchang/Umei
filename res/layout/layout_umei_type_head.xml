@@ -1,35 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="220dp"
+    android:layout_height="wrap_content"
     android:clipChildren="false"
     android:clipToPadding="false"
     android:focusable="false"
     android:focusableInTouchMode="false" >
 
-    <ImageView
-        android:id="@+id/image_TypePic"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/common_v4" />
-
-    <TextView
-        android:id="@+id/txt_ChannelTitle"
+    <FrameLayout
+        android:id="@+id/layout_umei_type_list_head"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/image_TypePic" 
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        />
-
-    <TextView
-        android:id="@+id/txt_ListDesc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txt_ChannelTitle"
-        android:layout_toRightOf="@+id/image_TypePic"
-        android:layout_marginRight="10dp"
          />
+    
 
 </RelativeLayout>

@@ -23,11 +23,7 @@ public class UmeiTypeListActivity extends CommonFragmentActivity<UmeiTypeJson> {
 		init();
 	}
 
-	@Override
-	protected void findView() {
-		super.findView();
-	}
-
+ 
 	@Override
 	protected void initValue() {
 		super.initValue();
