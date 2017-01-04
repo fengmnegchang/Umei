@@ -15,6 +15,8 @@ import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 
 import com.open.umei.R;
+import com.open.umei.activity.m.UmeiMArcBodyListHeadFootActivity;
+import com.open.umei.activity.m.UmeiMTagGridHeadFootActivity;
 import com.open.umei.bean.UmeiNavBean;
 import com.open.umei.json.UmeiNavJson;
 import com.open.umei.jsoup.UmeiNavService;

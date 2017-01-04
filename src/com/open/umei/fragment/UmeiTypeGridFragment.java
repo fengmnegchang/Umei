@@ -28,6 +28,7 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.open.umei.R;
 import com.open.umei.activity.UmeiArticleActivity;
+import com.open.umei.activity.m.UmeiMArcBodyListHeadFootActivity;
 import com.open.umei.adapter.UmeiTypeAdapter;
 import com.open.umei.adapter.UmeiTypeHeightPagerAdapter;
 import com.open.umei.bean.UmeiTypeBean;
@@ -137,7 +138,11 @@ public class UmeiTypeGridFragment extends BaseV4Fragment<UmeiTypeJson, UmeiTypeG
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				UmeiArticleActivity.startUmeiArticleActivity(getActivity(), list.get((int) id).getHref());
+				if(list.get((int) id).getHref().contains("http://www.umei.cc/tushuotianxia/")){
+					UmeiMArcBodyListHeadFootActivity.startUmeiMArcBodyListHeadFootActivity(getActivity(), list.get((int) id).getHref().replace("http://www.umei.cc/", "http://m.umei.cc/"));
+				}else{
+					UmeiArticleActivity.startUmeiArticleActivity(getActivity(), list.get((int) id).getHref());
+				}
 			}
 		});
 	}

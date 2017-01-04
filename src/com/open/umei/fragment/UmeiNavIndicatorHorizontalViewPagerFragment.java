@@ -11,6 +11,8 @@
  */
 package com.open.umei.fragment;
 
+import java.util.ArrayList;
+
 import android.support.v4.app.Fragment;
 
 import com.open.umei.adapter.CommonFragmentPagerAdapter;
@@ -18,6 +20,7 @@ import com.open.umei.adapter.OpenTabTitleAdapter;
 import com.open.umei.bean.UmeiNavBean;
 import com.open.umei.bean.UmeiSubNavBean;
 import com.open.umei.json.UmeiNavJson;
+import com.open.umei.jsoup.UmeiNavService;
 
 /**
  ***************************************************************************************************************************************************************************** 
@@ -47,7 +50,23 @@ public class UmeiNavIndicatorHorizontalViewPagerFragment extends CommonIndicator
 		fragment.setUserVisibleHint(isVisibleToUser);
 		return fragment;
 	}
-
+	@Override
+	public UmeiNavJson call() throws Exception {
+		UmeiNavJson mCommonT = new UmeiNavJson();
+		ArrayList<UmeiNavBean> list = new ArrayList<UmeiNavBean>();
+		try {
+			if(title.equals("国内")){
+				list = UmeiNavService.parseShowMore(url);
+			}else{
+				list = UmeiNavService.parseShowNav(url);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		mCommonT.setList(list);
+		return mCommonT;
+	}
+	
 	@Override
 	public void onCallback(UmeiNavJson result) {
 		super.onCallback(result);

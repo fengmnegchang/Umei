@@ -84,6 +84,9 @@ public class UmeiTypeListService extends CommonService {
 			
 			
 			Element masthead = doc.select("div.TypeList").first();
+			if(masthead==null){
+				masthead = doc.select("ul.list_article").first();
+			}
 			Elements liElements = masthead.select("li");
 			/**
 			 * <li>
@@ -128,6 +131,9 @@ public class UmeiTypeListService extends CommonService {
 
 					try {
 						Element IcoListElement = liElements.get(i).select("em.IcoList").first();
+						if(IcoListElement==null){
+							IcoListElement= liElements.get(i).select("div.RightInfoBox").first();
+						}
 						String IcoList = IcoListElement.text();
 						Log.i(TAG, "i===" + i + "IcoList=" + IcoList);
 						bean.setIcoList(IcoList);

@@ -302,4 +302,55 @@ public class UmeiNavService extends CommonService {
 		return list;
 	}
 
+	/**
+	 * <li class="NavLi">
+		<span class="MainNav">更多</span>
+          <div class="ShowNav">
+            <a href="http://www.umei.cc/p/gaoqing/rihan/" title="日韩">日韩</a>
+            <a href="http://www.umei.cc/p/gaoqing/gangtai/" title="港台">港台</a>
+            <a href="http://www.umei.cc/p/gaoqing/oumei/" title="欧美">欧美</a>
+            <a href="http://www.umei.cc/p/gaoqing/xiuren_VIP/" title="秀人模特">秀人模特</a>
+            <a href="http://www.umei.cc/p/gaoqing/cn/" title="国内">国内</a>
+          </div>
+
+	 */
+	public static ArrayList<UmeiNavBean> parseShowMore(String href) {
+		ArrayList<UmeiNavBean> plist = new ArrayList<UmeiNavBean>();
+		UmeiNavBean pbean = new UmeiNavBean();
+		pbean.setHref("http://www.umei.cc/p/gaoqing/cn/");
+		pbean.setTitle("国内");
+		
+		
+		List<UmeiSubNavBean> list = new ArrayList<UmeiSubNavBean>();
+		UmeiSubNavBean bean = new UmeiSubNavBean();
+		bean.setHref("http://www.umei.cc/p/gaoqing/rihan/");
+		bean.setTitle("日韩");
+		list.add(bean);
+		
+		bean = new UmeiSubNavBean();
+		bean.setHref("http://www.umei.cc/p/gaoqing/gangtai/");
+		bean.setTitle("港台");
+		list.add(bean);
+		
+		
+		bean = new UmeiSubNavBean();
+		bean.setHref("http://www.umei.cc/p/gaoqing/oumei/");
+		bean.setTitle("欧美");
+		list.add(bean);
+		
+		
+		bean = new UmeiSubNavBean();
+		bean.setHref("http://www.umei.cc/p/gaoqing/xiuren_VIP/");
+		bean.setTitle("秀人模特");
+		list.add(bean);
+		
+		bean = new UmeiSubNavBean();
+		bean.setHref("http://www.umei.cc/p/gaoqing/cn/");
+		bean.setTitle("国内");
+		list.add(bean);
+
+		pbean.setSubNavList(list);
+		plist.add(pbean);
+		return plist;
+	}
 }
