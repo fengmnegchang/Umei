@@ -16,6 +16,7 @@ import java.util.List;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +32,7 @@ import com.open.umei.activity.UmeiWebViewActivity;
 import com.open.umei.adapter.CommonPagerAdapter;
 import com.open.umei.bean.UmeiArticleBean;
 import com.open.umei.utils.ImageAsyncTask;
+import com.open.umei.weak.WeakActivityReferenceHandler;
 
 /**
  ***************************************************************************************************************************************************************************** 
@@ -44,9 +46,10 @@ import com.open.umei.utils.ImageAsyncTask;
  ***************************************************************************************************************************************************************************** 
  */
 public class UmeiMArticlePagerAdapter extends CommonPagerAdapter<UmeiArticleBean> {
-
-	public UmeiMArticlePagerAdapter(Context mContext, List<UmeiArticleBean> list) {
+	private WeakActivityReferenceHandler weakReferenceHandler;
+	public UmeiMArticlePagerAdapter(Context mContext, List<UmeiArticleBean> list,WeakActivityReferenceHandler weakReferenceHandler) {
 		super(mContext, list);
+		this.weakReferenceHandler = weakReferenceHandler;
 	}
 
 //	@Override
@@ -107,7 +110,8 @@ public class UmeiMArticlePagerAdapter extends CommonPagerAdapter<UmeiArticleBean
 		 imageview.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				UmeiWebViewActivity.startUmeiWebViewActivity(mContext, bean.getSrc());
+//				UmeiWebViewActivity.startUmeiWebViewActivity(mContext, bean.getSrc());
+				weakReferenceHandler.sendEmptyMessage(7000);
 			}
 		});
 		imageview.setOnLongClickListener(new View.OnLongClickListener() {  

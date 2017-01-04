@@ -203,8 +203,8 @@
         <!-- umei 优美cc图片viewpager-->
         <activity
             android:name="com.open.umei.activity.m.UmeiMActicleViewPagerActivity"
-            android:configChanges="keyboard|keyboardHidden|navigation"
             android:description="@string/umei_m_article_viewpager_desp"  
+            android:screenOrientation="sensor"
 			>
         </activity>
         <!-- 所有类列表 -->

@@ -5,7 +5,9 @@ import java.util.List;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 
@@ -15,13 +17,13 @@ import com.open.umei.adapter.m.UmeiMArticlePagerAdapter;
 import com.open.umei.bean.UmeiArticleBean;
 import com.open.umei.json.UmeiArticleJson;
 import com.open.umei.jsoup.UmeiArticleService;
+import com.open.umei.weak.WeakActivityReferenceHandler;
 
 /**
- * ViewPager demo： 注意标题栏和viewpager的焦点控制.(在XML布局中控制了, ids) 移动边框的问题也需要注意.
+ * umei 优美cc图片viewpager
  * 
  */
-public class UmeiMActicleViewPagerActivity extends
-		CommonFragmentActivity<UmeiArticleJson> {
+public class UmeiMActicleViewPagerActivity extends CommonFragmentActivity<UmeiArticleJson> {
 	ViewPager viewpager;
 	public UmeiMArticlePagerAdapter mUmeiArticlePagerAdapter;
 	private List<UmeiArticleBean> list = new ArrayList<UmeiArticleBean>();
@@ -38,11 +40,12 @@ public class UmeiMActicleViewPagerActivity extends
 	@Override
 	protected void findView() {
 		super.findView();
+		weakReferenceHandler = new WeakActivityReferenceHandler(this);
 		// 初始化viewpager.
 		viewpager = (ViewPager) findViewById(R.id.viewpager);
-		mUmeiArticlePagerAdapter = new UmeiMArticlePagerAdapter(this, list);
+		mUmeiArticlePagerAdapter = new UmeiMArticlePagerAdapter(this, list, weakReferenceHandler);
 		viewpager.setAdapter(mUmeiArticlePagerAdapter);
-		
+
 	}
 
 	@Override
@@ -51,10 +54,8 @@ public class UmeiMActicleViewPagerActivity extends
 		if (getIntent().getStringExtra("URL") != null) {
 			url = getIntent().getStringExtra("URL");
 		}
-		UmeiArticleJson mUmeiArticleJson = (UmeiArticleJson) getIntent()
-				.getSerializableExtra("UMEI_ARTICLE_LIST");
-		if (mUmeiArticleJson != null && mUmeiArticleJson.getList() != null
-				&& mUmeiArticleJson.getList().size() > 0) {
+		UmeiArticleJson mUmeiArticleJson = (UmeiArticleJson) getIntent().getSerializableExtra("UMEI_ARTICLE_LIST");
+		if (mUmeiArticleJson != null && mUmeiArticleJson.getList() != null && mUmeiArticleJson.getList().size() > 0) {
 			for (int i = 0; i < mUmeiArticleJson.getList().size(); i++) {
 				mUmeiArticleJson.getList().get(i).setSeq(i + 1);
 				list.add(mUmeiArticleJson.getList().get(i));
@@ -62,6 +63,7 @@ public class UmeiMActicleViewPagerActivity extends
 			mUmeiArticlePagerAdapter.notifyDataSetChanged();
 		}
 		doAsync(this, this, this);
+
 	}
 
 	/*
@@ -74,8 +76,7 @@ public class UmeiMActicleViewPagerActivity extends
 		// TODO Auto-generated method stub
 		// UmeiArticleJson mUmeiArticleJson = new UmeiArticleJson();
 		// mUmeiArticleJson.setList(UmeiArticleService.parseArticlePagerSize(url));
-		UmeiArticleJson mUmeiArticleJson = UmeiArticleService
-				.parseMArticlePagerSize(url, pagerno);
+		UmeiArticleJson mUmeiArticleJson = UmeiArticleService.parseMArticlePagerSize(url, pagerno);
 		return mUmeiArticleJson;
 	}
 
@@ -92,14 +93,14 @@ public class UmeiMActicleViewPagerActivity extends
 		if (result.getList() != null && result.getList().size() > 0) {
 			for (UmeiArticleBean bean : result.getList()) {
 				if (bean.getSrc() != null && bean.getSrc().length() > 0) {
-					if(list.size()==0){
+					if (list.size() == 0) {
 						list.add(bean);
-					}else{
+					} else {
 						list.get(bean.getSeq() - 1).setSrc(bean.getSrc());
 						list.get(bean.getSeq() - 1).setAlt(bean.getAlt());
 					}
-					
-				} 
+
+				}
 			}
 		}
 		int size = list.size() + 1;
@@ -122,13 +123,10 @@ public class UmeiMActicleViewPagerActivity extends
 			@Override
 			public void onPageSelected(int position) {
 				UmeiArticleBean bean = list.get(position);
-				if (bean != null && bean.getSrc() != null
-						&& bean.getSrc().length() > 0) {
+				if (bean != null && bean.getSrc() != null && bean.getSrc().length() > 0) {
 
 				} else {
-					doAsync(UmeiMActicleViewPagerActivity.this,
-							UmeiMActicleViewPagerActivity.this,
-							UmeiMActicleViewPagerActivity.this);
+					doAsync(UmeiMActicleViewPagerActivity.this, UmeiMActicleViewPagerActivity.this, UmeiMActicleViewPagerActivity.this);
 				}
 
 			}
@@ -147,8 +145,33 @@ public class UmeiMActicleViewPagerActivity extends
 		});
 	}
 
-	public static void startUmeiMActicleViewPagerActivity(Context context,
-			UmeiArticleJson umeiArticleJson, String url) {
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.open.umei.activity.BaseFragmentActivity#handlerMessage(android.os
+	 * .Message)
+	 */
+	@Override
+	public void handlerMessage(Message msg) {
+		// TODO Auto-generated method stub
+		super.handlerMessage(msg);
+		switch (msg.what) {
+		case MESSAGE_SCREEN_ORIENTATION:
+			if (getRequestedOrientation() == ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE) {
+				setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT);
+			} else if (getRequestedOrientation() == ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT) {
+				setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
+			}else if (getRequestedOrientation() == ActivityInfo.SCREEN_ORIENTATION_SENSOR) {
+				setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
+			}
+			break;
+		default:
+			break;
+		}
+	}
+
+	public static void startUmeiMActicleViewPagerActivity(Context context, UmeiArticleJson umeiArticleJson, String url) {
 		Intent intent = new Intent();
 		intent.putExtra("UMEI_ARTICLE_LIST", umeiArticleJson);
 		intent.putExtra("URL", url);
