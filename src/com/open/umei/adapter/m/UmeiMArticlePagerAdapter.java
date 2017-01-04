@@ -13,18 +13,24 @@ package com.open.umei.adapter.m;
 
 import java.util.List;
 
+import android.app.AlertDialog;
 import android.content.Context;
-import android.support.v4.view.ViewPager;
+import android.content.DialogInterface;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup.LayoutParams;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.open.umei.R;
+import com.open.umei.activity.UmeiWebViewActivity;
 import com.open.umei.adapter.CommonPagerAdapter;
 import com.open.umei.bean.UmeiArticleBean;
+import com.open.umei.utils.ImageAsyncTask;
 
 /**
  ***************************************************************************************************************************************************************************** 
@@ -37,49 +43,98 @@ import com.open.umei.bean.UmeiArticleBean;
  * @description:
  ***************************************************************************************************************************************************************************** 
  */
-public class UmeiMArticlePagerAdapter extends
-		CommonPagerAdapter<UmeiArticleBean> {
+public class UmeiMArticlePagerAdapter extends CommonPagerAdapter<UmeiArticleBean> {
 
 	public UmeiMArticlePagerAdapter(Context mContext, List<UmeiArticleBean> list) {
 		super(mContext, list);
 	}
 
+//	@Override
+//	public Object instantiateItem(ViewGroup container, int position) {
+//		final UmeiArticleBean bean = (UmeiArticleBean) getItem(position);
+//		final ViewHolder mViewHolder = new ViewHolder();
+//		View convertView = LayoutInflater.from(mContext).inflate(R.layout.adapter_umei_article_pager, null);
+//		mViewHolder.imageview = (ImageView) convertView.findViewById(R.id.imageview);
+//		mViewHolder.imageview.setImageBitmap(null);
+//		if (bean != null) {
+//			if (bean.getSrc() != null && bean.getSrc().length() > 0) {
+//				DisplayImageOptions options = new DisplayImageOptions.Builder().showStubImage(R.drawable.common_v4).showImageForEmptyUri(R.drawable.common_v4).showImageOnFail(R.drawable.common_v4)
+//						.cacheInMemory().cacheOnDisc().build();
+//				ImageLoader.getInstance().displayImage(bean.getSrc(), mViewHolder.imageview, options, getImageLoadingListener());
+//			}
+//		}
+//
+//		mViewHolder.imageview.setOnClickListener(new OnClickListener() {
+//			@Override
+//			public void onClick(View v) {
+//				UmeiWebViewActivity.startUmeiWebViewActivity(mContext, bean.getSrc());
+//			}
+//		});
+//		mViewHolder.imageview.setOnLongClickListener(new View.OnLongClickListener() {  
+//	           @Override  
+//	           public boolean onLongClick(View v) {  
+//	               AlertDialog.Builder builder = new AlertDialog.Builder(mContext);  
+//	               builder.setItems(new String[]{mContext.getResources().getString(R.string.save_picture)}, new DialogInterface.OnClickListener() {  
+//	                   @Override  
+//	                   public void onClick(DialogInterface dialog, int which) {  
+//	                	   mViewHolder.imageview.setDrawingCacheEnabled(true);  
+//	                       Bitmap imageBitmap = mViewHolder.imageview.getDrawingCache();  
+//	                       if (imageBitmap != null) {  
+//	                           new ImageAsyncTask(mContext,  mViewHolder.imageview,bean.getSrc()).execute(imageBitmap);  
+//	                       }  
+//	                   }  
+//	               });  
+//	               builder.show();  
+//	               return true;  
+//	           }  
+//	       });  
+//		container.addView(convertView);
+//		return convertView;
+//	}
+	
 	@Override
 	public Object instantiateItem(ViewGroup container, int position) {
 		final UmeiArticleBean bean = (UmeiArticleBean) getItem(position);
-		ViewHolder mViewHolder = new ViewHolder();
-		View convertView = LayoutInflater.from(mContext).inflate(
-				R.layout.adapter_umei_article_pager, null);
-		mViewHolder.imageview = (ImageView) convertView
-				.findViewById(R.id.imageview);
-
+		final ImageView imageview = new ImageView (mContext);
 		if (bean != null) {
 			if (bean.getSrc() != null && bean.getSrc().length() > 0) {
-				DisplayImageOptions options = new DisplayImageOptions.Builder()
-						.showStubImage(R.drawable.common_v4)
-						.showImageForEmptyUri(R.drawable.common_v4)
-						.showImageOnFail(R.drawable.common_v4).cacheInMemory()
-						.cacheOnDisc().build();
-				ImageLoader.getInstance().displayImage(bean.getSrc(),
-						mViewHolder.imageview, options,
-						getImageLoadingListener());
+				DisplayImageOptions options = new DisplayImageOptions.Builder().showStubImage(R.drawable.common_v4).showImageForEmptyUri(R.drawable.common_v4).showImageOnFail(R.drawable.common_v4)
+						.cacheInMemory().cacheOnDisc().build();
+				ImageLoader.getInstance().displayImage(bean.getSrc(),imageview, options, null);
 			}
 		}
 
-		// mViewHolder.imageview.setOnClickListener(new OnClickListener() {
-		// @Override
-		// public void onClick(View v) {
-		// UmeiWebViewActivity.startUmeiWebViewActivity(mContext,
-		// bean.getSrc());
-		// }
-		// });
-		container.addView(convertView);
-		return convertView;
+		 imageview.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				UmeiWebViewActivity.startUmeiWebViewActivity(mContext, bean.getSrc());
+			}
+		});
+		imageview.setOnLongClickListener(new View.OnLongClickListener() {  
+	           @Override  
+	           public boolean onLongClick(View v) {  
+	               AlertDialog.Builder builder = new AlertDialog.Builder(mContext);  
+	               builder.setItems(new String[]{mContext.getResources().getString(R.string.save_picture)}, new DialogInterface.OnClickListener() {  
+	                   @Override  
+	                   public void onClick(DialogInterface dialog, int which) {  
+	                	   imageview.setDrawingCacheEnabled(true);  
+	                       Bitmap imageBitmap = imageview.getDrawingCache();  
+	                       if (imageBitmap != null) {  
+	                           new ImageAsyncTask(mContext,  imageview,bean.getSrc()).execute(imageBitmap);  
+	                       }  
+	                   }  
+	               });  
+	               builder.show();  
+	               return true;  
+	           }  
+	       });  
+		container.addView(imageview, LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+		return imageview;
 	}
 
 	@Override
-	public void destroyItem(View container, int position, Object object) {
-		// TODO Auto-generated method stub
+	public void destroyItem(ViewGroup container, int position, Object object) {
+		container.removeView((View)object);
 	}
 
 	@Override
@@ -93,13 +148,12 @@ public class UmeiMArticlePagerAdapter extends
 		// TODO Auto-generated method stub
 		return arg0 == arg1;
 	}
-	
- 
-    @Override
-    public int getItemPosition(Object object) {
-        // TODO Auto-generated method stub
-        return POSITION_NONE;
-    }
+
+	@Override
+	public int getItemPosition(Object object) {
+		// TODO Auto-generated method stub
+		return POSITION_NONE;
+	}
 
 	private class ViewHolder {
 		ImageView imageview;
