@@ -12,11 +12,13 @@
 package com.open.umei.fragment.m;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -155,13 +157,28 @@ public class UmeiMTagGridHeadFootFragment extends UmeiMHeadFootGirdArticleFragme
 	@Override
 	public void onCallback(UmeiMPicJson result) {
 		// TODO Auto-generated method stub
-		super.onCallback(result);
+//		super.onCallback(result);
 		exlist.clear();
 		exlist.addAll(result.getExlist());
-		mUmeiMPannelHdExpandableListAdapter.notifyDataSetChanged();
-//		for (int i = 0; i < mUmeiMPannelHdExpandableListAdapter.getGroupCount(); i++) {
-//			expendablelistview.expandGroup(i);
+		
+		Log.i(TAG, "getMode ===" + mPullRefreshGirdView.getCurrentMode());
+//		if (mPullRefreshGirdView.getCurrentMode() == Mode.PULL_FROM_START) {
+			list.clear();
+			list.addAll(result.getList());
+//			pageNo = 1;
+//		} else {
+//			if (result.getList() != null && result.getList().size() > 0) {
+//				list.addAll(result.getList());
+//			}
 //		}
+		mUmeiMPicGridViewAdapter.notifyDataSetChanged();
+		// Call onRefreshComplete when the list has been refreshed.
+		mPullRefreshGirdView.onRefreshComplete();
+		
+		mUmeiMPannelHdExpandableListAdapter.notifyDataSetChanged();
+		for (int i = 0; i < mUmeiMPannelHdExpandableListAdapter.getGroupCount(); i++) {
+			expendablelistview.expandGroup(i);
+		}
 		try {
 			UmeiMArcBodyBean arcbody = result.getmUmeiMArcBodyJson().getArcbody();
 			txt_arctitle.setText(arcbody.getArctitle());
