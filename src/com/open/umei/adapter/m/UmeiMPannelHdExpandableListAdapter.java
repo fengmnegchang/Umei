@@ -18,8 +18,11 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import co.lujun.androidtagview.TagContainerLayout;
+import co.lujun.androidtagview.TagView.OnTagClickListener;
 
 import com.open.umei.R;
+import com.open.umei.activity.m.UmeiMTagGridHeadFootActivity;
 import com.open.umei.adapter.CommonExpandableListAdapter;
 import com.open.umei.bean.m.UmeMPannelHdBean;
 import com.open.umei.bean.m.UmeiMArcBean;
@@ -67,26 +70,58 @@ public class UmeiMPannelHdExpandableListAdapter extends CommonExpandableListAdap
 	@Override
 	public View getChildView(int groupPosition, int childPosition, boolean arg2, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
-		ChildViewHolder mChildViewHolder;
+		final ChildViewHolder mChildViewHolder;
 		if (convertView == null) {
 			convertView = mInflater.inflate(R.layout.adapter_umei_m_pic_child, null);
 			mChildViewHolder = new ChildViewHolder();
 			mChildViewHolder.gridView = (ExpendGridView) convertView.findViewById(R.id.gridView);
 			mChildViewHolder.listview = (ExpendListView) convertView.findViewById(R.id.listview);
+			mChildViewHolder.tagContainerLayout = (TagContainerLayout) convertView.findViewById(R.id.tagcontainerLayout);
 			convertView.setTag(mChildViewHolder);
 		} else {
 			mChildViewHolder = (ChildViewHolder) convertView.getTag();
 		}
-
+		
 		mChildViewHolder.list = getGroup(groupPosition).getPiclist();
 		mChildViewHolder.mUmeiMPicGridViewAdapter = new UmeiMPicGridViewAdapter(mContext, mChildViewHolder.list);
 		mChildViewHolder.gridView.setAdapter(mChildViewHolder.mUmeiMPicGridViewAdapter);
 		mChildViewHolder.mUmeiMPicGridViewAdapter.notifyDataSetChanged();
 
-		mChildViewHolder.arclist = getGroup(groupPosition).getArclist();
-		mChildViewHolder.mUmeiMArcAdapter = new UmeiMArcAdapter(mContext, mChildViewHolder.arclist);
-		mChildViewHolder.listview.setAdapter(mChildViewHolder.mUmeiMArcAdapter);
-		mChildViewHolder.mUmeiMArcAdapter.notifyDataSetChanged();
+		mChildViewHolder.listtag.clear();
+		mChildViewHolder.listtaglink.clear();
+		mChildViewHolder.tagContainerLayout.setVisibility(View.GONE);
+		mChildViewHolder.listview.setVisibility(View.VISIBLE);
+		mChildViewHolder.arclist.clear();
+		if(getGroup(groupPosition).getPannelhdname().endsWith("标签云")){
+			mChildViewHolder.tagContainerLayout.setVisibility(View.VISIBLE);
+			mChildViewHolder.listview.setVisibility(View.GONE);
+			for(UmeiMArcBean bean:getGroup(groupPosition).getArclist()){
+				mChildViewHolder.listtag.add(bean.getTitle());
+				mChildViewHolder.listtaglink.add(bean.getHref());
+			}
+			mChildViewHolder.tagContainerLayout.setTags(mChildViewHolder.listtag);
+			mChildViewHolder.tagContainerLayout.setOnTagClickListener(new OnTagClickListener() {
+				@Override
+				public void onTagLongClick(int position, String text) {
+					// TODO Auto-generated method stub
+					
+				}
+				@Override
+				public void onTagCrossClick(int position) {
+					// TODO Auto-generated method stub
+					
+				}
+				@Override
+				public void onTagClick(int position, String text) {
+					UmeiMTagGridHeadFootActivity.startUmeiMTagGridHeadFootActivity(mContext, mChildViewHolder.listtaglink.get(position));
+				}
+			});
+		}else{
+			mChildViewHolder.arclist = getGroup(groupPosition).getArclist();
+			mChildViewHolder.mUmeiMArcAdapter = new UmeiMArcAdapter(mContext, mChildViewHolder.arclist);
+			mChildViewHolder.listview.setAdapter(mChildViewHolder.mUmeiMArcAdapter);
+			mChildViewHolder.mUmeiMArcAdapter.notifyDataSetChanged();
+		}
 		return convertView;
 	}
 
@@ -98,6 +133,10 @@ public class UmeiMPannelHdExpandableListAdapter extends CommonExpandableListAdap
 		ExpendListView listview;
 		UmeiMArcAdapter mUmeiMArcAdapter;
 		List<UmeiMArcBean> arclist = new ArrayList<UmeiMArcBean>();
+		
+		TagContainerLayout tagContainerLayout;
+		List<String> listtag = new ArrayList<String>();
+		List<String> listtaglink = new ArrayList<String>();
 	}
 
 	/*
