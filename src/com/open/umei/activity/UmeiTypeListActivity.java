@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 
 import com.open.umei.R;
+import com.open.umei.fragment.UmeiTypeGridFragment;
 import com.open.umei.fragment.UmeiTypeListFragment;
 import com.open.umei.json.UmeiTypeJson;
 import com.open.umei.utils.UrlUtils;
@@ -31,7 +32,8 @@ public class UmeiTypeListActivity extends CommonFragmentActivity<UmeiTypeJson> {
 			url = getIntent().getStringExtra("URL");
 		}
 
-		UmeiTypeListFragment fragment = UmeiTypeListFragment.newInstance(url, true);
+//		UmeiTypeListFragment fragment = UmeiTypeListFragment.newInstance(url, true);
+		UmeiTypeGridFragment fragment = UmeiTypeGridFragment.newInstance(url, true);
 		// UmeiTypeHeadFragment fragment =
 		// UmeiTypeHeadFragment.newInstance(UrlUtils.UMEI_NAV,true);
 		FragmentManager manager = getSupportFragmentManager();

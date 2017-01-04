@@ -68,7 +68,7 @@ public class UmeiTypeAdapter extends CommonAdapter<UmeiTypeBean> {
 				ImageLoader.getInstance().displayImage(bean.getSrc(), mViewHolder.imageview, options, getImageLoadingListener());
 			}
 			mViewHolder.txt_typename.setText(bean.getTypename());
-			mViewHolder.txt_IcoList.setText("查看：" + bean.getIcoList() + "次");
+			mViewHolder.txt_IcoList.setText(bean.getIcoList());
 			mViewHolder.txt_IcoTime.setText(bean.getIcoTime());
 			mViewHolder.imageview.setOnClickListener(new OnClickListener() {
 				@Override
