@@ -204,6 +204,7 @@
         <activity
             android:name="com.open.umei.activity.m.UmeiMActicleViewPagerActivity"
             android:description="@string/umei_m_article_viewpager_desp"  
+            android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenSize" 
             android:screenOrientation="sensor"
 			>
         </activity>

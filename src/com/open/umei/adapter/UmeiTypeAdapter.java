@@ -70,12 +70,12 @@ public class UmeiTypeAdapter extends CommonAdapter<UmeiTypeBean> {
 			mViewHolder.txt_typename.setText(bean.getTypename());
 			mViewHolder.txt_IcoList.setText(bean.getIcoList());
 			mViewHolder.txt_IcoTime.setText(bean.getIcoTime());
-			mViewHolder.imageview.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					UmeiWebViewActivity.startUmeiWebViewActivity(mContext, bean.getSrc());
-				}
-			});
+//			mViewHolder.imageview.setOnClickListener(new OnClickListener() {
+//				@Override
+//				public void onClick(View v) {
+//					UmeiWebViewActivity.startUmeiWebViewActivity(mContext, bean.getSrc());
+//				}
+//			});
 		}
 		return convertView;
 	}
