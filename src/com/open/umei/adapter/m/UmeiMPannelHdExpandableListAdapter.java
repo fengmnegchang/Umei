@@ -22,6 +22,7 @@ import co.lujun.androidtagview.TagContainerLayout;
 import co.lujun.androidtagview.TagView.OnTagClickListener;
 
 import com.open.umei.R;
+import com.open.umei.activity.UmeiWebViewActivity;
 import com.open.umei.activity.m.UmeiMTagGridHeadFootActivity;
 import com.open.umei.adapter.CommonExpandableListAdapter;
 import com.open.umei.bean.m.UmeMPannelHdBean;
@@ -114,6 +115,30 @@ public class UmeiMPannelHdExpandableListAdapter extends CommonExpandableListAdap
 				@Override
 				public void onTagClick(int position, String text) {
 					UmeiMTagGridHeadFootActivity.startUmeiMTagGridHeadFootActivity(mContext, mChildViewHolder.listtaglink.get(position));
+				}
+			});
+		}else if(getGroup(groupPosition).getPannelhdname().endsWith("友情链接")){
+			mChildViewHolder.tagContainerLayout.setVisibility(View.VISIBLE);
+			mChildViewHolder.listview.setVisibility(View.GONE);
+			for(UmeiMArcBean bean:getGroup(groupPosition).getArclist()){
+				mChildViewHolder.listtag.add(bean.getTitle());
+				mChildViewHolder.listtaglink.add(bean.getHref());
+			}
+			mChildViewHolder.tagContainerLayout.setTags(mChildViewHolder.listtag);
+			mChildViewHolder.tagContainerLayout.setOnTagClickListener(new OnTagClickListener() {
+				@Override
+				public void onTagLongClick(int position, String text) {
+					// TODO Auto-generated method stub
+					
+				}
+				@Override
+				public void onTagCrossClick(int position) {
+					// TODO Auto-generated method stub
+					
+				}
+				@Override
+				public void onTagClick(int position, String text) {
+					UmeiWebViewActivity.startUmeiWebViewActivity(mContext, mChildViewHolder.listtaglink.get(position));
 				}
 			});
 		}else{
