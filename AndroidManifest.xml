@@ -56,6 +56,16 @@
             android:windowSoftInputMode="adjustUnspecified|stateHidden" >
         </activity>
         
+        <!-- 子Tag页面 fragment -->
+        <activity
+            android:name="com.open.umei.activity.UmeiNavTagIndicatorHorizontalViewPagerActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/app_name"
+            android:description="@string/umei_tab_tag_desp" 
+            android:theme="@style/Theme.PageIndicatorDefaults"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
+        </activity>
+        
         <!-- umei indicator指示器+viewpager+fragment -->
         <activity
             android:name="com.open.umei.activity.UmeiMainIndicatorViewPagerActivity"

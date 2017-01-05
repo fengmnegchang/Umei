@@ -105,6 +105,7 @@ public class UmeiNavService extends CommonService {
 
 		return list;
 	}
+
 	/**
 	 * 解析umei 第一级标签
 	 */
@@ -247,7 +248,7 @@ public class UmeiNavService extends CommonService {
 							List<UmeiSubNavBean> subNavList = new ArrayList<UmeiSubNavBean>();
 							Elements h3Elements = divElement.select("h3");
 							UmeiSubNavBean subNavBean;
-							if (h3Elements.size() >0) {
+							if (h3Elements.size() > 0) {
 								for (int y = 0; y < h3Elements.size(); y++) {
 									subNavBean = new UmeiSubNavBean();
 									try {
@@ -296,7 +297,7 @@ public class UmeiNavService extends CommonService {
 
 		return list;
 	}
-	
+
 	/**
 	 * 解析umei 第一级标签
 	 */
@@ -313,32 +314,39 @@ public class UmeiNavService extends CommonService {
 			Element masthead = doc.select("div.tabs").first();
 			Elements liElements = masthead.select("li");
 			/**
-			 * <div class="pannel">
-  <div class="tabs" m="mouse" mouse="li" id="channel_tabs">
-    <ul>
-	
-      <li><a href="http://m.umei.cc/meinvtupian/xingganmeinv/" title="性感美女">性感美女</a></li>
-	
-      <li><a href="http://m.umei.cc/meinvtupian/siwameinv/" title="丝袜美女">丝袜美女</a></li>
-	
-      <li><a href="http://m.umei.cc/meinvtupian/meinvxiezhen/" title="美女写真">美女写真</a></li>
-	
-      <li><a href="http://m.umei.cc/meinvtupian/waiguomeinv/" title="外国美女">外国美女</a></li>
-	
-      <li><a href="http://m.umei.cc/meinvtupian/nayimeinv/" title="内衣美女">内衣美女</a></li>
-	
-      <li><a href="http://m.umei.cc/meinvtupian/jiepaimeinv/" title="街拍美女">街拍美女</a></li>
-	
-      <li><a href="http://m.umei.cc/meinvtupian/meinvzipai/" title="美女自拍">美女自拍</a></li>
-	
-      <li><a href="http://m.umei.cc/meinvtupian/rentiyishu/" title="人体艺术">人体艺术</a></li>
-	
-      <li><a href="http://m.umei.cc/meinvtupian/meinvmote/" title="美女模特">美女模特</a></li>
-	
-    </ul>
-  </div>
-</div>
-
+			 * <div class="pannel"> <div class="tabs" m="mouse" mouse="li"
+			 * id="channel_tabs">
+			 * <ul>
+			 * 
+			 * <li><a href="http://m.umei.cc/meinvtupian/xingganmeinv/"
+			 * title="性感美女">性感美女</a></li>
+			 * 
+			 * <li><a href="http://m.umei.cc/meinvtupian/siwameinv/"
+			 * title="丝袜美女">丝袜美女</a></li>
+			 * 
+			 * <li><a href="http://m.umei.cc/meinvtupian/meinvxiezhen/"
+			 * title="美女写真">美女写真</a></li>
+			 * 
+			 * <li><a href="http://m.umei.cc/meinvtupian/waiguomeinv/"
+			 * title="外国美女">外国美女</a></li>
+			 * 
+			 * <li><a href="http://m.umei.cc/meinvtupian/nayimeinv/"
+			 * title="内衣美女">内衣美女</a></li>
+			 * 
+			 * <li><a href="http://m.umei.cc/meinvtupian/jiepaimeinv/"
+			 * title="街拍美女">街拍美女</a></li>
+			 * 
+			 * <li><a href="http://m.umei.cc/meinvtupian/meinvzipai/"
+			 * title="美女自拍">美女自拍</a></li>
+			 * 
+			 * <li><a href="http://m.umei.cc/meinvtupian/rentiyishu/"
+			 * title="人体艺术">人体艺术</a></li>
+			 * 
+			 * <li><a href="http://m.umei.cc/meinvtupian/meinvmote/"
+			 * title="美女模特">美女模特</a></li>
+			 * 
+			 * </ul>
+			 * </div> </div>
 			 */
 			// 解析文件
 			if (liElements != null && liElements.size() > 1) {
@@ -368,46 +376,40 @@ public class UmeiNavService extends CommonService {
 
 	/**
 	 * <li class="NavLi">
-		<span class="MainNav">更多</span>
-          <div class="ShowNav">
-            <a href="http://www.umei.cc/p/gaoqing/rihan/" title="日韩">日韩</a>
-            <a href="http://www.umei.cc/p/gaoqing/gangtai/" title="港台">港台</a>
-            <a href="http://www.umei.cc/p/gaoqing/oumei/" title="欧美">欧美</a>
-            <a href="http://www.umei.cc/p/gaoqing/xiuren_VIP/" title="秀人模特">秀人模特</a>
-            <a href="http://www.umei.cc/p/gaoqing/cn/" title="国内">国内</a>
-          </div>
-
+	 * <span class="MainNav">更多</span> <div class="ShowNav"> <a
+	 * href="http://www.umei.cc/p/gaoqing/rihan/" title="日韩">日韩</a> <a
+	 * href="http://www.umei.cc/p/gaoqing/gangtai/" title="港台">港台</a> <a
+	 * href="http://www.umei.cc/p/gaoqing/oumei/" title="欧美">欧美</a> <a
+	 * href="http://www.umei.cc/p/gaoqing/xiuren_VIP/" title="秀人模特">秀人模特</a> <a
+	 * href="http://www.umei.cc/p/gaoqing/cn/" title="国内">国内</a> </div>
 	 */
 	public static ArrayList<UmeiNavBean> parseShowMore(String href) {
 		ArrayList<UmeiNavBean> plist = new ArrayList<UmeiNavBean>();
 		UmeiNavBean pbean = new UmeiNavBean();
 		pbean.setHref("http://www.umei.cc/p/gaoqing/cn/");
 		pbean.setTitle("国内");
-		
-		
+
 		List<UmeiSubNavBean> list = new ArrayList<UmeiSubNavBean>();
 		UmeiSubNavBean bean = new UmeiSubNavBean();
 		bean.setHref("http://www.umei.cc/p/gaoqing/rihan/");
 		bean.setTitle("日韩");
 		list.add(bean);
-		
+
 		bean = new UmeiSubNavBean();
 		bean.setHref("http://www.umei.cc/p/gaoqing/gangtai/");
 		bean.setTitle("港台");
 		list.add(bean);
-		
-		
+
 		bean = new UmeiSubNavBean();
 		bean.setHref("http://www.umei.cc/p/gaoqing/oumei/");
 		bean.setTitle("欧美");
 		list.add(bean);
-		
-		
+
 		bean = new UmeiSubNavBean();
 		bean.setHref("http://www.umei.cc/p/gaoqing/xiuren_VIP/");
 		bean.setTitle("秀人模特");
 		list.add(bean);
-		
+
 		bean = new UmeiSubNavBean();
 		bean.setHref("http://www.umei.cc/p/gaoqing/cn/");
 		bean.setTitle("国内");
@@ -416,5 +418,93 @@ public class UmeiNavService extends CommonService {
 		pbean.setSubNavList(list);
 		plist.add(pbean);
 		return plist;
+	}
+
+	/**
+	 */
+	public static ArrayList<UmeiNavBean> parseTagNav(String href) {
+		ArrayList<UmeiNavBean> list = new ArrayList<UmeiNavBean>();
+		try {
+			href = makeURL(href, new HashMap<String, Object>() {
+				{
+				}
+			});
+			Log.i(TAG, "url = " + href);
+
+			Document doc = Jsoup.connect(href).userAgent(UrlUtils.userAgent).timeout(10000).get();
+
+			Element masthead = doc.select("div.ListtopTag").first();
+			Elements aElements = masthead.select("a");
+			/**
+			 * <div class="wrap"> <div class="ListtopTag"> <div
+			 * class="w850 l oh"> <a
+			 * href='http://www.umei.cc/weimeitupian/oumeitupian/'
+			 * class='thisclass' title='欧美图片'>欧美图片</a> <a
+			 * href="http://www.umei.cc/weimeitupian/feizhuliutupian/"
+			 * title="非主流图片">非主流图片</a> <a
+			 * href="http://www.umei.cc/weimeitupian/keaitupian/"
+			 * title="可爱图片">可爱图片</a> <a
+			 * href="http://www.umei.cc/weimeitupian/wenzitupian/"
+			 * title="文字图片">文字图片</a> <a
+			 * href="http://www.umei.cc/weimeitupian/aiqingtupian/"
+			 * title="爱情图片">爱情图片</a> <a
+			 * href="http://www.umei.cc/weimeitupian/yijingtupian/"
+			 * title="意境图片">意境图片</a> <a
+			 * href="http://www.umei.cc/weimeitupian/xiaoqingxintupian/"
+			 * title="小清新图片">小清新图片</a> <a
+			 * href="http://www.umei.cc/weimeitupian/hunshatupian/"
+			 * title="婚纱图片">婚纱图片</a> </div>
+			 */
+			// 解析文件
+			if (aElements != null && aElements.size() > 0) {
+				UmeiNavBean bean = new UmeiNavBean();
+				List<UmeiSubNavBean> subNavList = new ArrayList<UmeiSubNavBean>();
+				UmeiSubNavBean subNavBean;
+				
+				try {
+					subNavBean = new UmeiSubNavBean();
+					subNavBean.setTitle("首页");
+					subNavBean.setHref(href);
+					subNavList.add(subNavBean);
+					Element	ChannelTitleElement =  masthead.select("div.ChannelTitle").first();
+					if(ChannelTitleElement!=null){
+						subNavBean.setTitle(ChannelTitleElement.text());
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				
+				
+				for (int i = 0; i < aElements.size(); i++) {
+					try {
+						subNavBean = new UmeiSubNavBean();
+						try {
+							Element aElement = aElements.get(i).select("a").first();
+							String atitle = aElement.text();
+							String ahref = aElement.attr("href");
+							subNavBean.setTitle(atitle);
+							subNavBean.setHref(ahref);
+							subNavList.add(subNavBean);
+							
+							bean.setHref(ahref);
+							bean.setTitle(atitle);
+							Log.i(TAG, "i===" + i +  "atitle===" + atitle + ";ahref===" + ahref);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+				
+				bean.setSubNavList(subNavList);
+				list.add(bean);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return list;
 	}
 }

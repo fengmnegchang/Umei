@@ -29,6 +29,8 @@ public class UrlUtils {
 	
 	public static final String UMEI_NAV ="http://www.umei.cc/weimeitupian/oumeitupian/";
 	
+	public static final String UMEI_NAV_TAG = "http://www.umei.cc/weimeitupian/feizhuliutupian/beiying.htm";
+	
 	public static final String UMEI_SEARCH ="http://zhannei.baidu.com/cse/search?s=6545247087170373156&click=1&entry=1";
 	
 	public static final String UMEI_M = "http://m.umei.cc/";

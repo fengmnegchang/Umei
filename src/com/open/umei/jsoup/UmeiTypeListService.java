@@ -47,7 +47,13 @@ public class UmeiTypeListService extends CommonService {
 		try {
 			// http://www.umei.cc/bizhitupian/shoujibizhi/1.htm
 			// http://www.umei.cc/bizhitupian/shoujibizhi/
-			href = href + pageNo + ".htm";
+			if(href.contains(".htm")){
+				if(pageNo>1){
+					href = href.replace(".htm", "_") + pageNo + ".htm";
+				}
+			}else{
+				href = href + pageNo + ".htm";
+			}
 			href = makeURL(href, new HashMap<String, Object>() {
 				{
 				}

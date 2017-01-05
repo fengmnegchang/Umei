@@ -13,6 +13,7 @@
     <string name="umei_tab_desp">tab主页面</string>
     <string name="umei_main_ex_desp">首页页面</string>
      <string name="umei_tab_h_desp">子tab页面</string>
+     <string name="umei_tab_tag_desp">子tag页面</string>
     <string name="umei_main_indicator_desp">indicator指示器+viewpager+fragment</string>
     <string name="umei_main_tabhost_desp">TabHost+viewpager+fragment</string>
     <string name="umei_nav_desp">listview+fragment</string>
