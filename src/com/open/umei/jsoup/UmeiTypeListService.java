@@ -51,6 +51,10 @@ public class UmeiTypeListService extends CommonService {
 				if(pageNo>1){
 					href = href.replace(".htm?", "_") + pageNo + ".htm";
 				}
+			}else if(href.contains(".htm")){
+				if(pageNo>1){
+					href = href.replace(".htm", "_") + pageNo + ".htm";
+				}
 			}else{
 				href = href + pageNo + ".htm";
 			}
@@ -128,6 +132,21 @@ public class UmeiTypeListService extends CommonService {
 
 					try {
 						Element spanElement = liElements.get(i).select("a").first().select("span").first();
+						if(spanElement==null){
+							/**
+							 * 
+        	<a href="http://www.umei.cc/meinvtupian/meinvmote/26533.htm" class="TypeBigPics" target="_blank">
+        	<img src="http://i1.umei.cc/uploads/tu/201701/68/c15.jpg" width="180" height="270" />
+        	<div class="ListTit">[TouTiao头条女神]性感美女麦苹果制服诱人写真</div></a>
+        	<div class="TypePicInfos">
+            <div class="TypePicTags"><a href='/tags/TouTiaonvshen.htm' title=头条女神>头条女神</a>
+            <a href='/tags/zhifu.htm' title=制服>制服</a><a href='/tags/xiezhen.htm' title=写真>写真</a></div>
+             <div class="txtInfo gray"><em class="IcoList">查看：61次</em><em class="IcoTime">01-04</em></div>
+            </div>
+        </li><li>
+							 */
+							spanElement = liElements.get(i).select("a").first().select("div.ListTit").first();
+						}
 						String typename = spanElement.text();
 						Log.i(TAG, "i===" + i + "typename=" + typename);
 						bean.setTypename(typename);

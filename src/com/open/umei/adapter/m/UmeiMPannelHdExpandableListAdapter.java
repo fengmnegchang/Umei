@@ -82,25 +82,19 @@ public class UmeiMPannelHdExpandableListAdapter extends CommonExpandableListAdap
 		} else {
 			mChildViewHolder = (ChildViewHolder) convertView.getTag();
 		}
-		
 		mChildViewHolder.list = getGroup(groupPosition).getPiclist();
 		mChildViewHolder.mUmeiMPicGridViewAdapter = new UmeiMPicGridViewAdapter(mContext, mChildViewHolder.list);
 		mChildViewHolder.gridView.setAdapter(mChildViewHolder.mUmeiMPicGridViewAdapter);
 		mChildViewHolder.mUmeiMPicGridViewAdapter.notifyDataSetChanged();
-
+		
 		mChildViewHolder.listtag.clear();
 		mChildViewHolder.listtaglink.clear();
-		mChildViewHolder.tagContainerLayout.setVisibility(View.GONE);
-		mChildViewHolder.listview.setVisibility(View.VISIBLE);
-		mChildViewHolder.arclist.clear();
 		if(getGroup(groupPosition).getPannelhdname().endsWith("标签云")){
-			mChildViewHolder.tagContainerLayout.setVisibility(View.VISIBLE);
-			mChildViewHolder.listview.setVisibility(View.GONE);
+			mChildViewHolder.arclist = new ArrayList<UmeiMArcBean>();
 			for(UmeiMArcBean bean:getGroup(groupPosition).getArclist()){
 				mChildViewHolder.listtag.add(bean.getTitle());
 				mChildViewHolder.listtaglink.add(bean.getHref());
 			}
-			mChildViewHolder.tagContainerLayout.setTags(mChildViewHolder.listtag);
 			mChildViewHolder.tagContainerLayout.setOnTagClickListener(new OnTagClickListener() {
 				@Override
 				public void onTagLongClick(int position, String text) {
@@ -118,13 +112,11 @@ public class UmeiMPannelHdExpandableListAdapter extends CommonExpandableListAdap
 				}
 			});
 		}else if(getGroup(groupPosition).getPannelhdname().endsWith("友情链接")){
-			mChildViewHolder.tagContainerLayout.setVisibility(View.VISIBLE);
-			mChildViewHolder.listview.setVisibility(View.GONE);
+			mChildViewHolder.arclist = new ArrayList<UmeiMArcBean>();
 			for(UmeiMArcBean bean:getGroup(groupPosition).getArclist()){
 				mChildViewHolder.listtag.add(bean.getTitle());
 				mChildViewHolder.listtaglink.add(bean.getHref());
 			}
-			mChildViewHolder.tagContainerLayout.setTags(mChildViewHolder.listtag);
 			mChildViewHolder.tagContainerLayout.setOnTagClickListener(new OnTagClickListener() {
 				@Override
 				public void onTagLongClick(int position, String text) {
@@ -143,10 +135,11 @@ public class UmeiMPannelHdExpandableListAdapter extends CommonExpandableListAdap
 			});
 		}else{
 			mChildViewHolder.arclist = getGroup(groupPosition).getArclist();
-			mChildViewHolder.mUmeiMArcAdapter = new UmeiMArcAdapter(mContext, mChildViewHolder.arclist);
-			mChildViewHolder.listview.setAdapter(mChildViewHolder.mUmeiMArcAdapter);
-			mChildViewHolder.mUmeiMArcAdapter.notifyDataSetChanged();
 		}
+		mChildViewHolder.mUmeiMArcAdapter = new UmeiMArcAdapter(mContext, mChildViewHolder.arclist);
+		mChildViewHolder.listview.setAdapter(mChildViewHolder.mUmeiMArcAdapter);
+		mChildViewHolder.mUmeiMArcAdapter.notifyDataSetChanged();
+		mChildViewHolder.tagContainerLayout.setTags(mChildViewHolder.listtag);
 		return convertView;
 	}
 
