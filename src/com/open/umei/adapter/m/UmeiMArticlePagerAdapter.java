@@ -58,12 +58,11 @@ public class UmeiMArticlePagerAdapter extends CommonPagerAdapter<UmeiArticleBean
 		final ViewHolder mViewHolder = new ViewHolder();
 		View convertView = LayoutInflater.from(mContext).inflate(R.layout.adapter_umei_article_pager, null);
 		mViewHolder.imageview = (ImageView) convertView.findViewById(R.id.imageview);
-		mViewHolder.imageview.setImageBitmap(null);
 		if (bean != null) {
 			if (bean.getSrc() != null && bean.getSrc().length() > 0) {
 				DisplayImageOptions options = new DisplayImageOptions.Builder().showStubImage(R.drawable.common_v4).showImageForEmptyUri(R.drawable.common_v4).showImageOnFail(R.drawable.common_v4)
 						.cacheInMemory().cacheOnDisc().build();
-				ImageLoader.getInstance().displayImage(bean.getSrc(), mViewHolder.imageview, options, getImageLoadingListener());
+				ImageLoader.getInstance().displayImage(bean.getSrc(), mViewHolder.imageview, options, null);
 			}
 		}
 

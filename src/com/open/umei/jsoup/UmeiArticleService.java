@@ -142,7 +142,12 @@ public class UmeiArticleService extends CommonService {
 					UmeiArticleBean bean = new UmeiArticleBean();
 					Element imgElement = ImageBodyElement.select("img").first();
 					String alt = imgElement.attr("alt");
-					String src = imgElement.attr("src").replace("%20", "").replace(" ", "");
+					String src = imgElement.attr("src");
+					if(src.endsWith("%20")){
+						src = src.replace("%20", "");
+					}else if(src.endsWith(" ")){
+						src = src.replace(" ", "");
+					}
 					Log.i(TAG, "alt==" + alt + ";src==" + src);
 					bean.setAlt(alt);
 					bean.setSrc(src);
@@ -294,7 +299,12 @@ public class UmeiArticleService extends CommonService {
 					UmeiArticleBean bean = new UmeiArticleBean();
 					Element imgElement = ImageBodyElement.select("img").first();
 					String alt = imgElement.attr("alt");
-					String src = imgElement.attr("src").replace("%20", "").replace(" ", "");
+					String src = imgElement.attr("src");
+					if(src.endsWith("%20")){
+						src = src.replace("%20", "");
+					}else if(src.endsWith(" ")){
+						src = src.replace(" ", "");
+					}
 					Log.i(TAG, "alt==" + alt + ";src==" + src);
 					bean.setAlt(alt);
 					bean.setSrc(src);
@@ -400,7 +410,12 @@ public class UmeiArticleService extends CommonService {
 					UmeiArticleBean bean = new UmeiArticleBean();
 					Element imgElement = ImageBodyElement.select("img").first();
 					String alt = imgElement.attr("alt");
-					String src = imgElement.attr("src").replace("%20", "").replace(" ", "");
+					String src = imgElement.attr("src");
+					if(src.endsWith("%20")){
+						src = src.replace("%20", "");
+					}else if(src.endsWith(" ")){
+						src = src.replace(" ", "");
+					}
 					Log.i(TAG, "alt==" + alt + ";src==" + src);
 					bean.setAlt(alt);
 					bean.setSrc(src);
@@ -452,7 +467,12 @@ public class UmeiArticleService extends CommonService {
 				try {
 					Element imgElement = ImageBodyElement.select("img").first();
 					String alt = imgElement.attr("alt");
-					String src = imgElement.attr("src").replace("%20", "").replace(" ", "");
+					String src = imgElement.attr("src");
+					if(src.endsWith("%20")){
+						src = src.replace("%20", "");
+					}else if(src.endsWith(" ")){
+						src = src.replace(" ", "");
+					}
 					Log.i(TAG, "alt==" + alt + ";src==" + src);
 					bean.setAlt(alt);
 					bean.setSrc(src);
@@ -501,7 +521,12 @@ public class UmeiArticleService extends CommonService {
 					UmeiArticleBean bean = new UmeiArticleBean();
 					Element imgElement = ImageBodyElement.select("img").first();
 					String alt = imgElement.attr("alt");
-					String src = imgElement.attr("src").replace("%20", "").replace(" ", "");
+					String src = imgElement.attr("src");
+					if(src.endsWith("%20")){
+						src = src.replace("%20", "");
+					}else if(src.endsWith(" ")){
+						src = src.replace(" ", "");
+					}
 					Log.i(TAG, "alt==" + alt + ";src==" + src);
 					bean.setAlt(alt);
 					bean.setSrc(src);
@@ -576,7 +601,12 @@ public class UmeiArticleService extends CommonService {
 					UmeiArticleBean bean = new UmeiArticleBean();
 					Element imgElement = ImageBodyElement.select("img").first();
 					String alt = imgElement.attr("alt");
-					String src = imgElement.attr("src").replace("%20", "").replace(" ", "");
+					String src = imgElement.attr("src");
+					if(src.endsWith("%20")){
+						src = src.replace("%20", "");
+					}else if(src.endsWith(" ")){
+						src = src.replace(" ", "");
+					}
 					Log.i(TAG, "alt==" + alt + ";src==" + src);
 					bean.setAlt(alt);
 					bean.setSrc(src);
@@ -621,7 +651,12 @@ public class UmeiArticleService extends CommonService {
 				try {
 					Element imgElement = ImageBodyElement.select("img").first();
 					String alt = imgElement.attr("alt");
-					String src = imgElement.attr("src").replace("%20", "").replace(" ", "");
+					String src = imgElement.attr("src");
+					if(src.endsWith("%20")){
+						src = src.replace("%20", "");
+					}else if(src.endsWith(" ")){
+						src = src.replace(" ", "");
+					}
 					Log.i(TAG, "alt==" + alt + ";src==" + src);
 					bean.setAlt(alt);
 					bean.setSrc(src);
