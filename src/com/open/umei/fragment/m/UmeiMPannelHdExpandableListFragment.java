@@ -50,7 +50,7 @@ public class UmeiMPannelHdExpandableListFragment extends BaseV4Fragment<UmeMPann
 	public ExpandableListView expendablelistview;
 	public UmeiMPannelHdExpandableListAdapter mUmeiMPannelHdExpandableListAdapter;
 	public List<UmeMPannelHdBean> list = new ArrayList<UmeMPannelHdBean>();
-	private View headerview;
+	public View headerview;
 	public boolean isVisibleHeadView;
 
 	public static UmeiMPannelHdExpandableListFragment newInstance(String url, boolean isVisibleToUser, boolean isVisibleHeadView) {

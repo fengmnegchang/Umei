@@ -37,6 +37,15 @@
             android:windowSoftInputMode="adjustUnspecified|stateHidden" >
         </activity>
         
+        <!--  tab首页页面 -->
+        <activity
+            android:name="com.open.umei.activity.UmeiMainExpandableActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/app_name"
+             android:description="@string/umei_main_ex_desp" 
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" >
+        </activity>
+        
         <!-- 子tab页面 fragment -->
         <activity
             android:name="com.open.umei.activity.UmeiNavIndicatorHorizontalViewPagerActivity"

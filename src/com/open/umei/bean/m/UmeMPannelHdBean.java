@@ -31,6 +31,9 @@ public class UmeMPannelHdBean extends CommonBean {
 	private String pannelhdname;
 	private List<UmeiMPicBean> piclist = new ArrayList<UmeiMPicBean>();
 	private List<UmeiMArcBean> arclist = new ArrayList<UmeiMArcBean>();
+	
+	//头列表
+	private List<UmeiMPicBean> nameList = new ArrayList<UmeiMPicBean>();
 
 	public String getPannelhdname() {
 		return pannelhdname;
@@ -54,6 +57,14 @@ public class UmeMPannelHdBean extends CommonBean {
 
 	public void setArclist(List<UmeiMArcBean> arclist) {
 		this.arclist = arclist;
+	}
+
+	public List<UmeiMPicBean> getNameList() {
+		return nameList;
+	}
+
+	public void setNameList(List<UmeiMPicBean> nameList) {
+		this.nameList = nameList;
 	}
 
 }

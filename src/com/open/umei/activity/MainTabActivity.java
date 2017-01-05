@@ -87,7 +87,7 @@ public class MainTabActivity extends CommonTabActivity<UmeiNavJson> {
 		ArrayList<UmeiNavBean> list = new ArrayList<UmeiNavBean>();// 导航大图
 		try {
 			// 解析网络标签
-			list = UmeiNavService.parseUmeiNav(UrlUtils.UMEI);
+			list = UmeiNavService.parseUmeiAllNav(UrlUtils.UMEI);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
