@@ -22,6 +22,7 @@ import co.lujun.androidtagview.TagContainerLayout;
 import co.lujun.androidtagview.TagView.OnTagClickListener;
 
 import com.open.umei.R;
+import com.open.umei.activity.UmeiNavTagIndicatorHorizontalViewPagerActivity;
 import com.open.umei.activity.UmeiWebViewActivity;
 import com.open.umei.activity.m.UmeiMTagGridHeadFootActivity;
 import com.open.umei.adapter.m.UmeiMArcAdapter;
@@ -115,7 +116,8 @@ public class UmeiMainExpandableListAdapter extends CommonExpandableListAdapter<U
 				}
 				@Override
 				public void onTagClick(int position, String text) {
-					UmeiMTagGridHeadFootActivity.startUmeiMTagGridHeadFootActivity(mContext, mChildViewHolder.listtaglink.get(position).replace("http://www.umei.cc/", "http://m.umei.cc/"));
+//					UmeiMTagGridHeadFootActivity.startUmeiMTagGridHeadFootActivity(mContext, mChildViewHolder.listtaglink.get(position).replace("http://www.umei.cc/", "http://m.umei.cc/"));
+					UmeiNavTagIndicatorHorizontalViewPagerActivity.startUmeiNavIndicatorHorizontalViewPagerActivity(mContext, mChildViewHolder.listtaglink.get(position), "");
 				}
 			});
 		}else if(getGroup(groupPosition).getPannelhdname().endsWith("友情链接")){

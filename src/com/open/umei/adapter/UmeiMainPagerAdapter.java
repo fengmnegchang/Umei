@@ -26,6 +26,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.open.umei.R;
 import com.open.umei.activity.UmeiArticleActivity;
 import com.open.umei.activity.UmeiNavIndicatorHorizontalViewPagerActivity;
+import com.open.umei.activity.UmeiNavTagIndicatorHorizontalViewPagerActivity;
 import com.open.umei.activity.m.UmeiMNavIndicatorViewPagerActivity;
 import com.open.umei.bean.UmeiTypeBean;
 
@@ -66,29 +67,31 @@ public class UmeiMainPagerAdapter extends CommonPagerAdapter<UmeiTypeBean> {
 		mViewHolder.imageview.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				String title = "";
-				if(bean.getHref().contains("meinvtupian")){
-					title = "美女图片";
-				}else if(bean.getHref().contains("weimeitupian")){
-					title = "唯美图片";
-				}else if(bean.getHref().contains("bizhitupian")){
-					title = "壁纸图片";
-				}else if(bean.getHref().contains("touxiangtupian")){
-					title = "头像图片";
-				}else if(bean.getHref().contains("gaoxiaotupian")){
-					title = "搞笑图片";
-				}else if(bean.getHref().contains("tushuotianxia")){
-					title = "图说天下";
-				}else if(bean.getHref().contains("faxingtupian")){
-					title = "发型图片";
-				}else if(bean.getHref().contains("katongdongman")){
-					title = "动画图片";
-				}else if(bean.getHref().contains("tupiandaquan")){
-					title = "图片大全";
-				}else if(bean.getHref().contains("p/gaoqing")){
-					title = "国内";
-				}
-				UmeiNavIndicatorHorizontalViewPagerActivity.startUmeiNavIndicatorHorizontalViewPagerActivity(mContext, bean.getHref(),title);
+//				String title = "";
+//				if(bean.getHref().contains("meinvtupian")){
+//					title = "美女图片";
+//				}else if(bean.getHref().contains("weimeitupian")){
+//					title = "唯美图片";
+//				}else if(bean.getHref().contains("bizhitupian")){
+//					title = "壁纸图片";
+//				}else if(bean.getHref().contains("touxiangtupian")){
+//					title = "头像图片";
+//				}else if(bean.getHref().contains("gaoxiaotupian")){
+//					title = "搞笑图片";
+//				}else if(bean.getHref().contains("tushuotianxia")){
+//					title = "图说天下";
+//				}else if(bean.getHref().contains("faxingtupian")){
+//					title = "发型图片";
+//				}else if(bean.getHref().contains("katongdongman")){
+//					title = "动画图片";
+//				}else if(bean.getHref().contains("tupiandaquan")){
+//					title = "图片大全";
+//				}else if(bean.getHref().contains("p/gaoqing")){
+//					title = "国内";
+//				}
+//				UmeiNavIndicatorHorizontalViewPagerActivity.startUmeiNavIndicatorHorizontalViewPagerActivity(mContext, bean.getHref(),title);
+ 		       UmeiNavTagIndicatorHorizontalViewPagerActivity.startUmeiNavIndicatorHorizontalViewPagerActivity(mContext, bean.getHref(), "");
+			
 			}
 		});
 		container.addView(convertView);
