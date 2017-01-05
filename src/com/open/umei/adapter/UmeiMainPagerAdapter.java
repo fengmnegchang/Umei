@@ -25,6 +25,7 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.open.umei.R;
 import com.open.umei.activity.UmeiArticleActivity;
+import com.open.umei.activity.UmeiNavIndicatorHorizontalViewPagerActivity;
 import com.open.umei.activity.m.UmeiMNavIndicatorViewPagerActivity;
 import com.open.umei.bean.UmeiTypeBean;
 
@@ -39,9 +40,9 @@ import com.open.umei.bean.UmeiTypeBean;
  * @description:
  ***************************************************************************************************************************************************************************** 
  */
-public class UmeiTypeHeightPagerAdapter extends CommonPagerAdapter<UmeiTypeBean> {
+public class UmeiMainPagerAdapter extends CommonPagerAdapter<UmeiTypeBean> {
 
-	public UmeiTypeHeightPagerAdapter(Context mContext, List<UmeiTypeBean> list) {
+	public UmeiMainPagerAdapter(Context mContext, List<UmeiTypeBean> list) {
 		super(mContext, list);
 	}
 
@@ -65,7 +66,29 @@ public class UmeiTypeHeightPagerAdapter extends CommonPagerAdapter<UmeiTypeBean>
 		mViewHolder.imageview.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				UmeiArticleActivity.startUmeiArticleActivity(mContext, bean.getHref());
+				String title = "";
+				if(bean.getHref().contains("meinvtupian")){
+					title = "美女图片";
+				}else if(bean.getHref().contains("weimeitupian")){
+					title = "唯美图片";
+				}else if(bean.getHref().contains("bizhitupian")){
+					title = "壁纸图片";
+				}else if(bean.getHref().contains("touxiangtupian")){
+					title = "头像图片";
+				}else if(bean.getHref().contains("gaoxiaotupian")){
+					title = "搞笑图片";
+				}else if(bean.getHref().contains("tushuotianxia")){
+					title = "图说天下";
+				}else if(bean.getHref().contains("faxingtupian")){
+					title = "发型图片";
+				}else if(bean.getHref().contains("katongdongman")){
+					title = "动画图片";
+				}else if(bean.getHref().contains("tupiandaquan")){
+					title = "图片大全";
+				}else if(bean.getHref().contains("p/gaoqing")){
+					title = "国内";
+				}
+				UmeiNavIndicatorHorizontalViewPagerActivity.startUmeiNavIndicatorHorizontalViewPagerActivity(mContext, bean.getHref(),title);
 			}
 		});
 		container.addView(convertView);

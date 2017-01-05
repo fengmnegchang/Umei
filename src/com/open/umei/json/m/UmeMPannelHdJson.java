@@ -11,8 +11,10 @@
  */
 package com.open.umei.json.m;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.open.umei.bean.UmeiTypeBean;
 import com.open.umei.bean.m.UmeMPannelHdBean;
 import com.open.umei.json.CommonJson;
 
@@ -29,6 +31,8 @@ import com.open.umei.json.CommonJson;
  */
 public class UmeMPannelHdJson extends CommonJson {
 	private List<UmeMPannelHdBean> list;
+	
+	private ArrayList<UmeiTypeBean> listv = new ArrayList<UmeiTypeBean>();
 
 	public List<UmeMPannelHdBean> getList() {
 		return list;
@@ -36,6 +40,14 @@ public class UmeMPannelHdJson extends CommonJson {
 
 	public void setList(List<UmeMPannelHdBean> list) {
 		this.list = list;
+	}
+
+	public ArrayList<UmeiTypeBean> getListv() {
+		return listv;
+	}
+
+	public void setListv(ArrayList<UmeiTypeBean> listv) {
+		this.listv = listv;
 	}
 
 }

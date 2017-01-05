@@ -33,6 +33,8 @@ public class UrlUtils {
 	
 	public static final String UMEI_M = "http://m.umei.cc/";
 	
+	public static final String UMEI_HTTP = "http://www.umei.cc";
+	
 	public static final String UMEI_M_TU_PIAN ="http://m.umei.cc/meinvtupian/siwameinv/20944.htm";
 	
 	public static final String UMEI_M_NAV ="http://m.umei.cc/meinvtupian/xingganmeinv/";

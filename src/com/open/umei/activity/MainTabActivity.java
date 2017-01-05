@@ -101,10 +101,15 @@ public class MainTabActivity extends CommonTabActivity<UmeiNavJson> {
 		// 初始化viewpager.
 		list.clear();
 		list.addAll(result.getList());
+		Intent intent;
 		for (int i=0;i< result.getList().size();i++) {
 			UmeiNavBean sliderNavBean = result.getList().get(i);
 			TabSpec tab_main1 = mTabHost.newTabSpec(sliderNavBean.getTitle());
-			Intent intent = new Intent(this, UmeiNavIndicatorHorizontalViewPagerActivity.class);
+			if(sliderNavBean.getTitle().equals("首页")){
+				intent = new Intent(this, UmeiMainExpandableActivity.class);
+			}else{
+				intent = new Intent(this, UmeiNavIndicatorHorizontalViewPagerActivity.class);
+			}
 			intent.putExtra("URL", sliderNavBean.getHref());
 			intent.putExtra("TITLE", sliderNavBean.getTitle());
 			tab_main1.setContent(intent).setIndicator(sliderNavBean.getTitle());

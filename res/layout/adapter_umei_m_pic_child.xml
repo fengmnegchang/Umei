@@ -34,6 +34,7 @@
              android:padding="10dp"
              app:container_enable_drag="false"
              app:container_gravity="center"
+             android:layout_below="@+id/listview"
              app:horizontal_interval="10dp"
              app:tag_clickable="true"
              app:tag_ripple_alpha="47"

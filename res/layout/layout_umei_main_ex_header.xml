@@ -9,7 +9,10 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/btn_search"
         android:layout_toLeftOf="@+id/btn_search"
-        android:hint="搜索你喜欢的图片--umei.cc" />
+        android:hint="搜索你喜欢的图片--umei.cc" 
+        android:focusable="false"
+        android:editable="false"
+        />
 
     <Button
         android:id="@+id/btn_search"
