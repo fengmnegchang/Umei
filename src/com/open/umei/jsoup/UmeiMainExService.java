@@ -217,6 +217,35 @@ public class UmeiMainExService extends CommonService {
 						}
 
 					}
+					
+					if(pannelhdbean.getPannelhdname().equals("国内")){
+						Element neiLinkElement = doc.select("div.neiLink").first();
+						if(neiLinkElement!=null){
+							try {
+								//<a href="http://www.umei.cc/tags/juru.htm" target="_blank" title="巨乳">巨乳</a>
+								Elements aaElements = neiLinkElement.select("a");
+								List<UmeiMArcBean> arclist = new ArrayList<UmeiMArcBean>();
+								UmeiMArcBean arcbean;
+								for (int y = 0; y < aaElements.size(); y++) {
+									arcbean = new UmeiMArcBean();
+									try {
+										Element aElement = aaElements.get(y).select("a").first();
+										String ahref = aElement.attr("href");
+										String atitle = aElement.text();
+										arcbean.setHref(ahref);
+										arcbean.setTitle(atitle);
+										Log.i(TAG, "i===" + i + ";y==" + y + ";ahref==" + ahref + ";atitle==" + atitle);
+									} catch (Exception e) {
+										e.printStackTrace();
+									}
+									arclist.add(arcbean);
+								}
+								pannelhdbean.setArclist(arclist);
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+						}
+					}
 					list.add(pannelhdbean);
 				}
 			}

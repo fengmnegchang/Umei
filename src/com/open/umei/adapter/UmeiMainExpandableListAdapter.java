@@ -95,7 +95,7 @@ public class UmeiMainExpandableListAdapter extends CommonExpandableListAdapter<U
 		mChildViewHolder.tagContainerLayout.setVisibility(View.GONE);
 		mChildViewHolder.listview.setVisibility(View.VISIBLE);
 		mChildViewHolder.arclist.clear();
-		if(getGroup(groupPosition).getPannelhdname().endsWith("美女图片")){
+		if(getGroup(groupPosition).getPannelhdname().endsWith("美女图片") || getGroup(groupPosition).getPannelhdname().endsWith("国内")){
 			mChildViewHolder.tagContainerLayout.setVisibility(View.VISIBLE);
 			mChildViewHolder.listview.setVisibility(View.GONE);
 			for(UmeiMArcBean bean:getGroup(groupPosition).getArclist()){
