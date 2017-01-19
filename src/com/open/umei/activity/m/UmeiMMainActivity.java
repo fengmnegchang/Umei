@@ -41,6 +41,7 @@ public class UmeiMMainActivity extends SlidingFragmentActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		setStatusBarColor(getResources().getColor(R.color.status_bar_color));
 		setContentView(R.layout.activity_umei_main);
 		// 初始化SlideMenu
 		initRightMenu();
