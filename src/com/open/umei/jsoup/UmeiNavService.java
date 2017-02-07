@@ -47,10 +47,10 @@ public class UmeiNavService extends CommonService {
 	public static ArrayList<UmeiNavBean> parseUmeiAllNav(String href) {
 		ArrayList<UmeiNavBean> list = new ArrayList<UmeiNavBean>();
 		try {
-			href = makeURL(href, new HashMap<String, Object>() {
-				{
-				}
-			});
+//			href = makeURL(href, new HashMap<String, Object>() {
+//				{
+//				}
+//			});
 			Log.i(TAG, "url = " + href);
 
 			Document doc = Jsoup.connect(href).userAgent(UrlUtils.userAgent).timeout(10000).get();

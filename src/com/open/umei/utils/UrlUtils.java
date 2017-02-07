@@ -20,22 +20,22 @@ import java.util.Map;
  */
 public class UrlUtils {
    /** 浏览器代理 **/
-	public static final String userAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.64 Safari/537.31";
+	public static final String userAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36 QQBrowser/4.1.4132.400";
 	public static final String tencentAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36 QQBrowser/4.1.4132.400";
 	public static final String umeiAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36 QQBrowser/4.1.4132.400";
 	
 	
-	public static final String UMEI = "http://www.umei.cc/";
+	public static final String UMEI = "https://www.umei.cc/";
 	
-	public static final String UMEI_NAV ="http://www.umei.cc/weimeitupian/oumeitupian/";
+	public static final String UMEI_NAV ="https://www.umei.cc/weimeitupian/oumeitupian/";
 	
-	public static final String UMEI_NAV_TAG = "http://www.umei.cc/weimeitupian/feizhuliutupian/beiying.htm";
+	public static final String UMEI_NAV_TAG = "https://www.umei.cc/weimeitupian/feizhuliutupian/beiying.htm";
 	
-	public static final String UMEI_SEARCH ="http://zhannei.baidu.com/cse/search?s=6545247087170373156&click=1&entry=1";
+	public static final String UMEI_SEARCH ="https://zhannei.baidu.com/cse/search?s=6545247087170373156&click=1&entry=1";
 	
 	public static final String UMEI_M = "http://m.umei.cc/";
 	
-	public static final String UMEI_HTTP = "http://www.umei.cc";
+	public static final String UMEI_HTTP = "https://www.umei.cc";
 	
 	public static final String UMEI_M_TU_PIAN ="http://m.umei.cc/meinvtupian/siwameinv/20944.htm";
 	
