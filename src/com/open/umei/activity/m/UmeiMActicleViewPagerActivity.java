@@ -112,9 +112,10 @@ public class UmeiMActicleViewPagerActivity extends CommonFragmentActivity<UmeiAr
 			bean.setSeq(i);
 			list.add(bean);
 		}
-		text_page_foot.setText(pagerno+" / "+result.getPagersize()+" 页");
 		mUmeiArticlePagerAdapter.notifyDataSetChanged();
+		text_page_foot.setText(pagerno+" / "+list.size()+" 页");
 		pagerno++;
+		
 	}
 
 	@Override
@@ -132,7 +133,7 @@ public class UmeiMActicleViewPagerActivity extends CommonFragmentActivity<UmeiAr
 				} else {
 					doAsync(UmeiMActicleViewPagerActivity.this, UmeiMActicleViewPagerActivity.this, UmeiMActicleViewPagerActivity.this);
 				}
-
+				text_page_foot.setText((position+1)+" / "+list.size()+" 页");
 			}
 
 			@Override
