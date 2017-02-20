@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.widget.TextView;
 
 import com.open.umei.R;
 import com.open.umei.activity.CommonFragmentActivity;
@@ -27,8 +28,9 @@ public class UmeiMActicleViewPagerActivity extends CommonFragmentActivity<UmeiAr
 	ViewPager viewpager;
 	public UmeiMArticlePagerAdapter mUmeiArticlePagerAdapter;
 	private List<UmeiArticleBean> list = new ArrayList<UmeiArticleBean>();
-	private String url = "http://www.umei.cc/bizhitupian/diannaobizhi/7628.htm";
+	private String url = "https://www.umei.cc/meinvtupian/meinvmote/28307.htm";
 	int pagerno = 1;
+	private TextView text_page_foot;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,7 @@ public class UmeiMActicleViewPagerActivity extends CommonFragmentActivity<UmeiAr
 		weakReferenceHandler = new WeakActivityReferenceHandler(this);
 		// 初始化viewpager.
 		viewpager = (ViewPager) findViewById(R.id.viewpager);
+		text_page_foot = (TextView) findViewById(R.id.text_page_foot);
 		mUmeiArticlePagerAdapter = new UmeiMArticlePagerAdapter(this, list, weakReferenceHandler);
 		viewpager.setAdapter(mUmeiArticlePagerAdapter);
 
@@ -109,6 +112,7 @@ public class UmeiMActicleViewPagerActivity extends CommonFragmentActivity<UmeiAr
 			bean.setSeq(i);
 			list.add(bean);
 		}
+		text_page_foot.setText(pagerno+" / "+result.getPagersize()+" 页");
 		mUmeiArticlePagerAdapter.notifyDataSetChanged();
 		pagerno++;
 	}
