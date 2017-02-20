@@ -17,6 +17,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.open.umei.R;
 import com.open.umei.fragment.UmeiArticlePagerFragment;
@@ -35,6 +36,8 @@ import com.open.umei.jsoup.UmeiArticleService;
  ***************************************************************************************************************************************************************************** 
  */
 public class UmeiMArcBodyPagerFragment extends UmeiArticlePagerFragment {
+	
+	
 	public static UmeiMArcBodyPagerFragment newInstance(String url, boolean isVisibleToUser) {
 		UmeiMArcBodyPagerFragment fragment = new UmeiMArcBodyPagerFragment();
 		fragment.setFragment(fragment);
@@ -48,6 +51,7 @@ public class UmeiMArcBodyPagerFragment extends UmeiArticlePagerFragment {
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_umei_m_arc_body_viewpager, container, false);
 		viewpager = (ViewPager) view.findViewById(R.id.viewpager);
+		text_page_foot = (TextView) view.findViewById(R.id.text_page_foot);
 		return view;
 	}
 	

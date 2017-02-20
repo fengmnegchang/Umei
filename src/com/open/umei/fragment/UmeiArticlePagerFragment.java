@@ -18,11 +18,14 @@ import android.os.Bundle;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.open.umei.R;
+import com.open.umei.activity.m.UmeiMActicleViewPagerActivity;
 import com.open.umei.adapter.UmeiArticlePagerAdapter;
 import com.open.umei.bean.UmeiArticleBean;
 import com.open.umei.json.UmeiArticleJson;
@@ -45,7 +48,8 @@ public class UmeiArticlePagerFragment extends BaseV4Fragment<UmeiArticleJson, Um
 	public UmeiArticlePagerAdapter mUmeiArticlePagerAdapter;
 	private List<UmeiArticleBean> list = new ArrayList<UmeiArticleBean>();
 	private int pageNo = 1;
-
+	public TextView text_page_foot;
+	
 	public static UmeiArticlePagerFragment newInstance(String url, boolean isVisibleToUser) {
 		UmeiArticlePagerFragment fragment = new UmeiArticlePagerFragment();
 		fragment.setFragment(fragment);
@@ -59,6 +63,7 @@ public class UmeiArticlePagerFragment extends BaseV4Fragment<UmeiArticleJson, Um
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_common_viewpager, container, false);
 		viewpager = (ViewPager) view.findViewById(R.id.viewpager);
+		text_page_foot = (TextView) view.findViewById(R.id.text_page_foot);
 		return view;
 	}
 
@@ -97,6 +102,26 @@ public class UmeiArticlePagerFragment extends BaseV4Fragment<UmeiArticleJson, Um
 	public void bindEvent() {
 		// TODO Auto-generated method stub
 		super.bindEvent();
+		viewpager.setCurrentItem(0);
+		viewpager.setOnPageChangeListener(new OnPageChangeListener() {
+
+			@Override
+			public void onPageSelected(int position) {
+				text_page_foot.setText((position+1)+" / "+list.size()+" 页");
+			}
+
+			@Override
+			public void onPageScrolled(int arg0, float arg1, int arg2) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void onPageScrollStateChanged(int arg0) {
+				// TODO Auto-generated method stub
+
+			}
+		});
 	}
 
 	/*
@@ -127,6 +152,7 @@ public class UmeiArticlePagerFragment extends BaseV4Fragment<UmeiArticleJson, Um
 			list.addAll(result.getList());
 		}
 		mUmeiArticlePagerAdapter.notifyDataSetChanged();
+		text_page_foot.setText(1+" / "+list.size()+" 页");
 	}
 
 	/*
