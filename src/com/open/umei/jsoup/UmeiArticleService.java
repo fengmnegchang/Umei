@@ -421,6 +421,7 @@ public class UmeiArticleService extends CommonService {
 					bean.setAlt(alt);
 					bean.setSrc(src);
 					bean.setSeq(pagerno);
+					bean.setUrl(href);
 					list.add(bean);
 				} catch (Exception e) {
 					e.printStackTrace();
