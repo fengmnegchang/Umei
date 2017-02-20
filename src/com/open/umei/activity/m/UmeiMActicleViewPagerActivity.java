@@ -29,9 +29,8 @@ public class UmeiMActicleViewPagerActivity extends CommonFragmentActivity<UmeiAr
 	public UmeiMArticlePagerAdapter mUmeiArticlePagerAdapter;
 	private List<UmeiArticleBean> list = new ArrayList<UmeiArticleBean>();
 	private String url = "https://www.umei.cc/meinvtupian/meinvmote/28307.htm";
-	int pagerno = 1;
+	private int pagerno = 0;
 	private TextView text_page_foot;
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -57,6 +56,8 @@ public class UmeiMActicleViewPagerActivity extends CommonFragmentActivity<UmeiAr
 		if (getIntent().getStringExtra("URL") != null) {
 			url = getIntent().getStringExtra("URL");
 		}
+		pagerno = getIntent().getIntExtra("POSITION", 0);
+		
 		UmeiArticleJson mUmeiArticleJson = (UmeiArticleJson) getIntent().getSerializableExtra("UMEI_ARTICLE_LIST");
 		if (mUmeiArticleJson != null && mUmeiArticleJson.getList() != null && mUmeiArticleJson.getList().size() > 0) {
 			for (int i = 0; i < mUmeiArticleJson.getList().size(); i++) {
@@ -64,9 +65,8 @@ public class UmeiMActicleViewPagerActivity extends CommonFragmentActivity<UmeiAr
 				list.add(mUmeiArticleJson.getList().get(i));
 			}
 			mUmeiArticlePagerAdapter.notifyDataSetChanged();
-		}
+		} 
 		doAsync(this, this, this);
-
 	}
 
 	/*
@@ -79,7 +79,7 @@ public class UmeiMActicleViewPagerActivity extends CommonFragmentActivity<UmeiAr
 		// TODO Auto-generated method stub
 		// UmeiArticleJson mUmeiArticleJson = new UmeiArticleJson();
 		// mUmeiArticleJson.setList(UmeiArticleService.parseArticlePagerSize(url));
-		UmeiArticleJson mUmeiArticleJson = UmeiArticleService.parseMArticlePagerSize(url, pagerno);
+		UmeiArticleJson mUmeiArticleJson = UmeiArticleService.parseMArticlePagerSize(url, pagerno+1);
 		return mUmeiArticleJson;
 	}
 
@@ -113,16 +113,15 @@ public class UmeiMActicleViewPagerActivity extends CommonFragmentActivity<UmeiAr
 			list.add(bean);
 		}
 		mUmeiArticlePagerAdapter.notifyDataSetChanged();
-		text_page_foot.setText(pagerno+" / "+list.size()+" 页");
 		pagerno++;
-		
+		text_page_foot.setText(pagerno+" / "+list.size()+" 页");
 	}
 
 	@Override
 	protected void bindEvent() {
 		super.bindEvent();
 		// 初始化.
-		viewpager.setCurrentItem(0);
+		viewpager.setCurrentItem(pagerno);
 		viewpager.setOnPageChangeListener(new OnPageChangeListener() {
 
 			@Override
@@ -176,10 +175,11 @@ public class UmeiMActicleViewPagerActivity extends CommonFragmentActivity<UmeiAr
 		}
 	}
 
-	public static void startUmeiMActicleViewPagerActivity(Context context, UmeiArticleJson umeiArticleJson, String url) {
+	public static void startUmeiMActicleViewPagerActivity(Context context, UmeiArticleJson umeiArticleJson, String url,int position) {
 		Intent intent = new Intent();
 		intent.putExtra("UMEI_ARTICLE_LIST", umeiArticleJson);
 		intent.putExtra("URL", url);
+		intent.putExtra("POSITION", position);
 		intent.setClass(context, UmeiMActicleViewPagerActivity.class);
 		context.startActivity(intent);
 	}

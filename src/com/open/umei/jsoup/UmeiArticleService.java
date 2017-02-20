@@ -332,7 +332,8 @@ public class UmeiArticleService extends CommonService {
 			// http://www.umei.cc/bizhitupian/diannaobizhi/7628_2.htm
 			// http://www.umei.cc/bizhitupian/diannaobizhi/7628.htm
 			if(href.contains(".htm")){
-				href = href.replace(".htm", "") + "_" + pagerno + ".htm";
+					href = href.replace(".htm", "") + "_" + pagerno + ".htm";
+				
 			}else if(href.contains("_.htm")){
 				//http://www.umei.cc/bizhitupian/diannaobizhi/1.htm?
 			}else{

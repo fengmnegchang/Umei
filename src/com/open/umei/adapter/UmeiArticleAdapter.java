@@ -92,7 +92,7 @@ public class UmeiArticleAdapter extends CommonAdapter<UmeiArticleBean> {
 	// }
 
 	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
+	public View getView(final int position, View convertView, ViewGroup parent) {
 		final UmeiArticleBean bean = (UmeiArticleBean) getItem(position);
 
 		View view = LayoutInflater.from(mContext).inflate(R.layout.adapter_umei_article, null);
@@ -112,7 +112,7 @@ public class UmeiArticleAdapter extends CommonAdapter<UmeiArticleBean> {
 					// bean.getSrc());
 					UmeiArticleJson mUmeiArticleJson = new UmeiArticleJson();
 					mUmeiArticleJson.setList(list);
-					UmeiMActicleViewPagerActivity.startUmeiMActicleViewPagerActivity(mContext, mUmeiArticleJson, url);
+					UmeiMActicleViewPagerActivity.startUmeiMActicleViewPagerActivity(mContext, mUmeiArticleJson, url,position);
 				}
 			});
 		}
