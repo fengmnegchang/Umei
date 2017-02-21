@@ -83,7 +83,8 @@ public class UmeiNavIndicatorHorizontalViewPagerFragment extends CommonIndicator
 				for(UmeiSubNavBean subBean :bean.getSubNavList()){
 					titleList.add(subBean.getTitle());
 //					fragment = UmeiTypeListFragment.newInstance(subBean.getHref(),false);
-					fragment = UmeiTypeGridFragment.newInstance(subBean.getHref(),false);
+//					fragment = UmeiTypeGridFragment.newInstance(subBean.getHref(),false);
+					fragment = UmeiTypeHeadGridFragment.newInstance(subBean.getHref(),false);
 					listRankFragment.add(fragment);
 				}
 			}
