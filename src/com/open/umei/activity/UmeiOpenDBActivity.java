@@ -405,7 +405,7 @@ public class UmeiOpenDBActivity extends CommonFragmentActivity<OpenDBJson> imple
 			list.get((int) id).setState(1);
 			mOpenDBListAdapter.notifyDataSetChanged();
 			OpenDBBean bean = list.get((int) id);
-
+			UmeiWebViewActivity.startUmeiWebViewActivity(this, bean.getImgsrc());
 		}
 
 	}

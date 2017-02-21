@@ -102,7 +102,7 @@ public class OpenDBListAdapter extends CommonAdapter<OpenDBBean> {
 				@Override
 				public void onClick(View v) {
 					Message msg = weakReferenceHandler.obtainMessage();
-					msg.what = 9002;
+					msg.what = 10000;
 					msg.arg1 = position;
 				    weakReferenceHandler.sendMessage(msg);
 				}

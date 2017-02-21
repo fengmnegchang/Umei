@@ -99,6 +99,7 @@ public class UmeiMActicleViewPagerActivity extends CommonFragmentActivity<UmeiAr
 					if (list.size() == 0) {
 						list.add(bean);
 					} else {
+						list.get(bean.getSeq() - 1).setUrl(bean.getUrl());
 						list.get(bean.getSeq() - 1).setSrc(bean.getSrc());
 						list.get(bean.getSeq() - 1).setAlt(bean.getAlt());
 					}
