@@ -81,8 +81,8 @@ public class UmeiArticleGridHeadActivity extends CommonFragmentActivity<UmeiArti
 
 	private String url = "http://www.umei.cc/bizhitupian/diannaobizhi/7628.htm";
 	private int pageNo = 1;
-	
-	private View headview,footview;
+
+	private View headview, footview;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +96,7 @@ public class UmeiArticleGridHeadActivity extends CommonFragmentActivity<UmeiArti
 		super.findView();
 		headview = LayoutInflater.from(this).inflate(R.layout.layout_umei_article_grid_head, null);
 		footview = LayoutInflater.from(this).inflate(R.layout.layout_umei_article_foot, null);
-		
+
 		txt_ArticleTitle = (TextView) headview.findViewById(R.id.txt_ArticleTitle);
 		txt_time = (TextView) headview.findViewById(R.id.txt_time);
 		txt_see = (TextView) headview.findViewById(R.id.txt_see);
@@ -111,7 +111,7 @@ public class UmeiArticleGridHeadActivity extends CommonFragmentActivity<UmeiArti
 		if (getIntent().getStringExtra("URL") != null) {
 			url = getIntent().getStringExtra("URL");
 		}
-		 
+
 	}
 
 	@Override
@@ -128,10 +128,10 @@ public class UmeiArticleGridHeadActivity extends CommonFragmentActivity<UmeiArti
 		ListView pListView = mPullRefreshListView.getRefreshableView();
 		pListView.addHeaderView(headview);
 		pListView.addFooterView(footview);
-		mUmeiArticleAdapter = new UmeiArticleAdapter(this, list,url);
+		mUmeiArticleAdapter = new UmeiArticleAdapter(this, list, url);
 		mPullRefreshListView.setAdapter(mUmeiArticleAdapter);
 		mPullRefreshListView.setMode(Mode.BOTH);
-		
+
 		weakReferenceHandler.sendEmptyMessage(MESSAGE_HANDLER);
 	}
 
@@ -148,7 +148,8 @@ public class UmeiArticleGridHeadActivity extends CommonFragmentActivity<UmeiArti
 		mPullRefreshListView.setOnRefreshListener(new OnRefreshListener<ListView>() {
 			@Override
 			public void onRefresh(PullToRefreshBase<ListView> refreshView) {
-				String label = DateUtils.formatDateTime(UmeiArticleGridHeadActivity.this, System.currentTimeMillis(), DateUtils.FORMAT_SHOW_TIME | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_ABBREV_ALL);
+				String label = DateUtils.formatDateTime(UmeiArticleGridHeadActivity.this, System.currentTimeMillis(), DateUtils.FORMAT_SHOW_TIME | DateUtils.FORMAT_SHOW_DATE
+						| DateUtils.FORMAT_ABBREV_ALL);
 				// Update the LastUpdatedLabel
 				refreshView.getLoadingLayoutProxy().setLastUpdatedLabel(label);
 				// Do work to refresh the list here.
@@ -160,7 +161,7 @@ public class UmeiArticleGridHeadActivity extends CommonFragmentActivity<UmeiArti
 				}
 			}
 		});
-		 
+
 	}
 
 	/*
@@ -231,7 +232,7 @@ public class UmeiArticleGridHeadActivity extends CommonFragmentActivity<UmeiArti
 		intent.setClass(context, UmeiArticleGridHeadActivity.class);
 		context.startActivity(intent);
 	}
-	
+
 	/*
 	 * (non-Javadoc)
 	 * 

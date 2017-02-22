@@ -24,6 +24,7 @@ import android.widget.TextView;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.open.umei.R;
+import com.open.umei.activity.UmeiArticleGridHeadActivity;
 import com.open.umei.activity.UmeiWebViewActivity;
 import com.open.umei.bean.UmeiTypeBean;
 
@@ -70,12 +71,12 @@ public class UmeiTypeAdapter extends CommonAdapter<UmeiTypeBean> {
 			mViewHolder.txt_typename.setText(bean.getTypename());
 			mViewHolder.txt_IcoList.setText(bean.getIcoList());
 			mViewHolder.txt_IcoTime.setText(bean.getIcoTime());
-//			mViewHolder.imageview.setOnClickListener(new OnClickListener() {
-//				@Override
-//				public void onClick(View v) {
-//					UmeiWebViewActivity.startUmeiWebViewActivity(mContext, bean.getSrc());
-//				}
-//			});
+			mViewHolder.imageview.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					UmeiArticleGridHeadActivity.startUmeiArticleGridHeadActivity(mContext, bean.getHref());
+				}
+			});
 		}
 		return convertView;
 	}

@@ -6,11 +6,10 @@
     <ImageView
         android:id="@+id/imageview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="220dp"
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:scaleType="fitXY"
-        android:minHeight="220dp"
         android:src="@drawable/common_v4" />
 
     <TextView
