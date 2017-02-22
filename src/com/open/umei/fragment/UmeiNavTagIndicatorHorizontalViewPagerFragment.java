@@ -21,6 +21,7 @@ import com.open.umei.bean.UmeiNavBean;
 import com.open.umei.bean.UmeiSubNavBean;
 import com.open.umei.json.UmeiNavJson;
 import com.open.umei.jsoup.UmeiNavService;
+import com.open.umei.utils.UrlUtils;
 
 /**
  ***************************************************************************************************************************************************************************** 
@@ -82,7 +83,11 @@ public class UmeiNavTagIndicatorHorizontalViewPagerFragment extends CommonIndica
 			for(UmeiSubNavBean subBean :bean.getSubNavList()){
 				titleList.add(subBean.getTitle());
 //					fragment = UmeiTypeListFragment.newInstance(subBean.getHref(),false);
-				fragment = UmeiTypeGridFragment.newInstance(subBean.getHref(),false);
+				if(url.contains("search.php?") && !title.equals(subBean.getTitle())){
+					fragment = UmeiTypeGridFragment.newInstance(UrlUtils.UMEI_SEARCH_TAG_UMPLUS+subBean.getHref(),false);
+				}else{
+					fragment = UmeiTypeGridFragment.newInstance(subBean.getHref(),false);
+				}
 				listRankFragment.add(fragment);
 			}
 		}

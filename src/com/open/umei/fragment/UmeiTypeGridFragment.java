@@ -160,9 +160,14 @@ public class UmeiTypeGridFragment extends BaseV4Fragment<UmeiTypeJson, UmeiTypeG
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		mCommonT.setChannelTitle(UmeiTypeListService.getChannelTitle());
-		mCommonT.setListDesc(UmeiTypeListService.getListDesc());
-		mCommonT.setTypePic(UmeiTypeListService.getTypePic());
+		try {
+			mCommonT.setChannelTitle(UmeiTypeListService.getChannelTitle());
+			mCommonT.setListDesc(UmeiTypeListService.getListDesc());
+			mCommonT.setTypePic(UmeiTypeListService.getTypePic());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		mCommonT.setTypeList2(list2);
 		mCommonT.setTypeList(list);
 		return mCommonT;

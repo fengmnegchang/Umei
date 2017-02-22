@@ -149,6 +149,13 @@
             android:description="@string/umei_search_desp"  
 			>
         </activity>
+         <!-- umei tag搜索-->
+        <activity
+            android:name="com.open.umei.activity.SearchResultTagActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/umei_search_tag_desp"  
+			>
+        </activity>
          <!-- umei webview-->
         <activity
             android:name="com.open.umei.activity.UmeiWebViewActivity"

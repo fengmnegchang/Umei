@@ -33,6 +33,8 @@ public class UrlUtils {
 	
 	public static final String UMEI_SEARCH ="https://zhannei.baidu.com/cse/search?s=6545247087170373156&click=1&entry=1";
 	
+	public static final String UMEI_SEARCH_TAG ="https://www.umei.cc/umplus/search.php?pagesize=24";
+	public static final String UMEI_SEARCH_TAG_UMPLUS ="https://www.umei.cc/umplus/";
 	public static final String UMEI_M = "http://m.umei.cc/";
 	
 	public static final String UMEI_HTTP = "https://www.umei.cc";
