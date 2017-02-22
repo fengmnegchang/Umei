@@ -41,9 +41,10 @@ import com.open.umei.weak.WeakActivityReferenceHandler;
  ***************************************************************************************************************************************************************************** 
  */
 public class OpenDBListAdapter extends CommonAdapter<OpenDBBean> {
- 
-	private WeakActivityReferenceHandler weakReferenceHandler ;
-	public OpenDBListAdapter(Context mContext,WeakActivityReferenceHandler weakReferenceHandler, List<OpenDBBean> list) {
+
+	private WeakActivityReferenceHandler weakReferenceHandler;
+
+	public OpenDBListAdapter(Context mContext, WeakActivityReferenceHandler weakReferenceHandler, List<OpenDBBean> list) {
 		super(mContext, list);
 		this.weakReferenceHandler = weakReferenceHandler;
 	}
@@ -69,33 +70,30 @@ public class OpenDBListAdapter extends CommonAdapter<OpenDBBean> {
 			viewHolder.text_movieTitle.setText(bean.getTitle());
 			viewHolder.text_type.setText(bean.getTypename());
 			viewHolder.text_time.setText(bean.getTime());
-			if(bean.getState()==1){
+			if (bean.getState() == 1) {
 				viewHolder.text_movieTitle.setTextColor(mContext.getResources().getColor(android.R.color.darker_gray));
 				viewHolder.text_type.setTextColor(mContext.getResources().getColor(android.R.color.darker_gray));
 				viewHolder.text_time.setTextColor(mContext.getResources().getColor(android.R.color.darker_gray));
-			}else{
+			} else {
 				viewHolder.text_movieTitle.setTextColor(mContext.getResources().getColor(android.R.color.black));
 				viewHolder.text_type.setTextColor(mContext.getResources().getColor(android.R.color.black));
 				viewHolder.text_time.setTextColor(mContext.getResources().getColor(android.R.color.black));
 			}
-			if(bean.getType()==1 || bean.getType()==4){
-				viewHolder.imageview.setVisibility(View.GONE);
-			}else{
-				viewHolder.imageview.setVisibility(View.VISIBLE);
-				if (bean.getImgsrc() != null && bean.getImgsrc().length() > 0) {
-					DisplayImageOptions options = new DisplayImageOptions.Builder().showStubImage(R.drawable.common_v4).showImageForEmptyUri(R.drawable.common_v4).showImageOnFail(R.drawable.common_v4)
-							.cacheInMemory().cacheOnDisc().build();
-					ImageLoader.getInstance().displayImage(bean.getImgsrc(), viewHolder.imageview, options, getImageLoadingListener());
-				}
+
+			viewHolder.imageview.setVisibility(View.VISIBLE);
+			if (bean.getImgsrc() != null && bean.getImgsrc().length() > 0) {
+				DisplayImageOptions options = new DisplayImageOptions.Builder().showStubImage(R.drawable.common_v4).showImageForEmptyUri(R.drawable.common_v4).showImageOnFail(R.drawable.common_v4)
+						.cacheInMemory().cacheOnDisc().build();
+				ImageLoader.getInstance().displayImage(bean.getImgsrc(), viewHolder.imageview, options, getImageLoadingListener());
 			}
-		
+
 			viewHolder.btn_detail.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
 					Message msg = weakReferenceHandler.obtainMessage();
 					msg.what = 9000;
 					msg.arg1 = position;
-				    weakReferenceHandler.sendMessage(msg);
+					weakReferenceHandler.sendMessage(msg);
 				}
 			});
 			viewHolder.btn_uncollection.setOnClickListener(new OnClickListener() {
@@ -104,7 +102,7 @@ public class OpenDBListAdapter extends CommonAdapter<OpenDBBean> {
 					Message msg = weakReferenceHandler.obtainMessage();
 					msg.what = 10000;
 					msg.arg1 = position;
-				    weakReferenceHandler.sendMessage(msg);
+					weakReferenceHandler.sendMessage(msg);
 				}
 			});
 		}
@@ -115,7 +113,7 @@ public class OpenDBListAdapter extends CommonAdapter<OpenDBBean> {
 		TextView text_movieTitle;
 		TextView text_type;
 		TextView text_time;
-		Button btn_detail,btn_uncollection;
+		Button btn_detail, btn_uncollection;
 		ImageView imageview;
 	}
 

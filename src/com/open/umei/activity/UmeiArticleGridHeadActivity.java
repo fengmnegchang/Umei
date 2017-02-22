@@ -18,13 +18,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
-import android.support.v4.view.ViewPager;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -36,11 +35,12 @@ import com.open.umei.R;
 import com.open.umei.adapter.UmeiArticleAdapter;
 import com.open.umei.adapter.UmeiArticleTypeAdapter;
 import com.open.umei.adapter.UmeiTypeAdapter;
-import com.open.umei.adapter.UmeiTypePagerAdapter;
 import com.open.umei.bean.UmeiArticleBean;
 import com.open.umei.bean.UmeiArticleInfoBean;
 import com.open.umei.bean.UmeiArticleTypeBean;
 import com.open.umei.bean.UmeiTypeBean;
+import com.open.umei.bean.db.OpenDBBean;
+import com.open.umei.db.service.UmeiOpenDBService;
 import com.open.umei.json.UmeiArticleJson;
 import com.open.umei.jsoup.UmeiArticleService;
 import com.open.umei.jsoup.UmeiTypeListService;
@@ -83,6 +83,7 @@ public class UmeiArticleGridHeadActivity extends CommonFragmentActivity<UmeiArti
 	private int pageNo = 1;
 
 	private View headview, footview;
+	private Button btn_collection;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -103,6 +104,7 @@ public class UmeiArticleGridHeadActivity extends CommonFragmentActivity<UmeiArti
 		txt_column = (TextView) headview.findViewById(R.id.txt_column);
 		txt_tips = (TextView) headview.findViewById(R.id.txt_tips);
 		txt_ArticleDesc = (TextView) headview.findViewById(R.id.txt_ArticleDesc);
+		btn_collection = (Button) headview.findViewById(R.id.btn_collection);
 
 		mExpendGridView = (ExpendGridView) headview.findViewById(R.id.expendgridview);
 		listview = (ExpendListView) footview.findViewById(R.id.listview);
@@ -161,7 +163,21 @@ public class UmeiArticleGridHeadActivity extends CommonFragmentActivity<UmeiArti
 				}
 			}
 		});
-
+		btn_collection.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if(list!=null && list.size()>0){
+					OpenDBBean openbean = new OpenDBBean();
+					openbean.setUrl(url);
+					openbean.setType(1);
+					openbean.setImgsrc(list.get(0).getSrc());
+					openbean.setTitle(txt_ArticleTitle.getText().toString());
+					openbean.setTypename(txt_column.getText().toString());
+					openbean.setTime("");
+					UmeiOpenDBService.insert(UmeiArticleGridHeadActivity.this, openbean);
+				}
+			}
+		});
 	}
 
 	/*

@@ -15,6 +15,15 @@
         android:layout_marginTop="5dp"
         android:text="清纯非主流美女图片电脑壁纸" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:text="收藏"
+        android:id="@+id/btn_collection"
+        android:textSize="12dp" />
+
     <TextView
         android:id="@+id/txt_time"
         android:layout_width="wrap_content"
@@ -57,22 +66,20 @@
         android:layout_marginTop="5dp"
         android:text="图片介绍 : 优美图库《电脑壁纸》栏目小编精心为您提供一组《清纯非主流美女图片电脑壁纸》图集，优美图库以高清美图为宗旨倾力打造一个品牌图库网站，更多高清、美图尽在优美图库网（umei.cc）。" />
 
-
     <com.open.umei.view.ExpendGridView
         android:id="@+id/expendgridview"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_ArticleDesc"
         android:cacheColorHint="#00000000"
+        android:clipChildren="false"
         android:divider="#19000000"
         android:dividerHeight="4dp"
         android:fadingEdge="none"
-        android:clipChildren="false"
         android:horizontalSpacing="5dp"
-         android:layout_below="@+id/txt_ArticleDesc"
         android:numColumns="2"
         android:scrollbars="none"
         android:stretchMode="columnWidth"
-        android:verticalSpacing="5dp" 
-        />
+        android:verticalSpacing="5dp" />
 
 </RelativeLayout>
