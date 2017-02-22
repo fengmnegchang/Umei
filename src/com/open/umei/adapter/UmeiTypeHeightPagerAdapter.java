@@ -24,8 +24,7 @@ import android.widget.TextView;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.open.umei.R;
-import com.open.umei.activity.UmeiArticleActivity;
-import com.open.umei.activity.m.UmeiMNavIndicatorViewPagerActivity;
+import com.open.umei.activity.UmeiArticleGridHeadActivity;
 import com.open.umei.bean.UmeiTypeBean;
 
 /**
@@ -65,7 +64,7 @@ public class UmeiTypeHeightPagerAdapter extends CommonPagerAdapter<UmeiTypeBean>
 		mViewHolder.imageview.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				UmeiArticleActivity.startUmeiArticleActivity(mContext, bean.getHref());
+				UmeiArticleGridHeadActivity.startUmeiArticleGridHeadActivity(mContext, bean.getHref());
 			}
 		});
 		container.addView(convertView);

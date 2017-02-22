@@ -23,7 +23,7 @@ import android.widget.TextView;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.open.umei.R;
-import com.open.umei.activity.UmeiArticleActivity;
+import com.open.umei.activity.UmeiArticleGridHeadActivity;
 import com.open.umei.activity.m.UmeiMArcBodyListHeadFootActivity;
 import com.open.umei.bean.m.UmeiMPicBean;
 
@@ -71,7 +71,7 @@ public class UmeiMainGridViewAdapter extends CommonAdapter<UmeiMPicBean> {
 				if(bean.getHref().contains("http://www.umei.cc/tushuotianxia/")){
 					UmeiMArcBodyListHeadFootActivity.startUmeiMArcBodyListHeadFootActivity(mContext, bean.getHref().replace("http://www.umei.cc/", "http://m.umei.cc/"));
 				}else{
-					UmeiArticleActivity.startUmeiArticleActivity(mContext, bean.getHref());
+					UmeiArticleGridHeadActivity.startUmeiArticleGridHeadActivity(mContext, bean.getHref());
 				}
 			}
 		});

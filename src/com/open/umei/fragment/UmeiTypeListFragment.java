@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,7 +21,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.open.umei.R;
-import com.open.umei.activity.UmeiArticleActivity;
+import com.open.umei.activity.UmeiArticleGridHeadActivity;
 import com.open.umei.adapter.UmeiTypeAdapter;
 import com.open.umei.bean.UmeiTypeBean;
 import com.open.umei.json.UmeiTypeJson;
@@ -118,7 +117,7 @@ public class UmeiTypeListFragment extends BaseV4Fragment<UmeiTypeJson, UmeiTypeL
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				UmeiArticleActivity.startUmeiArticleActivity(getActivity(), list.get((int) id).getHref());
+				UmeiArticleGridHeadActivity.startUmeiArticleGridHeadActivity(getActivity(), list.get((int) id).getHref());
 			}
 		});
 	}

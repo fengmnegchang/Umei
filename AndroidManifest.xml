@@ -127,6 +127,14 @@
 			>
         </activity>
         
+        <!-- umei  图片详细grid head -->
+        <activity
+            android:name="com.open.umei.activity.UmeiArticleGridHeadActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/umei_article_list_grid_head_desp"  
+			>
+        </activity>
+        
          <!-- umei  图片详细Fragment实现 -->
         <activity
             android:name="com.open.umei.activity.UmeiArticleFragmentActivity"
