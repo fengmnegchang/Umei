@@ -176,6 +176,21 @@ public class UmeiMActicleViewPagerActivity extends CommonFragmentActivity<UmeiAr
 		}
 	}
 
+	
+	/* (non-Javadoc)
+	 * @see android.support.v4.app.FragmentActivity#onBackPressed()
+	 */
+	@Override
+	public void onBackPressed() {
+		// TODO Auto-generated method stub
+		if (getRequestedOrientation() == ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE) {
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT);
+		} else{
+			super.onBackPressed();
+		} 
+		
+	}
+	
 	public static void startUmeiMActicleViewPagerActivity(Context context, UmeiArticleJson umeiArticleJson, String url,int position) {
 		Intent intent = new Intent();
 		intent.putExtra("UMEI_ARTICLE_LIST", umeiArticleJson);
