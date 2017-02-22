@@ -40,12 +40,16 @@ import com.open.umei.db.UmeiDBHelper;
 public class UmeiOpenDBService {
 	public static final String TAG = UmeiOpenDBService.class.getSimpleName();
 	
-	public static List<OpenDBBean> queryList(Context mContext){
+	public static List<OpenDBBean> queryList(Context mContext,boolean isseqDesc){
 		List<OpenDBBean> list = new ArrayList<OpenDBBean>();
 		try {
-			List<Map> maps	= UmeiDBHelper.getInstance(mContext).queryListMap(
-					mContext.getResources().getStringArray(R.array.QUERY_ALL_TABLE_SQL)[0],
-					null);
+			String sql ;
+			if(isseqDesc){
+				sql = mContext.getResources().getStringArray(R.array.QUERY_ALL_TABLE_SQL_ID)[0];
+			}else{
+				sql = mContext.getResources().getStringArray(R.array.QUERY_ALL_TABLE_SQL)[0];
+			}
+			List<Map> maps	= UmeiDBHelper.getInstance(mContext).queryListMap(sql,null);
 			OpenDBBean openbean;
 			//[{typename=类型：亚洲, title=片名：最新pacopacomama 010317_235 新年女体盛~巫女多次疯狂被中出~[大咲萌], time=时间：2017-01-05 02:59:17, type=3, id=1, url=http://m.100av.us/vshow.php?id=11174, imgsrc=http://mi3.1100lu.xyz/m/vod/2017-01-05/586d4604b21a2.jpg}]
 			for(int i=0;i<maps.size();i++){

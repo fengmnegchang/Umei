@@ -59,6 +59,7 @@ public class UmeiOpenDBActivity extends CommonFragmentActivity<OpenDBJson> imple
 	private OpenDBListAdapter mOpenDBListAdapter;
 	private List<OpenDBBean> list = new ArrayList<OpenDBBean>();
 	private boolean isdateDesc;
+	private boolean isseqDesc;
 
 	// private Button selectBtn;
 	// private Button insertBtn;
@@ -68,7 +69,7 @@ public class UmeiOpenDBActivity extends CommonFragmentActivity<OpenDBJson> imple
 	// private QianBaiLuDBHelper mQianBaiLuDBHelper;
 
 	Button btn_txt;
-	Button btn_excel, btn_importexcel, btn_date;
+	Button btn_excel, btn_importexcel, btn_date,btn_seq;
 
 	private String[] title = { "序号", "标题", "类型名称", "时间", "类型", "地址", "图片地址", "下载地址" };
 	ArrayList<ArrayList<String>> excellist = new ArrayList<ArrayList<String>>();
@@ -106,6 +107,7 @@ public class UmeiOpenDBActivity extends CommonFragmentActivity<OpenDBJson> imple
 		btn_excel = (Button) findViewById(R.id.btn_excel);
 		btn_importexcel = (Button) findViewById(R.id.btn_importexcel);
 		btn_date = (Button) findViewById(R.id.btn_date);
+		btn_seq = (Button) findViewById(R.id.btn_seq);
 	}
 
 	/*
@@ -121,6 +123,7 @@ public class UmeiOpenDBActivity extends CommonFragmentActivity<OpenDBJson> imple
 		btn_excel.setOnClickListener(this);
 		btn_importexcel.setOnClickListener(this);
 		btn_date.setOnClickListener(this);
+		btn_seq.setOnClickListener(this);
 		mPullRefreshListView.setOnItemClickListener(this);
 		// selectBtn.setOnClickListener(this);
 		// insertBtn.setOnClickListener(this);
@@ -306,6 +309,14 @@ public class UmeiOpenDBActivity extends CommonFragmentActivity<OpenDBJson> imple
 			}
 			weakReferenceHandler.sendEmptyMessage(MESSAGE_HANDLER);
 			break;
+		case R.id.btn_seq:
+			if (isseqDesc) {
+				isseqDesc = false;
+			} else {
+				isseqDesc = true;
+			}
+			weakReferenceHandler.sendEmptyMessage(MESSAGE_HANDLER);
+			break;
 		}
 	}
 
@@ -339,7 +350,7 @@ public class UmeiOpenDBActivity extends CommonFragmentActivity<OpenDBJson> imple
 		if (isdateDesc) {
 			mOpenDBJson.setList(UmeiOpenDBService.queryListDescDate(getApplicationContext()));
 		} else {
-			mOpenDBJson.setList(UmeiOpenDBService.queryList(getApplicationContext()));
+			mOpenDBJson.setList(UmeiOpenDBService.queryList(getApplicationContext(),isseqDesc));
 		}
 		return mOpenDBJson;
 	}

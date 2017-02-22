@@ -110,6 +110,10 @@
         <item>select * from collection</item>
     </array>
     
+     <array name="QUERY_ALL_TABLE_SQL_ID">
+        <item>select * from collection  order by id desc </item>
+    </array>
+    
      <array name="QUERY_ALL_TABLE_SQL_DESC">
         <item>select * from collection order by time desc</item>
     </array>
