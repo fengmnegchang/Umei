@@ -37,8 +37,10 @@
  	<string name="umei_m_tag_head_foot_desp">优美cc国内标签云</string>
  	<string name="umei_m_article_viewpager_desp">优美cc图片viewpager</string>
  	<string name="save_picture">保存图片</string>  
-<string name="save_picture_failed">保存失败</string>  
-<string name="save_picture_success">图片成功保存至%s目录</string> 
-<string name="umei_open_db_desp">下载收藏</string>
-<string name="umei_open_db_type_desp">下载收藏type</string>
+	<string name="save_picture_failed">保存失败</string>  
+	<string name="save_picture_success">图片成功保存至%s目录</string> 
+	<string name="umei_open_db_desp">下载收藏</string>
+	<string name="umei_open_db_type_desp">下载收藏type</string>
+	<string name="yiyoutu_nav_m_main_desp">亿优图m</string>
+	<string name="yiyoutu_sub_nav_pulllist_desp">亿优图tab</string>
 </resources>

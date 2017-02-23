@@ -255,6 +255,20 @@
             android:theme="@style/Theme.PageIndicatorDefaults"
             android:description="@string/umei_open_db_type_desp" >
         </activity>
+        
+         <!-- 亿优图m -->
+         <activity
+            android:name="com.open.umei.activity.yiyoutu.YiYouTuNavIndicatorHorizontalViewPagerActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:theme="@style/Theme.PageIndicatorDefaults"
+            android:description="@string/yiyoutu_nav_m_main_desp" >
+        </activity>
+         <!-- 亿优图tab -->
+         <activity
+            android:name="com.open.umei.activity.yiyoutu.YiYouTuNavFragmentActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/yiyoutu_sub_nav_pulllist_desp" >
+        </activity>
         <!-- 所有类列表 -->
         <activity
             android:name="com.open.umei.activity.UmeiALLActivity"
