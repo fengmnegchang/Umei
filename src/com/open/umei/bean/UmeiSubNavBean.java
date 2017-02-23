@@ -25,6 +25,7 @@ package com.open.umei.bean;
 public class UmeiSubNavBean extends CommonBean {
 	private String title;
 	private String href;
+	private int type;
 
 	public String getTitle() {
 		return title;
@@ -41,4 +42,14 @@ public class UmeiSubNavBean extends CommonBean {
 	public void setHref(String href) {
 		this.href = href;
 	}
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	}
+	
+	
 }

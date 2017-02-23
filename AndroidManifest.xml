@@ -248,6 +248,13 @@
             android:configChanges="keyboard|keyboardHidden|navigation"
             android:description="@string/umei_open_db_desp" >
         </activity>
+         <!-- 下载收藏type -->
+         <activity
+            android:name="com.open.umei.activity.UmeiOpenDBTypeIndicatorActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:theme="@style/Theme.PageIndicatorDefaults"
+            android:description="@string/umei_open_db_type_desp" >
+        </activity>
         <!-- 所有类列表 -->
         <activity
             android:name="com.open.umei.activity.UmeiALLActivity"

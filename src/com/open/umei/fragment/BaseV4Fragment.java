@@ -287,7 +287,11 @@ public class BaseV4Fragment<T,F extends BaseV4Fragment> extends Fragment impleme
 	
 	/** 默认位置 */
 	public static final int MESSAGE_DEFAULT_POSITION = 2000;
-
+	/** 在适配器里 调用onitemclick事件*/
+	public static final int MESSAGE_ADAPTER_CALL_ONITEM = 9000;
+	/** 在适配器里 保存*/
+	public static final int MESSAGE_ADAPTER_COLLECTION = 9001;
+	public static final int MESSAGE_ADAPTER_UN_COLLECTION = 9002;
 	/*
 	 * (non-Javadoc)
 	 * 
