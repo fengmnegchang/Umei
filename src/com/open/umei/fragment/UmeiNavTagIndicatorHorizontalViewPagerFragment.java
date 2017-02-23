@@ -84,9 +84,11 @@ public class UmeiNavTagIndicatorHorizontalViewPagerFragment extends CommonIndica
 				titleList.add(subBean.getTitle());
 //					fragment = UmeiTypeListFragment.newInstance(subBean.getHref(),false);
 				if(url.contains("search.php?") && !title.equals(subBean.getTitle())){
-					fragment = UmeiTypeGridFragment.newInstance(UrlUtils.UMEI_SEARCH_TAG_UMPLUS+subBean.getHref(),false);
+//					fragment = UmeiTypeGridFragment.newInstance(UrlUtils.UMEI_SEARCH_TAG_UMPLUS+subBean.getHref(),false);
+					fragment =  UmeiTypeViewPagerAddGridFragment.newInstance(UrlUtils.UMEI_SEARCH_TAG_UMPLUS+subBean.getHref(),false);
 				}else{
-					fragment = UmeiTypeGridFragment.newInstance(subBean.getHref(),false);
+					fragment = UmeiTypeViewPagerAddGridFragment.newInstance(subBean.getHref(),false);
+//					fragment = UmeiTypeGridFragment.newInstance(subBean.getHref(),false);
 				}
 				listRankFragment.add(fragment);
 			}
