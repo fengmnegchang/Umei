@@ -33,9 +33,12 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.open.umei.R;
 import com.open.umei.activity.UmeiArticleGridHeadActivity;
 import com.open.umei.activity.UmeiWebViewActivity;
+import com.open.umei.activity.m.UmeiMActicleViewPagerActivity;
 import com.open.umei.adapter.db.OpenDBListTypeAdapter;
+import com.open.umei.bean.UmeiArticleBean;
 import com.open.umei.bean.db.OpenDBBean;
 import com.open.umei.db.service.UmeiOpenDBService;
+import com.open.umei.json.UmeiArticleJson;
 import com.open.umei.jsoup.db.OpenDBJson;
 
 /**
@@ -223,6 +226,22 @@ public class UmeiNavOpenDBTypeFragment extends BaseV4Fragment<OpenDBJson, UmeiNa
 			switch (bean.getType()) {
 			case 1:
 				UmeiArticleGridHeadActivity.startUmeiArticleGridHeadActivity(getActivity(), bean.getUrl());
+				break;
+			case 0:
+				UmeiArticleJson umeiArticleJson = new UmeiArticleJson();
+				List<UmeiArticleBean> listu = new ArrayList<UmeiArticleBean>();
+				UmeiArticleBean abean;
+				for(int i=0;i<list.size();i++){
+					OpenDBBean dbbean  = list.get(i);
+					abean = new UmeiArticleBean();
+					abean.setSrc(dbbean.getImgsrc());
+					abean.setUrl(dbbean.getImgsrc());
+					abean.setAlt(dbbean.getTitle());
+					abean.setSeq(i);
+					listu.add(abean);
+				}
+				umeiArticleJson.setList(listu);
+				UmeiMActicleViewPagerActivity.startUmeiMActicleViewPagerActivity(getActivity(), umeiArticleJson, url, position);
 				break;
 			default:
 				UmeiWebViewActivity.startUmeiWebViewActivity(getActivity(), bean.getImgsrc());
