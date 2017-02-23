@@ -31,6 +31,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.open.umei.R;
+import com.open.umei.activity.UmeiWebViewActivity;
 import com.open.umei.adapter.UmeiTypeAdapter;
 import com.open.umei.bean.UmeiTypeBean;
 import com.open.umei.fragment.BaseV4Fragment;
@@ -113,7 +114,7 @@ public class YiYouTuNavPullListFragment extends BaseV4Fragment<UmeiTypeJson, YiY
 		mPullToRefreshListView.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+				UmeiWebViewActivity.startUmeiWebViewActivity(getActivity(), list.get((int)id).getHref());
 			}
 		});
 	}
