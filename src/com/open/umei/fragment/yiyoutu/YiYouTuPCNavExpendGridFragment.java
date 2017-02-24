@@ -27,13 +27,13 @@ import com.handmark.pulltorefresh.library.HeaderGridView;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
-import com.handmark.pulltorefresh.library.PullToRefreshHeadGridView;
 import com.open.umei.R;
 import com.open.umei.adapter.yiyoutu.YiYouTuTypeAdapter;
 import com.open.umei.bean.UmeiTypeBean;
 import com.open.umei.fragment.BaseV4Fragment;
 import com.open.umei.json.UmeiTypeJson;
 import com.open.umei.jsoup.yiyoutu.YiYouTuNavPullListService;
+import com.open.umei.view.ExpendGridView;
 
 /**
  ***************************************************************************************************************************************************************************** 
@@ -46,15 +46,15 @@ import com.open.umei.jsoup.yiyoutu.YiYouTuNavPullListService;
  * @description:
  ***************************************************************************************************************************************************************************** 
  */
-public class YiYouTuPCNavPullGridFragment extends BaseV4Fragment<UmeiTypeJson, YiYouTuPCNavPullGridFragment> {
+public class YiYouTuPCNavExpendGridFragment extends BaseV4Fragment<UmeiTypeJson, YiYouTuPCNavExpendGridFragment> {
 	public List<UmeiTypeBean> list = new ArrayList<UmeiTypeBean>();
 	public YiYouTuTypeAdapter mUmeiTypeAdapter;
 	public String url;
 	public int pageNo = 1;
-	public PullToRefreshHeadGridView mPullToRefreshListView;
+	public ExpendGridView mPullToRefreshListView;
 
-	public static YiYouTuPCNavPullGridFragment newInstance(String url, boolean isVisibleToUser) {
-		YiYouTuPCNavPullGridFragment fragment = new YiYouTuPCNavPullGridFragment();
+	public static YiYouTuPCNavExpendGridFragment newInstance(String url, boolean isVisibleToUser) {
+		YiYouTuPCNavExpendGridFragment fragment = new YiYouTuPCNavExpendGridFragment();
 		fragment.setFragment(fragment);
 		fragment.setUserVisibleHint(isVisibleToUser);
 		fragment.url = url;
@@ -64,8 +64,8 @@ public class YiYouTuPCNavPullGridFragment extends BaseV4Fragment<UmeiTypeJson, Y
 	@Nullable
 	@Override
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.fragment_common_pull_grid_view, container, false);
-		mPullToRefreshListView = (PullToRefreshHeadGridView) view.findViewById(R.id.pull_refresh_grid);
+		View view = inflater.inflate(R.layout.fragment_common_expend_gridview, container, false);
+		mPullToRefreshListView = (ExpendGridView) view.findViewById(R.id.expendgridview);
 		return view;
 	}
 
@@ -80,34 +80,6 @@ public class YiYouTuPCNavPullGridFragment extends BaseV4Fragment<UmeiTypeJson, Y
 		super.initValues();
 		mUmeiTypeAdapter = new YiYouTuTypeAdapter(getActivity(), list);
 		mPullToRefreshListView.setAdapter(mUmeiTypeAdapter);
-		mPullToRefreshListView.setMode(Mode.BOTH);
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.open.umei.fragment.BaseV4Fragment#bindEvent()
-	 */
-	@Override
-	public void bindEvent() {
-		// TODO Auto-generated method stub
-		super.bindEvent();
-		// Set a listener to be invoked when the list should be refreshed.
-		mPullToRefreshListView.setOnRefreshListener(new OnRefreshListener<HeaderGridView>() {
-			@Override
-			public void onRefresh(PullToRefreshBase<HeaderGridView> refreshView) {
-				String label = DateUtils.formatDateTime(getActivity(), System.currentTimeMillis(), DateUtils.FORMAT_SHOW_TIME | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_ABBREV_ALL);
-				// Update the LastUpdatedLabel
-				refreshView.getLoadingLayoutProxy().setLastUpdatedLabel(label);
-				// Do work to refresh the list here.
-				if (mPullToRefreshListView.getCurrentMode() == Mode.PULL_FROM_START) {
-					weakReferenceHandler.sendEmptyMessage(MESSAGE_HANDLER);
-				} else if (mPullToRefreshListView.getCurrentMode() == Mode.PULL_FROM_END) {
-					pageNo++;
-					weakReferenceHandler.sendEmptyMessage(MESSAGE_HANDLER);
-				}
-			}
-		});
 	}
 
 	@Override
@@ -125,21 +97,10 @@ public class YiYouTuPCNavPullGridFragment extends BaseV4Fragment<UmeiTypeJson, Y
 
 	@Override
 	public void onCallback(UmeiTypeJson result) {
-		Log.i(TAG, "getMode ===" + mPullToRefreshListView.getCurrentMode());
-		if (mPullToRefreshListView.getCurrentMode() == Mode.PULL_FROM_START) {
-			list.clear();
-			list.addAll(result.getTypeList());
-			pageNo = 1;
-
-		} else {
-			if (result.getTypeList() != null && result.getTypeList().size() > 0) {
-				list.addAll(result.getTypeList());
-			}
-		}
-
+		list.clear();
+		list.addAll(result.getTypeList());
 		mUmeiTypeAdapter.notifyDataSetChanged();
 		// Call onRefreshComplete when the list has been refreshed.
-		mPullToRefreshListView.onRefreshComplete();
 	}
 
 	/*

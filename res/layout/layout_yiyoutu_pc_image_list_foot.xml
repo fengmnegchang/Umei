@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1f92d1"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:fitsSystemWindows="true" >
+
+    <TextView
+        android:id="@+id/txt_articlepre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="上一组：泳池浴中性感美女"
+        android:textSize="12dp" />
+
+    <TextView
+        android:id="@+id/txt_articlenext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_articlepre"
+        android:layout_marginTop="5dp"
+        android:text="下一组：夏日风情比基尼写真照"
+        android:textSize="12dp" />
+
+    <FrameLayout
+        android:id="@+id/layout_expandablegridview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_articlenext" />
+
+</RelativeLayout>

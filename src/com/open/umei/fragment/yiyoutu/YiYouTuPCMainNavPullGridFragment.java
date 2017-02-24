@@ -30,10 +30,10 @@ import com.open.umei.jsoup.yiyoutu.YiYouTuNavPullListService;
  * @description:
  ***************************************************************************************************************************************************************************** 
  */
-public class YiYouTuMainNavPullGridFragment extends YiYouTuPCNavPullGridFragment {
+public class YiYouTuPCMainNavPullGridFragment extends YiYouTuPCNavPullGridFragment {
 
-	public static YiYouTuMainNavPullGridFragment newInstance(String url, boolean isVisibleToUser) {
-		YiYouTuMainNavPullGridFragment fragment = new YiYouTuMainNavPullGridFragment();
+	public static YiYouTuPCMainNavPullGridFragment newInstance(String url, boolean isVisibleToUser) {
+		YiYouTuPCMainNavPullGridFragment fragment = new YiYouTuPCMainNavPullGridFragment();
 		fragment.setFragment(fragment);
 		fragment.setUserVisibleHint(isVisibleToUser);
 		fragment.url = url;
@@ -58,7 +58,7 @@ public class YiYouTuMainNavPullGridFragment extends YiYouTuPCNavPullGridFragment
 		UmeiTypeJson mCommonT = new UmeiTypeJson();
 		ArrayList<UmeiTypeBean> list = new ArrayList<UmeiTypeBean>();
 		try {
-			list = YiYouTuNavPullListService.parseTypePCList(url, 0);
+			list = YiYouTuNavPullListService.parseTypePCList(url, 0,1);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

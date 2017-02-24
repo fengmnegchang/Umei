@@ -65,7 +65,7 @@ public class YiYouTuNavPullListService extends CommonService {
     </article>
 			 */
 			// 解析文件
-			if (liElements != null && liElements.size() > 1) {
+			if (liElements != null && liElements.size() > 0) {
 				for (int i = 0; i < liElements.size(); i++) {
 					UmeiTypeBean bean = new UmeiTypeBean();
 					try {
@@ -130,7 +130,7 @@ public class YiYouTuNavPullListService extends CommonService {
     </article>
 			 */
 			// 解析文件
-			if (liElements != null && liElements.size() > 1) {
+			if (liElements != null && liElements.size() > 0) {
 				for (int i = 0; i < liElements.size(); i++) {
 					UmeiTypeBean bean = new UmeiTypeBean();
 					try {
@@ -173,7 +173,7 @@ public class YiYouTuNavPullListService extends CommonService {
 		return list;
 	}
 	
-	public static ArrayList<UmeiTypeBean> parseTypePCList(String href, int pageNo) {
+	public static ArrayList<UmeiTypeBean> parseTypePCList(String href, int pageNo,int type) {
 		ArrayList<UmeiTypeBean> list = new ArrayList<UmeiTypeBean>();
 		try {
 			if(pageNo>1){
@@ -196,9 +196,10 @@ public class YiYouTuNavPullListService extends CommonService {
 
 			 */
 			// 解析文件
-			if (liElements != null && liElements.size() > 1) {
+			if (liElements != null && liElements.size() > 0) {
 				for (int i = 0; i < liElements.size(); i++) {
 					UmeiTypeBean bean = new UmeiTypeBean();
+					bean.setType(type);
 					try {
 						Element aElement = liElements.get(i).select("a").first();
 						String hrefurl = aElement.attr("href");

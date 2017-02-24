@@ -2,7 +2,7 @@
  *****************************************************************************************************************************************************************************
  * 
  * @author :fengguangjing
- * @createTime:2017-2-23下午5:28:06
+ * @createTime:2017-2-24下午3:17:00
  * @version:4.2.4
  * @modifyTime:
  * @modifyAuthor:
@@ -21,40 +21,45 @@ import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.TextView;
 
-import com.handmark.pulltorefresh.library.HeaderGridView;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
-import com.handmark.pulltorefresh.library.PullToRefreshHeadGridView;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.open.umei.R;
-import com.open.umei.adapter.yiyoutu.YiYouTuTypeAdapter;
+import com.open.umei.activity.yiyoutu.YiYouTuPCShowImagePullListFragmentActivity;
+import com.open.umei.adapter.yiyoutu.YiYouTuPCTypeAdapter;
 import com.open.umei.bean.UmeiTypeBean;
 import com.open.umei.fragment.BaseV4Fragment;
 import com.open.umei.json.UmeiTypeJson;
-import com.open.umei.jsoup.yiyoutu.YiYouTuNavPullListService;
+import com.open.umei.jsoup.yiyoutu.YiYouTuPCShowImageService;
 
 /**
- ***************************************************************************************************************************************************************************** 
+ *****************************************************************************************************************************************************************************
  * 
  * @author :fengguangjing
- * @createTime:2017-2-23下午5:28:06
+ * @createTime:2017-2-24下午3:17:00
  * @version:4.2.4
  * @modifyTime:
  * @modifyAuthor:
  * @description:
- ***************************************************************************************************************************************************************************** 
+ *****************************************************************************************************************************************************************************
  */
-public class YiYouTuPCNavPullGridFragment extends BaseV4Fragment<UmeiTypeJson, YiYouTuPCNavPullGridFragment> {
+public class YiYouTuPCShowImagePullListFragment extends BaseV4Fragment<UmeiTypeJson, YiYouTuPCShowImagePullListFragment> {
 	public List<UmeiTypeBean> list = new ArrayList<UmeiTypeBean>();
-	public YiYouTuTypeAdapter mUmeiTypeAdapter;
+	public YiYouTuPCTypeAdapter mUmeiTypeAdapter;
 	public String url;
 	public int pageNo = 1;
-	public PullToRefreshHeadGridView mPullToRefreshListView;
+	public PullToRefreshListView mPullToRefreshListView;
+	private View footview;
+	private TextView txt_articlepre,txt_articlenext;
 
-	public static YiYouTuPCNavPullGridFragment newInstance(String url, boolean isVisibleToUser) {
-		YiYouTuPCNavPullGridFragment fragment = new YiYouTuPCNavPullGridFragment();
+	public static YiYouTuPCShowImagePullListFragment newInstance(String url, boolean isVisibleToUser) {
+		YiYouTuPCShowImagePullListFragment fragment = new YiYouTuPCShowImagePullListFragment();
 		fragment.setFragment(fragment);
 		fragment.setUserVisibleHint(isVisibleToUser);
 		fragment.url = url;
@@ -64,8 +69,11 @@ public class YiYouTuPCNavPullGridFragment extends BaseV4Fragment<UmeiTypeJson, Y
 	@Nullable
 	@Override
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.fragment_common_pull_grid_view, container, false);
-		mPullToRefreshListView = (PullToRefreshHeadGridView) view.findViewById(R.id.pull_refresh_grid);
+		View view = inflater.inflate(R.layout.fragment_yiyoutu_nav_pull_listview, container, false);
+		mPullToRefreshListView = (PullToRefreshListView) view.findViewById(R.id.pull_refresh_list);
+		footview = LayoutInflater.from(getActivity()).inflate(R.layout.layout_yiyoutu_pc_image_list_foot, null);
+		txt_articlepre = (TextView) footview.findViewById(R.id.txt_articlepre);
+		txt_articlenext = (TextView) footview.findViewById(R.id.txt_articlenext);
 		return view;
 	}
 
@@ -78,11 +86,16 @@ public class YiYouTuPCNavPullGridFragment extends BaseV4Fragment<UmeiTypeJson, Y
 	public void initValues() {
 		// TODO Auto-generated method stub
 		super.initValues();
-		mUmeiTypeAdapter = new YiYouTuTypeAdapter(getActivity(), list);
+		mPullToRefreshListView.getRefreshableView().addFooterView(footview);
+		YiYouTuPCNavExpendGridFragment fragment = YiYouTuPCNavExpendGridFragment.newInstance(url, true);
+		getChildFragmentManager().beginTransaction().replace(R.id.layout_expandablegridview, fragment).commit();
+		
+		mUmeiTypeAdapter = new YiYouTuPCTypeAdapter(getActivity(), list);
 		mPullToRefreshListView.setAdapter(mUmeiTypeAdapter);
 		mPullToRefreshListView.setMode(Mode.BOTH);
 	}
 
+	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -93,9 +106,9 @@ public class YiYouTuPCNavPullGridFragment extends BaseV4Fragment<UmeiTypeJson, Y
 		// TODO Auto-generated method stub
 		super.bindEvent();
 		// Set a listener to be invoked when the list should be refreshed.
-		mPullToRefreshListView.setOnRefreshListener(new OnRefreshListener<HeaderGridView>() {
+		mPullToRefreshListView.setOnRefreshListener(new OnRefreshListener<ListView>() {
 			@Override
-			public void onRefresh(PullToRefreshBase<HeaderGridView> refreshView) {
+			public void onRefresh(PullToRefreshBase<ListView> refreshView) {
 				String label = DateUtils.formatDateTime(getActivity(), System.currentTimeMillis(), DateUtils.FORMAT_SHOW_TIME | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_ABBREV_ALL);
 				// Update the LastUpdatedLabel
 				refreshView.getLoadingLayoutProxy().setLastUpdatedLabel(label);
@@ -108,23 +121,40 @@ public class YiYouTuPCNavPullGridFragment extends BaseV4Fragment<UmeiTypeJson, Y
 				}
 			}
 		});
+		txt_articlepre.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				YiYouTuPCShowImagePullListFragmentActivity.startYiYouTuPCShowImagePullListFragmentActivity(getActivity(), txt_articlepre.getTag().toString());
+			}
+		});
+		txt_articlenext.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				YiYouTuPCShowImagePullListFragmentActivity.startYiYouTuPCShowImagePullListFragmentActivity(getActivity(), txt_articlenext.getTag().toString());
+			}
+		});
 	}
 
 	@Override
 	public UmeiTypeJson call() throws Exception {
-		UmeiTypeJson mCommonT = new UmeiTypeJson();
-		ArrayList<UmeiTypeBean> list = new ArrayList<UmeiTypeBean>();
-		try {
-			list = YiYouTuNavPullListService.parseTypePCList(url, pageNo,1);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		mCommonT.setTypeList(list);
+		UmeiTypeJson mCommonT =  YiYouTuPCShowImageService.parseTypeList(url, pageNo);
 		return mCommonT;
 	}
 
 	@Override
 	public void onCallback(UmeiTypeJson result) {
+		try {
+			txt_articlenext.setText(result.getArticlenext());
+			txt_articlenext.setTag(result.getArticlenexthref());
+			
+			txt_articlepre.setText(result.getArticlepre());
+			txt_articlepre.setTag(result.getArticleprehref());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 		Log.i(TAG, "getMode ===" + mPullToRefreshListView.getCurrentMode());
 		if (mPullToRefreshListView.getCurrentMode() == Mode.PULL_FROM_START) {
 			list.clear();
@@ -161,3 +191,4 @@ public class YiYouTuPCNavPullGridFragment extends BaseV4Fragment<UmeiTypeJson, Y
 		}
 	}
 }
+

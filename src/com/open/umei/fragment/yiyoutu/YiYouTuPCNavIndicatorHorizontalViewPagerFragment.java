@@ -69,7 +69,7 @@ public class YiYouTuPCNavIndicatorHorizontalViewPagerFragment extends CommonIndi
 		for (UmeiSubNavBean subBean : bean.getSubNavList()) {
 			titleList.add(subBean.getTitle());
 			if(subBean.getTitle().equals("首页")){
-				fragment = YiYouTuMainNavPullGridFragment.newInstance(subBean.getHref(), true);
+				fragment = YiYouTuPCMainNavPullGridFragment.newInstance(subBean.getHref(), true);
 			}else{
 				fragment = YiYouTuPCNavPullGridFragment.newInstance(subBean.getHref(), false);
 			}
