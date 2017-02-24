@@ -59,7 +59,7 @@ public class YiYouTuNavFragmentActivity extends CommonFragmentActivity<UmeiNavJs
 		manager.beginTransaction().replace(R.id.layout_list, fragment).commit();
 	}
 
-	public static void startYiYouTuNavIndicatorHorizontalViewPagerActivity(Context mContext, String url ) {
+	public static void startYiYouTuNavFragmentActivity(Context mContext, String url ) {
 		Intent intent = new Intent();
 		intent.putExtra("URL", url);
 		intent.setClass(mContext, YiYouTuNavFragmentActivity.class);

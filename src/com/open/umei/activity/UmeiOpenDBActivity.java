@@ -35,6 +35,8 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.open.umei.R;
+import com.open.umei.activity.yiyoutu.YiYouTuNavFragmentActivity;
+import com.open.umei.activity.yiyoutu.YiYouTuShowImageFragmentActivity;
 import com.open.umei.adapter.db.OpenDBListAdapter;
 import com.open.umei.bean.db.OpenDBBean;
 import com.open.umei.db.service.UmeiOpenDBService;
@@ -420,6 +422,12 @@ public class UmeiOpenDBActivity extends CommonFragmentActivity<OpenDBJson> imple
 				switch (bean.getType()) {
 				case 1:
 					UmeiArticleGridHeadActivity.startUmeiArticleGridHeadActivity(this, bean.getUrl());
+					break;
+				case 2:
+					UmeiWebViewActivity.startUmeiWebViewActivity(this, bean.getImgsrc());
+					break;
+				case 3:
+					YiYouTuShowImageFragmentActivity.startYiYouTuShowImageFragmentActivity(this, bean.getUrl());
 					break;
 				default:
 					UmeiWebViewActivity.startUmeiWebViewActivity(this, bean.getImgsrc());

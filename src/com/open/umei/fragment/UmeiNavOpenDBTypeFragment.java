@@ -34,6 +34,7 @@ import com.open.umei.R;
 import com.open.umei.activity.UmeiArticleGridHeadActivity;
 import com.open.umei.activity.UmeiWebViewActivity;
 import com.open.umei.activity.m.UmeiMActicleViewPagerActivity;
+import com.open.umei.activity.yiyoutu.YiYouTuShowImageFragmentActivity;
 import com.open.umei.adapter.db.OpenDBListTypeAdapter;
 import com.open.umei.bean.UmeiArticleBean;
 import com.open.umei.bean.db.OpenDBBean;
@@ -242,6 +243,12 @@ public class UmeiNavOpenDBTypeFragment extends BaseV4Fragment<OpenDBJson, UmeiNa
 				}
 				umeiArticleJson.setList(listu);
 				UmeiMActicleViewPagerActivity.startUmeiMActicleViewPagerActivity(getActivity(), umeiArticleJson, url, position);
+				break;
+			case 2:
+				UmeiWebViewActivity.startUmeiWebViewActivity(getActivity(), bean.getImgsrc());
+				break;
+			case 3:
+				YiYouTuShowImageFragmentActivity.startYiYouTuShowImageFragmentActivity(getActivity(), bean.getUrl());
 				break;
 			default:
 				UmeiWebViewActivity.startUmeiWebViewActivity(getActivity(), bean.getImgsrc());
