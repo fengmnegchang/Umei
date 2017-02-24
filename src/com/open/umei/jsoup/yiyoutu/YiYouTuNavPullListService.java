@@ -172,5 +172,61 @@ public class YiYouTuNavPullListService extends CommonService {
 
 		return list;
 	}
+	
+	public static ArrayList<UmeiTypeBean> parseTypePCList(String href, int pageNo) {
+		ArrayList<UmeiTypeBean> list = new ArrayList<UmeiTypeBean>();
+		try {
+			if(pageNo>1){
+				href = href +"index_"+pageNo+".html";
+			}
+			Log.i(TAG, "url = " + href);
 
+			Document doc = Jsoup.connect(href).userAgent(UrlUtils.userAgent).timeout(10000).get();
+			Elements liElements = doc.select("div.padding-bottom");
+			/**
+			 *  <div class="x2 padding-bottom clearfix">
+     <a href="/xingganmeinv/1761.html"
+      title="采采芸蕾丝性感诱惑私房照">
+      <img src="http://img.yiyoutu.com/titlepic/1761/small.jpg" 
+      class="radius-small img-border img-responsive" alt="采采芸蕾丝性感诱惑私房照"></a>
+      <div class="media-body">
+        <a href="/xingganmeinv/1761.html" title="采采芸蕾丝性感诱惑私房照">采采芸蕾丝性感诱惑私房</a>
+      </div>
+    </div>
+
+			 */
+			// 解析文件
+			if (liElements != null && liElements.size() > 1) {
+				for (int i = 0; i < liElements.size(); i++) {
+					UmeiTypeBean bean = new UmeiTypeBean();
+					try {
+						Element aElement = liElements.get(i).select("a").first();
+						String hrefurl = aElement.attr("href");
+						Log.i(TAG, "i===" + i + "hrefurl==" + hrefurl);
+						bean.setHref(UrlUtils.YIYOUTU+hrefurl);
+						bean.setTypename(aElement.attr("title"));
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+
+					try {
+						Element imgElement = liElements.get(i).select("img").first();
+						String src = imgElement.attr("src");
+						Log.i(TAG, "i===" + i + "src==" + src);
+						bean.setSrc(src);
+						bean.setTypename(imgElement.attr("alt"));
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+
+					list.add(bean);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return list;
+	}
+	
 }

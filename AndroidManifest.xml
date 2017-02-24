@@ -275,6 +275,19 @@
             android:configChanges="keyboard|keyboardHidden|navigation"
             android:description="@string/yiyoutu_show_image_desp" >
         </activity>
+         <!-- 亿优图pc-->
+         <activity
+            android:name="com.open.umei.activity.yiyoutu.YiYouTuPCNavIndicatorHorizontalViewPagerActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:theme="@style/Theme.PageIndicatorDefaults"
+            android:description="@string/yiyoutu_pc_nav_m_main_desp" >
+        </activity>
+          <!-- 亿优图pc tab -->
+         <activity
+            android:name="com.open.umei.activity.yiyoutu.YiYouTuPCNavFragmentActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/yiyoutu_sub_nav_pullgrid_desp" >
+        </activity>
         <!-- 所有类列表 -->
         <activity
             android:name="com.open.umei.activity.UmeiALLActivity"

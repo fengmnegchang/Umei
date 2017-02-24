@@ -88,5 +88,51 @@ public class YiYouTuNavService extends CommonService {
 
 		return list;
 	}
+	
+	public static ArrayList<UmeiNavBean> parseShowPCNav(String href) {
+		ArrayList<UmeiNavBean> list = new ArrayList<UmeiNavBean>();
+		try {
+			href = makeURL(href, new HashMap<String, Object>() {
+				{
+				}
+			});
+			Log.i(TAG, "url = " + href);
+
+			Document doc = Jsoup.connect(href).userAgent(UrlUtils.userAgent).timeout(10000).get();
+
+			Element masthead = doc.select("div.navbar-body").first();
+			Elements liElements = masthead.select("a");
+			UmeiNavBean bean = new UmeiNavBean();
+			// 解析文件
+			if (liElements != null && liElements.size() > 0) {
+				List<UmeiSubNavBean> subNavList = new ArrayList<UmeiSubNavBean>();
+				UmeiSubNavBean subNavBean;
+				for (int i = 0; i < liElements.size(); i++) {
+					try {
+						subNavBean = new UmeiSubNavBean();
+						try {
+							Element aElement = liElements.get(i).select("a").first();
+							String atitle = aElement.text();
+							String ahref = aElement.attr("href");
+							subNavBean.setTitle(atitle);
+							subNavBean.setHref(UrlUtils.YIYOUTU+ahref);
+							subNavList.add(subNavBean);
+							Log.i(TAG, "i===" + i + ";atitle===" + atitle + ";ahref===" + ahref);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+						bean.setSubNavList(subNavList);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			}
+			list.add(bean);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return list;
+	}
 
 }
