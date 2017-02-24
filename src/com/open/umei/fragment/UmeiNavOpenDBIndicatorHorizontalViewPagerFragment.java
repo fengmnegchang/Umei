@@ -73,6 +73,18 @@ public class UmeiNavOpenDBIndicatorHorizontalViewPagerFragment extends CommonInd
 		sbean.setTitle("亿网页");
 		sbean.setType(3);
 		subNavList.add(sbean);
+		
+		sbean = new UmeiSubNavBean();
+		sbean.setHref(url);
+		sbean.setTitle("pc亿图");
+		sbean.setType(4);
+		subNavList.add(sbean);
+		
+		sbean = new UmeiSubNavBean();
+		sbean.setHref(url);
+		sbean.setTitle("pc亿网");
+		sbean.setType(5);
+		subNavList.add(sbean);
 
 		navBean.setSubNavList(subNavList);
 		list.add(navBean);

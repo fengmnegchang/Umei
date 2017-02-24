@@ -185,7 +185,11 @@ alt='嫩模Queenie大长腿私房'><div class='picdesc'></div></a></p>
 					bean.setSrc(src);
 					bean.setType(4);
 					bean.setSeq(pagerno);
-					bean.setUrl(href);
+					if(pagerno==1){
+						bean.setUrl(href);
+					}else{
+						bean.setUrl(href.replace(".html", "") +"_"+ pagerno + ".html");
+					}
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

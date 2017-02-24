@@ -97,7 +97,7 @@ alt='嫩模Queenie大长腿私房'><div class='picdesc'></div></a></p>
 						Element aElement = liElements.get(i).select("a").first();
 						String hrefurl = aElement.attr("href");
 						Log.i(TAG, "i===" + i + "hrefurl==" + hrefurl);
-						bean.setHref(UrlUtils.YIYOUTU+hrefurl);
+						bean.setHref(href);
 					} catch (Exception e) {
 						e.printStackTrace();
 					}

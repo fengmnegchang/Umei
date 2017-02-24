@@ -34,6 +34,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.open.umei.R;
 import com.open.umei.activity.yiyoutu.YiYouTuPCShowImagePullListFragmentActivity;
+import com.open.umei.activity.yiyoutu.YiYouTuPCShowImageViewPagerFragmentActivity;
 import com.open.umei.adapter.yiyoutu.YiYouTuPCTypeAdapter;
 import com.open.umei.bean.UmeiTypeBean;
 import com.open.umei.fragment.BaseV4Fragment;
@@ -128,7 +129,7 @@ public class YiYouTuPCShowImagePullListFragment extends BaseV4Fragment<UmeiTypeJ
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				if(id!=-1&& list!=null && list.size()>0&& list.get((int)id)!=null){
-					YiYouTuPCShowImagePullListFragmentActivity.startYiYouTuPCShowImagePullListFragmentActivity(getActivity(), list.get((int)id).getHref());
+					YiYouTuPCShowImageViewPagerFragmentActivity.startYiYouTuPCShowImageViewPagerFragmentActivity(getActivity(), list.get((int)id).getHref());
 				}
 			}
 		});
