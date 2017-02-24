@@ -32,7 +32,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.open.umei.R;
 import com.open.umei.activity.UmeiWebViewActivity;
-import com.open.umei.adapter.UmeiTypeAdapter;
+import com.open.umei.adapter.yiyoutu.YiYouTuTypeAdapter;
 import com.open.umei.bean.UmeiTypeBean;
 import com.open.umei.fragment.BaseV4Fragment;
 import com.open.umei.json.UmeiTypeJson;
@@ -51,7 +51,7 @@ import com.open.umei.jsoup.yiyoutu.YiYouTuNavPullListService;
  */
 public class YiYouTuNavPullListFragment extends BaseV4Fragment<UmeiTypeJson, YiYouTuNavPullListFragment> {
 	public List<UmeiTypeBean> list = new ArrayList<UmeiTypeBean>();
-	public UmeiTypeAdapter mUmeiTypeAdapter;
+	public YiYouTuTypeAdapter mUmeiTypeAdapter;
 	public String url;
 	public int pageNo = 1;
 	public PullToRefreshListView mPullToRefreshListView;
@@ -81,7 +81,7 @@ public class YiYouTuNavPullListFragment extends BaseV4Fragment<UmeiTypeJson, YiY
 	public void initValues() {
 		// TODO Auto-generated method stub
 		super.initValues();
-		mUmeiTypeAdapter = new UmeiTypeAdapter(getActivity(), list);
+		mUmeiTypeAdapter = new YiYouTuTypeAdapter(getActivity(), list);
 		mPullToRefreshListView.setAdapter(mUmeiTypeAdapter);
 		mPullToRefreshListView.setMode(Mode.BOTH);
 	}
@@ -109,12 +109,6 @@ public class YiYouTuNavPullListFragment extends BaseV4Fragment<UmeiTypeJson, YiY
 					pageNo++;
 					weakReferenceHandler.sendEmptyMessage(MESSAGE_HANDLER);
 				}
-			}
-		});
-		mPullToRefreshListView.setOnItemClickListener(new OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				UmeiWebViewActivity.startUmeiWebViewActivity(getActivity(), list.get((int)id).getHref());
 			}
 		});
 	}

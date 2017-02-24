@@ -51,6 +51,7 @@ public class UrlUtils {
 	
 	public static final String YIYOUTU_M = "http://mm.yiyoutu.com";
 	public static final String YIYOUTU_M_NAV = "http://mm.yiyoutu.com/xinggan/";
+	public static final String YIYOUTU_M_IMAGE = "http://mm.yiyoutu.com/siwa/2064.html";
 	
 	public static String getCookie(){
 		return COOKIE;

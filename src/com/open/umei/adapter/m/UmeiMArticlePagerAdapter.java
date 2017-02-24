@@ -22,6 +22,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -58,7 +59,9 @@ public class UmeiMArticlePagerAdapter extends CommonPagerAdapter<UmeiArticleBean
 		final ViewHolder mViewHolder = new ViewHolder();
 		View convertView = LayoutInflater.from(mContext).inflate(R.layout.adapter_umei_article_pager, null);
 		mViewHolder.imageview = (ImageView) convertView.findViewById(R.id.imageview);
+		mViewHolder.text_title= (TextView) convertView.findViewById(R.id.text_title);
 		if (bean != null) {
+			mViewHolder.text_title.setText(bean.getAlt());
 			if (bean.getSrc() != null && bean.getSrc().length() > 0) {
 				DisplayImageOptions options = new DisplayImageOptions.Builder().showStubImage(R.drawable.common_v4).showImageForEmptyUri(R.drawable.common_v4).showImageOnFail(R.drawable.common_v4)
 						.cacheInMemory().cacheOnDisc().build();
@@ -71,7 +74,10 @@ public class UmeiMArticlePagerAdapter extends CommonPagerAdapter<UmeiArticleBean
 			public void onClick(View v) {
 				// UmeiWebViewActivity.startUmeiWebViewActivity(mContext,
 				// bean.getSrc());
-				weakReferenceHandler.sendEmptyMessage(7000);
+				if(weakReferenceHandler!=null){
+					weakReferenceHandler.sendEmptyMessage(7000);
+				}
+				
 			}
 		});
 		mViewHolder.imageview.setOnLongClickListener(new View.OnLongClickListener() {
@@ -89,7 +95,7 @@ public class UmeiMArticlePagerAdapter extends CommonPagerAdapter<UmeiArticleBean
 
 						OpenDBBean openbean = new OpenDBBean();
 						openbean.setUrl(bean.getUrl());
-						openbean.setType(0);
+						openbean.setType(bean.getType());
 						openbean.setImgsrc(bean.getSrc());
 						openbean.setTitle(bean.getAlt());
 						openbean.setTypename("");
@@ -177,6 +183,7 @@ public class UmeiMArticlePagerAdapter extends CommonPagerAdapter<UmeiArticleBean
 
 	private class ViewHolder {
 		ImageView imageview;
+		TextView text_title;
 	}
 
 }

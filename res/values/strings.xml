@@ -43,4 +43,5 @@
 	<string name="umei_open_db_type_desp">下载收藏type</string>
 	<string name="yiyoutu_nav_m_main_desp">亿优图m</string>
 	<string name="yiyoutu_sub_nav_pulllist_desp">亿优图tab</string>
+	<string name="yiyoutu_show_image_desp">亿优图 看图</string>
 </resources>
