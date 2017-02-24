@@ -294,6 +294,12 @@
             android:configChanges="keyboard|keyboardHidden|navigation"
             android:description="@string/yiyoutu_pc_show_image_pulllist_desp" >
         </activity>
+         <!-- 亿优图 pc看图viewpager-->
+         <activity
+            android:name="com.open.umei.activity.yiyoutu.YiYouTuPCShowImageViewPagerFragmentActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/yiyoutu_pc_show_image_viewpager_desp" >
+        </activity>
         <!-- 所有类列表 -->
         <activity
             android:name="com.open.umei.activity.UmeiALLActivity"

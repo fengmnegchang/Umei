@@ -47,4 +47,5 @@
 	<string name="yiyoutu_pc_nav_m_main_desp">亿优图pc</string>
 	<string name="yiyoutu_sub_nav_pullgrid_desp">亿优图pc tab</string>
 	<string name="yiyoutu_pc_show_image_pulllist_desp">亿优图pc 看图</string>
+	<string name="yiyoutu_pc_show_image_viewpager_desp">亿优图pc 看图viewpager</string>
 </resources>

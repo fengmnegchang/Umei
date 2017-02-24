@@ -119,5 +119,85 @@ public class YiYouTuArticleService extends CommonService {
 		}
 		return mUmeiArticleJson;
 	}
+	
+	public static UmeiArticleJson parsePCArticlePagerSize(String href, int pagerno) {
+		UmeiArticleJson mUmeiArticleJson = new UmeiArticleJson();
+		ArrayList<UmeiArticleBean> list = new ArrayList<UmeiArticleBean>();
+		try {
+			// http://www.yiyoutu.com/xingganmeinv/1739.html
+			//http://www.yiyoutu.com/xingganmeinv/1739_2.html
+			String href2=href;
+			if (pagerno > 1) {
+				  href2 = href.replace(".html", "") +"_"+ pagerno + ".html";
+			} 
+
+			Log.i(TAG, "url = " + href2);
+			Document doc = Jsoup.connect(href2).userAgent(UrlUtils.userAgent).timeout(10000).get();
+			/**
+			<div class="text-center padding">
+<ul class="pagination pagination-group">
+<li class='active'><a>1</a></li>
+<li><a href="/xingganmeinv/1739_2.html">2</a></li>
+<li><a href="/xingganmeinv/1739_3.html">3</a></li>
+<li><a href="/xingganmeinv/1739_4.html">4</a></li>
+<li><a href="/xingganmeinv/1739_5.html">5</a></li>
+<li><a href="/xingganmeinv/1739_2.html">下一页</a></li>
+<li><a href="/xingganmeinv/1739_9.html">尾页</a></li></ul>
+</div>
+			 */
+			int size = 1;
+			Element NewPagesElement = doc.select("ul.pagination").first();
+			Elements aElements = NewPagesElement.select("li");
+			for(int i=0;i<aElements.size();i++){
+				String atitle = aElements.get(i).select("a").first().text();
+				if(atitle.equals("尾页")){
+					try {
+						String ahref = UrlUtils.YIYOUTU+aElements.get(i).select("a").first().attr("href");
+						ahref = ahref.replace((href.replace(".html", "") +"_"), "").replace(".html", "");
+						size = Integer.parseInt(ahref);
+						mUmeiArticleJson.setPagersize(size);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+				
+			}
+			
+			
+			UmeiArticleBean bean = new UmeiArticleBean();
+			Element ImageBodyElement = doc.select("p.text-center").first();
+			/**
+			<div class="detail">
+  <h1>嫩模Queenie大长腿私房</h1>
+<p class="text-center"><a href='/xingganmeinv/1739_2.html' id="nextlink"><img 
+src='http://img.yiyoutu.com/xingganmeinv/2015-07-20/507e7979d5beb7a5f85967a0c99cf7f4.jpg' 
+alt='嫩模Queenie大长腿私房'><div class='picdesc'></div></a></p>
+
+			 */
+			// 解析文件
+			if (ImageBodyElement != null) {
+				try {
+					Element imgElement = ImageBodyElement.select("img").first();
+					String alt = imgElement.attr("alt");
+					String src = imgElement.attr("src");
+					Log.i(TAG, "alt==" + alt + ";src==" + src);
+					bean.setAlt(alt);
+					bean.setSrc(src);
+					bean.setType(4);
+					bean.setSeq(pagerno);
+					bean.setUrl(href);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			
+			
+			list.add(bean);
+			mUmeiArticleJson.setList(list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mUmeiArticleJson;
+	}
 
 }

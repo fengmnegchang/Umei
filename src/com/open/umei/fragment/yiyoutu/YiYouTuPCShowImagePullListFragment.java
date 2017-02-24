@@ -23,6 +23,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -118,6 +120,15 @@ public class YiYouTuPCShowImagePullListFragment extends BaseV4Fragment<UmeiTypeJ
 				} else if (mPullToRefreshListView.getCurrentMode() == Mode.PULL_FROM_END) {
 					pageNo++;
 					weakReferenceHandler.sendEmptyMessage(MESSAGE_HANDLER);
+				}
+			}
+		});
+		mPullToRefreshListView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				if(id!=-1&& list!=null && list.size()>0&& list.get((int)id)!=null){
+					YiYouTuPCShowImagePullListFragmentActivity.startYiYouTuPCShowImagePullListFragmentActivity(getActivity(), list.get((int)id).getHref());
 				}
 			}
 		});
