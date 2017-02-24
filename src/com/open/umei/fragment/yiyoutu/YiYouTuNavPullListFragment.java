@@ -50,11 +50,11 @@ import com.open.umei.jsoup.yiyoutu.YiYouTuNavPullListService;
  ***************************************************************************************************************************************************************************** 
  */
 public class YiYouTuNavPullListFragment extends BaseV4Fragment<UmeiTypeJson, YiYouTuNavPullListFragment> {
-	private List<UmeiTypeBean> list = new ArrayList<UmeiTypeBean>();
-	private UmeiTypeAdapter mUmeiTypeAdapter;
-	private String url;
-	private int pageNo = 1;
-	private PullToRefreshListView mPullToRefreshListView;
+	public List<UmeiTypeBean> list = new ArrayList<UmeiTypeBean>();
+	public UmeiTypeAdapter mUmeiTypeAdapter;
+	public String url;
+	public int pageNo = 1;
+	public PullToRefreshListView mPullToRefreshListView;
 
 	public static YiYouTuNavPullListFragment newInstance(String url, boolean isVisibleToUser) {
 		YiYouTuNavPullListFragment fragment = new YiYouTuNavPullListFragment();

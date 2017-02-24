@@ -107,5 +107,70 @@ public class YiYouTuNavPullListService extends CommonService {
 
 		return list;
 	}
+	
+	public static ArrayList<UmeiTypeBean> parseTypeMainList(String href) {
+		ArrayList<UmeiTypeBean> list = new ArrayList<UmeiTypeBean>();
+		try {
+			Document doc = Jsoup.parse(href);
+			Elements liElements = doc.select("article.post");
+			/**
+			 * <article id="post-1" class="post">
+      <div class="post-header">
+        <h2 class="post-title"><a class="post-title-link" href="/xinggan/2059.html" rel="bookmark">
+        性感美女翘臀火辣写</a></h2>
+      </div>
+      <div class="post-content post-text">
+      <a href="/xinggan/2059.html">
+      <img src="http://img.linvshen.com/2017/02/23/1ef97973e6836cd2fd98dbb07f70aaec.jpg" 
+      data-img="http://img.linvshen.com/2017/02/23/1ef97973e6836cd2fd98dbb07f70aaec.jpg" 
+      alt="性感美女翘臀火辣写真图片" /></a>
+        <p></p>
+      </div>
+      <div class="post-footer"><span class="post-meta">2017-02-23 10:45:48</span></div>
+    </article>
+			 */
+			// 解析文件
+			if (liElements != null && liElements.size() > 1) {
+				for (int i = 0; i < liElements.size(); i++) {
+					UmeiTypeBean bean = new UmeiTypeBean();
+					try {
+						Element aElement = liElements.get(i).select("a").first();
+						String hrefurl = aElement.attr("href");
+						Log.i(TAG, "i===" + i + "hrefurl==" + hrefurl);
+						bean.setHref(UrlUtils.YIYOUTU_M+hrefurl);
+						bean.setTypename(aElement.text());
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+
+					try {
+						Element imgElement = liElements.get(i).select("img").first();
+						String src = imgElement.attr("src");
+						Log.i(TAG, "i===" + i + "src==" + src);
+						bean.setSrc(src);
+						bean.setTypename(imgElement.attr("alt"));
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+
+
+					try {
+						Element IcoTimeElement = liElements.get(i).select("span.post-meta").first();
+						String IcoTime = IcoTimeElement.text();
+						Log.i(TAG, "i===" + i + "IcoTime=" + IcoTime);
+						bean.setIcoList(IcoTime);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+
+					list.add(bean);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return list;
+	}
 
 }
