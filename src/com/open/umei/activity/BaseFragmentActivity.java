@@ -77,7 +77,9 @@ Response.Listener<JSONObject>, Response.ErrorListener {
 	
 	/** 设置为横竖屏 */
 	public static final int MESSAGE_SCREEN_ORIENTATION = 7000;
-	
+	/** 在适配器里 调用onitemclick事件*/
+	public static final int MESSAGE_ADAPTER_CALL_ONITEM = 9000;
+	public static final int MESSAGE_ADAPTER_UN_COLLECTION = 10000;
 	/*
 	 * (non-Javadoc)
 	 * 

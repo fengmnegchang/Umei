@@ -32,6 +32,10 @@ public class UmeiTypeJson extends CommonJson {
 	private String ChannelTitle;
 	private String ListDesc;
 	private String TypePic;
+	private String articleprehref;
+	private String articlenexthref;
+	private String articlepre;
+	private String articlenext;
 
 	public List<UmeiTypeBean> getTypeList() {
 		return TypeList;
@@ -71,6 +75,38 @@ public class UmeiTypeJson extends CommonJson {
 
 	public void setTypePic(String typePic) {
 		TypePic = typePic;
+	}
+
+	public String getArticleprehref() {
+		return articleprehref;
+	}
+
+	public void setArticleprehref(String articleprehref) {
+		this.articleprehref = articleprehref;
+	}
+
+	public String getArticlenexthref() {
+		return articlenexthref;
+	}
+
+	public void setArticlenexthref(String articlenexthref) {
+		this.articlenexthref = articlenexthref;
+	}
+
+	public String getArticlepre() {
+		return articlepre;
+	}
+
+	public void setArticlepre(String articlepre) {
+		this.articlepre = articlepre;
+	}
+
+	public String getArticlenext() {
+		return articlenext;
+	}
+
+	public void setArticlenext(String articlenext) {
+		this.articlenext = articlenext;
 	}
 
 }

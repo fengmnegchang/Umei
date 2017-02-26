@@ -35,6 +35,7 @@ public class UmeiTypeBean extends CommonBean {
 	private String IcoList;
 	private String IcoTime;
 	private String typename;
+	private int type;
 
 	public String getHref() {
 		return href;
@@ -74,6 +75,14 @@ public class UmeiTypeBean extends CommonBean {
 
 	public void setTypename(String typename) {
 		this.typename = typename;
+	}
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
 	}
 
 }

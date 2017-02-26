@@ -101,10 +101,11 @@ public class UmeiArticleListHeadFootFragment extends BaseV4Fragment<UmeiArticleJ
 		// TODO Auto-generated method stub
 		super.onViewCreated(view, savedInstanceState);
 		ListView mListView = mPullRefreshListView.getRefreshableView();
-		mListView.addHeaderView(headerview);
-		mListView.addFooterView(footview);
+			mListView.addHeaderView(headerview);
+			mListView.addFooterView(footview);
 		
-		Fragment fragment = UmeiTypePagerFragment.newInstance(url, true);
+//		Fragment fragment = UmeiTypePagerFragment.newInstance(url, true);
+		Fragment fragment = UmeiTypeGridHeadFragment.newInstance(url, true);
 		Fragment lfragment = UmeiArticleTypeFragment.newInstance(url, true);
 		
 		getChildFragmentManager().beginTransaction().replace(R.id.layout_viewpager, fragment).commit();

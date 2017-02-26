@@ -47,16 +47,25 @@ public class UmeiTypeListService extends CommonService {
 		try {
 			// http://www.umei.cc/bizhitupian/shoujibizhi/1.htm
 			// http://www.umei.cc/bizhitupian/shoujibizhi/
-			if(href.contains(".htm?")){
+			if (href.contains("search.php?")) {
 				if(pageNo>1){
-					href = href.replace(".htm?", "_") + pageNo + ".htm";
+					//https://www.umei.cc/umplus/search.php?keyword=%E7%BE%8E%E5%A5%B3&searchtype=titlekeyword&channeltype=0&orderby=&kwtype=0&pagesize=24&typeid=0&TotalResult=3575&PageNo=2
+					href = href.replace("q=", "keyword=") +"&PageNo="+pageNo;
+				} 
+				//https://www.umei.cc/umplus/search.php?q=%E7%BE%8E%E5%A5%B3&pagesize=24
+				
+			} else {
+				if (href.contains(".htm?")) {
+					if (pageNo > 1) {
+						href = href.replace(".htm?", "_") + pageNo + ".htm";
+					}
+				} else if (href.contains(".htm")) {
+					if (pageNo > 1) {
+						href = href.replace(".htm", "_") + pageNo + ".htm";
+					}
+				} else {
+					href = href + pageNo + ".htm";
 				}
-			}else if(href.contains(".htm")){
-				if(pageNo>1){
-					href = href.replace(".htm", "_") + pageNo + ".htm";
-				}
-			}else{
-				href = href + pageNo + ".htm";
 			}
 			href = makeURL(href, new HashMap<String, Object>() {
 				{
@@ -67,34 +76,33 @@ public class UmeiTypeListService extends CommonService {
 			Document doc = Jsoup.connect(href).userAgent(UrlUtils.userAgent).timeout(10000).get();
 			try {
 				Element TypePicElement = doc.select("div.TypePic").first();
-				if(TypePicElement!=null){
+				if (TypePicElement != null) {
 					TypePic = TypePicElement.select("img").first().attr("src");
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
+
 			try {
 				Element ChannelTitleElement = doc.select("div.ChannelTitle").first();
-				if(ChannelTitleElement!=null){
+				if (ChannelTitleElement != null) {
 					ChannelTitle = ChannelTitleElement.text();
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
+
 			try {
 				Element ListDescElement = doc.select("p.ListDesc").first();
-				if(ListDescElement!=null){
+				if (ListDescElement != null) {
 					ListDesc = ListDescElement.text();
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
-			
+
 			Element masthead = doc.select("div.TypeList").first();
-			if(masthead==null){
+			if (masthead == null) {
 				masthead = doc.select("ul.list_article").first();
 			}
 			Elements liElements = masthead.select("li");
@@ -132,18 +140,24 @@ public class UmeiTypeListService extends CommonService {
 
 					try {
 						Element spanElement = liElements.get(i).select("a").first().select("span").first();
-						if(spanElement==null){
+						if (spanElement == null) {
 							/**
 							 * 
-        	<a href="http://www.umei.cc/meinvtupian/meinvmote/26533.htm" class="TypeBigPics" target="_blank">
-        	<img src="http://i1.umei.cc/uploads/tu/201701/68/c15.jpg" width="180" height="270" />
-        	<div class="ListTit">[TouTiao头条女神]性感美女麦苹果制服诱人写真</div></a>
-        	<div class="TypePicInfos">
-            <div class="TypePicTags"><a href='/tags/TouTiaonvshen.htm' title=头条女神>头条女神</a>
-            <a href='/tags/zhifu.htm' title=制服>制服</a><a href='/tags/xiezhen.htm' title=写真>写真</a></div>
-             <div class="txtInfo gray"><em class="IcoList">查看：61次</em><em class="IcoTime">01-04</em></div>
-            </div>
-        </li><li>
+							 <a href=
+							 * "http://www.umei.cc/meinvtupian/meinvmote/26533.htm"
+							 * class="TypeBigPics" target="_blank"> <img src=
+							 * "http://i1.umei.cc/uploads/tu/201701/68/c15.jpg"
+							 * width="180" height="270" /> <div
+							 * class="ListTit">[
+							 * TouTiao头条女神]性感美女麦苹果制服诱人写真</div></a> <div
+							 * class="TypePicInfos"> <div class="TypePicTags"><a
+							 * href='/tags/TouTiaonvshen.htm'
+							 * title=头条女神>头条女神</a> <a href='/tags/zhifu.htm'
+							 * title=制服>制服</a><a href='/tags/xiezhen.htm'
+							 * title=写真>写真</a></div> <div class="txtInfo gray">
+							 * <em class="IcoList">查看：61次</em>
+							 * <em class="IcoTime">01-04</em></div> </div> </li>
+							 * <li>
 							 */
 							spanElement = liElements.get(i).select("a").first().select("div.ListTit").first();
 						}
@@ -156,8 +170,8 @@ public class UmeiTypeListService extends CommonService {
 
 					try {
 						Element IcoListElement = liElements.get(i).select("em.IcoList").first();
-						if(IcoListElement==null){
-							IcoListElement= liElements.get(i).select("div.RightInfoBox").first();
+						if (IcoListElement == null) {
+							IcoListElement = liElements.get(i).select("div.RightInfoBox").first();
 						}
 						String IcoList = IcoListElement.text();
 						Log.i(TAG, "i===" + i + "IcoList=" + IcoList);
@@ -199,6 +213,9 @@ public class UmeiTypeListService extends CommonService {
 
 			Document doc = Jsoup.connect(href).userAgent(UrlUtils.userAgent).timeout(10000).get();
 			Element masthead = doc.select("div.TypeList_2").first();
+			if(masthead==null && href.contains("search.php?")){
+				masthead= doc.select("div.TypeList").first();
+			}
 			Elements liElements = masthead.select("li");
 			/**
 			 * <li><a
@@ -244,7 +261,7 @@ public class UmeiTypeListService extends CommonService {
 
 		return list;
 	}
-	
+
 	public static ArrayList<UmeiTypeBean> relaxarc(String href) {
 		ArrayList<UmeiTypeBean> list = new ArrayList<UmeiTypeBean>();
 		try {
@@ -260,11 +277,12 @@ public class UmeiTypeListService extends CommonService {
 			Element masthead = doc.select("div.relax-arc").first();
 			Elements liElements = masthead.select("li");
 			/**
-			 <li><a href="http://www.umei.cc/bizhitupian/diannaobizhi/7614.htm" title="男歌手张艺兴桌面壁纸图片">
-			 <div class="Pix-box">
-			 <img src="http://i1.umei.cc/uploads/tu/201608/434/slt2.jpg" width="180" title="男歌手张艺兴桌面壁纸图片" /></div>
-			 <span>男歌手张艺兴桌面壁纸图片</span></a></li>
-
+			 * <li><a
+			 * href="http://www.umei.cc/bizhitupian/diannaobizhi/7614.htm"
+			 * title="男歌手张艺兴桌面壁纸图片"> <div class="Pix-box"> <img
+			 * src="http://i1.umei.cc/uploads/tu/201608/434/slt2.jpg"
+			 * width="180" title="男歌手张艺兴桌面壁纸图片" /></div>
+			 * <span>男歌手张艺兴桌面壁纸图片</span></a></li>
 			 */
 			// 解析文件
 			if (liElements != null && liElements.size() > 1) {
@@ -275,7 +293,7 @@ public class UmeiTypeListService extends CommonService {
 						String hrefurl = aElement.attr("href");
 						Log.i(TAG, "i===" + i + "hrefurl==" + hrefurl);
 						bean.setHref(hrefurl);
-						
+
 						String typename = aElement.attr("title");
 						Log.i(TAG, "i===" + i + "typename=" + typename);
 						bean.setTypename(typename);

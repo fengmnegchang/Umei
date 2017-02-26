@@ -21,7 +21,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.open.umei.R;
-import com.open.umei.activity.UmeiArticleActivity;
+import com.open.umei.activity.UmeiArticleGridHeadActivity;
 import com.open.umei.activity.UmeiTypeListActivity;
 import com.open.umei.bean.UmeiArticleTypeBean;
 
@@ -62,7 +62,7 @@ public class UmeiArticleTypeAdapter extends CommonAdapter<UmeiArticleTypeBean> {
 		text_title2.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				UmeiArticleActivity.startUmeiArticleActivity(mContext, bean.getHref2());
+				UmeiArticleGridHeadActivity.startUmeiArticleGridHeadActivity(mContext, bean.getHref2());
 			}
 		});
 		return view;

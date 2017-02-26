@@ -6,7 +6,6 @@ import java.util.List;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.text.format.DateUtils;
 import android.util.Log;
@@ -14,10 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ListView;
 
 import com.handmark.pulltorefresh.library.HeaderGridView;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
@@ -27,7 +25,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshHeadGridView;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.open.umei.R;
-import com.open.umei.activity.UmeiArticleActivity;
+import com.open.umei.activity.UmeiArticleGridHeadActivity;
 import com.open.umei.activity.m.UmeiMArcBodyListHeadFootActivity;
 import com.open.umei.adapter.UmeiTypeAdapter;
 import com.open.umei.adapter.UmeiTypeHeightPagerAdapter;
@@ -141,7 +139,7 @@ public class UmeiTypeGridFragment extends BaseV4Fragment<UmeiTypeJson, UmeiTypeG
 				if(list.get((int) id).getHref().contains("http://www.umei.cc/tushuotianxia/")){
 					UmeiMArcBodyListHeadFootActivity.startUmeiMArcBodyListHeadFootActivity(getActivity(), list.get((int) id).getHref().replace("http://www.umei.cc/", "http://m.umei.cc/"));
 				}else{
-					UmeiArticleActivity.startUmeiArticleActivity(getActivity(), list.get((int) id).getHref());
+					UmeiArticleGridHeadActivity.startUmeiArticleGridHeadActivity(getActivity(), list.get((int) id).getHref());
 				}
 			}
 		});
@@ -162,9 +160,14 @@ public class UmeiTypeGridFragment extends BaseV4Fragment<UmeiTypeJson, UmeiTypeG
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		mCommonT.setChannelTitle(UmeiTypeListService.getChannelTitle());
-		mCommonT.setListDesc(UmeiTypeListService.getListDesc());
-		mCommonT.setTypePic(UmeiTypeListService.getTypePic());
+		try {
+			mCommonT.setChannelTitle(UmeiTypeListService.getChannelTitle());
+			mCommonT.setListDesc(UmeiTypeListService.getListDesc());
+			mCommonT.setTypePic(UmeiTypeListService.getTypePic());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		mCommonT.setTypeList2(list2);
 		mCommonT.setTypeList(list);
 		return mCommonT;

@@ -84,8 +84,8 @@ public class UmeiMArcBodyPullListFragment extends UmeiArticleFragment implements
 		// TODO Auto-generated method stub
 		super.onViewCreated(view, savedInstanceState);
 		ListView mListView = mPullRefreshListView.getRefreshableView();
-		mListView.addHeaderView(headerview);
-		mListView.addFooterView(footview);
+			mListView.addHeaderView(headerview);
+			mListView.addFooterView(footview);
 		
 		Fragment fragment = UmeiMArcTagGridFragment.newInstance(url,true);
 		getChildFragmentManager().beginTransaction().replace(R.id.layout_arc_tags_grid, fragment).commit();

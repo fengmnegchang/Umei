@@ -21,8 +21,10 @@
  	<string name="umei_viewpager_desp">viewpager</string>
  	<string name="umei_type_list_desp">header fragment </string>
  	<string name="umei_article_list_desp">图片详细</string>
+ 	<string name="umei_article_list_grid_head_desp">图片详细grid head</string>
  	<string name="umei_article_fragment_list_desp">图片详细Fragment实现</string>
  	<string name="umei_search_desp">搜索</string>
+ 	<string name="umei_search_tag_desp">tag搜索</string>
  	<string name="umei_webview_desp">webview</string>
  	<string name="umei_main_desp">优美主页面</string>
  	<string name="umei_main_viewpager_desp">优美主页面viewpager</string>
@@ -35,6 +37,15 @@
  	<string name="umei_m_tag_head_foot_desp">优美cc国内标签云</string>
  	<string name="umei_m_article_viewpager_desp">优美cc图片viewpager</string>
  	<string name="save_picture">保存图片</string>  
-<string name="save_picture_failed">保存失败</string>  
-<string name="save_picture_success">图片成功保存至%s目录</string> 
+	<string name="save_picture_failed">保存失败</string>  
+	<string name="save_picture_success">图片成功保存至%s目录</string> 
+	<string name="umei_open_db_desp">下载收藏</string>
+	<string name="umei_open_db_type_desp">下载收藏type</string>
+	<string name="yiyoutu_nav_m_main_desp">亿优图m</string>
+	<string name="yiyoutu_sub_nav_pulllist_desp">亿优图tab</string>
+	<string name="yiyoutu_show_image_desp">亿优图 看图</string>
+	<string name="yiyoutu_pc_nav_m_main_desp">亿优图pc</string>
+	<string name="yiyoutu_sub_nav_pullgrid_desp">亿优图pc tab</string>
+	<string name="yiyoutu_pc_show_image_pulllist_desp">亿优图pc 看图</string>
+	<string name="yiyoutu_pc_show_image_viewpager_desp">亿优图pc 看图viewpager</string>
 </resources>

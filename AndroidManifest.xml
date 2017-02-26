@@ -127,6 +127,14 @@
 			>
         </activity>
         
+        <!-- umei  图片详细grid head -->
+        <activity
+            android:name="com.open.umei.activity.UmeiArticleGridHeadActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/umei_article_list_grid_head_desp"  
+			>
+        </activity>
+        
          <!-- umei  图片详细Fragment实现 -->
         <activity
             android:name="com.open.umei.activity.UmeiArticleFragmentActivity"
@@ -139,6 +147,13 @@
             android:name="com.open.umei.activity.SearchResultActivity"
             android:configChanges="keyboard|keyboardHidden|navigation"
             android:description="@string/umei_search_desp"  
+			>
+        </activity>
+         <!-- umei tag搜索-->
+        <activity
+            android:name="com.open.umei.activity.SearchResultTagActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/umei_search_tag_desp"  
 			>
         </activity>
          <!-- umei webview-->
@@ -226,6 +241,64 @@
             android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenSize" 
             android:screenOrientation="sensor"
 			>
+        </activity>
+         <!-- 下载收藏 -->
+         <activity
+            android:name="com.open.umei.activity.UmeiOpenDBActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/umei_open_db_desp" >
+        </activity>
+         <!-- 下载收藏type -->
+         <activity
+            android:name="com.open.umei.activity.UmeiOpenDBTypeIndicatorActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:theme="@style/Theme.PageIndicatorDefaults"
+            android:description="@string/umei_open_db_type_desp" >
+        </activity>
+        
+         <!-- 亿优图m -->
+         <activity
+            android:name="com.open.umei.activity.yiyoutu.YiYouTuNavIndicatorHorizontalViewPagerActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:theme="@style/Theme.PageIndicatorDefaults"
+            android:description="@string/yiyoutu_nav_m_main_desp" >
+        </activity>
+         <!-- 亿优图tab -->
+         <activity
+            android:name="com.open.umei.activity.yiyoutu.YiYouTuNavFragmentActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/yiyoutu_sub_nav_pulllist_desp" >
+        </activity>
+         <!-- 亿优图 看图-->
+         <activity
+            android:name="com.open.umei.activity.yiyoutu.YiYouTuShowImageFragmentActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/yiyoutu_show_image_desp" >
+        </activity>
+         <!-- 亿优图pc-->
+         <activity
+            android:name="com.open.umei.activity.yiyoutu.YiYouTuPCNavIndicatorHorizontalViewPagerActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:theme="@style/Theme.PageIndicatorDefaults"
+            android:description="@string/yiyoutu_pc_nav_m_main_desp" >
+        </activity>
+          <!-- 亿优图pc tab -->
+         <activity
+            android:name="com.open.umei.activity.yiyoutu.YiYouTuPCNavFragmentActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/yiyoutu_sub_nav_pullgrid_desp" >
+        </activity>
+        <!-- 亿优图 pc看图-->
+         <activity
+            android:name="com.open.umei.activity.yiyoutu.YiYouTuPCShowImagePullListFragmentActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/yiyoutu_pc_show_image_pulllist_desp" >
+        </activity>
+         <!-- 亿优图 pc看图viewpager-->
+         <activity
+            android:name="com.open.umei.activity.yiyoutu.YiYouTuPCShowImageViewPagerFragmentActivity"
+            android:configChanges="keyboard|keyboardHidden|navigation"
+            android:description="@string/yiyoutu_pc_show_image_viewpager_desp" >
         </activity>
         <!-- 所有类列表 -->
         <activity
