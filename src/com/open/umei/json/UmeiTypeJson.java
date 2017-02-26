@@ -36,6 +36,7 @@ public class UmeiTypeJson extends CommonJson {
 	private String articlenexthref;
 	private String articlepre;
 	private String articlenext;
+	private int maxpageno;
 
 	public List<UmeiTypeBean> getTypeList() {
 		return TypeList;
@@ -107,6 +108,14 @@ public class UmeiTypeJson extends CommonJson {
 
 	public void setArticlenext(String articlenext) {
 		this.articlenext = articlenext;
+	}
+
+	public int getMaxpageno() {
+		return maxpageno;
+	}
+
+	public void setMaxpageno(int maxpageno) {
+		this.maxpageno = maxpageno;
 	}
 
 }

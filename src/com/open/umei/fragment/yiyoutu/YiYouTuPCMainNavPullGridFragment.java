@@ -55,14 +55,7 @@ public class YiYouTuPCMainNavPullGridFragment extends YiYouTuPCNavPullGridFragme
 
 	@Override
 	public UmeiTypeJson call() throws Exception {
-		UmeiTypeJson mCommonT = new UmeiTypeJson();
-		ArrayList<UmeiTypeBean> list = new ArrayList<UmeiTypeBean>();
-		try {
-			list = YiYouTuNavPullListService.parseTypePCList(url, 0,1);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		mCommonT.setTypeList(list);
+		UmeiTypeJson mCommonT =   YiYouTuNavPullListService.parseTypePCList(url, 0,1);
 		return mCommonT;
 	}
 

@@ -21,6 +21,7 @@ import org.jsoup.select.Elements;
 import android.util.Log;
 
 import com.open.umei.bean.UmeiTypeBean;
+import com.open.umei.json.UmeiTypeJson;
 import com.open.umei.jsoup.CommonService;
 import com.open.umei.utils.UrlUtils;
 
@@ -173,15 +174,17 @@ public class YiYouTuNavPullListService extends CommonService {
 		return list;
 	}
 	
-	public static ArrayList<UmeiTypeBean> parseTypePCList(String href, int pageNo,int type) {
+	public static UmeiTypeJson parseTypePCList(String href, int pageNo,int type) {
+		UmeiTypeJson mUmeiTypeJson = new UmeiTypeJson();
 		ArrayList<UmeiTypeBean> list = new ArrayList<UmeiTypeBean>();
 		try {
+			String href2 = href;
 			if(pageNo>1){
-				href = href +"index_"+pageNo+".html";
+				href2 = href +"index_"+pageNo+".html";
 			}
-			Log.i(TAG, "url = " + href);
+			Log.i(TAG, "url = " + href2);
 
-			Document doc = Jsoup.connect(href).userAgent(UrlUtils.userAgent).timeout(10000).get();
+			Document doc = Jsoup.connect(href2).userAgent(UrlUtils.userAgent).timeout(10000).get();
 			Elements liElements = doc.select("div.padding-bottom");
 			/**
 			 *  <div class="x2 padding-bottom clearfix">
@@ -223,11 +226,44 @@ public class YiYouTuNavPullListService extends CommonService {
 					list.add(bean);
 				}
 			}
+			
+			/**
+			 *  <div class="clear"></div>  
+		    <ul class="pagination padding-big-top padding-large-bottom">
+		&nbsp;<li class='active'><a>1</a></li>&nbsp;
+		<li><a href="/xingganmeinv/index_2.html">2</a></li>&nbsp;
+		<li><a href="/xingganmeinv/index_3.html">3</a></li>&nbsp;
+		<li><a href="/xingganmeinv/index_4.html">4</a></li>&nbsp;
+		<li><a href="/xingganmeinv/index_5.html">5</a></li>&nbsp;
+		<li><a href="/xingganmeinv/index_6.html">6</a></li>&nbsp;
+		<li><a href="/xingganmeinv/index_7.html">7</a></li>&nbsp;
+		<li><a href="/xingganmeinv/index_8.html">8</a></li>&nbsp;
+		<li><a href="/xingganmeinv/index_9.html">9</a></li>&nbsp;
+		<li><a href="/xingganmeinv/index_10.html">10</a></li>
+		<li><a href="/xingganmeinv/index_2.html">下一页</a></li>
+		<li><a href="/xingganmeinv/index_23.html">尾页</a></li>
+		</ul>
+		</div>  
+			 */
+			Element ulElement = doc.select("ul.padding-large-bottom").first();
+			if(ulElement!=null){
+				Elements liElements2 = ulElement.select("li");
+				if(liElements2!=null && liElements2.size()>0){
+					Element liElement = liElements2.get(liElements2.size()-1);
+					if(liElement!=null){
+						Element aElement = liElement.select("a").first();
+						String pager =UrlUtils.YIYOUTU+ aElement.attr("href");
+						pager = pager.replace(href, "").replace(".html", "").replace("index_", "");
+						mUmeiTypeJson.setMaxpageno(Integer.parseInt(pager));
+					}
+				}
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		return list;
+		mUmeiTypeJson.setTypeList(list);
+		return mUmeiTypeJson;
 	}
 	
 }

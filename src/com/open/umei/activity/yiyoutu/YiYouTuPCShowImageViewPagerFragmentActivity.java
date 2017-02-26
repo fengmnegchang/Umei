@@ -38,7 +38,7 @@ public class YiYouTuPCShowImageViewPagerFragmentActivity extends CommonFragmentA
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_umei_nav_indicator_horizontal_view);
+		setContentView(R.layout.activity_yiyoutu_pc_viewpager);
 		init();
 	}
 
