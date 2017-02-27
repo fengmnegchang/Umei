@@ -13,6 +13,7 @@ package com.open.umei.jsoup;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.regex.Pattern;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -41,12 +42,14 @@ public class UmeiTypeListService extends CommonService {
 	private static String ChannelTitle;
 	private static String ListDesc;
 	private static String TypePic;
+	private static int maxpage;
 
 	public static ArrayList<UmeiTypeBean> parseTypeList(String href, int pageNo) {
 		ArrayList<UmeiTypeBean> list = new ArrayList<UmeiTypeBean>();
 		try {
 			// http://www.umei.cc/bizhitupian/shoujibizhi/1.htm
 			// http://www.umei.cc/bizhitupian/shoujibizhi/
+			String href2 =href;
 			if (href.contains("search.php?")) {
 				if(pageNo>1){
 					//https://www.umei.cc/umplus/search.php?keyword=%E7%BE%8E%E5%A5%B3&searchtype=titlekeyword&channeltype=0&orderby=&kwtype=0&pagesize=24&typeid=0&TotalResult=3575&PageNo=2
@@ -67,10 +70,6 @@ public class UmeiTypeListService extends CommonService {
 					href = href + pageNo + ".htm";
 				}
 			}
-			href = makeURL(href, new HashMap<String, Object>() {
-				{
-				}
-			});
 			Log.i(TAG, "url = " + href);
 
 			Document doc = Jsoup.connect(href).userAgent(UrlUtils.userAgent).timeout(10000).get();
@@ -192,9 +191,40 @@ public class UmeiTypeListService extends CommonService {
 					list.add(bean);
 				}
 			}
+			
+			/**
+			 * <div class="NewPages"><ul>
+	     <li><a>首页</a></li>
+	<li class="thisclass hide" id='thisclass'><a>1</a></li>
+	<li class='hide'><a href='/bizhitupian/2.htm'>2</a></li>
+	<li class='hide'><a href='/bizhitupian/3.htm'>3</a></li>
+	<li class='hide'><a href='/bizhitupian/4.htm'>4</a></li>
+	<li class='hide'><a href='/bizhitupian/5.htm'>5</a></li>
+	<li class='hide'><a href='/bizhitupian/6.htm'>6</a></li>
+	<li class='hide'><a href='/bizhitupian/7.htm'>7</a></li>
+	<li><a href='/bizhitupian/2.htm'>下一页</a></li>
+	<li><a href='/bizhitupian/35.htm'>末页</a></li>
+
+	    </ul>
+	   </div>
+
+			 */
+			try {
+				Element divElement  = doc.select("div.NewPages").first();
+				Elements liElements2 = divElement.select("li");
+				Element aElement = liElements2.get(liElements2.size()-1);
+				String page = aElement.select("a").first().attr("href");
+				Pattern p=Pattern.compile("\\d+"); 
+				String[] str=p.split(page);
+				page = page.replace(str[0], "").replace(str[1], "");
+				maxpage = Integer.parseInt(page);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
 
 		return list;
 	}
@@ -351,6 +381,14 @@ public class UmeiTypeListService extends CommonService {
 
 	public static void setTypePic(String typePic) {
 		TypePic = typePic;
+	}
+
+	public static int getMaxpage() {
+		return maxpage;
+	}
+
+	public static void setMaxpage(int maxpage) {
+		UmeiTypeListService.maxpage = maxpage;
 	}
 
 }

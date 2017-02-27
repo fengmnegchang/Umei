@@ -230,6 +230,8 @@ public class UmeiNavOpenDBTypeFragment extends BaseV4Fragment<OpenDBJson, UmeiNa
 				UmeiArticleGridHeadActivity.startUmeiArticleGridHeadActivity(getActivity(), bean.getUrl());
 				break;
 			case 0:
+			case 2:
+			case 4:
 				UmeiArticleJson umeiArticleJson = new UmeiArticleJson();
 				List<UmeiArticleBean> listu = new ArrayList<UmeiArticleBean>();
 				UmeiArticleBean abean;
@@ -245,15 +247,15 @@ public class UmeiNavOpenDBTypeFragment extends BaseV4Fragment<OpenDBJson, UmeiNa
 				umeiArticleJson.setList(listu);
 				UmeiMActicleViewPagerActivity.startUmeiMActicleViewPagerActivity(getActivity(), umeiArticleJson, url, position);
 				break;
-			case 2:
-				UmeiWebViewActivity.startUmeiWebViewActivity(getActivity(), bean.getImgsrc());
-				break;
+//			case 2:
+//				UmeiWebViewActivity.startUmeiWebViewActivity(getActivity(), bean.getImgsrc());
+//				break;
 			case 3:
 				YiYouTuShowImageFragmentActivity.startYiYouTuShowImageFragmentActivity(getActivity(), bean.getUrl());
 				break;
-			case 4:
-				UmeiWebViewActivity.startUmeiWebViewActivity(getActivity(), bean.getImgsrc());
-				break;
+//			case 4:
+//				UmeiWebViewActivity.startUmeiWebViewActivity(getActivity(), bean.getImgsrc());
+//				break;
 			case 5:
 				YiYouTuPCShowImagePullListFragmentActivity.startYiYouTuPCShowImagePullListFragmentActivity(getActivity(), bean.getUrl());
 				break;

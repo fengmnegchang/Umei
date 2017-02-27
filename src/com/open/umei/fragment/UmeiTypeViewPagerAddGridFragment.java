@@ -6,29 +6,31 @@ import java.util.List;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.annotation.Nullable;
-import android.support.v4.view.ViewPager;
 import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.handmark.pulltorefresh.library.HeaderGridView;
+import com.handmark.pulltorefresh.library.HeaderFooterGridView;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
-import com.handmark.pulltorefresh.library.PullToRefreshHeadGridView;
+import com.handmark.pulltorefresh.library.PullToRefreshHeaderFooterGridView;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.open.umei.R;
 import com.open.umei.activity.UmeiArticleGridHeadActivity;
 import com.open.umei.activity.m.UmeiMArcBodyListHeadFootActivity;
 import com.open.umei.adapter.UmeiTypeAdapter;
-import com.open.umei.adapter.UmeiTypeHeightPagerAdapter;
 import com.open.umei.bean.UmeiTypeBean;
 import com.open.umei.json.UmeiTypeJson;
 import com.open.umei.jsoup.UmeiTypeListService;
@@ -48,8 +50,8 @@ import com.open.umei.jsoup.UmeiTypeListService;
  *               ***************************************************************
  *               *********************************************
  */
-public class UmeiTypeViewPagerAddGridFragment extends BaseV4Fragment<UmeiTypeJson, UmeiTypeViewPagerAddGridFragment> {
-	private PullToRefreshHeadGridView mPullToRefreshHeadGridView;
+public class UmeiTypeViewPagerAddGridFragment extends BaseV4Fragment<UmeiTypeJson, UmeiTypeViewPagerAddGridFragment>implements OnClickListener {
+	private PullToRefreshHeaderFooterGridView mPullToRefreshHeadGridView;
 	private List<UmeiTypeBean> list = new ArrayList<UmeiTypeBean>();
 	private UmeiTypeAdapter mUmeiTypeAdapter;
 	private String url;
@@ -61,6 +63,16 @@ public class UmeiTypeViewPagerAddGridFragment extends BaseV4Fragment<UmeiTypeJso
 	private List<UmeiTypeBean> list2 = new ArrayList<UmeiTypeBean>();
 	private TextView txt_ChannelTitle, txt_ListDesc;
 	private ImageView image_TypePic;
+	
+	private View footview;
+	public Button text_fisrt;
+	public Button text_pre;
+	public EditText edit_current;
+	public Button text_current;
+	public Button text_next;
+	public Button text_last;
+	public boolean isautomatic;
+	public int maxPageNo;
 
 	public static UmeiTypeViewPagerAddGridFragment newInstance(String url, boolean isVisibleToUser) {
 		UmeiTypeViewPagerAddGridFragment fragment = new UmeiTypeViewPagerAddGridFragment();
@@ -74,12 +86,20 @@ public class UmeiTypeViewPagerAddGridFragment extends BaseV4Fragment<UmeiTypeJso
 	@Override
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_umei_type_head_gridview, container, false);
-		mPullToRefreshHeadGridView = (PullToRefreshHeadGridView) view.findViewById(R.id.pull_refresh_list);
+		mPullToRefreshHeadGridView = (PullToRefreshHeaderFooterGridView) view.findViewById(R.id.pull_refresh_list);
 		headview = LayoutInflater.from(getActivity()).inflate(R.layout.layout_umei_type_viewpager_all_head, null);
 //		viewpager = (ViewPager) headview.findViewById(R.id.viewpager);
 		txt_ChannelTitle = (TextView) headview.findViewById(R.id.txt_ChannelTitle);
 		txt_ListDesc = (TextView) headview.findViewById(R.id.txt_ListDesc);
 		image_TypePic = (ImageView) headview.findViewById(R.id.image_TypePic);
+		
+		footview = LayoutInflater.from(getActivity()).inflate(R.layout.layout_yiyoutu_pc_grid_page_foot, null);
+		text_fisrt = (Button) footview.findViewById(R.id.text_fisrt);
+		text_pre = (Button) footview.findViewById(R.id.text_pre);
+		edit_current = (EditText) footview.findViewById(R.id.edit_current);
+		text_current = (Button) footview.findViewById(R.id.text_current);
+		text_next = (Button) footview.findViewById(R.id.text_next);
+		text_last = (Button) footview.findViewById(R.id.text_last);
 		return view;
 	}
 
@@ -93,8 +113,9 @@ public class UmeiTypeViewPagerAddGridFragment extends BaseV4Fragment<UmeiTypeJso
 		// TODO Auto-generated method stub
 		super.initValues();
 
-		HeaderGridView listview = mPullToRefreshHeadGridView.getRefreshableView();
+		HeaderFooterGridView listview = mPullToRefreshHeadGridView.getRefreshableView();
 		listview.addHeaderView(headview);
+		listview.addFooterView(footview);
 		
 //		Fragment fragment = UmeiTypeListHeadFragment.newInstance(url, true);
 //		getChildFragmentManager().beginTransaction().replace(R.id.layout_umei_type_list_head, fragment).commit();
@@ -102,7 +123,7 @@ public class UmeiTypeViewPagerAddGridFragment extends BaseV4Fragment<UmeiTypeJso
 		mUmeiTypeAdapter = new UmeiTypeAdapter(getActivity(), list);
 		mPullToRefreshHeadGridView.setAdapter(mUmeiTypeAdapter);
 		mPullToRefreshHeadGridView.setMode(Mode.BOTH);
-		
+		edit_current.setText("" + pageNo);
 //		mUmeiTypePagerAdapter = new UmeiTypeHeightPagerAdapter(getActivity(), list2);
 //		viewpager.setAdapter(mUmeiTypePagerAdapter);
 	}
@@ -117,9 +138,9 @@ public class UmeiTypeViewPagerAddGridFragment extends BaseV4Fragment<UmeiTypeJso
 		// TODO Auto-generated method stub
 		super.bindEvent();
 		// Set a listener to be invoked when the list should be refreshed.
-		mPullToRefreshHeadGridView.setOnRefreshListener(new OnRefreshListener<HeaderGridView>() {
+		mPullToRefreshHeadGridView.setOnRefreshListener(new OnRefreshListener<HeaderFooterGridView>() {
 			@Override
-			public void onRefresh(PullToRefreshBase<HeaderGridView> refreshView) {
+			public void onRefresh(PullToRefreshBase<HeaderFooterGridView> refreshView) {
 				String label = DateUtils.formatDateTime(getActivity(), System.currentTimeMillis(), DateUtils.FORMAT_SHOW_TIME | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_ABBREV_ALL);
 				// Update the LastUpdatedLabel
 				refreshView.getLoadingLayoutProxy().setLastUpdatedLabel(label);
@@ -143,6 +164,12 @@ public class UmeiTypeViewPagerAddGridFragment extends BaseV4Fragment<UmeiTypeJso
 				}
 			}
 		});
+		text_fisrt.setOnClickListener(this);
+		text_pre.setOnClickListener(this);
+		text_current.setOnClickListener(this);
+		text_next.setOnClickListener(this);
+		text_last.setOnClickListener(this);
+		edit_current.setInputType(EditorInfo.TYPE_CLASS_NUMBER);
 	}
 
 	@Override
@@ -170,6 +197,7 @@ public class UmeiTypeViewPagerAddGridFragment extends BaseV4Fragment<UmeiTypeJso
 		
 		mCommonT.setTypeList2(list2);
 		mCommonT.setTypeList(list);
+		mCommonT.setMaxpageno(UmeiTypeListService.getMaxpage());
 		return mCommonT;
 	}
 
@@ -177,15 +205,20 @@ public class UmeiTypeViewPagerAddGridFragment extends BaseV4Fragment<UmeiTypeJso
 	public void onCallback(UmeiTypeJson result) {
 		Log.i(TAG, "getMode ===" + mPullToRefreshHeadGridView.getCurrentMode());
 		if (mPullToRefreshHeadGridView.getCurrentMode() == Mode.PULL_FROM_START) {
-			list.clear();
-			if (result.getTypeList2() != null && result.getTypeList2().size() > 0) {
-				list2.clear();
-				list2.addAll(result.getTypeList2());
+			if (isautomatic) {
+				if (result.getTypeList() != null && result.getTypeList().size() > 0) {
+					list.addAll(result.getTypeList());
+				}
+			}else{
+				list.clear();
+				if (result.getTypeList2() != null && result.getTypeList2().size() > 0) {
+					list2.clear();
+					list2.addAll(result.getTypeList2());
+				}
+				list.addAll(list2);
+				list.addAll(result.getTypeList());
+				pageNo = 1;
 			}
-			list.addAll(list2);
-			list.addAll(result.getTypeList());
-			pageNo = 1;
-
 		} else {
 			if (result.getTypeList() != null && result.getTypeList().size() > 0) {
 				list.addAll(result.getTypeList());
@@ -206,6 +239,9 @@ public class UmeiTypeViewPagerAddGridFragment extends BaseV4Fragment<UmeiTypeJso
 		mUmeiTypeAdapter.notifyDataSetChanged();
 		// Call onRefreshComplete when the list has been refreshed.
 		mPullToRefreshHeadGridView.onRefreshComplete();
+		maxPageNo = result.getMaxpageno();
+		edit_current.setText("" + pageNo);
+		isautomatic = false;
 	}
 
 	/*
@@ -225,5 +261,44 @@ public class UmeiTypeViewPagerAddGridFragment extends BaseV4Fragment<UmeiTypeJso
 		default:
 			break;
 		}
+	}
+	
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see android.view.View.OnClickListener#onClick(android.view.View)
+	 */
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.text_fisrt:
+			pageNo = 1;
+			break;
+		case R.id.text_last:
+			pageNo = maxPageNo;
+			break;
+		case R.id.text_pre:
+			if (pageNo <= 1) {
+				pageNo = 1;
+			}
+			pageNo = pageNo - 1;
+			break;
+		case R.id.text_next:
+			pageNo = pageNo + 1;
+			if (pageNo >= maxPageNo) {
+				pageNo = maxPageNo;
+			}
+			break;
+		case R.id.text_current:
+			String pageNostr = edit_current.getText().toString();
+			if (pageNostr != null) {
+				pageNo = Integer.parseInt(pageNostr.replace(" ", ""));
+			}
+			break;
+		default:
+			break;
+		}
+		isautomatic = true;
+		weakReferenceHandler.sendEmptyMessage(MESSAGE_HANDLER);
 	}
 }

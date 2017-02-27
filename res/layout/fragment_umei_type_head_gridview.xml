@@ -7,7 +7,7 @@
     android:focusable="false"
     android:focusableInTouchMode="false" >
 
-    <com.handmark.pulltorefresh.library.PullToRefreshHeadGridView
+    <com.handmark.pulltorefresh.library.PullToRefreshHeaderFooterGridView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/pull_refresh_list"
