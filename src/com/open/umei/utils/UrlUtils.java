@@ -25,27 +25,27 @@ public class UrlUtils {
 	public static final String umeiAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36 QQBrowser/4.1.4132.400";
 	
 	
-	public static final String UMEI = "https://www.umei.cc/";
+	public static final String UMEI = "http://www.umei.cc/";
 	
-	public static final String UMEI_NAV ="https://www.umei.cc/weimeitupian/oumeitupian/";
+	public static final String UMEI_NAV ="http://www.umei.cc/weimeitupian/oumeitupian/";
 	
-	public static final String UMEI_NAV_TAG = "https://www.umei.cc/weimeitupian/feizhuliutupian/beiying.htm";
+	public static final String UMEI_NAV_TAG = "http://www.umei.cc/weimeitupian/feizhuliutupian/beiying.htm";
 	
-	public static final String UMEI_SEARCH ="https://zhannei.baidu.com/cse/search?s=6545247087170373156&click=1&entry=1";
+	public static final String UMEI_SEARCH ="http://zhannei.baidu.com/cse/search?s=6545247087170373156&click=1&entry=1";
 	
-	public static final String UMEI_SEARCH_TAG ="https://www.umei.cc/umplus/search.php?pagesize=24";
-	public static final String UMEI_SEARCH_TAG_UMPLUS ="https://www.umei.cc/umplus/";
-	public static final String UMEI_M = "https://m.umei.cc/";
+	public static final String UMEI_SEARCH_TAG ="http://www.umei.cc/umplus/search.php?pagesize=24";
+	public static final String UMEI_SEARCH_TAG_UMPLUS ="http://www.umei.cc/umplus/";
+	public static final String UMEI_M = "http://m.umei.cc/";
 	
-	public static final String UMEI_HTTP = "https://www.umei.cc";
+	public static final String UMEI_HTTP = "http://www.umei.cc";
 	
-	public static final String UMEI_M_TU_PIAN ="https://m.umei.cc/meinvtupian/siwameinv/20944.htm";
+	public static final String UMEI_M_TU_PIAN ="http://m.umei.cc/meinvtupian/siwameinv/20944.htm";
 	
-	public static final String UMEI_M_NAV ="https://m.umei.cc/meinvtupian/xingganmeinv/";
+	public static final String UMEI_M_NAV ="http://m.umei.cc/meinvtupian/xingganmeinv/";
 	
-	public static final String UMEI_M_GRID = "https://m.umei.cc/meinvtupian/meinvmote/";
+	public static final String UMEI_M_GRID = "http://m.umei.cc/meinvtupian/meinvmote/";
 	
-	public static final String UMEI_M_TAG ="https://m.umei.cc/p/gaoqing/cn/";
+	public static final String UMEI_M_TAG ="http://m.umei.cc/p/gaoqing/cn/";
 	
 	public static final String COOKIE = "3g_guest_id=-9045538589999304704; cuid=5032023480; sd_userid=27201462782213238; sd_cookie_crttime=1462782213238; eas_sid=y1i4W655K8T8X9U3N3p7C7U2x7; pac_uid=1_624926379; qq_slist_autoplay=on; tvfe_boss_uuid=e776aacde64effb9; h_uid=H01560819fdc; mobileUV=1_158907f70d3_bbd13; guid=116z231z244z1420123456789qwertyu; ptui_loginuin=624926379@qq.com; pt2gguin=o0624926379; luin=o0624926379; lskey=00010000dc8afe64b0ce27f57820dcefd38a902ab9d67698fc42f999b4d492033045767f379c6947e7546ae8; ptcz=c307e47376dee800ee4a82794866f608297b218323a8b12fd611bbd8f75f86b6; main_login=qq; uid=33415391; uin=o0624926379; ptisp=ctc; pgv_info=ssid=s4759010146; pgv_pvid=6914624368; o_cookie=624926379";
 	
